@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{311372F7-4BFD-4B97-A37E-7EBE6ACE5302}</ProjectGuid>
+    <ProjectGuid>{61B55E25-9C9E-4E84-97B9-23B7265970C5}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>TravelExpertsApp</RootNamespace>
