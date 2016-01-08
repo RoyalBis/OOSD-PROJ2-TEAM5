@@ -25,6 +25,5 @@ namespace Team5_OOSD_Fall2015_Project2
         public string PkgDesc { get; set; }
         public decimal PkgBasePrice { get; set; }
         public decimal PkgAgencyCommission { get; set; }
-
     }
 }
