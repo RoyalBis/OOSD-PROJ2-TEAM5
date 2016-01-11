@@ -7,8 +7,9 @@ using System.Windows.Forms;
 
 namespace Validation
 {
-    public class Validator
+    public static class Validator
     {
+        //Generic Method to Check if any Control is Empty Text
         //public static bool IsPresent(Control ctrl)
         //{
         //    if (ctrl.Text == "")
