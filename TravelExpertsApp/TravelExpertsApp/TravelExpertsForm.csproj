@@ -68,11 +68,22 @@
     <Compile Include="frmMain.Designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmPackage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPackage.Designer.cs" />
+    <Compile Include="frmPackageEntry.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPackageEntry.Designer.cs" />
+    <Compile Include="KLValidator.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmPackage.resx" />
+    <EmbeddedResource Include="frmPackageEntry.resx" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -108,6 +119,16 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\EntityLayer\EntityLayer.csproj">
+      <Project>{65af09a9-f7f0-41c6-8ca7-1be86e8891f7}</Project>
+      <Name>EntityLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TravelExpertsDB\TravelExpertsDB.csproj">
+      <Project>{e3db1aa6-dbb6-487d-8561-79f37c1a2a14}</Project>
+      <Name>TravelExpertsDB</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

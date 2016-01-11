@@ -11,6 +11,7 @@
     <AssemblyName>TravelExpertsDB</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -43,8 +44,8 @@
     <Compile Include="PackagesTable.cs" />
     <Compile Include="ProductsTable.cs" />
     <Compile Include="SuppliersTable.cs" />
-    <Compile Include="TravelExpertsCommon.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TravelExpertsCommon.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\EntityLayer\EntityLayer.csproj">
