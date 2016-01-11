@@ -72,26 +72,25 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmPackage.Designer.cs">
-		<DependentUpon>frmPackage.cs</DependentUpon>
-	</Compile>
+      <DependentUpon>frmPackage.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmPackageEntry.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmPackageEntry.Designer.cs">
-		<DependentUpon>frmPackageEntry.cs</DependentUpon>
-	</Compile>
-    <Compile Include="KLValidator.cs" />
+      <DependentUpon>frmPackageEntry.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmPackage.resx">
-		<DependentUpon>frmPackage.cs</DependentUpon>
-	</EmbeddedResource>
+      <DependentUpon>frmPackage.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmPackageEntry.resx">
-		<DependentUpon>frmPackageEntry.cs</DependentUpon>
-	</EmbeddedResource>
+      <DependentUpon>frmPackageEntry.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -136,6 +135,10 @@
     <ProjectReference Include="..\TravelExpertsDB\TravelExpertsDB.csproj">
       <Project>{e3db1aa6-dbb6-487d-8561-79f37c1a2a14}</Project>
       <Name>TravelExpertsDB</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Validation\Validation.csproj">
+      <Project>{05206efe-c72e-491d-968f-60a0dcbe443a}</Project>
+      <Name>Validation</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

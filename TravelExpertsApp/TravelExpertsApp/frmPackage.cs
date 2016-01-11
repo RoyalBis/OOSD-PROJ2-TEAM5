@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using EntityLayer;
 using TravelExpertsDB;
+using Validation;
 
 namespace TravelExpertsApp
 {
@@ -67,7 +68,7 @@ namespace TravelExpertsApp
         private void btnSearch_Click(object sender, EventArgs e)
         {
             //validate
-            if (KLValidator.IsPresent(txtPackageId) == true)
+            if (Validator.IsPresent(txtPackageId) == true)
             {
                 int packageId = int.Parse(txtPackageId.Text);
                 MyPackage = PackagesTable.SearchPackage(packageId);

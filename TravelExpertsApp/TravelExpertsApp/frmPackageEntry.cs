@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using EntityLayer;
 using TravelExpertsDB;
+using Validation;
 
 namespace TravelExpertsApp
 {
@@ -97,14 +98,14 @@ namespace TravelExpertsApp
         private bool IsValide()
         {
             return
-                KLValidator.IsPresent(txtPkgName) && //check for data presence
-                KLValidator.IsPresentRich(rtxtPkgDesc) &&
-                KLValidator.IsPresentDtp(dtpPkgStartDate) &&
-                KLValidator.IsPresentDtp(dtpPkgEndDate) &&
-                KLValidator.IsPresent(txtPkgBasePrice) &&
-                KLValidator.IsPresent(txtPkgAgencyCommission) &&
-                KLValidator.NonNegDecimal(txtPkgBasePrice) && //check for non negative decimal
-                KLValidator.NonNegDecimal(txtPkgAgencyCommission);
+                Validator.IsPresent(txtPkgName) && //check for data presence
+                Validator.IsPresentRich(rtxtPkgDesc) &&
+                Validator.IsPresentDtp(dtpPkgStartDate) &&
+                Validator.IsPresentDtp(dtpPkgEndDate) &&
+                Validator.IsPresent(txtPkgBasePrice) &&
+                Validator.IsPresent(txtPkgAgencyCommission) &&
+                Validator.NonNegDecimal(txtPkgBasePrice) && //check for non negative decimal
+                Validator.NonNegDecimal(txtPkgAgencyCommission);
         }
     }
 }

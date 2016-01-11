@@ -5,10 +5,21 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace TravelExpertsApp
+namespace Validation
 {
-    class KLValidator
+    public class Validator
     {
+        //public static bool IsPresent(Control ctrl)
+        //{
+        //    if (ctrl.Text == "")
+        //    {
+        //        MessageBox.Show("Error: " + ctrl.Name + " is a required field!");
+        //        ctrl.Focus();
+        //        return false;
+        //    }
+        //    return true;
+        //}
+
         public static bool IsPresent(TextBox textbox)
         {
             if (textbox.Text == "")
