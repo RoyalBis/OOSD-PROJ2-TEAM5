@@ -99,9 +99,9 @@ namespace TravelExpertsApp
         {
             return
                 Validator.IsPresent(txtPkgName) && //check for data presence
-                Validator.IsPresentRich(rtxtPkgDesc) &&
-                Validator.IsPresentDtp(dtpPkgStartDate) &&
-                Validator.IsPresentDtp(dtpPkgEndDate) &&
+                Validator.IsPresent(rtxtPkgDesc) &&
+                Validator.IsPresent(dtpPkgStartDate) &&
+                Validator.IsPresent(dtpPkgEndDate) &&
                 Validator.IsPresent(txtPkgBasePrice) &&
                 Validator.IsPresent(txtPkgAgencyCommission) &&
                 Validator.NonNegDecimal(txtPkgBasePrice) && //check for non negative decimal

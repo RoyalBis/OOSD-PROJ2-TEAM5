@@ -10,49 +10,49 @@ namespace Validation
     public static class Validator
     {
         //Generic Method to Check if any Control is Empty Text
-        //public static bool IsPresent(Control ctrl)
+        public static bool IsPresent(Control ctrl)
+        {
+            if (ctrl.Text == "")
+            {
+                MessageBox.Show("Error: " + ctrl.Name + " is a required field!");
+                ctrl.Focus();
+                return false;
+            }
+            return true;
+        }
+
+        //public static bool IsPresent(TextBox textbox)
         //{
-        //    if (ctrl.Text == "")
+        //    if (textbox.Text == "")
         //    {
-        //        MessageBox.Show("Error: " + ctrl.Name + " is a required field!");
-        //        ctrl.Focus();
+        //        MessageBox.Show("Error: " + textbox.Name + " is a required field!");
+        //        textbox.Focus();
         //        return false;
         //    }
         //    return true;
         //}
 
-        public static bool IsPresent(TextBox textbox)
-        {
-            if (textbox.Text == "")
-            {
-                MessageBox.Show("Error: " + textbox.Name + " is a required field!");
-                textbox.Focus();
-                return false;
-            }
-            return true;
-        }
+        //public static bool IsPresentRich(RichTextBox textbox)
+        //{
+        //    if (textbox.Text == "")
+        //    {
+        //        MessageBox.Show("Error: " + textbox.Name + " is a required field!");
+        //        textbox.Focus();
+        //        return false;
+        //    }
+        //    return true;
+        //}
 
-        public static bool IsPresentRich(RichTextBox textbox)
-        {
-            if (textbox.Text == "")
-            {
-                MessageBox.Show("Error: " + textbox.Name + " is a required field!");
-                textbox.Focus();
-                return false;
-            }
-            return true;
-        }
-
-        public static bool IsPresentDtp(DateTimePicker dtp)
-        {
-            if (dtp.Text == "")
-            {
-                MessageBox.Show("Error: " + dtp.Name + " is a required field!");
-                dtp.Focus();
-                return false;
-            }
-            return true;
-        }
+        //public static bool IsPresentDtp(DateTimePicker dtp)
+        //{
+        //    if (dtp.Text == "")
+        //    {
+        //        MessageBox.Show("Error: " + dtp.Name + " is a required field!");
+        //        dtp.Focus();
+        //        return false;
+        //    }
+        //    return true;
+        //}
 
         //public static bool CodeRegex(TextBox textbox)
         //{
@@ -67,44 +67,44 @@ namespace Validation
         //    return true;
         //}
 
-        public static bool NonNegDecimal(TextBox textbox)
+        public static bool NonNegDecimal(Control ctrl)
         {
             try
             {
-                decimal textValue = decimal.Parse(textbox.Text);
+                decimal textValue = decimal.Parse(ctrl.Text);
                 if (textValue >= 0) return true;
                 else
                 {
-                    MessageBox.Show("Error: " + textbox.Name + " must be non-negative value!");
-                    textbox.Focus();
+                    MessageBox.Show("Error: " + ctrl.Name + " must be non-negative value!");
+                    ctrl.Focus();
                     return false;
                 }
             }
             catch (FormatException)
             {
-                MessageBox.Show("Error: " + textbox.Name + " must be decimal number!");
-                textbox.Focus();
+                MessageBox.Show("Error: " + ctrl.Name + " must be decimal number!");
+                ctrl.Focus();
                 return false;
             }
         }
 
-        public static bool NonNegInt(TextBox textbox)
+        public static bool NonNegInt(Control ctrl)
         {
             try
             {
-                int textValue = int.Parse(textbox.Text);
+                int textValue = int.Parse(ctrl.Text);
                 if (textValue >= 0) return true;
                 else
                 {
-                    MessageBox.Show("Error: " + textbox.Name + " must be non-negative value!");
-                    textbox.Focus();
+                    MessageBox.Show("Error: " + ctrl.Name + " must be non-negative value!");
+                    ctrl.Focus();
                     return false;
                 }
             }
             catch (FormatException)
             {
-                MessageBox.Show("Error: " + textbox.Name + " must be integer number!");
-                textbox.Focus();
+                MessageBox.Show("Error: " + ctrl.Name + " must be integer number!");
+                ctrl.Focus();
                 return false;
             }
         }
