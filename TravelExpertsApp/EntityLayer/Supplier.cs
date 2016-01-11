@@ -1,14 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Team5_OOSD_Fall2015_Project2
+namespace EntityLayer
 {
-    class Supplier
+    //Author: Lee Harold
+    public class Supplier
     {
-        //Class attributes.
+        public Supplier()
+        {
+        }
+
+        //Class Fields.
         //private int supplierId;
         //private string supName;
 
