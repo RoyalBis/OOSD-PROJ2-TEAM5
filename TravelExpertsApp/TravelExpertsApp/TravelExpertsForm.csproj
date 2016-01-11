@@ -71,19 +71,27 @@
     <Compile Include="frmPackage.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmPackage.Designer.cs" />
+    <Compile Include="frmPackage.Designer.cs">
+		<DependentUpon>frmPackage.cs</DependentUpon>
+	</Compile>
     <Compile Include="frmPackageEntry.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmPackageEntry.Designer.cs" />
+    <Compile Include="frmPackageEntry.Designer.cs">
+		<DependentUpon>frmPackageEntry.cs</DependentUpon>
+	</Compile>
     <Compile Include="KLValidator.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmPackage.resx" />
-    <EmbeddedResource Include="frmPackageEntry.resx" />
+    <EmbeddedResource Include="frmPackage.resx">
+		<DependentUpon>frmPackage.cs</DependentUpon>
+	</EmbeddedResource>
+    <EmbeddedResource Include="frmPackageEntry.resx">
+		<DependentUpon>frmPackageEntry.cs</DependentUpon>
+	</EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

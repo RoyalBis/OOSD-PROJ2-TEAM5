@@ -12,7 +12,7 @@ namespace TravelExpertsDB
     //Author: Royal
     public static class SuppliersTable
     {
-        //SQL STATEMENTS\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+        //SQL STATEMENTS\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
         //Statement for GetAllSuppliers()
         private const string GetAllStmt = "SELECT SupplierId, SupName " +
                                           "FROM Supplier";
