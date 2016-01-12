@@ -80,6 +80,12 @@
     <Compile Include="frmPackageEntry.Designer.cs">
       <DependentUpon>frmPackageEntry.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmProducts.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmProducts.Designer.cs">
+      <DependentUpon>frmProducts.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="frmMain.resx">
@@ -90,6 +96,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmPackageEntry.resx">
       <DependentUpon>frmPackageEntry.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmProducts.resx">
+      <DependentUpon>frmProducts.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
