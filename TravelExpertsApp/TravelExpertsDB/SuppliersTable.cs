@@ -15,26 +15,26 @@ namespace TravelExpertsDB
         //SQL STATEMENTS\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
         //Statement for GetAllSuppliers()
         private const string GetAllStmt = "SELECT SupplierId, SupName " +
-                                          "FROM Supplier";
+                                          "FROM Suppliers";
 
         //Statement for GetSupplier()
         private const string GetStmt = "SELECT SupplierId, SupName " +
-                                       "FROM Supplier " +
+                                       "FROM Suppliers " +
                                        "WHERE SupplierId = @SupplierId";
 
         //Statement for GetSuppliersofProduct()
         private const string GetAllOfProductStmt = "SELECT SupplierID, SupName " +
-                                                   "FROM Supplier " +
+                                                   "FROM Suppliers " +
                                                    "INNER JOIN Products_Suppliers " +
                                                    "WHERE ProductId = @ProductId";
 
         //Statement for AddSupplier()
-        private const string InsertSupplierStmt = "INSERT INTO Suppliers " +
+        private const string InsertStmt = "INSERT INTO Suppliers " +
                                                   "(SupplierId, SupName) " +
                                                   "VALUES(@SupplierId, @SupName)";
 
         //Statement for UpdateSupplier()
-        private const string UpdateSupplierStmt = "UPDATE Suppliers " +
+        private const string UpdateStmt = "UPDATE Suppliers " +
                                                   "SET SupName = @NewSupName " +
                                                   "WHERE SupplierId = @OldSupplierId " +
                                                   "AND SupName = @OldSupName";
@@ -165,7 +165,7 @@ namespace TravelExpertsDB
         {
             //get the connection and make a new select statement
             SqlConnection connection = new SqlConnection();
-            SqlCommand insertCommand = new SqlCommand(InsertSupplierStmt, connection);
+            SqlCommand insertCommand = new SqlCommand(InsertStmt, connection);
             //add the Supplier Parameters to the SQL Insert Command
             insertCommand.Parameters.AddWithValue("@SupplierId", sup.SupplierId);
             insertCommand.Parameters.AddWithValue("@SupName", sup.SupName);
@@ -197,7 +197,7 @@ namespace TravelExpertsDB
         {
             //get the connection and make a new select statement
             SqlConnection connection = new SqlConnection();
-            SqlCommand updateCommand = new SqlCommand(UpdateSupplierStmt, connection);
+            SqlCommand updateCommand = new SqlCommand(UpdateStmt, connection);
             //add the Supplier Parameters to the SQL update Command
             updateCommand.Parameters.AddWithValue("@NewSupName", newSup.SupName);
             updateCommand.Parameters.AddWithValue("@OldSupplierId", oldSup.SupplierId);

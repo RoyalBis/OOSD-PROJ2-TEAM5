@@ -10,6 +10,8 @@ namespace EntityLayer
     //Author: Lee Harold
     public class Supplier
     {
+        private int supplierId;
+
         public Supplier()
         {
         }
@@ -19,7 +21,12 @@ namespace EntityLayer
         //private string supName;
 
         //Class properties.
-        public int SupplierId { get; set; }
+        public int SupplierId
+        {
+            get { return supplierId; }
+            set { supplierId = value; }
+        }
+
         public string SupName { get; set; }
     }
 }

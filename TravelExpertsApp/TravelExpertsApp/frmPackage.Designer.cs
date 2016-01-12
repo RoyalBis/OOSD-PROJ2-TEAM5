@@ -54,7 +54,7 @@
             // txtPackageId
             // 
             this.txtPackageId.Location = new System.Drawing.Point(184, 26);
-            this.txtPackageId.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtPackageId.Margin = new System.Windows.Forms.Padding(4);
             this.txtPackageId.Name = "txtPackageId";
             this.txtPackageId.Size = new System.Drawing.Size(88, 22);
             this.txtPackageId.TabIndex = 0;
@@ -85,9 +85,9 @@
             this.gbPackageDetail.Controls.Add(this.lblPkgName);
             this.gbPackageDetail.Controls.Add(this.txtPkgName);
             this.gbPackageDetail.Location = new System.Drawing.Point(19, 79);
-            this.gbPackageDetail.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gbPackageDetail.Margin = new System.Windows.Forms.Padding(4);
             this.gbPackageDetail.Name = "gbPackageDetail";
-            this.gbPackageDetail.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gbPackageDetail.Padding = new System.Windows.Forms.Padding(4);
             this.gbPackageDetail.Size = new System.Drawing.Size(372, 340);
             this.gbPackageDetail.TabIndex = 2;
             this.gbPackageDetail.TabStop = false;
@@ -96,7 +96,7 @@
             // rtxtPkgDesc
             // 
             this.rtxtPkgDesc.Location = new System.Drawing.Point(167, 86);
-            this.rtxtPkgDesc.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.rtxtPkgDesc.Margin = new System.Windows.Forms.Padding(4);
             this.rtxtPkgDesc.Name = "rtxtPkgDesc";
             this.rtxtPkgDesc.Size = new System.Drawing.Size(175, 50);
             this.rtxtPkgDesc.TabIndex = 26;
@@ -115,7 +115,7 @@
             // txtPkgAgencyCommission
             // 
             this.txtPkgAgencyCommission.Location = new System.Drawing.Point(167, 292);
-            this.txtPkgAgencyCommission.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtPkgAgencyCommission.Margin = new System.Windows.Forms.Padding(4);
             this.txtPkgAgencyCommission.Name = "txtPkgAgencyCommission";
             this.txtPkgAgencyCommission.Size = new System.Drawing.Size(101, 22);
             this.txtPkgAgencyCommission.TabIndex = 24;
@@ -133,7 +133,7 @@
             // txtPkgBasePrice
             // 
             this.txtPkgBasePrice.Location = new System.Drawing.Point(167, 247);
-            this.txtPkgBasePrice.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtPkgBasePrice.Margin = new System.Windows.Forms.Padding(4);
             this.txtPkgBasePrice.Name = "txtPkgBasePrice";
             this.txtPkgBasePrice.Size = new System.Drawing.Size(101, 22);
             this.txtPkgBasePrice.TabIndex = 22;
@@ -151,7 +151,7 @@
             // txtPkgEndDate
             // 
             this.txtPkgEndDate.Location = new System.Drawing.Point(167, 202);
-            this.txtPkgEndDate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtPkgEndDate.Margin = new System.Windows.Forms.Padding(4);
             this.txtPkgEndDate.Name = "txtPkgEndDate";
             this.txtPkgEndDate.Size = new System.Drawing.Size(175, 22);
             this.txtPkgEndDate.TabIndex = 20;
@@ -169,7 +169,7 @@
             // txtPkgStartDate
             // 
             this.txtPkgStartDate.Location = new System.Drawing.Point(167, 158);
-            this.txtPkgStartDate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtPkgStartDate.Margin = new System.Windows.Forms.Padding(4);
             this.txtPkgStartDate.Name = "txtPkgStartDate";
             this.txtPkgStartDate.Size = new System.Drawing.Size(175, 22);
             this.txtPkgStartDate.TabIndex = 18;
@@ -197,7 +197,7 @@
             // txtPkgName
             // 
             this.txtPkgName.Location = new System.Drawing.Point(167, 38);
-            this.txtPkgName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtPkgName.Margin = new System.Windows.Forms.Padding(4);
             this.txtPkgName.Name = "txtPkgName";
             this.txtPkgName.Size = new System.Drawing.Size(175, 22);
             this.txtPkgName.TabIndex = 14;
@@ -205,7 +205,7 @@
             // btnSearch
             // 
             this.btnSearch.Location = new System.Drawing.Point(291, 22);
-            this.btnSearch.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSearch.Margin = new System.Windows.Forms.Padding(4);
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Size = new System.Drawing.Size(100, 28);
             this.btnSearch.TabIndex = 3;
@@ -216,7 +216,7 @@
             // btnAdd
             // 
             this.btnAdd.Location = new System.Drawing.Point(19, 428);
-            this.btnAdd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(4);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(100, 28);
             this.btnAdd.TabIndex = 4;
@@ -228,7 +228,7 @@
             // 
             this.btnUpdate.Enabled = false;
             this.btnUpdate.Location = new System.Drawing.Point(156, 428);
-            this.btnUpdate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnUpdate.Margin = new System.Windows.Forms.Padding(4);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(100, 28);
             this.btnUpdate.TabIndex = 5;
@@ -240,7 +240,7 @@
             // 
             this.btnDelete.Enabled = false;
             this.btnDelete.Location = new System.Drawing.Point(291, 428);
-            this.btnDelete.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(4);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(100, 28);
             this.btnDelete.TabIndex = 6;
@@ -261,7 +261,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtPackageId);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmPackage";
             this.Text = "frmPackage";
             this.Load += new System.EventHandler(this.frmPackage_Load);
