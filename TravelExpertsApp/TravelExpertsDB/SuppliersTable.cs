@@ -15,16 +15,16 @@ namespace TravelExpertsDB
         //SQL STATEMENTS\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
         //Statement for GetAllSuppliers()
         private const string GetAllStmt = "SELECT SupplierId, SupName " +
-                                          "FROM Supplier";
+                                          "FROM Suppliers";
 
         //Statement for GetSupplier()
         private const string GetStmt = "SELECT SupplierId, SupName " +
-                                       "FROM Supplier " +
+                                       "FROM Suppliers " +
                                        "WHERE SupplierId = @SupplierId";
 
         //Statement for GetSuppliersofProduct()
         private const string GetAllOfProductStmt = "SELECT SupplierID, SupName " +
-                                                   "FROM Supplier " +
+                                                   "FROM Suppliers " +
                                                    "INNER JOIN Products_Suppliers " +
                                                    "WHERE ProductId = @ProductId";
 
