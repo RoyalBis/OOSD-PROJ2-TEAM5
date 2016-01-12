@@ -22,18 +22,18 @@ namespace TravelExpertsDB
                                        "WHERE ProductId = @ProductId";
 
         //Statement for GetSuppliersofProduct()
-        private const string GetAllOfProductStmt = "SELECT ProductID, ProdName " +
+        private const string GetAllOfSupplierStmt = "SELECT ProductID, ProdName " +
                                                    "FROM Products " +
                                                    "INNER JOIN Products_Suppliers " +
                                                    "WHERE ProductId = @ProductId";
 
         //Statement for AddSupplier()
-        private const string InsertSupplierStmt = "INSERT INTO Products " +
+        private const string InsertProductStmt = "INSERT INTO Products " +
                                                   "(ProductId, ProdName) " +
                                                   "VALUES(@ProductId, @ProdName)";
 
         //Statement for UpdateSupplier()
-        private const string UpdateSupplierStmt = "UPDATE Products " +
+        private const string UpdateProductStmt = "UPDATE Products " +
                                                   "SET ProdName = @NewProdName " +
                                                   "WHERE ProductId = @OldProductId " +
                                                   "AND ProdName = @OldProdName";
@@ -120,6 +120,7 @@ namespace TravelExpertsDB
         {
             List<Product> products = new List<Product>();
             //Enter Code Here
+
 
             return products;
         }
