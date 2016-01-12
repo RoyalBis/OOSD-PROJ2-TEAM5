@@ -25,15 +25,15 @@ namespace TravelExpertsDB
         private const string GetAllOfSupplierStmt = "SELECT ProductID, ProdName " +
                                                    "FROM Products " +
                                                    "INNER JOIN Products_Suppliers " +
-                                                   "WHERE ProductId = @ProductId";
+                                                   "WHERE SupplierId = @SupplierId";
 
         //Statement for AddSupplier()
-        private const string InsertProductStmt = "INSERT INTO Products " +
+        private const string InsertStmt = "INSERT INTO Products " +
                                                   "(ProductId, ProdName) " +
                                                   "VALUES(@ProductId, @ProdName)";
 
         //Statement for UpdateSupplier()
-        private const string UpdateProductStmt = "UPDATE Products " +
+        private const string UpdateStmt = "UPDATE Products " +
                                                   "SET ProdName = @NewProdName " +
                                                   "WHERE ProductId = @OldProductId " +
                                                   "AND ProdName = @OldProdName";
@@ -119,22 +119,104 @@ namespace TravelExpertsDB
         public static List<Product> GetProductsfromSupplier(int supplierId)
         {
             List<Product> products = new List<Product>();
-            //Enter Code Here
 
+            //get the connection and make a new select statement
+            SqlConnection connection = new SqlConnection();
+            SqlCommand selectCommand = new SqlCommand(GetAllOfSupplierStmt, connection);
+            selectCommand.Parameters.AddWithValue("@SupplierId", "supplierId");
 
+            //Using will auto close the connection once the block is ended
+            using (connection)
+            {
+                //try in case of errors and re-throw them to the UI
+                try
+                {
+                    connection.Open();
+
+                    SqlDataReader reader = selectCommand.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        //build a new Product Object for each returned Product
+                        Product product = new Product
+                        {
+                            ProductId = (int)reader["ProductId"],
+                            ProdName = reader["ProdName"].ToString()
+                        };
+                        //add the supplier to the list
+                        products.Add(product);
+                    }
+                }
+                catch (Exception ex)    //catch all exceptions and re-throw them
+                {
+                    products = null;   //an error occurred so lets not continue
+                    throw ex;
+                }
+            }   //end of the using statement
             return products;
         }
 
         //Static Method to add a new Product
         public static bool AddProduct(Product prod)
         {
+            //get the connection and make a new select statement
+            SqlConnection connection = new SqlConnection();
+            SqlCommand insertCommand = new SqlCommand(InsertStmt, connection);
+            //add the Product Parameters to the SQL Insert Command
+            insertCommand.Parameters.AddWithValue("@ProductId", prod.ProductId);
+            insertCommand.Parameters.AddWithValue("@ProdName", prod.ProdName);
 
+            //Using will auto close the connection once the block is ended
+            using (connection)
+            {
+                //try in case of errors and re-throw them to the UI
+                try
+                {
+                    connection.Open();
+
+                    int nr = insertCommand.ExecuteNonQuery();   //nr is the number of rows that are affected
+                    if (nr != 1)  //number of rows affected should be 1
+                    {
+                        return false;
+                    }
+                }
+                catch (Exception ex)    //catch all exceptions and re-throw them
+                {
+                    throw ex;
+                }
+            }   //end of the using statement
             return true;
         }
 
         //Static Method to update an existing Product
         public static bool UpdateProduct(Product newProd, Product oldProd)
         {
+            //get the connection and make a new select statement
+            SqlConnection connection = new SqlConnection();
+            SqlCommand updateCommand = new SqlCommand(UpdateStmt, connection);
+            //add the Product Parameters to the SQL update Command
+            updateCommand.Parameters.AddWithValue("@NewProdName", newProd.ProdName);
+            updateCommand.Parameters.AddWithValue("@OldProductId", oldProd.ProductId);
+            updateCommand.Parameters.AddWithValue("@OldProdName", oldProd.ProdName);
+
+            //Using will auto close the connection once the block is ended
+            using (connection)
+            {
+                //try in case of errors and re-throw them to the UI
+                try
+                {
+                    connection.Open();
+
+                    int nr = updateCommand.ExecuteNonQuery();   //nr is the number of rows that are affected
+                    if (nr != 1)  //number of rows affected should be 1
+                    {
+                        return false;
+                    }
+                }
+                catch (Exception ex)    //catch all exceptions and re-throw them
+                {
+                    throw ex;
+                }
+            }   //end of the using statement
             return true;
         }
     }

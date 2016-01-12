@@ -9,8 +9,7 @@ namespace EntityLayer
 {
     public class PackageList : IEnumerable<Package>
     {
-
-        private List<Package> packages;
+        public List<Package> packages;
 
         public delegate void ChangeHandler(PackageList packages);
 
