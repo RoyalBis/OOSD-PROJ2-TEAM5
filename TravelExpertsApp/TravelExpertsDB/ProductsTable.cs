@@ -14,29 +14,29 @@ namespace TravelExpertsDB
         //SQL STATEMENTS\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
         //Statement for GetAllSuppliers()
         private const string GetAllStmt = "SELECT ProductId, ProdName " +
-                                          "FROM ProdName";
+                                          "FROM Products";
 
         //Statement for GetSupplier()
-        private const string GetStmt = "SELECT SupplierId, SupName " +
-                                       "FROM Supplier " +
-                                       "WHERE SupplierId = @SupplierId";
+        private const string GetStmt = "SELECT ProductId, ProdName " +
+                                       "FROM Products " +
+                                       "WHERE ProductId = @ProductId";
 
         //Statement for GetSuppliersofProduct()
-        private const string GetAllOfProductStmt = "SELECT SupplierID, SupName " +
-                                                   "FROM Supplier " +
+        private const string GetAllOfProductStmt = "SELECT ProductID, ProdName " +
+                                                   "FROM Products " +
                                                    "INNER JOIN Products_Suppliers " +
                                                    "WHERE ProductId = @ProductId";
 
         //Statement for AddSupplier()
-        private const string InsertSupplierStmt = "INSERT INTO Suppliers " +
-                                                  "(SupplierId, SupName) " +
-                                                  "VALUES(@SupplierId, @SupName)";
+        private const string InsertSupplierStmt = "INSERT INTO Products " +
+                                                  "(ProductId, ProdName) " +
+                                                  "VALUES(@ProductId, @ProdName)";
 
         //Statement for UpdateSupplier()
-        private const string UpdateSupplierStmt = "UPDATE Suppliers " +
-                                                  "SET SupName = @NewSupName " +
-                                                  "WHERE SupplierId = @OldSupplierId " +
-                                                  "AND SupName = @OldSupName";
+        private const string UpdateSupplierStmt = "UPDATE Products " +
+                                                  "SET ProdName = @NewProdName " +
+                                                  "WHERE ProductId = @OldProductId " +
+                                                  "AND ProdName = @OldProdName";
         //\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
         public static List<Product> GetAllProducts()
