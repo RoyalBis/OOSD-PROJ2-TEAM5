@@ -28,7 +28,7 @@ namespace EntityLayer
 
         public decimal PkgAgencyCommission { get; set; }
 
-        private byte[] PkgImage;
+        public byte[] PkgImage;
 
         /// <summary>
         /// Stores a Package Image as a byte array in this.PkgImage
