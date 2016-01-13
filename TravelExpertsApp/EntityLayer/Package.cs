@@ -28,8 +28,12 @@ namespace EntityLayer
 
         public decimal PkgAgencyCommission { get; set; }
 
-        public byte[] PkgImage { get; set; }
+        private byte[] PkgImage;
 
+        /// <summary>
+        /// Stores a Package Image as a byte array in this.PkgImage
+        /// </summary>
+        /// <param name="path">The Path to the package image</param>
         public void StoreImage(string path)
         {
             // Read the file into a byte array
@@ -41,6 +45,10 @@ namespace EntityLayer
             }
         }
 
+        /// <summary>
+        /// Converts a byte[] array back into an image.
+        /// </summary>
+        /// <returns>The Package Image</returns>
         public Image ImageFromBytes()
         {
             using (MemoryStream ms = new MemoryStream(this.PkgImage))

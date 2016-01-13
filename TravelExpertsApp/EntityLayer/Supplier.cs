@@ -7,7 +7,9 @@ using System.Threading.Tasks;
 
 namespace EntityLayer
 {
-    //Author: Lee Harold
+    /// <summary>
+    /// The Supplier of a Travel Product
+    /// </summary>
     public class Supplier
     {
         private int supplierId;
