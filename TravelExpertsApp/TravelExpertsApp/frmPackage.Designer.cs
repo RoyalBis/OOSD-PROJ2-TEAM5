@@ -49,7 +49,6 @@
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnUpdate = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
-<<<<<<< HEAD
             this.lsvPackage_Supplier = new System.Windows.Forms.ListView();
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -60,9 +59,7 @@
             this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.btnXML = new System.Windows.Forms.Button();
-=======
             this.ttpPackage = new System.Windows.Forms.ToolTip(this.components);
->>>>>>> origin/master
             this.gbPackageDetail.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -368,7 +365,6 @@
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.Button btnDelete;
-<<<<<<< HEAD
         private System.Windows.Forms.ListView lsvPackage_Supplier;
         private System.Windows.Forms.ColumnHeader columnHeader2;
         private System.Windows.Forms.ColumnHeader columnHeader3;
@@ -379,8 +375,6 @@
         private System.Windows.Forms.ColumnHeader columnHeader8;
         private System.Windows.Forms.ColumnHeader columnHeader1;
         private System.Windows.Forms.Button btnXML;
-=======
         private System.Windows.Forms.ToolTip ttpPackage;
->>>>>>> origin/master
     }
 }

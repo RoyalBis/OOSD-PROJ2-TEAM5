@@ -21,10 +21,7 @@ namespace EntityLayer
         public string PkgDesc { get; set; }
         public decimal PkgBasePrice { get; set; }
         public decimal PkgAgencyCommission { get; set; }
-
-<<<<<<< HEAD
         public int ProductSupplierId { get; set; }
-=======
         public byte[] PkgImage;
 
         /// <summary>
@@ -53,6 +50,5 @@ namespace EntityLayer
                 return Image.FromStream(ms);
             }
         }
->>>>>>> origin/master
     }
 }
