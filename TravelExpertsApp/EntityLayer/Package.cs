@@ -22,7 +22,7 @@ namespace EntityLayer
         public decimal PkgBasePrice { get; set; }
         public decimal PkgAgencyCommission { get; set; }
         public int ProductSupplierId { get; set; }
-        public byte[] PkgImage;
+        public byte[] PkgImage { get; set; }
 
         /// <summary>
         /// Stores a Package Image as a byte array in this.PkgImage
@@ -31,12 +31,14 @@ namespace EntityLayer
         public void StoreImage(string path)
         {
             // Read the file into a byte array
-            using (FileStream fs = new FileStream(path, FileMode.Open, FileAccess.Read))
-            {
-                byte[] imageData = new Byte[fs.Length];
-                fs.Read(imageData, 0, (int)fs.Length);
-                PkgImage = imageData;
-            }
+            //using (FileStream fs = new FileStream(path, FileMode.Open, FileAccess.Read))
+            //{
+            //    byte[] imageData = new Byte[fs.Length];
+            //    fs.Read(imageData, 0, (int)fs.Length);
+            //    PkgImage = imageData;
+            //}
+
+            PkgImage = File.ReadAllBytes(path);
         }
 
         /// <summary>
