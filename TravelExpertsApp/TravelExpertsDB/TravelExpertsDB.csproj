@@ -43,15 +43,43 @@
   <ItemGroup>
     <Compile Include="PackagesTable.cs" />
     <Compile Include="ProductsTable.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
     <Compile Include="SuppliersTable.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TravelExpertsCommon.cs" />
+    <Compile Include="TravelExpertsDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TravelExpertsDataSet.xsd</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\EntityLayer\EntityLayer.csproj">
       <Project>{65af09a9-f7f0-41c6-8ca7-1be86e8891f7}</Project>
       <Name>EntityLayer</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="TravelExpertsDataSet.xsc">
+      <DependentUpon>TravelExpertsDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="TravelExpertsDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>TravelExpertsDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="TravelExpertsDataSet.xss">
+      <DependentUpon>TravelExpertsDataSet.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

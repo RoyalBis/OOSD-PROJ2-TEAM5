@@ -11,7 +11,7 @@ namespace TravelExpertsDB
     {
         public static SqlConnection GetConnection() //connection
         {
-            string connectionString = "Data Source=localhost\\sait;Initial Catalog=TravelExperts;Integrated Security=True";
+            string connectionString = "Data Source=localhost\\SAIT;Initial Catalog=TravelExperts;Integrated Security=True";
             SqlConnection connection = new SqlConnection(connectionString);
 
             return connection;

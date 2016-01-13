@@ -18,7 +18,6 @@ namespace TravelExpertsApp
         public frmPackageEntry()
         {
             InitializeComponent();
-
         }
 
         public bool AddPackage; //indicate addpackage form -> true, or update package form -> false;
@@ -99,11 +98,7 @@ namespace TravelExpertsApp
         {
             return
                 Validator.IsPresent(txtPkgName) && //check for data presence
-                Validator.IsPresent(rtxtPkgDesc) &&
-                Validator.IsPresent(dtpPkgStartDate) &&
-                Validator.IsPresent(dtpPkgEndDate) &&
                 Validator.IsPresent(txtPkgBasePrice) &&
-                Validator.IsPresent(txtPkgAgencyCommission) &&
                 Validator.NonNegDecimal(txtPkgBasePrice) && //check for non negative decimal
                 Validator.NonNegDecimal(txtPkgAgencyCommission);
         }

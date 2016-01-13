@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Packages>
+   <Package PackageId="1">
+      <PkgName>Caribbean New Year</PkgName>
+      <PkgDesc>Cruise the Caribbean &amp; 111Celebrate the New Year.</PkgDesc>
+      <PkgStartDate>12/25/2005</PkgStartDate>
+      <PkgEndDate>1/4/2006</PkgEndDate>
+      <pack.PkgBasePrice>4800.0000</pack.PkgBasePrice>
+      <PkgAgencyCommission>400.0000</PkgAgencyCommission>
+   </Package>
+   <Package PackageId="2">
+      <PkgName>Polynesian Paradise</PkgName>
+      <PkgDesc>8 Day All Inclusive Hawaiian Vacation</PkgDesc>
+      <PkgStartDate>12/12/2005</PkgStartDate>
+      <PkgEndDate>12/20/2005</PkgEndDate>
+      <pack.PkgBasePrice>3000.0000</pack.PkgBasePrice>
+      <PkgAgencyCommission>310.0000</PkgAgencyCommission>
+   </Package>
+   <Package PackageId="3">
+      <PkgName>Asian Expedition</PkgName>
+      <PkgDesc>Airfaire, Hotel and Eco Tour.</PkgDesc>
+      <PkgStartDate>5/14/2006</PkgStartDate>
+      <PkgEndDate>5/28/2006</PkgEndDate>
+      <pack.PkgBasePrice>2800.0000</pack.PkgBasePrice>
+      <PkgAgencyCommission>300.0000</PkgAgencyCommission>
+   </Package>
+   <Package PackageId="4">
+      <PkgName>European Vacation</PkgName>
+      <PkgDesc>Euro Tour with Rail Pass and Travel Insurance</PkgDesc>
+      <PkgStartDate>11/1/2005</PkgStartDate>
+      <PkgEndDate>11/14/2005</PkgEndDate>
+      <pack.PkgBasePrice>3000.0000</pack.PkgBasePrice>
+      <PkgAgencyCommission>280.0000</PkgAgencyCommission>
+   </Package>
+   <Package PackageId="5">
+      <PkgName>666</PkgName>
+      <PkgDesc>Test Package
+Do not insert auto number</PkgDesc>
+      <PkgStartDate>1/4/2016</PkgStartDate>
+      <PkgEndDate>2/6/2016</PkgEndDate>
+      <pack.PkgBasePrice>111.0000</pack.PkgBasePrice>
+      <PkgAgencyCommission>11.0000</PkgAgencyCommission>
+   </Package>
+   <Package PackageId="6">
+      <PkgName>Test again2</PkgName>
+      <PkgDesc>show auto number at main form after add</PkgDesc>
+      <PkgStartDate>1/11/2016</PkgStartDate>
+      <PkgEndDate>1/11/2016</PkgEndDate>
+      <pack.PkgBasePrice>120.0000</pack.PkgBasePrice>
+      <PkgAgencyCommission>111.0000</PkgAgencyCommission>
+   </Package>
+   <Package PackageId="8">
+      <PkgName>New York</PkgName>
+      <PkgDesc />
+      <PkgStartDate>1/15/2016</PkgStartDate>
+      <PkgEndDate>1/16/2016</PkgEndDate>
+      <pack.PkgBasePrice>50000.0000</pack.PkgBasePrice>
+      <PkgAgencyCommission>0.0200</PkgAgencyCommission>
+   </Package>
+   <Package PackageId="9">
+      <PkgName>PEI</PkgName>
+      <PkgDesc>patato</PkgDesc>
+      <PkgStartDate>1/12/2016</PkgStartDate>
+      <PkgEndDate>1/12/2016</PkgEndDate>
+      <pack.PkgBasePrice>100.0000</pack.PkgBasePrice>
+      <PkgAgencyCommission>0.1000</PkgAgencyCommission>
+   </Package>
+</Packages>
