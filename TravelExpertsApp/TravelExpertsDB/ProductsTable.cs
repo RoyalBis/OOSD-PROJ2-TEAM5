@@ -44,7 +44,7 @@ namespace TravelExpertsDB
             //We need a suppliers list to return; either a list of suppliers or an empty list
             List<Product> products = new List<Product>();
             //get the connection and make a new select statement
-            SqlConnection connection = new SqlConnection();
+            SqlConnection connection = TravelExpertsCommon.GetConnection();
             SqlCommand selectCommand = new SqlCommand(GetAllStmt, connection);
 
             //Using will auto close the connection once the block is ended
@@ -82,7 +82,7 @@ namespace TravelExpertsDB
             //We need a supplier to return or null
             Product product = null;
             //get the connection and make a new select statement
-            SqlConnection connection = new SqlConnection();
+            SqlConnection connection = TravelExpertsCommon.GetConnection();
             SqlCommand selectCommand = new SqlCommand(GetStmt, connection);
             //add the supplierId Parameter to the SQL Command
             selectCommand.Parameters.AddWithValue("@ProductId", productId);
@@ -121,7 +121,7 @@ namespace TravelExpertsDB
             List<Product> products = new List<Product>();
 
             //get the connection and make a new select statement
-            SqlConnection connection = new SqlConnection();
+            SqlConnection connection = TravelExpertsCommon.GetConnection();
             SqlCommand selectCommand = new SqlCommand(GetAllOfSupplierStmt, connection);
             selectCommand.Parameters.AddWithValue("@SupplierId", "supplierId");
 
@@ -159,7 +159,7 @@ namespace TravelExpertsDB
         public static bool AddProduct(Product prod)
         {
             //get the connection and make a new select statement
-            SqlConnection connection = new SqlConnection();
+            SqlConnection connection = TravelExpertsCommon.GetConnection();
             SqlCommand insertCommand = new SqlCommand(InsertStmt, connection);
             //add the Product Parameters to the SQL Insert Command
             insertCommand.Parameters.AddWithValue("@ProductId", prod.ProductId);
@@ -191,7 +191,7 @@ namespace TravelExpertsDB
         public static bool UpdateProduct(Product newProd, Product oldProd)
         {
             //get the connection and make a new select statement
-            SqlConnection connection = new SqlConnection();
+            SqlConnection connection = TravelExpertsCommon.GetConnection();
             SqlCommand updateCommand = new SqlCommand(UpdateStmt, connection);
             //add the Product Parameters to the SQL update Command
             updateCommand.Parameters.AddWithValue("@NewProdName", newProd.ProdName);

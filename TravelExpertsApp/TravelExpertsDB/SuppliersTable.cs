@@ -48,7 +48,7 @@ namespace TravelExpertsDB
             //We need a suppliers list to return; either a list of suppliers or an empty list
             List<Supplier> suppliers = new List<Supplier>();
             //get the connection and make a new select statement
-            SqlConnection connection = new SqlConnection();
+            SqlConnection connection = TravelExpertsCommon.GetConnection();
             SqlCommand selectCommand = new SqlCommand(GetAllStmt, connection);
 
             //Using will auto close the connection once the block is ended
@@ -87,7 +87,7 @@ namespace TravelExpertsDB
             //We need a supplier to return or null
             Supplier supplier = null;
             //get the connection and make a new select statement
-            SqlConnection connection = new SqlConnection();
+            SqlConnection connection = TravelExpertsCommon.GetConnection();
             SqlCommand selectCommand = new SqlCommand(GetStmt, connection);
             //add the supplierId Parameter to the SQL Command
             selectCommand.Parameters.AddWithValue("@SupplierId", supplierId);
@@ -126,7 +126,7 @@ namespace TravelExpertsDB
             //We need a suppliers list to return; either a list of suppliers or an empty list
             List<Supplier> suppliers = new List<Supplier>();
             //get the connection and make a new select statement
-            SqlConnection connection = new SqlConnection();
+            SqlConnection connection = TravelExpertsCommon.GetConnection();
             SqlCommand selectCommand = new SqlCommand(GetAllOfProductStmt, connection);
             selectCommand.Parameters.AddWithValue("@ProductId","productId");
 
@@ -164,7 +164,7 @@ namespace TravelExpertsDB
         public static bool AddSupplier(Supplier sup)
         {
             //get the connection and make a new select statement
-            SqlConnection connection = new SqlConnection();
+            SqlConnection connection = TravelExpertsCommon.GetConnection();
             SqlCommand insertCommand = new SqlCommand(InsertStmt, connection);
             //add the Supplier Parameters to the SQL Insert Command
             insertCommand.Parameters.AddWithValue("@SupplierId", sup.SupplierId);
@@ -196,7 +196,7 @@ namespace TravelExpertsDB
         public static bool UpdateSupplier(Supplier newSup, Supplier oldSup)
         {
             //get the connection and make a new select statement
-            SqlConnection connection = new SqlConnection();
+            SqlConnection connection = TravelExpertsCommon.GetConnection();
             SqlCommand updateCommand = new SqlCommand(UpdateStmt, connection);
             //add the Supplier Parameters to the SQL update Command
             updateCommand.Parameters.AddWithValue("@NewSupName", newSup.SupName);
