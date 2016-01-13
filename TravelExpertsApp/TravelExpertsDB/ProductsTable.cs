@@ -21,6 +21,11 @@ namespace TravelExpertsDB
                                        "FROM Products " +
                                        "WHERE ProductId = @ProductId";
 
+        public static Product GetProducts(string text)
+        {
+            throw new NotImplementedException();
+        }
+
         //Statement for GetSuppliersofProduct()
         private const string GetAllOfSupplierStmt = "SELECT ProductID, ProdName " +
                                                    "FROM Products " +
