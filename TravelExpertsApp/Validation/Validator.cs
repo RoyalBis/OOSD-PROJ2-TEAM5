@@ -21,16 +21,16 @@ namespace Validation
             return true;
         }
 
-        public static bool IsPresent(TextBox textbox)
-        {
-            if (textbox.Text == "")
-            {
-                MessageBox.Show("Error: " + textbox.Name + " is a required field!");
-                textbox.Focus();
-                return false;
-            }
-            return true;
-        }
+        //public static bool IsPresent(TextBox textbox)
+        //{
+        //    if (textbox.Text == "")
+        //    {
+        //        MessageBox.Show("Error: " + textbox.Name + " is a required field!");
+        //        textbox.Focus();
+        //        return false;
+        //    }
+        //    return true;
+        //}
 
         //public static bool IsPresentRich(RichTextBox textbox)
         //{

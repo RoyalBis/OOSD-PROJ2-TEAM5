@@ -10,30 +10,36 @@ using System.Windows.Forms;
 using EntityLayer;
 using TravelExpertsDB;
 using Validation;
+using MaterialSkin.Controls;
 
 namespace TravelExpertsApp
 {
-    public partial class frmLogin : Form
+    public partial class frmLogin : MaterialForm
     {
         public frmLogin()
         {
             InitializeComponent();
         }
 
-        private void btnLogin_Click(object sender, EventArgs e)
+        private bool isValide()
         {
-            if(isValide())
+            return Validator.IsPresent(txtAgentName)&&  Validator.IsPresent(txtAgentPassword); ;
+        }
+
+        private void btnLogin_Click_1(object sender, EventArgs e)
+        {
+            if (isValide())
             {
-                AgentTable.Login( txtAgentName.ToString(), txtAgentPassword.ToString());
+                AgentTable.Login(txtAgentName.ToString(), txtAgentPassword.ToString());
                 frmPackage fm = new frmPackage();
                 fm.Show();
+                this.Hide();
             }
         }
 
-        private bool isValide()
+        private void btnExit_Click(object sender, EventArgs e)
         {
-
-            return Validator.IsPresent(txtAgentName)&&  Validator.IsPresent(txtAgentPassword); ;
+            Application.Exit();
         }
     }
 }
