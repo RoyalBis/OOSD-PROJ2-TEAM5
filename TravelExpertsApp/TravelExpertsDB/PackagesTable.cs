@@ -11,6 +11,10 @@ namespace TravelExpertsDB
 {
     public static class PackagesTable
     {
+        //Statement for SearchAllProducts()
+        private const string SearchAll = "select PackageId,PkgName, PkgStartDate, PkgEndDate,PkgDesc,PkgBasePrice,PkgAgencyCommission from packages WHERE PackageId LIKE  '%' + @searchIndex + '%' OR PkgName LIKE '%' + @searchIndex + '%' OR PkgStartDate LIKE '%' + @searchIndex + '%' OR PkgEndDate LIKE '%' + @searchIndex + '%' OR PkgDesc LIKE '%' + @searchIndex + '%'    OR PkgBasePrice LIKE '%' + @searchIndex + '%' OR PkgAgencyCommission LIKE '%' + @searchIndex + '%' ";
+
+
         public static Package SearchPackage(int packageId) //Search method
         {
             SqlConnection connection = TravelExpertsCommon.GetConnection();
@@ -194,47 +198,53 @@ namespace TravelExpertsDB
                 connection.Close();
             }
         }
+        public static List<Package> SearchAllPackages(string searchIndex)
+        {
+            //We need a suppliers list to return; either a list of suppliers or an empty list
+            List<Package> packages = new List<Package>();
+            //get the connection and make a new select statement
+            SqlConnection connection = TravelExpertsCommon.GetConnection();
+            SqlCommand selectCommand = new SqlCommand(SearchAll, connection);
+            selectCommand.Parameters.AddWithValue("@searchIndex", searchIndex);
+
+            //Using will auto close the connection once the block is ended
+            using (connection)
+            {
+                //try in case of errors and re-throw them to the UI
+                try
+                {
+                    connection.Open();
+
+                    SqlDataReader reader = selectCommand.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        //build a new Product Object for each returned product
+                        Package package = new Package
+                        {
+                            PackageId = (int)reader["PackageId"],
+                            PkgName = reader["PkgName"].ToString(),
+                            PkgStartDate = (DateTime)reader["PkgStartDate"],
+                            PkgEndDate = (DateTime)reader["PkgEndDate"],
+                            PkgDesc = reader["PkgDesc"].ToString(),
+                            PkgBasePrice = (decimal)reader["PkgBasePrice"],
+                            PkgAgencyCommission = (decimal)reader["PkgAgencyCommission"],
+                        };
+                        //add the packages to the list
+                        packages.Add(package);
+                    }
+                }
+                catch (Exception ex)    //catch all exceptions and re-throw them
+                {
+                    packages = null;   //an error occurred so lets not continue
+                    throw ex;
+                }
+                finally
+                {
+                    connection.Close();
+                }
+            }   //end of the using statement
+            return packages;
+        }
+
     }
-    //public static List<Product> SearchProducts(string searchIndex)
-    //{
-    //    //We need a suppliers list to return; either a list of suppliers or an empty list
-    //    List<Product> products = new List<Product>();
-    //    //get the connection and make a new select statement
-    //    SqlConnection connection = TravelExpertsCommon.GetConnection();
-    //    SqlCommand selectCommand = new SqlCommand(SearchAll, connection);
-    //    selectCommand.Parameters.AddWithValue("@searchIndex", searchIndex);
-
-    //    //Using will auto close the connection once the block is ended
-    //    using (connection)
-    //    {
-    //        //try in case of errors and re-throw them to the UI
-    //        try
-    //        {
-    //            connection.Open();
-
-    //            SqlDataReader reader = selectCommand.ExecuteReader();
-    //            while (reader.Read())
-    //            {
-    //                //build a new Product Object for each returned product
-    //                Product product = new Product
-    //                {
-    //                    ProductId = (int)reader["ProductId"],
-    //                    ProdName = reader["ProdName"].ToString()
-    //                };
-    //                //add the supplier to the list
-    //                products.Add(product);
-    //            }
-    //        }
-    //        catch (Exception ex)    //catch all exceptions and re-throw them
-    //        {
-    //            products = null;   //an error occurred so lets not continue
-    //            throw ex;
-    //        }
-    //        finally
-    //        {
-    //            connection.Close();
-    //        }
-    //    }   //end of the using statement
-    //    return products;
-    //}
 }

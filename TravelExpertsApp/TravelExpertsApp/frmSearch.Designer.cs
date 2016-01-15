@@ -96,6 +96,7 @@
             this.txtSearchPackages.Name = "txtSearchPackages";
             this.txtSearchPackages.Size = new System.Drawing.Size(248, 22);
             this.txtSearchPackages.TabIndex = 10;
+            this.txtSearchPackages.TextChanged += new System.EventHandler(this.txtSearchPackages_TextChanged);
             // 
             // lstViewPackages
             // 
@@ -145,6 +146,7 @@
             this.txtSearchSuppliers.Name = "txtSearchSuppliers";
             this.txtSearchSuppliers.Size = new System.Drawing.Size(248, 22);
             this.txtSearchSuppliers.TabIndex = 16;
+            this.txtSearchSuppliers.TextChanged += new System.EventHandler(this.txtSearchSuppliers_TextChanged);
             // 
             // lblSearchSuppliers
             // 

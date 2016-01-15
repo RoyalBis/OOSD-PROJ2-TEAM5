@@ -254,7 +254,7 @@ namespace TravelExpertsDB
                             ProductId = (int)reader["ProductId"],
                             ProdName = reader["ProdName"].ToString()
                         };
-                        //add the supplier to the list
+                        //add the products to the list
                         products.Add(product);
                     }
                 }

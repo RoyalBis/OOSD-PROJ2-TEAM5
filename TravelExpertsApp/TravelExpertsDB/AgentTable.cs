@@ -78,7 +78,7 @@ namespace TravelExpertsDB
                             AgentPosition = reader["AgtPosition"].ToString(),
                            
                         };
-                        //add the supplier to the list
+                        //add the agents to the list
                         agents.Add(agent);
                     }
                 }

@@ -27,7 +27,7 @@ namespace EntityLayer
         /// <summary>
         /// Stores a Package Image as a byte array in this.PkgImage
         /// </summary>
-        /// <param name="path">The Path to the package image</param>
+        // <param name="path">The Path to the package image</param>
         public void StoreImage(string path)
         {
             // Read the file into a byte array
