@@ -6,16 +6,9 @@ using System.Threading.Tasks;
 
 namespace EntityLayer
 {
-   public class Agent
+   public  class Agent
     {
-        public string AgentId { get; set; }
-        public string AgentFirstName { get; set; }
-        public string AgentMiddleInitial { get; set; }
-        public string AgentLastName { get; set; }
-        public string AgentEmail { get; set; }
-        public string AgentPosition { get; set; }
-        public string AgencyId { get; set; }
+        public string AgentName { get; set; }
         public string AgentPassword { get; set; }
-
     }
 }

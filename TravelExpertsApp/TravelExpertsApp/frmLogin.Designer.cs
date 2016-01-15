@@ -28,71 +28,113 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnLogin = new System.Windows.Forms.Button();
-            this.txtAgentName = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txtAgentPassword = new System.Windows.Forms.TextBox();
+            this.btnLogin = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.txtAgentName = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.txtAgentPassword = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
+            this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
+            this.btnExit = new MaterialSkin.Controls.MaterialRaisedButton();
             this.SuspendLayout();
             // 
             // btnLogin
             // 
-            this.btnLogin.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLogin.Location = new System.Drawing.Point(181, 128);
+            this.btnLogin.Depth = 0;
+            this.btnLogin.Location = new System.Drawing.Point(142, 172);
+            this.btnLogin.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnLogin.Name = "btnLogin";
-            this.btnLogin.Size = new System.Drawing.Size(128, 37);
-            this.btnLogin.TabIndex = 9;
+            this.btnLogin.Primary = true;
+            this.btnLogin.Size = new System.Drawing.Size(75, 23);
+            this.btnLogin.TabIndex = 0;
             this.btnLogin.Text = "Login";
             this.btnLogin.UseVisualStyleBackColor = true;
-            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
+            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click_1);
             // 
             // txtAgentName
             // 
-            this.txtAgentName.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAgentName.Location = new System.Drawing.Point(128, 24);
+            this.txtAgentName.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.txtAgentName.Depth = 0;
+            this.txtAgentName.Hint = "";
+            this.txtAgentName.Location = new System.Drawing.Point(174, 91);
+            this.txtAgentName.MouseState = MaterialSkin.MouseState.HOVER;
             this.txtAgentName.Name = "txtAgentName";
-            this.txtAgentName.Size = new System.Drawing.Size(288, 22);
-            this.txtAgentName.TabIndex = 7;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(23, 88);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(81, 17);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "Password : ";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(23, 29);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(89, 17);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "User name : ";
+            this.txtAgentName.PasswordChar = '\0';
+            this.txtAgentName.SelectedText = "";
+            this.txtAgentName.SelectionLength = 0;
+            this.txtAgentName.SelectionStart = 0;
+            this.txtAgentName.Size = new System.Drawing.Size(129, 23);
+            this.txtAgentName.TabIndex = 1;
+            this.txtAgentName.UseSystemPasswordChar = false;
             // 
             // txtAgentPassword
             // 
-            this.txtAgentPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtAgentPassword.Location = new System.Drawing.Point(128, 85);
+            this.txtAgentPassword.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.txtAgentPassword.Depth = 0;
+            this.txtAgentPassword.Hint = "";
+            this.txtAgentPassword.Location = new System.Drawing.Point(174, 130);
+            this.txtAgentPassword.MouseState = MaterialSkin.MouseState.HOVER;
             this.txtAgentPassword.Name = "txtAgentPassword";
-            this.txtAgentPassword.Size = new System.Drawing.Size(288, 22);
-            this.txtAgentPassword.TabIndex = 10;
-            this.txtAgentPassword.UseSystemPasswordChar = true;
+            this.txtAgentPassword.PasswordChar = '\0';
+            this.txtAgentPassword.SelectedText = "";
+            this.txtAgentPassword.SelectionLength = 0;
+            this.txtAgentPassword.SelectionStart = 0;
+            this.txtAgentPassword.Size = new System.Drawing.Size(129, 23);
+            this.txtAgentPassword.TabIndex = 2;
+            this.txtAgentPassword.UseSystemPasswordChar = false;
+            // 
+            // materialLabel1
+            // 
+            this.materialLabel1.AutoSize = true;
+            this.materialLabel1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.materialLabel1.Depth = 0;
+            this.materialLabel1.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel1.Location = new System.Drawing.Point(51, 93);
+            this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel1.Name = "materialLabel1";
+            this.materialLabel1.Size = new System.Drawing.Size(81, 19);
+            this.materialLabel1.TabIndex = 3;
+            this.materialLabel1.Text = "Username:";
+            // 
+            // materialLabel2
+            // 
+            this.materialLabel2.AutoSize = true;
+            this.materialLabel2.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.materialLabel2.Depth = 0;
+            this.materialLabel2.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel2.Location = new System.Drawing.Point(51, 134);
+            this.materialLabel2.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel2.Name = "materialLabel2";
+            this.materialLabel2.Size = new System.Drawing.Size(79, 19);
+            this.materialLabel2.TabIndex = 4;
+            this.materialLabel2.Text = "Password:";
+            // 
+            // btnExit
+            // 
+            this.btnExit.Depth = 0;
+            this.btnExit.Location = new System.Drawing.Point(228, 172);
+            this.btnExit.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnExit.Name = "btnExit";
+            this.btnExit.Primary = true;
+            this.btnExit.Size = new System.Drawing.Size(75, 23);
+            this.btnExit.TabIndex = 5;
+            this.btnExit.Text = "Exit";
+            this.btnExit.UseVisualStyleBackColor = true;
+            this.btnExit.Click += new System.EventHandler(this.btnExit_Click);
             // 
             // frmLogin
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(455, 194);
+            this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.ClientSize = new System.Drawing.Size(357, 216);
+            this.Controls.Add(this.btnExit);
+            this.Controls.Add(this.materialLabel2);
+            this.Controls.Add(this.materialLabel1);
             this.Controls.Add(this.txtAgentPassword);
-            this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.txtAgentName);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.btnLogin);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmLogin";
             this.Text = "Login";
             this.ResumeLayout(false);
@@ -102,10 +144,11 @@
 
         #endregion
 
-        private System.Windows.Forms.Button btnLogin;
-        private System.Windows.Forms.TextBox txtAgentName;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox txtAgentPassword;
+        private MaterialSkin.Controls.MaterialRaisedButton btnLogin;
+        private MaterialSkin.Controls.MaterialSingleLineTextField txtAgentName;
+        private MaterialSkin.Controls.MaterialSingleLineTextField txtAgentPassword;
+        private MaterialSkin.Controls.MaterialLabel materialLabel2;
+        private MaterialSkin.Controls.MaterialLabel materialLabel1;
+        private MaterialSkin.Controls.MaterialRaisedButton btnExit;
     }
 }

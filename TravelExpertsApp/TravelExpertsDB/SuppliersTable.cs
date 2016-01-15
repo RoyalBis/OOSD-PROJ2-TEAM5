@@ -38,7 +38,6 @@ namespace TravelExpertsDB
                                                   "SET SupName = @NewSupName " +
                                                   "WHERE SupplierId = @OldSupplierId " +
                                                   "AND SupName = @OldSupName";
-
         //\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
 
@@ -225,47 +224,5 @@ namespace TravelExpertsDB
             }   //end of the using statement
             return true;
         }
-        //public static List<Product> SearchProducts(string searchIndex)
-        //{
-        //    //We need a suppliers list to return; either a list of suppliers or an empty list
-        //    List<Product> products = new List<Product>();
-        //    //get the connection and make a new select statement
-        //    SqlConnection connection = TravelExpertsCommon.GetConnection();
-        //    SqlCommand selectCommand = new SqlCommand(SearchAll, connection);
-        //    selectCommand.Parameters.AddWithValue("@searchIndex", searchIndex);
-
-        //    //Using will auto close the connection once the block is ended
-        //    using (connection)
-        //    {
-        //        //try in case of errors and re-throw them to the UI
-        //        try
-        //        {
-        //            connection.Open();
-
-        //            SqlDataReader reader = selectCommand.ExecuteReader();
-        //            while (reader.Read())
-        //            {
-        //                //build a new Product Object for each returned product
-        //                Product product = new Product
-        //                {
-        //                    ProductId = (int)reader["ProductId"],
-        //                    ProdName = reader["ProdName"].ToString()
-        //                };
-        //                //add the supplier to the list
-        //                products.Add(product);
-        //            }
-        //        }
-        //        catch (Exception ex)    //catch all exceptions and re-throw them
-        //        {
-        //            products = null;   //an error occurred so lets not continue
-        //            throw ex;
-        //        }
-        //        finally
-        //        {
-        //            connection.Close();
-        //        }
-        //    }   //end of the using statement
-        //    return products;
-        //}
     }
 }
