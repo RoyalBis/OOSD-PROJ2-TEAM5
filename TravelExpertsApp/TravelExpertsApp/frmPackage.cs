@@ -12,10 +12,11 @@ using TravelExpertsDB;
 using Validation;
 using TravelExpertsDB.TravelExpertsDataSetTableAdapters;
 using System.Xml;
+using MaterialSkin.Controls;
 
 namespace TravelExpertsApp
 {
-    public partial class frmPackage : Form
+    public partial class frmPackage : MaterialForm
     {
         public frmPackage()
         {
@@ -76,7 +77,7 @@ namespace TravelExpertsApp
             readOnly();
 
             packagesTableAdapter.Fill(travelExpertsDataSet.Packages);
-            packages_Products_SuppliersTableAdapter.Fill(travelExpertsDataSet.Packages_Products_Suppliers);
+            //packages_Products_SuppliersTableAdapter.Fill(travelExpertsDataSet.Packages_Products_Suppliers);
 
             var packages = from package in travelExpertsDataSet.Packages //LinQ statemenet for join tables
                            //join package_product_supplier in travelExpertsDataSet.Packages_Products_Suppliers
@@ -133,11 +134,6 @@ namespace TravelExpertsApp
             }
         }
 
-        private void btnXML_Click(object sender, EventArgs e)
-        {
-            SaveOrder(packagelist);  //method to save data into xml
-        }
-
         public static void SaveOrder(List<Package> pl)
         {
             //XmlWriterSettings object
@@ -183,7 +179,7 @@ namespace TravelExpertsApp
             xmlOut.Close();
         }
 
-    private void btnSearch_Click(object sender, EventArgs e)
+        private void btnSearch_Click_1(object sender, EventArgs e)
         {
             //validate
             if (Validator.IsPresent(txtPackageId) == true)
@@ -204,7 +200,7 @@ namespace TravelExpertsApp
             else clearForm();
         }
 
-        private void btnAdd_Click(object sender, EventArgs e)
+        private void btnAdd_Click_1(object sender, EventArgs e)
         {
             //create new package form: add
             frmPackageEntry addPackageFrm = new frmPackageEntry();
@@ -219,9 +215,12 @@ namespace TravelExpertsApp
                 enableButtons();
             }
             catch (Exception) { } //**
+
+            travelExpertsDataSet.Clear();
+            packagesTableAdapter.Fill(travelExpertsDataSet.Packages);
         }
 
-        private void btnUpdate_Click(object sender, EventArgs e)
+        private void btnUpdate_Click_1(object sender, EventArgs e)
         {
             //create new package form: add
             frmPackageEntry updatePackageFrm = new frmPackageEntry();
@@ -235,9 +234,12 @@ namespace TravelExpertsApp
                 this.DisplayPackage();
             }
             catch (Exception) { } //**
+
+            travelExpertsDataSet.Clear();
+            packagesTableAdapter.Fill(travelExpertsDataSet.Packages);
         }
 
-        private void btnDelete_Click(object sender, EventArgs e)
+        private void btnDelete_Click_1(object sender, EventArgs e)
         {
             if (MyPackage != null) //check in case there is nothing to delete
             {
@@ -256,9 +258,17 @@ namespace TravelExpertsApp
                     {
                         MessageBox.Show("Error:  <" + MyPackage.PkgName + "> -> " + ex);
                     }
+
+                    travelExpertsDataSet.Clear();
+                    packagesTableAdapter.Fill(travelExpertsDataSet.Packages);
                 }
             }
             else MessageBox.Show("There is nothing to delete, please search a package first!");
+        }
+
+        private void btnXML_Click_1(object sender, EventArgs e)
+        {
+            SaveOrder(packagelist);  //method to save data into xml
         }
     }
 }

@@ -10,10 +10,11 @@ using System.Windows.Forms;
 using EntityLayer;
 using TravelExpertsDB;
 using Validation;
+using MaterialSkin.Controls;
 
 namespace TravelExpertsApp
 {
-    public partial class frmPackageEntry : Form
+    public partial class frmPackageEntry : MaterialForm
     {
         public frmPackageEntry()
         {
@@ -41,7 +42,16 @@ namespace TravelExpertsApp
             }
         }
 
-        private void btnCommit_Click(object sender, EventArgs e)
+        private bool IsValide()
+        {
+            return
+                Validator.IsPresent(txtPkgName) && //check for data presence
+                Validator.IsPresent(txtPkgBasePrice) &&
+                Validator.NonNegDecimal(txtPkgBasePrice) && //check for non negative decimal
+                Validator.NonNegDecimal(txtPkgAgencyCommission);
+        }
+
+        private void btnCommit_Click_1(object sender, EventArgs e)
         {
             if (IsValide()) //All sorts of validations, check below for details
             {
@@ -58,7 +68,7 @@ namespace TravelExpertsApp
                         package.PkgAgencyCommission = decimal.Parse(txtPkgAgencyCommission.Text);
 
                         package.PackageId = PackagesTable.AddPackage(package);
-                        
+
                         this.Close();
                     }
                     catch (Exception ex)
@@ -89,18 +99,9 @@ namespace TravelExpertsApp
             }
         }
 
-        private void btnCancel_Click(object sender, EventArgs e)
+        private void btnCancel_Click_1(object sender, EventArgs e)
         {
             this.Close(); //close add or update form
-        }
-
-        private bool IsValide()
-        {
-            return
-                Validator.IsPresent(txtPkgName) && //check for data presence
-                Validator.IsPresent(txtPkgBasePrice) &&
-                Validator.NonNegDecimal(txtPkgBasePrice) && //check for non negative decimal
-                Validator.NonNegDecimal(txtPkgAgencyCommission);
         }
     }
 }
