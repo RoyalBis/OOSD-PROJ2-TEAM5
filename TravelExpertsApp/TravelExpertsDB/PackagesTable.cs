@@ -11,11 +11,61 @@ namespace TravelExpertsDB
 {
     public static class PackagesTable
     {
+        public static PackageList GetAllPackages()
+        {
+            PackageList packages = new PackageList();    
+
+            SqlConnection connection = TravelExpertsCommon.GetConnection();
+
+            string selectString =
+                "SELECT PackageId, PkgName, PkgStartDate, PkgEndDate, PkgDesc, PkgBasePrice, PkgAgencyCommission, PkgImage " +
+                "FROM Packages";
+            SqlCommand selectCommand = new SqlCommand(selectString, connection);
+ 
+            //Using will auto close the connection once the block is ended
+            using (connection)
+            {
+                //try in case of errors and re-throw them to the UI
+                try
+                {
+                    connection.Open();
+
+                    SqlDataReader reader = selectCommand.ExecuteReader();
+                    while ( reader.Read() )
+                    {
+                        Package pack = new Package();
+                        pack.PackageId = (int)reader["PackageId"];
+                        pack.PkgName = reader["PkgName"].ToString();
+                        pack.PkgDesc = reader["PkgDesc"].ToString();
+                        pack.PkgBasePrice = (decimal)reader["PkgBasePrice"];
+                        pack.PkgAgencyCommission = (decimal)reader["PkgAgencyCommission"];
+                        pack.PkgStartDate = (DateTime)reader["PkgStartDate"];
+                        pack.PkgEndDate = (DateTime)reader["PkgEndDate"];
+                        if (reader["PkgImage"] is DBNull)
+                        {
+                            pack.PkgImage = null;
+                        }
+                        else
+                        {
+                            pack.PkgImage = (byte[])reader["PkgImage"];
+                        }
+                        packages.Add(pack);
+                    }
+                }
+                catch ( Exception ex ) //catch all exceptions and re-throw them
+                {
+                    packages = null; //an error occurred so lets not continue
+                    throw ex;
+                }
+            }   //end of the using statement
+            return packages;
+        }
+
         public static Package SearchPackage(int packageId) //Search method
         {
             SqlConnection connection = TravelExpertsCommon.GetConnection();
 
-            string selectString = "SELECT PackageId, PkgName, PkgStartDate, PkgEndDate, PkgDesc, PkgBasePrice, PkgAgencyCommission " +
+            string selectString = "SELECT PackageId, PkgName, PkgStartDate, PkgEndDate, PkgDesc, PkgBasePrice, PkgAgencyCommission, PkgImage " +
                                   "FROM Packages " +
                                   "WHERE PackageId = @PackageId";
             SqlCommand selectCommand = new SqlCommand(selectString, connection);
@@ -34,6 +84,7 @@ namespace TravelExpertsDB
                     pack.PkgAgencyCommission = (decimal)packageReader["PkgAgencyCommission"];
                     pack.PkgStartDate = (DateTime)packageReader["PkgStartDate"];
                     pack.PkgEndDate = (DateTime)packageReader["PkgEndDate"];
+                    pack.PkgImage = (byte[])packageReader["PkgImage"];
 
                     packageReader.Close();
                     return pack;
@@ -57,8 +108,8 @@ namespace TravelExpertsDB
         {
             SqlConnection connection = TravelExpertsCommon.GetConnection();
             string insertStatement = "INSERT INTO Packages " +
-                                     "(PkgName, PkgDesc, PkgStartDate, PkgEndDate, PkgBasePrice, PkgAgencyCommission) " +
-                                     "Values(@PkgName, @PkgDesc, @PkgStartDate, @PkgEndDate, @PkgBasePrice, @PkgAgencyCommission)";
+                                     "(PkgName, PkgDesc, PkgStartDate, PkgEndDate, PkgBasePrice, PkgAgencyCommission, PkgImage) " +
+                                     "Values(@PkgName, @PkgDesc, @PkgStartDate, @PkgEndDate, @PkgBasePrice, @PkgAgencyCommission, @PkgImage)";
             SqlCommand insertCommand = new SqlCommand(insertStatement, connection);
             insertCommand.Parameters.AddWithValue("@PkgName", pack.PkgName);
             insertCommand.Parameters.AddWithValue("@PkgDesc", pack.PkgDesc);
@@ -66,6 +117,7 @@ namespace TravelExpertsDB
             insertCommand.Parameters.AddWithValue("@PkgEndDate", pack.PkgEndDate);
             insertCommand.Parameters.AddWithValue("@PkgBasePrice", pack.PkgBasePrice);
             insertCommand.Parameters.AddWithValue("@PkgAgencyCommission", pack.PkgAgencyCommission);
+            insertCommand.Parameters.AddWithValue("@PkgImage", pack.PkgImage);
             try
             {
                 connection.Open();
@@ -103,13 +155,15 @@ namespace TravelExpertsDB
                                      "    PkgEndDate = @NewPkgEndDate, " +
                                      "    PkgBasePrice = @NewPkgBasePrice, " +
                                      "    PkgAgencyCommission = @NewPkgAgencyCommission " +
+                                     "    PkgImage = @NewPkgImage " +
                                      "WHERE PackageId = @PackageId " +
                                      "  AND PkgName = @OldPkgName " +
                                      "  AND PkgDesc = @OldPkgDesc " +
                                      "  AND PkgStartDate = @OldPkgStartDate " +
                                      "  AND PkgEndDate = @OldPkgEndDate " +
                                      "  AND PkgBasePrice = @OldPkgBasePrice " +
-                                     "  AND PkgAgencyCommission = @OldPkgAgencyCommission";
+                                     "  AND PkgAgencyCommission = @OldPkgAgencyCommission " +
+                                     "  AND PkgImage = @OldImage";
 
             SqlCommand updateCommand = new SqlCommand(updateStatement, connection);
             updateCommand.Parameters.AddWithValue("@OldPkgName", oldPack.PkgName);
@@ -118,6 +172,7 @@ namespace TravelExpertsDB
             updateCommand.Parameters.AddWithValue("@OldPkgEndDate", oldPack.PkgEndDate);
             updateCommand.Parameters.AddWithValue("@OldPkgBasePrice", oldPack.PkgBasePrice);
             updateCommand.Parameters.AddWithValue("@OldPkgAgencyCommission", oldPack.PkgAgencyCommission);
+            updateCommand.Parameters.AddWithValue("@OldPkgImage", oldPack.PkgImage);
             updateCommand.Parameters.AddWithValue("@PackageId", oldPack.PackageId);
             updateCommand.Parameters.AddWithValue("@NewPkgName", newPack.PkgName);
             updateCommand.Parameters.AddWithValue("@NewPkgDesc", newPack.PkgDesc);
@@ -125,6 +180,7 @@ namespace TravelExpertsDB
             updateCommand.Parameters.AddWithValue("@NewPkgEndDate", newPack.PkgEndDate);
             updateCommand.Parameters.AddWithValue("@NewPkgBasePrice", newPack.PkgBasePrice);
             updateCommand.Parameters.AddWithValue("@NewPkgAgencyCommission", newPack.PkgAgencyCommission);
+            updateCommand.Parameters.AddWithValue("@NewPkgImage", newPack.PkgImage);
             try
             {
                 connection.Open();
@@ -162,7 +218,8 @@ namespace TravelExpertsDB
                                      "  AND PkgStartDate = @PkgStartDate " +
                                      "  AND PkgEndDate = @PkgEndDate " +
                                      "  AND PkgBasePrice = @PkgBasePrice " +
-                                     "  AND PkgAgencyCommission = @PkgAgencyCommission";
+                                     "  AND PkgAgencyCommission = @PkgAgencyCommission " +
+                                     "  AND PkgImage = @PkgImage";
             SqlCommand deleteCommand = new SqlCommand(deleteStatement, connection);
             deleteCommand.Parameters.AddWithValue("@PackageId", pack.PackageId);
             deleteCommand.Parameters.AddWithValue("@PkgName", pack.PkgName);
@@ -171,6 +228,7 @@ namespace TravelExpertsDB
             deleteCommand.Parameters.AddWithValue("@PkgEndDate", pack.PkgEndDate);
             deleteCommand.Parameters.AddWithValue("@PkgBasePrice", pack.PkgBasePrice);
             deleteCommand.Parameters.AddWithValue("@PkgAgencyCommission", pack.PkgAgencyCommission);
+            deleteCommand.Parameters.AddWithValue("@PkgImage", pack.PkgImage);
 
             try
             {

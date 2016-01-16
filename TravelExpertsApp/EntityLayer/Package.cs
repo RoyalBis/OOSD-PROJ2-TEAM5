@@ -11,7 +11,10 @@ namespace EntityLayer
     public class Package
     {
         //Constructor
-        public Package() { }
+        public Package()
+        {
+
+        }
         
         //Class properties
         public int PackageId { get; set; }
@@ -23,6 +26,7 @@ namespace EntityLayer
         public decimal PkgAgencyCommission { get; set; }
         public int ProductSupplierId { get; set; }
         public byte[] PkgImage { get; set; }
+        public List<ProductSupplier> PkgProductSuppliers { get; set; } = new List<ProductSupplier>();
 
         /// <summary>
         /// Stores a Package Image as a byte array in this.PkgImage

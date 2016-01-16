@@ -9,7 +9,7 @@ namespace EntityLayer
 {
     public class PackageList : IEnumerable<Package>
     {
-        public List<Package> packages;
+        public List<Package> Packages;
 
         public delegate void ChangeHandler(PackageList packages);
 
@@ -17,10 +17,10 @@ namespace EntityLayer
 
         public PackageList()
         {
-            packages = new List<Package>();
+            Packages = new List<Package>();
         }
 
-        public int Count => packages.Count;
+        public int Count => Packages.Count;
 
         public Package this[int i]
         {
@@ -30,36 +30,35 @@ namespace EntityLayer
                 {
                     throw new ArgumentOutOfRangeException(i.ToString());
                 }
-                else if ( i >= packages.Count )
+                else if ( i >= Packages.Count )
                 {
                     throw new ArgumentOutOfRangeException(i.ToString());
                 }
-                return packages[i];
+                return Packages[i];
             }
             set
             {
-                packages[i] = value;
+                Packages[i] = value;
                 OnChanged(this);
             }
         }
 
         public void Add(Package package)
         {
-            packages.Add(package);
-            OnChanged(this);
+            Packages.Add(package);
         }
 
         public void Remove(Package product)
         {
-            packages.Remove(product);
+            Packages.Remove(product);
             OnChanged(this);
         }
 
         public IEnumerator<Package> GetEnumerator()
         {
-            for (int i = 0; i < packages.Count; i++)
+            for (int i = 0; i < Packages.Count; i++)
             {
-                yield return packages[i];
+                yield return Packages[i];
             }
         }
 

@@ -12,8 +12,6 @@ namespace EntityLayer
     /// </summary>
     public class Supplier
     {
-        private int supplierId;
-
         public Supplier()
         {
         }
@@ -23,11 +21,7 @@ namespace EntityLayer
         //private string supName;
 
         //Class properties.
-        public int SupplierId
-        {
-            get { return supplierId; }
-            set { supplierId = value; }
-        }
+        public int SupplierId { get; set; }
 
         public string SupName { get; set; }
     }

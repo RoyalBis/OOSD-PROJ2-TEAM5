@@ -44,6 +44,7 @@
     <Compile Include="AgentTable.cs" />
     <Compile Include="PackagesTable.cs" />
     <Compile Include="ProductsTable.cs" />
+    <Compile Include="ProductSupplierTable.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
