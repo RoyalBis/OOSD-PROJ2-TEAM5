@@ -9,12 +9,21 @@
     </asp:ContentPlaceHolder>
 </head>
 <body>
-    <form id="form1" runat="server">
-    <div>
+    <header>
+        <div id="banner"></div>
+    </header>
+    <nav>
+
+    </nav>
+    <section>
+        <form id="form1" runat="server">
+        <div>
         <asp:ContentPlaceHolder id="formPlaceHolder" runat="server">
         
         </asp:ContentPlaceHolder>
-    </div>
-    </form>
+        </div>
+        </form>
+    </section>
+    
 </body>
 </html>
