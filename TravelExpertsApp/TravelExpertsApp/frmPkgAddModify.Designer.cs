@@ -1,4 +1,6 @@
-﻿namespace TravelExpertsApp
+﻿using MaterialSkin.Controls;
+
+namespace TravelExpertsApp
 {
     partial class frmPkgAddModify
     {
@@ -28,347 +30,225 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.txtPkgName = new System.Windows.Forms.TextBox();
-            this.lblPkgName = new System.Windows.Forms.Label();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.dtpStartDate = new System.Windows.Forms.DateTimePicker();
-            this.lblStartDate = new System.Windows.Forms.Label();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.saveAsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.closeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.statusStrip = new System.Windows.Forms.StatusStrip();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.dtpEndDate = new System.Windows.Forms.DateTimePicker();
-            this.lblEndDate = new System.Windows.Forms.Label();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.txtBasePrice = new System.Windows.Forms.TextBox();
-            this.lblBasePrice = new System.Windows.Forms.Label();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.txtCommission = new System.Windows.Forms.TextBox();
-            this.lblCommission = new System.Windows.Forms.Label();
-            this.panel7 = new System.Windows.Forms.Panel();
-            this.btn = new System.Windows.Forms.Button();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.btnImage = new MaterialSkin.Controls.MaterialFlatButton();
+            this.btnAddModify = new System.Windows.Forms.Button();
+            this.btnCancel = new System.Windows.Forms.Button();
+            this.fpanButtons = new System.Windows.Forms.FlowLayoutPanel();
+            this.ofdImage = new System.Windows.Forms.OpenFileDialog();
+            this.pbPkgImage = new System.Windows.Forms.PictureBox();
             this.lblPkgImage = new System.Windows.Forms.Label();
-            this.panel8 = new System.Windows.Forms.Panel();
-            this.btnDelete = new System.Windows.Forms.Button();
-            this.btnAdd = new System.Windows.Forms.Button();
+            this.panPkgImage = new System.Windows.Forms.Panel();
+            this.materialDivider1 = new MaterialSkin.Controls.MaterialDivider();
+            this.panProdSup = new System.Windows.Forms.Panel();
+            this.btnPSEdit = new MaterialSkin.Controls.MaterialFlatButton();
+            this.btnPSDelete = new MaterialSkin.Controls.MaterialFlatButton();
+            this.btnPSAdd = new MaterialSkin.Controls.MaterialFlatButton();
             this.lvPkgProductSuppliers = new System.Windows.Forms.ListView();
             this.colProdSup = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colProdName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colSupName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.lblPkgProducts = new System.Windows.Forms.Label();
-            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.lblMessages = new System.Windows.Forms.Label();
-            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.btnAddModfy = new System.Windows.Forms.Button();
-            this.btnCancel = new System.Windows.Forms.Button();
-            this.panel9 = new System.Windows.Forms.Panel();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
-            this.menuStrip1.SuspendLayout();
-            this.panel4.SuspendLayout();
-            this.panel3.SuspendLayout();
-            this.panel5.SuspendLayout();
-            this.panel6.SuspendLayout();
-            this.panel7.SuspendLayout();
-            this.panel8.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
-            this.panel9.SuspendLayout();
-            this.flowLayoutPanel1.SuspendLayout();
+            this.panFormGrp = new System.Windows.Forms.Panel();
+            this.panStartDate = new System.Windows.Forms.Panel();
+            this.dtpStartDate = new System.Windows.Forms.DateTimePicker();
+            this.lblStartDate = new System.Windows.Forms.Label();
+            this.lblPkgName = new System.Windows.Forms.Label();
+            this.panDesc = new System.Windows.Forms.Panel();
+            this.txtDesc = new System.Windows.Forms.TextBox();
+            this.lblDesc = new System.Windows.Forms.Label();
+            this.panEndDate = new System.Windows.Forms.Panel();
+            this.dtpEndDate = new System.Windows.Forms.DateTimePicker();
+            this.lblEndDate = new System.Windows.Forms.Label();
+            this.panBasePrice = new System.Windows.Forms.Panel();
+            this.txtBasePrice = new System.Windows.Forms.TextBox();
+            this.lblBasePrice = new System.Windows.Forms.Label();
+            this.panCommission = new System.Windows.Forms.Panel();
+            this.txtCommission = new System.Windows.Forms.TextBox();
+            this.lblCommission = new System.Windows.Forms.Label();
+            this.panForm = new System.Windows.Forms.Panel();
+            this.panMain = new System.Windows.Forms.Panel();
+            this.panDock = new System.Windows.Forms.Panel();
+            this.materialDivider2 = new MaterialSkin.Controls.MaterialDivider();
+            this.txtPkgName = new MaterialSkin.Controls.MaterialComboBox();
+            this.fpanButtons.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbPkgImage)).BeginInit();
+            this.panPkgImage.SuspendLayout();
+            this.panProdSup.SuspendLayout();
+            this.panFormGrp.SuspendLayout();
+            this.panStartDate.SuspendLayout();
+            this.panDesc.SuspendLayout();
+            this.panEndDate.SuspendLayout();
+            this.panBasePrice.SuspendLayout();
+            this.panCommission.SuspendLayout();
+            this.panForm.SuspendLayout();
+            this.panMain.SuspendLayout();
             this.SuspendLayout();
             // 
-            // panel1
+            // btnImage
             // 
-            this.panel1.Controls.Add(this.txtPkgName);
-            this.panel1.Controls.Add(this.lblPkgName);
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(353, 32);
-            this.panel1.TabIndex = 0;
+            this.btnImage.AutoSize = true;
+            this.btnImage.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnImage.Depth = 0;
+            this.btnImage.Location = new System.Drawing.Point(614, 363);
+            this.btnImage.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnImage.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnImage.Name = "btnImage";
+            this.btnImage.Primary = true;
+            this.btnImage.Size = new System.Drawing.Size(131, 36);
+            this.btnImage.TabIndex = 2;
+            this.btnImage.Text = "Select Image";
+            this.btnImage.UseVisualStyleBackColor = true;
+            this.btnImage.Click += new System.EventHandler(this.btnImage_Click);
             // 
-            // txtPkgName
+            // btnAddModify
             // 
-            this.txtPkgName.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.CustomSource;
-            this.txtPkgName.Location = new System.Drawing.Point(119, 4);
-            this.txtPkgName.Name = "txtPkgName";
-            this.txtPkgName.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtPkgName.Size = new System.Drawing.Size(230, 22);
-            this.txtPkgName.TabIndex = 1;
-            this.txtPkgName.TextChanged += new System.EventHandler(this.txtPkgName_TextChanged);
-            this.txtPkgName.Leave += new System.EventHandler(this.txtPkgName_Leave);
+            this.btnAddModify.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAddModify.Location = new System.Drawing.Point(611, 3);
+            this.btnAddModify.Name = "btnAddModify";
+            this.btnAddModify.Size = new System.Drawing.Size(110, 31);
+            this.btnAddModify.TabIndex = 6;
+            this.btnAddModify.UseVisualStyleBackColor = true;
+            this.btnAddModify.Click += new System.EventHandler(this.btnAddModify_Click);
             // 
-            // lblPkgName
+            // btnCancel
             // 
-            this.lblPkgName.AutoSize = true;
-            this.lblPkgName.Location = new System.Drawing.Point(3, 7);
-            this.lblPkgName.Name = "lblPkgName";
-            this.lblPkgName.Size = new System.Drawing.Size(108, 17);
-            this.lblPkgName.TabIndex = 0;
-            this.lblPkgName.Text = "Package Name:";
+            this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCancel.Location = new System.Drawing.Point(495, 3);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(110, 31);
+            this.btnCancel.TabIndex = 5;
+            this.btnCancel.Text = "Cancel";
+            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
-            // panel2
+            // fpanButtons
             // 
-            this.panel2.Controls.Add(this.dtpStartDate);
-            this.panel2.Controls.Add(this.lblStartDate);
-            this.panel2.Location = new System.Drawing.Point(0, 38);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(353, 32);
-            this.panel2.TabIndex = 2;
+            this.fpanButtons.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.fpanButtons.BackColor = System.Drawing.Color.White;
+            this.fpanButtons.Controls.Add(this.btnAddModify);
+            this.fpanButtons.Controls.Add(this.btnCancel);
+            this.fpanButtons.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
+            this.fpanButtons.Location = new System.Drawing.Point(3, 703);
+            this.fpanButtons.Name = "fpanButtons";
+            this.fpanButtons.Size = new System.Drawing.Size(724, 37);
+            this.fpanButtons.TabIndex = 8;
             // 
-            // dtpStartDate
+            // ofdImage
             // 
-            this.dtpStartDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpStartDate.Location = new System.Drawing.Point(118, 4);
-            this.dtpStartDate.Name = "dtpStartDate";
-            this.dtpStartDate.Size = new System.Drawing.Size(231, 22);
-            this.dtpStartDate.TabIndex = 1;
+            this.ofdImage.Filter = "Image Files (*.bmp, *.jpg)|*.bmp;*.jpg";
+            this.ofdImage.Title = "Select an Image";
             // 
-            // lblStartDate
+            // pbPkgImage
             // 
-            this.lblStartDate.AutoSize = true;
-            this.lblStartDate.Location = new System.Drawing.Point(3, 7);
-            this.lblStartDate.Name = "lblStartDate";
-            this.lblStartDate.Size = new System.Drawing.Size(76, 17);
-            this.lblStartDate.TabIndex = 0;
-            this.lblStartDate.Text = "Start Date:";
-            // 
-            // menuStrip1
-            // 
-            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fileToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(739, 28);
-            this.menuStrip1.TabIndex = 4;
-            this.menuStrip1.Text = "menuStrip1";
-            // 
-            // fileToolStripMenuItem
-            // 
-            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.saveToolStripMenuItem,
-            this.saveAsToolStripMenuItem,
-            this.closeToolStripMenuItem});
-            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(44, 24);
-            this.fileToolStripMenuItem.Text = "File";
-            // 
-            // saveToolStripMenuItem
-            // 
-            this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            this.saveToolStripMenuItem.Size = new System.Drawing.Size(142, 26);
-            this.saveToolStripMenuItem.Text = "Save";
-            // 
-            // saveAsToolStripMenuItem
-            // 
-            this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
-            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(142, 26);
-            this.saveAsToolStripMenuItem.Text = "Save as...";
-            // 
-            // closeToolStripMenuItem
-            // 
-            this.closeToolStripMenuItem.Name = "closeToolStripMenuItem";
-            this.closeToolStripMenuItem.Size = new System.Drawing.Size(142, 26);
-            this.closeToolStripMenuItem.Text = "Close";
-            // 
-            // statusStrip
-            // 
-            this.statusStrip.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.statusStrip.Location = new System.Drawing.Point(0, 515);
-            this.statusStrip.Name = "statusStrip";
-            this.statusStrip.Size = new System.Drawing.Size(739, 22);
-            this.statusStrip.TabIndex = 5;
-            this.statusStrip.Text = "statusStrip1";
-            // 
-            // panel4
-            // 
-            this.panel4.Controls.Add(this.textBox2);
-            this.panel4.Controls.Add(this.label1);
-            this.panel4.Location = new System.Drawing.Point(0, 114);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(353, 96);
-            this.panel4.TabIndex = 4;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(118, 7);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(230, 82);
-            this.textBox2.TabIndex = 1;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 7);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(71, 17);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "End Date:";
-            // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.dtpEndDate);
-            this.panel3.Controls.Add(this.lblEndDate);
-            this.panel3.Location = new System.Drawing.Point(0, 76);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(353, 32);
-            this.panel3.TabIndex = 3;
-            // 
-            // dtpEndDate
-            // 
-            this.dtpEndDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpEndDate.Location = new System.Drawing.Point(118, 4);
-            this.dtpEndDate.Name = "dtpEndDate";
-            this.dtpEndDate.Size = new System.Drawing.Size(230, 22);
-            this.dtpEndDate.TabIndex = 1;
-            // 
-            // lblEndDate
-            // 
-            this.lblEndDate.AutoSize = true;
-            this.lblEndDate.Location = new System.Drawing.Point(3, 7);
-            this.lblEndDate.Name = "lblEndDate";
-            this.lblEndDate.Size = new System.Drawing.Size(76, 17);
-            this.lblEndDate.TabIndex = 0;
-            this.lblEndDate.Text = "Start Date:";
-            // 
-            // panel5
-            // 
-            this.panel5.Controls.Add(this.txtBasePrice);
-            this.panel5.Controls.Add(this.lblBasePrice);
-            this.panel5.Location = new System.Drawing.Point(0, 216);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(353, 32);
-            this.panel5.TabIndex = 2;
-            // 
-            // txtBasePrice
-            // 
-            this.txtBasePrice.Location = new System.Drawing.Point(119, 4);
-            this.txtBasePrice.Name = "txtBasePrice";
-            this.txtBasePrice.Size = new System.Drawing.Size(230, 22);
-            this.txtBasePrice.TabIndex = 1;
-            // 
-            // lblBasePrice
-            // 
-            this.lblBasePrice.AutoSize = true;
-            this.lblBasePrice.Location = new System.Drawing.Point(3, 7);
-            this.lblBasePrice.Name = "lblBasePrice";
-            this.lblBasePrice.Size = new System.Drawing.Size(80, 17);
-            this.lblBasePrice.TabIndex = 0;
-            this.lblBasePrice.Text = "Base Price:";
-            // 
-            // panel6
-            // 
-            this.panel6.Controls.Add(this.txtCommission);
-            this.panel6.Controls.Add(this.lblCommission);
-            this.panel6.Location = new System.Drawing.Point(0, 254);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(353, 32);
-            this.panel6.TabIndex = 3;
-            // 
-            // txtCommission
-            // 
-            this.txtCommission.Location = new System.Drawing.Point(119, 4);
-            this.txtCommission.Name = "txtCommission";
-            this.txtCommission.Size = new System.Drawing.Size(230, 22);
-            this.txtCommission.TabIndex = 1;
-            // 
-            // lblCommission
-            // 
-            this.lblCommission.AutoSize = true;
-            this.lblCommission.Location = new System.Drawing.Point(3, 7);
-            this.lblCommission.Name = "lblCommission";
-            this.lblCommission.Size = new System.Drawing.Size(87, 17);
-            this.lblCommission.TabIndex = 0;
-            this.lblCommission.Text = "Commission:";
-            // 
-            // panel7
-            // 
-            this.panel7.Controls.Add(this.btn);
-            this.panel7.Controls.Add(this.textBox3);
-            this.panel7.Controls.Add(this.lblPkgImage);
-            this.panel7.Location = new System.Drawing.Point(0, 292);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(353, 70);
-            this.panel7.TabIndex = 4;
-            // 
-            // btn
-            // 
-            this.btn.Location = new System.Drawing.Point(226, 33);
-            this.btn.Name = "btn";
-            this.btn.Size = new System.Drawing.Size(122, 31);
-            this.btn.TabIndex = 2;
-            this.btn.Text = "Select Image";
-            this.btn.UseVisualStyleBackColor = true;
-            // 
-            // textBox3
-            // 
-            this.textBox3.Location = new System.Drawing.Point(119, 4);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(230, 22);
-            this.textBox3.TabIndex = 1;
+            this.pbPkgImage.Location = new System.Drawing.Point(12, 21);
+            this.pbPkgImage.Name = "pbPkgImage";
+            this.pbPkgImage.Size = new System.Drawing.Size(715, 336);
+            this.pbPkgImage.TabIndex = 9;
+            this.pbPkgImage.TabStop = false;
             // 
             // lblPkgImage
             // 
             this.lblPkgImage.AutoSize = true;
-            this.lblPkgImage.Location = new System.Drawing.Point(3, 7);
+            this.lblPkgImage.Location = new System.Drawing.Point(15, 1);
             this.lblPkgImage.Name = "lblPkgImage";
             this.lblPkgImage.Size = new System.Drawing.Size(109, 17);
             this.lblPkgImage.TabIndex = 0;
             this.lblPkgImage.Text = "Package Image:";
             // 
-            // panel8
+            // panPkgImage
             // 
-            this.panel8.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel8.Controls.Add(this.btnDelete);
-            this.panel8.Controls.Add(this.btnAdd);
-            this.panel8.Controls.Add(this.lvPkgProductSuppliers);
-            this.panel8.Controls.Add(this.lblPkgProducts);
-            this.panel8.Location = new System.Drawing.Point(374, 80);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(353, 362);
-            this.panel8.TabIndex = 5;
+            this.panPkgImage.BackColor = System.Drawing.Color.White;
+            this.panPkgImage.Controls.Add(this.lblPkgImage);
+            this.panPkgImage.Controls.Add(this.btnImage);
+            this.panPkgImage.Controls.Add(this.pbPkgImage);
+            this.panPkgImage.Location = new System.Drawing.Point(0, 292);
+            this.panPkgImage.Name = "panPkgImage";
+            this.panPkgImage.Size = new System.Drawing.Size(739, 401);
+            this.panPkgImage.TabIndex = 10;
             // 
-            // btnDelete
+            // materialDivider1
             // 
-            this.btnDelete.Location = new System.Drawing.Point(98, 324);
-            this.btnDelete.Name = "btnDelete";
-            this.btnDelete.Size = new System.Drawing.Size(122, 31);
-            this.btnDelete.TabIndex = 4;
-            this.btnDelete.Text = "Delete Product";
-            this.btnDelete.UseVisualStyleBackColor = true;
+            this.materialDivider1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialDivider1.Depth = 0;
+            this.materialDivider1.Location = new System.Drawing.Point(0, 699);
+            this.materialDivider1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialDivider1.Name = "materialDivider1";
+            this.materialDivider1.Size = new System.Drawing.Size(748, 1);
+            this.materialDivider1.TabIndex = 10;
+            this.materialDivider1.Text = "mdivMainBtn";
             // 
-            // btnAdd
+            // panProdSup
             // 
-            this.btnAdd.Location = new System.Drawing.Point(226, 324);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(122, 31);
-            this.btnAdd.TabIndex = 3;
-            this.btnAdd.Text = "Add Product";
-            this.btnAdd.UseVisualStyleBackColor = true;
+            this.panProdSup.BackColor = System.Drawing.Color.White;
+            this.panProdSup.Controls.Add(this.materialDivider2);
+            this.panProdSup.Controls.Add(this.btnPSEdit);
+            this.panProdSup.Controls.Add(this.btnPSDelete);
+            this.panProdSup.Controls.Add(this.btnPSAdd);
+            this.panProdSup.Controls.Add(this.lvPkgProductSuppliers);
+            this.panProdSup.Controls.Add(this.lblPkgProducts);
+            this.panProdSup.Location = new System.Drawing.Point(374, 0);
+            this.panProdSup.Name = "panProdSup";
+            this.panProdSup.Size = new System.Drawing.Size(353, 286);
+            this.panProdSup.TabIndex = 5;
+            // 
+            // btnPSEdit
+            // 
+            this.btnPSEdit.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnPSEdit.Depth = 0;
+            this.btnPSEdit.Location = new System.Drawing.Point(126, 244);
+            this.btnPSEdit.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnPSEdit.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnPSEdit.Name = "btnPSEdit";
+            this.btnPSEdit.Primary = true;
+            this.btnPSEdit.Size = new System.Drawing.Size(112, 36);
+            this.btnPSEdit.TabIndex = 5;
+            this.btnPSEdit.Text = "Edit";
+            this.btnPSEdit.UseVisualStyleBackColor = true;
+            // 
+            // btnPSDelete
+            // 
+            this.btnPSDelete.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnPSDelete.Depth = 0;
+            this.btnPSDelete.Location = new System.Drawing.Point(6, 247);
+            this.btnPSDelete.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnPSDelete.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnPSDelete.Name = "btnPSDelete";
+            this.btnPSDelete.Primary = true;
+            this.btnPSDelete.Size = new System.Drawing.Size(112, 36);
+            this.btnPSDelete.TabIndex = 4;
+            this.btnPSDelete.Text = "Delete";
+            this.btnPSDelete.UseVisualStyleBackColor = true;
+            // 
+            // btnPSAdd
+            // 
+            this.btnPSAdd.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnPSAdd.Depth = 0;
+            this.btnPSAdd.Location = new System.Drawing.Point(236, 244);
+            this.btnPSAdd.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnPSAdd.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnPSAdd.Name = "btnPSAdd";
+            this.btnPSAdd.Primary = true;
+            this.btnPSAdd.Size = new System.Drawing.Size(112, 36);
+            this.btnPSAdd.TabIndex = 3;
+            this.btnPSAdd.Text = "Add";
+            this.btnPSAdd.UseVisualStyleBackColor = true;
+            this.btnPSAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // lvPkgProductSuppliers
             // 
+            this.lvPkgProductSuppliers.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.lvPkgProductSuppliers.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.colProdSup,
             this.colProdName,
             this.colSupName});
             this.lvPkgProductSuppliers.FullRowSelect = true;
-            this.lvPkgProductSuppliers.GridLines = true;
+            this.lvPkgProductSuppliers.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
+            this.lvPkgProductSuppliers.LabelEdit = true;
             this.lvPkgProductSuppliers.Location = new System.Drawing.Point(6, 28);
             this.lvPkgProductSuppliers.Name = "lvPkgProductSuppliers";
+            this.lvPkgProductSuppliers.Scrollable = false;
             this.lvPkgProductSuppliers.ShowGroups = false;
-            this.lvPkgProductSuppliers.Size = new System.Drawing.Size(342, 290);
+            this.lvPkgProductSuppliers.Size = new System.Drawing.Size(342, 214);
             this.lvPkgProductSuppliers.TabIndex = 1;
             this.lvPkgProductSuppliers.UseCompatibleStateImageBehavior = false;
             this.lvPkgProductSuppliers.View = System.Windows.Forms.View.Details;
@@ -393,151 +273,306 @@
             this.lblPkgProducts.AutoSize = true;
             this.lblPkgProducts.Location = new System.Drawing.Point(3, 7);
             this.lblPkgProducts.Name = "lblPkgProducts";
-            this.lblPkgProducts.Size = new System.Drawing.Size(127, 17);
+            this.lblPkgProducts.Size = new System.Drawing.Size(124, 17);
             this.lblPkgProducts.TabIndex = 0;
-            this.lblPkgProducts.Text = "Package Products:";
+            this.lblPkgProducts.Text = "Product Suppliers:";
             // 
-            // errorProvider1
+            // panFormGrp
             // 
-            this.errorProvider1.ContainerControl = this;
+            this.panFormGrp.BackColor = System.Drawing.Color.White;
+            this.panFormGrp.Controls.Add(this.txtPkgName);
+            this.panFormGrp.Controls.Add(this.panStartDate);
+            this.panFormGrp.Controls.Add(this.lblPkgName);
+            this.panFormGrp.Controls.Add(this.panDesc);
+            this.panFormGrp.Controls.Add(this.panEndDate);
+            this.panFormGrp.Controls.Add(this.panBasePrice);
+            this.panFormGrp.Controls.Add(this.panCommission);
+            this.panFormGrp.Location = new System.Drawing.Point(12, 0);
+            this.panFormGrp.Name = "panFormGrp";
+            this.panFormGrp.Size = new System.Drawing.Size(353, 286);
+            this.panFormGrp.TabIndex = 7;
             // 
-            // lblMessages
+            // panStartDate
             // 
-            this.lblMessages.Location = new System.Drawing.Point(15, 32);
-            this.lblMessages.Name = "lblMessages";
-            this.lblMessages.Size = new System.Drawing.Size(712, 30);
-            this.lblMessages.TabIndex = 6;
-            this.lblMessages.Text = "label2";
+            this.panStartDate.BackColor = System.Drawing.Color.White;
+            this.panStartDate.Controls.Add(this.dtpStartDate);
+            this.panStartDate.Controls.Add(this.lblStartDate);
+            this.panStartDate.Location = new System.Drawing.Point(0, 38);
+            this.panStartDate.Name = "panStartDate";
+            this.panStartDate.Size = new System.Drawing.Size(353, 32);
+            this.panStartDate.TabIndex = 2;
             // 
-            // btnAddModfy
+            // dtpStartDate
             // 
-            this.btnAddModfy.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAddModfy.Location = new System.Drawing.Point(590, 3);
-            this.btnAddModfy.Name = "btnAddModfy";
-            this.btnAddModfy.Size = new System.Drawing.Size(122, 31);
-            this.btnAddModfy.TabIndex = 6;
-            this.btnAddModfy.UseVisualStyleBackColor = true;
+            this.dtpStartDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpStartDate.Location = new System.Drawing.Point(118, 4);
+            this.dtpStartDate.Name = "dtpStartDate";
+            this.dtpStartDate.Size = new System.Drawing.Size(231, 22);
+            this.dtpStartDate.TabIndex = 1;
             // 
-            // btnCancel
+            // lblStartDate
             // 
-            this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCancel.Location = new System.Drawing.Point(462, 3);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(122, 31);
-            this.btnCancel.TabIndex = 5;
-            this.btnCancel.Text = "Cancel";
-            this.btnCancel.UseVisualStyleBackColor = true;
+            this.lblStartDate.AutoSize = true;
+            this.lblStartDate.Location = new System.Drawing.Point(3, 7);
+            this.lblStartDate.Name = "lblStartDate";
+            this.lblStartDate.Size = new System.Drawing.Size(76, 17);
+            this.lblStartDate.TabIndex = 0;
+            this.lblStartDate.Text = "Start Date:";
             // 
-            // panel9
+            // lblPkgName
             // 
-            this.panel9.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.lblPkgName.AutoSize = true;
+            this.lblPkgName.Location = new System.Drawing.Point(2, 7);
+            this.lblPkgName.Name = "lblPkgName";
+            this.lblPkgName.Size = new System.Drawing.Size(108, 17);
+            this.lblPkgName.TabIndex = 0;
+            this.lblPkgName.Text = "Package Name:";
+            // 
+            // panDesc
+            // 
+            this.panDesc.BackColor = System.Drawing.Color.White;
+            this.panDesc.Controls.Add(this.txtDesc);
+            this.panDesc.Controls.Add(this.lblDesc);
+            this.panDesc.Location = new System.Drawing.Point(0, 114);
+            this.panDesc.Name = "panDesc";
+            this.panDesc.Size = new System.Drawing.Size(353, 96);
+            this.panDesc.TabIndex = 4;
+            // 
+            // txtDesc
+            // 
+            this.txtDesc.Location = new System.Drawing.Point(118, 7);
+            this.txtDesc.MaxLength = 50;
+            this.txtDesc.Multiline = true;
+            this.txtDesc.Name = "txtDesc";
+            this.txtDesc.Size = new System.Drawing.Size(230, 82);
+            this.txtDesc.TabIndex = 1;
+            // 
+            // lblDesc
+            // 
+            this.lblDesc.AutoSize = true;
+            this.lblDesc.Location = new System.Drawing.Point(3, 7);
+            this.lblDesc.Name = "lblDesc";
+            this.lblDesc.Size = new System.Drawing.Size(83, 17);
+            this.lblDesc.TabIndex = 0;
+            this.lblDesc.Text = "Description:";
+            // 
+            // panEndDate
+            // 
+            this.panEndDate.BackColor = System.Drawing.Color.White;
+            this.panEndDate.Controls.Add(this.dtpEndDate);
+            this.panEndDate.Controls.Add(this.lblEndDate);
+            this.panEndDate.Location = new System.Drawing.Point(0, 76);
+            this.panEndDate.Name = "panEndDate";
+            this.panEndDate.Size = new System.Drawing.Size(353, 32);
+            this.panEndDate.TabIndex = 3;
+            // 
+            // dtpEndDate
+            // 
+            this.dtpEndDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpEndDate.Location = new System.Drawing.Point(118, 4);
+            this.dtpEndDate.Name = "dtpEndDate";
+            this.dtpEndDate.Size = new System.Drawing.Size(230, 22);
+            this.dtpEndDate.TabIndex = 1;
+            // 
+            // lblEndDate
+            // 
+            this.lblEndDate.AutoSize = true;
+            this.lblEndDate.Location = new System.Drawing.Point(3, 7);
+            this.lblEndDate.Name = "lblEndDate";
+            this.lblEndDate.Size = new System.Drawing.Size(71, 17);
+            this.lblEndDate.TabIndex = 0;
+            this.lblEndDate.Text = "End Date:";
+            // 
+            // panBasePrice
+            // 
+            this.panBasePrice.BackColor = System.Drawing.Color.White;
+            this.panBasePrice.Controls.Add(this.txtBasePrice);
+            this.panBasePrice.Controls.Add(this.lblBasePrice);
+            this.panBasePrice.Location = new System.Drawing.Point(0, 216);
+            this.panBasePrice.Name = "panBasePrice";
+            this.panBasePrice.Size = new System.Drawing.Size(353, 32);
+            this.panBasePrice.TabIndex = 2;
+            // 
+            // txtBasePrice
+            // 
+            this.txtBasePrice.Location = new System.Drawing.Point(119, 4);
+            this.txtBasePrice.MaxLength = 10;
+            this.txtBasePrice.Name = "txtBasePrice";
+            this.txtBasePrice.Size = new System.Drawing.Size(230, 22);
+            this.txtBasePrice.TabIndex = 1;
+            // 
+            // lblBasePrice
+            // 
+            this.lblBasePrice.AutoSize = true;
+            this.lblBasePrice.Location = new System.Drawing.Point(3, 7);
+            this.lblBasePrice.Name = "lblBasePrice";
+            this.lblBasePrice.Size = new System.Drawing.Size(80, 17);
+            this.lblBasePrice.TabIndex = 0;
+            this.lblBasePrice.Text = "Base Price:";
+            // 
+            // panCommission
+            // 
+            this.panCommission.BackColor = System.Drawing.Color.White;
+            this.panCommission.Controls.Add(this.txtCommission);
+            this.panCommission.Controls.Add(this.lblCommission);
+            this.panCommission.Location = new System.Drawing.Point(0, 254);
+            this.panCommission.Name = "panCommission";
+            this.panCommission.Size = new System.Drawing.Size(353, 32);
+            this.panCommission.TabIndex = 3;
+            // 
+            // txtCommission
+            // 
+            this.txtCommission.Location = new System.Drawing.Point(119, 4);
+            this.txtCommission.MaxLength = 12;
+            this.txtCommission.Name = "txtCommission";
+            this.txtCommission.Size = new System.Drawing.Size(230, 22);
+            this.txtCommission.TabIndex = 1;
+            // 
+            // lblCommission
+            // 
+            this.lblCommission.AutoSize = true;
+            this.lblCommission.Location = new System.Drawing.Point(3, 7);
+            this.lblCommission.Name = "lblCommission";
+            this.lblCommission.Size = new System.Drawing.Size(87, 17);
+            this.lblCommission.TabIndex = 0;
+            this.lblCommission.Text = "Commission:";
+            // 
+            // panForm
+            // 
+            this.panForm.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.panel9.Controls.Add(this.panel1);
-            this.panel9.Controls.Add(this.panel2);
-            this.panel9.Controls.Add(this.panel4);
-            this.panel9.Controls.Add(this.panel3);
-            this.panel9.Controls.Add(this.panel5);
-            this.panel9.Controls.Add(this.panel7);
-            this.panel9.Controls.Add(this.panel6);
-            this.panel9.Location = new System.Drawing.Point(12, 80);
-            this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(353, 362);
-            this.panel9.TabIndex = 7;
+            this.panForm.BackColor = System.Drawing.Color.White;
+            this.panForm.Controls.Add(this.panFormGrp);
+            this.panForm.Controls.Add(this.panPkgImage);
+            this.panForm.Controls.Add(this.panProdSup);
+            this.panForm.Location = new System.Drawing.Point(0, 3);
+            this.panForm.Name = "panForm";
+            this.panForm.Size = new System.Drawing.Size(742, 696);
+            this.panForm.TabIndex = 11;
             // 
-            // flowLayoutPanel1
+            // panMain
             // 
-            this.flowLayoutPanel1.Controls.Add(this.btnAddModfy);
-            this.flowLayoutPanel1.Controls.Add(this.btnCancel);
-            this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(12, 475);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(715, 37);
-            this.flowLayoutPanel1.TabIndex = 8;
+            this.panMain.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panMain.BackColor = System.Drawing.Color.White;
+            this.panMain.Controls.Add(this.materialDivider1);
+            this.panMain.Controls.Add(this.panDock);
+            this.panMain.Controls.Add(this.fpanButtons);
+            this.panMain.Controls.Add(this.panForm);
+            this.panMain.Location = new System.Drawing.Point(-1, 63);
+            this.panMain.Name = "panMain";
+            this.panMain.Size = new System.Drawing.Size(745, 743);
+            this.panMain.TabIndex = 12;
+            // 
+            // panDock
+            // 
+            this.panDock.BackColor = System.Drawing.Color.White;
+            this.panDock.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panDock.Location = new System.Drawing.Point(745, 0);
+            this.panDock.Name = "panDock";
+            this.panDock.Size = new System.Drawing.Size(0, 743);
+            this.panDock.TabIndex = 11;
+            // 
+            // materialDivider2
+            // 
+            this.materialDivider2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialDivider2.Depth = 0;
+            this.materialDivider2.Location = new System.Drawing.Point(0, 244);
+            this.materialDivider2.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialDivider2.Name = "materialDivider2";
+            this.materialDivider2.Size = new System.Drawing.Size(353, 1);
+            this.materialDivider2.TabIndex = 6;
+            this.materialDivider2.Text = "materialDivider2";
+            // 
+            // txtPkgName
+            // 
+            this.txtPkgName.Depth = 0;
+            this.txtPkgName.Hint = "";
+            this.txtPkgName.Location = new System.Drawing.Point(118, 4);
+            this.txtPkgName.MouseState = MaterialSkin.MouseState.HOVER;
+            this.txtPkgName.Name = "txtPkgName";
+            this.txtPkgName.PasswordChar = '\0';
+            this.txtPkgName.SelectedText = "";
+            this.txtPkgName.SelectionLength = 0;
+            this.txtPkgName.SelectionStart = 0;
+            this.txtPkgName.Size = new System.Drawing.Size(230, 28);
+            this.txtPkgName.TabIndex = 1;
+            this.txtPkgName.UseSystemPasswordChar = false;
+            this.txtPkgName.Leave += new System.EventHandler(this.txtPkgName_Leave);
+            this.txtPkgName.TextChanged += new System.EventHandler(this.txtPkgName_TextChanged);
             // 
             // frmPkgAddModify
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(739, 537);
-            this.Controls.Add(this.flowLayoutPanel1);
-            this.Controls.Add(this.panel9);
-            this.Controls.Add(this.lblMessages);
-            this.Controls.Add(this.panel8);
-            this.Controls.Add(this.statusStrip);
-            this.Controls.Add(this.menuStrip1);
-            this.MainMenuStrip = this.menuStrip1;
+            this.ClientSize = new System.Drawing.Size(745, 805);
+            this.Controls.Add(this.panMain);
             this.Name = "frmPkgAddModify";
             this.Load += new System.EventHandler(this.Form1_Load);
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
-            this.panel4.ResumeLayout(false);
-            this.panel4.PerformLayout();
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
-            this.panel5.ResumeLayout(false);
-            this.panel5.PerformLayout();
-            this.panel6.ResumeLayout(false);
-            this.panel6.PerformLayout();
-            this.panel7.ResumeLayout(false);
-            this.panel7.PerformLayout();
-            this.panel8.ResumeLayout(false);
-            this.panel8.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
-            this.panel9.ResumeLayout(false);
-            this.flowLayoutPanel1.ResumeLayout(false);
+            this.fpanButtons.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pbPkgImage)).EndInit();
+            this.panPkgImage.ResumeLayout(false);
+            this.panPkgImage.PerformLayout();
+            this.panProdSup.ResumeLayout(false);
+            this.panProdSup.PerformLayout();
+            this.panFormGrp.ResumeLayout(false);
+            this.panFormGrp.PerformLayout();
+            this.panStartDate.ResumeLayout(false);
+            this.panStartDate.PerformLayout();
+            this.panDesc.ResumeLayout(false);
+            this.panDesc.PerformLayout();
+            this.panEndDate.ResumeLayout(false);
+            this.panEndDate.PerformLayout();
+            this.panBasePrice.ResumeLayout(false);
+            this.panBasePrice.PerformLayout();
+            this.panCommission.ResumeLayout(false);
+            this.panCommission.PerformLayout();
+            this.panForm.ResumeLayout(false);
+            this.panMain.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TextBox txtPkgName;
-        private System.Windows.Forms.Label lblPkgName;
-        private System.Windows.Forms.DateTimePicker dtpStartDate;
-        private System.Windows.Forms.Label lblStartDate;
-        private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem saveAsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem closeToolStripMenuItem;
-        private System.Windows.Forms.StatusStrip statusStrip;
-        private System.Windows.Forms.Panel panel4;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.DateTimePicker dtpEndDate;
-        private System.Windows.Forms.Label lblEndDate;
-        private System.Windows.Forms.Panel panel3;
-        private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.TextBox txtBasePrice;
-        private System.Windows.Forms.Label lblBasePrice;
-        private System.Windows.Forms.Panel panel6;
-        private System.Windows.Forms.TextBox txtCommission;
-        private System.Windows.Forms.Label lblCommission;
-        private System.Windows.Forms.Panel panel7;
-        private System.Windows.Forms.Button btn;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.Label lblPkgImage;
-        private System.Windows.Forms.Panel panel8;
-        private System.Windows.Forms.Button btnDelete;
-        private System.Windows.Forms.Button btnAdd;
-        private System.Windows.Forms.ListView lvPkgProductSuppliers;
-        private System.Windows.Forms.Label lblPkgProducts;
-        private System.Windows.Forms.ErrorProvider errorProvider1;
-        private System.Windows.Forms.Label lblMessages;
-        private System.Windows.Forms.ToolTip toolTip1;
-        private System.Windows.Forms.ColumnHeader colProdSup;
-        private System.Windows.Forms.ColumnHeader colProdName;
-        private System.Windows.Forms.ColumnHeader colSupName;
-        private System.Windows.Forms.Button btnAddModfy;
+        private System.Windows.Forms.Button btnAddModify;
         private System.Windows.Forms.Button btnCancel;
-        private System.Windows.Forms.Panel panel9;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.FlowLayoutPanel fpanButtons;
+        private System.Windows.Forms.OpenFileDialog ofdImage;
+        private System.Windows.Forms.PictureBox pbPkgImage;
+        private System.Windows.Forms.Label lblPkgImage;
+        private System.Windows.Forms.Panel panPkgImage;
+        private System.Windows.Forms.Label lblPkgProducts;
+        private System.Windows.Forms.ColumnHeader colSupName;
+        private System.Windows.Forms.ColumnHeader colProdName;
+        private System.Windows.Forms.ColumnHeader colProdSup;
+        private System.Windows.Forms.ListView lvPkgProductSuppliers;
+        private MaterialFlatButton btnPSAdd;
+        private MaterialFlatButton btnPSDelete;
+        private MaterialFlatButton btnPSEdit;
+        private System.Windows.Forms.Panel panProdSup;
+        private System.Windows.Forms.Label lblCommission;
+        private System.Windows.Forms.TextBox txtCommission;
+        private System.Windows.Forms.Panel panCommission;
+        private System.Windows.Forms.Label lblBasePrice;
+        private System.Windows.Forms.TextBox txtBasePrice;
+        private System.Windows.Forms.Panel panBasePrice;
+        private System.Windows.Forms.Label lblEndDate;
+        private System.Windows.Forms.DateTimePicker dtpEndDate;
+        private System.Windows.Forms.Panel panEndDate;
+        private System.Windows.Forms.Label lblDesc;
+        private System.Windows.Forms.TextBox txtDesc;
+        private System.Windows.Forms.Panel panDesc;
+        private System.Windows.Forms.Label lblStartDate;
+        private System.Windows.Forms.DateTimePicker dtpStartDate;
+        private System.Windows.Forms.Panel panStartDate;
+        private System.Windows.Forms.Panel panFormGrp;
+        private System.Windows.Forms.Label lblPkgName;
+        private MaterialSkin.Controls.MaterialComboBox txtPkgName;
+        private System.Windows.Forms.Panel panForm;
+        private System.Windows.Forms.Panel panMain;
+        private System.Windows.Forms.Panel panDock;
+        private MaterialFlatButton btnImage;
+        private MaterialDivider materialDivider1;
+        private MaterialDivider materialDivider2;
     }
 }

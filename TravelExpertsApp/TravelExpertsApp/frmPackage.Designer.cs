@@ -67,9 +67,10 @@
             // 
             // txtPackageId
             // 
-            this.txtPackageId.Location = new System.Drawing.Point(139, 80);
+            this.txtPackageId.Location = new System.Drawing.Point(185, 98);
+            this.txtPackageId.Margin = new System.Windows.Forms.Padding(4);
             this.txtPackageId.Name = "txtPackageId";
-            this.txtPackageId.Size = new System.Drawing.Size(67, 20);
+            this.txtPackageId.Size = new System.Drawing.Size(88, 22);
             this.txtPackageId.TabIndex = 0;
             // 
             // label1
@@ -77,9 +78,10 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(21, 81);
+            this.label1.Location = new System.Drawing.Point(28, 100);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(93, 16);
+            this.label1.Size = new System.Drawing.Size(111, 20);
             this.label1.TabIndex = 1;
             this.label1.Text = "Package ID:";
             // 
@@ -98,108 +100,122 @@
             this.gbPackageDetail.Controls.Add(this.lblPkgDesc);
             this.gbPackageDetail.Controls.Add(this.lblPkgName);
             this.gbPackageDetail.Controls.Add(this.txtPkgName);
-            this.gbPackageDetail.Location = new System.Drawing.Point(14, 112);
+            this.gbPackageDetail.Location = new System.Drawing.Point(19, 138);
+            this.gbPackageDetail.Margin = new System.Windows.Forms.Padding(4);
             this.gbPackageDetail.Name = "gbPackageDetail";
-            this.gbPackageDetail.Size = new System.Drawing.Size(279, 274);
+            this.gbPackageDetail.Padding = new System.Windows.Forms.Padding(4);
+            this.gbPackageDetail.Size = new System.Drawing.Size(372, 337);
             this.gbPackageDetail.TabIndex = 2;
             this.gbPackageDetail.TabStop = false;
             this.gbPackageDetail.Text = "Package Detail";
             // 
             // rtxtPkgDesc
             // 
-            this.rtxtPkgDesc.Location = new System.Drawing.Point(125, 70);
+            this.rtxtPkgDesc.Location = new System.Drawing.Point(167, 86);
+            this.rtxtPkgDesc.Margin = new System.Windows.Forms.Padding(4);
             this.rtxtPkgDesc.Name = "rtxtPkgDesc";
-            this.rtxtPkgDesc.Size = new System.Drawing.Size(132, 41);
+            this.rtxtPkgDesc.Size = new System.Drawing.Size(175, 50);
             this.rtxtPkgDesc.TabIndex = 26;
             this.rtxtPkgDesc.Text = "";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(12, 240);
+            this.label6.Location = new System.Drawing.Point(16, 295);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(104, 13);
+            this.label6.Size = new System.Drawing.Size(138, 17);
             this.label6.TabIndex = 25;
             this.label6.Text = "Agency Commission:";
             // 
             // txtPkgAgencyCommission
             // 
-            this.txtPkgAgencyCommission.Location = new System.Drawing.Point(125, 237);
+            this.txtPkgAgencyCommission.Location = new System.Drawing.Point(167, 292);
+            this.txtPkgAgencyCommission.Margin = new System.Windows.Forms.Padding(4);
             this.txtPkgAgencyCommission.Name = "txtPkgAgencyCommission";
-            this.txtPkgAgencyCommission.Size = new System.Drawing.Size(77, 20);
+            this.txtPkgAgencyCommission.Size = new System.Drawing.Size(101, 22);
             this.txtPkgAgencyCommission.TabIndex = 24;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(55, 204);
+            this.label7.Location = new System.Drawing.Point(73, 251);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(61, 13);
+            this.label7.Size = new System.Drawing.Size(80, 17);
             this.label7.TabIndex = 23;
             this.label7.Text = "Base Price:";
             // 
             // txtPkgBasePrice
             // 
-            this.txtPkgBasePrice.Location = new System.Drawing.Point(125, 201);
+            this.txtPkgBasePrice.Location = new System.Drawing.Point(167, 247);
+            this.txtPkgBasePrice.Margin = new System.Windows.Forms.Padding(4);
             this.txtPkgBasePrice.Name = "txtPkgBasePrice";
-            this.txtPkgBasePrice.Size = new System.Drawing.Size(77, 20);
+            this.txtPkgBasePrice.Size = new System.Drawing.Size(101, 22);
             this.txtPkgBasePrice.TabIndex = 22;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(15, 167);
+            this.label4.Location = new System.Drawing.Point(20, 206);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(101, 13);
+            this.label4.Size = new System.Drawing.Size(130, 17);
             this.label4.TabIndex = 21;
             this.label4.Text = "Package End Date:";
             // 
             // txtPkgEndDate
             // 
-            this.txtPkgEndDate.Location = new System.Drawing.Point(125, 164);
+            this.txtPkgEndDate.Location = new System.Drawing.Point(167, 202);
+            this.txtPkgEndDate.Margin = new System.Windows.Forms.Padding(4);
             this.txtPkgEndDate.Name = "txtPkgEndDate";
-            this.txtPkgEndDate.Size = new System.Drawing.Size(132, 20);
+            this.txtPkgEndDate.Size = new System.Drawing.Size(175, 22);
             this.txtPkgEndDate.TabIndex = 20;
             // 
             // lblPkg
             // 
             this.lblPkg.AutoSize = true;
-            this.lblPkg.Location = new System.Drawing.Point(12, 131);
+            this.lblPkg.Location = new System.Drawing.Point(16, 161);
+            this.lblPkg.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPkg.Name = "lblPkg";
-            this.lblPkg.Size = new System.Drawing.Size(104, 13);
+            this.lblPkg.Size = new System.Drawing.Size(135, 17);
             this.lblPkg.TabIndex = 19;
             this.lblPkg.Text = "Package Start Date:";
             // 
             // txtPkgStartDate
             // 
-            this.txtPkgStartDate.Location = new System.Drawing.Point(125, 128);
+            this.txtPkgStartDate.Location = new System.Drawing.Point(167, 158);
+            this.txtPkgStartDate.Margin = new System.Windows.Forms.Padding(4);
             this.txtPkgStartDate.Name = "txtPkgStartDate";
-            this.txtPkgStartDate.Size = new System.Drawing.Size(132, 20);
+            this.txtPkgStartDate.Size = new System.Drawing.Size(175, 22);
             this.txtPkgStartDate.TabIndex = 18;
             // 
             // lblPkgDesc
             // 
             this.lblPkgDesc.AutoSize = true;
-            this.lblPkgDesc.Location = new System.Drawing.Point(7, 70);
+            this.lblPkgDesc.Location = new System.Drawing.Point(9, 86);
+            this.lblPkgDesc.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPkgDesc.Name = "lblPkgDesc";
-            this.lblPkgDesc.Size = new System.Drawing.Size(109, 13);
+            this.lblPkgDesc.Size = new System.Drawing.Size(142, 17);
             this.lblPkgDesc.TabIndex = 17;
             this.lblPkgDesc.Text = "Package Description:";
             // 
             // lblPkgName
             // 
             this.lblPkgName.AutoSize = true;
-            this.lblPkgName.Location = new System.Drawing.Point(32, 34);
+            this.lblPkgName.Location = new System.Drawing.Point(43, 42);
+            this.lblPkgName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblPkgName.Name = "lblPkgName";
-            this.lblPkgName.Size = new System.Drawing.Size(84, 13);
+            this.lblPkgName.Size = new System.Drawing.Size(108, 17);
             this.lblPkgName.TabIndex = 15;
             this.lblPkgName.Text = "Package Name:";
             // 
             // txtPkgName
             // 
-            this.txtPkgName.Location = new System.Drawing.Point(125, 31);
+            this.txtPkgName.Location = new System.Drawing.Point(167, 38);
+            this.txtPkgName.Margin = new System.Windows.Forms.Padding(4);
             this.txtPkgName.Name = "txtPkgName";
-            this.txtPkgName.Size = new System.Drawing.Size(132, 20);
+            this.txtPkgName.Size = new System.Drawing.Size(175, 22);
             this.txtPkgName.TabIndex = 14;
             // 
             // travelExpertsDataSet1
@@ -210,11 +226,12 @@
             // btnSearch
             // 
             this.btnSearch.Depth = 0;
-            this.btnSearch.Location = new System.Drawing.Point(218, 78);
+            this.btnSearch.Location = new System.Drawing.Point(291, 96);
+            this.btnSearch.Margin = new System.Windows.Forms.Padding(4);
             this.btnSearch.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnSearch.Name = "btnSearch";
             this.btnSearch.Primary = true;
-            this.btnSearch.Size = new System.Drawing.Size(75, 23);
+            this.btnSearch.Size = new System.Drawing.Size(100, 28);
             this.btnSearch.TabIndex = 9;
             this.btnSearch.Text = "search";
             this.btnSearch.UseVisualStyleBackColor = true;
@@ -223,11 +240,12 @@
             // btnAdd
             // 
             this.btnAdd.Depth = 0;
-            this.btnAdd.Location = new System.Drawing.Point(14, 407);
+            this.btnAdd.Location = new System.Drawing.Point(19, 501);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(4);
             this.btnAdd.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Primary = true;
-            this.btnAdd.Size = new System.Drawing.Size(75, 23);
+            this.btnAdd.Size = new System.Drawing.Size(100, 28);
             this.btnAdd.TabIndex = 10;
             this.btnAdd.Text = "Add";
             this.btnAdd.UseVisualStyleBackColor = true;
@@ -237,11 +255,12 @@
             // 
             this.btnUpdate.Depth = 0;
             this.btnUpdate.Enabled = false;
-            this.btnUpdate.Location = new System.Drawing.Point(116, 407);
+            this.btnUpdate.Location = new System.Drawing.Point(155, 501);
+            this.btnUpdate.Margin = new System.Windows.Forms.Padding(4);
             this.btnUpdate.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Primary = true;
-            this.btnUpdate.Size = new System.Drawing.Size(75, 23);
+            this.btnUpdate.Size = new System.Drawing.Size(100, 28);
             this.btnUpdate.TabIndex = 11;
             this.btnUpdate.Text = "Update";
             this.btnUpdate.UseVisualStyleBackColor = true;
@@ -251,11 +270,12 @@
             // 
             this.btnDelete.Depth = 0;
             this.btnDelete.Enabled = false;
-            this.btnDelete.Location = new System.Drawing.Point(218, 407);
+            this.btnDelete.Location = new System.Drawing.Point(291, 501);
+            this.btnDelete.Margin = new System.Windows.Forms.Padding(4);
             this.btnDelete.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Primary = true;
-            this.btnDelete.Size = new System.Drawing.Size(75, 23);
+            this.btnDelete.Size = new System.Drawing.Size(100, 28);
             this.btnDelete.TabIndex = 12;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = true;
@@ -266,12 +286,12 @@
             this.btnXML.AutoSize = true;
             this.btnXML.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btnXML.Depth = 0;
-            this.btnXML.Location = new System.Drawing.Point(922, 394);
-            this.btnXML.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnXML.Location = new System.Drawing.Point(1229, 485);
+            this.btnXML.Margin = new System.Windows.Forms.Padding(5, 7, 5, 7);
             this.btnXML.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnXML.Name = "btnXML";
-            this.btnXML.Primary = false;
-            this.btnXML.Size = new System.Drawing.Size(99, 36);
+            this.btnXML.Primary = true;
+            this.btnXML.Size = new System.Drawing.Size(122, 36);
             this.btnXML.TabIndex = 13;
             this.btnXML.Text = "Save to XML";
             this.btnXML.UseVisualStyleBackColor = true;
@@ -335,19 +355,20 @@
             this.columnHeader6,
             this.columnHeader7,
             this.columnHeader8});
-            this.lsvPackage_Supplier.Location = new System.Drawing.Point(304, 81);
+            this.lsvPackage_Supplier.Location = new System.Drawing.Point(405, 100);
+            this.lsvPackage_Supplier.Margin = new System.Windows.Forms.Padding(4);
             this.lsvPackage_Supplier.Name = "lsvPackage_Supplier";
-            this.lsvPackage_Supplier.Size = new System.Drawing.Size(717, 305);
+            this.lsvPackage_Supplier.Size = new System.Drawing.Size(955, 374);
             this.lsvPackage_Supplier.TabIndex = 7;
             this.lsvPackage_Supplier.UseCompatibleStateImageBehavior = false;
             this.lsvPackage_Supplier.View = System.Windows.Forms.View.Details;
             // 
             // frmPackage
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(1032, 438);
+            this.ClientSize = new System.Drawing.Size(1376, 539);
             this.Controls.Add(this.btnXML);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnUpdate);
@@ -358,6 +379,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtPackageId);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmPackage";
             this.Text = "Package Report";
             this.Load += new System.EventHandler(this.frmPackage_Load);
@@ -385,7 +407,6 @@
         private System.Windows.Forms.TextBox txtPkgStartDate;
         private System.Windows.Forms.Label lblPkgDesc;
         private System.Windows.Forms.Label lblPkgName;
-        private System.Windows.Forms.TextBox txtPkgName;
         private System.Windows.Forms.ToolTip ttpPackage;
         private TravelExpertsDB.TravelExpertsDataSet travelExpertsDataSet1;
         private MaterialSkin.Controls.MaterialRaisedButton btnSearch;
@@ -402,5 +423,6 @@
         private System.Windows.Forms.ColumnHeader columnHeader7;
         private System.Windows.Forms.ColumnHeader columnHeader8;
         private System.Windows.Forms.ListView lsvPackage_Supplier;
+        private System.Windows.Forms.TextBox txtPkgName;
     }
 }

@@ -10,6 +10,48 @@ namespace TravelExpertsDB
 {
     public static class ProductSupplierTable
     {
+        public static List<ProductSupplier> GetAllProductSuppliers()
+        {
+            List<ProductSupplier> prodSups = new List<ProductSupplier>();
+            SqlConnection connection = TravelExpertsCommon.GetConnection();
+            string selectString = "SELECT ps.ProductSupplierId, p.ProductId, ProdName, s.SupplierId, SupName " +
+                                  "FROM Products_Suppliers ps, Products p, Suppliers s " +
+                                  "WHERE ps.SupplierId = s.SupplierId " +
+                                  "AND ps.ProductId = p.ProductId";
+            SqlCommand selectCommand = new SqlCommand(selectString, connection);
+
+            //Using will auto close the connection once the block is ended
+            using (connection)
+            {
+                //try in case of errors and re-throw them to the UI
+                try
+                {
+                    connection.Open();
+                    SqlDataReader reader = selectCommand.ExecuteReader();
+                    while (reader.Read())
+                    {
+                        ProductSupplier prodSup = new ProductSupplier();
+                        Product product = new Product();
+                        Supplier supplier = new Supplier();
+                        prodSup.ProductSupplierId = (int)reader["ProductSupplierId"];
+                        product.ProductId = (int)reader["ProductId"];
+                        product.ProdName = reader["ProdName"].ToString();
+                        supplier.SupplierId = (int)reader["SupplierId"];
+                        supplier.SupName = reader["SupName"].ToString();
+                        //Add the new product supplier to the package
+                        prodSup.MyProduct = product;
+                        prodSup.MySupplier = supplier;
+                        prodSups.Add(prodSup);
+                    }
+                    return prodSups;
+                }
+                catch (Exception ex) //catch all exceptions and re-throw them
+                {
+                    throw ex;
+                }
+            }   //end of the using statement
+        }
+
         public static void GetProductSuppliers(Package package)
         {
 
@@ -36,12 +78,16 @@ namespace TravelExpertsDB
                     while (reader.Read())
                     {
                         ProductSupplier prodSup = new ProductSupplier();
+                        Product product = new Product();
+                        Supplier supplier = new Supplier();
                         prodSup.ProductSupplierId = (int)reader["ProductSupplierId"];
-                        prodSup.ProductId = (int)reader["ProductId"];
-                        prodSup.SupplierId = (int)reader["SupplierId"];
-                        prodSup.ProdName = reader["ProdName"].ToString();
-                        prodSup.SupName = reader["SupName"].ToString();
+                        product.ProductId = (int)reader["ProductId"];
+                        product.ProdName = reader["ProdName"].ToString();
+                        supplier.SupplierId = (int)reader["SupplierId"];
+                        supplier.SupName = reader["SupName"].ToString();
                         //Add the new product supplier to the package
+                        prodSup.MyProduct = product;
+                        prodSup.MySupplier = supplier;
                         package.PkgProductSuppliers.Add(prodSup);
                     }
                     reader.Close();

@@ -151,20 +151,21 @@ namespace TravelExpertsDB
             SqlConnection connection = TravelExpertsCommon.GetConnection();
             string updateStatement = "UPDATE Packages " +
                                      "SET PkgName = @NewPkgName, " +
-                                     "    PkgDesc = @NewPkgDesc, " +
-                                     "    PkgStartDate = @NewPkgStartDate, " +
-                                     "    PkgEndDate = @NewPkgEndDate, " +
-                                     "    PkgBasePrice = @NewPkgBasePrice, " +
-                                     "    PkgAgencyCommission = @NewPkgAgencyCommission " +
-                                     "    PkgImage = @NewPkgImage " +
+                                     "PkgDesc = @NewPkgDesc, " +
+                                     "PkgStartDate = @NewPkgStartDate, " +
+                                     "PkgEndDate = @NewPkgEndDate, " +
+                                     "PkgBasePrice = @NewPkgBasePrice, " +
+                                     "PkgAgencyCommission = @NewPkgAgencyCommission, " +
+                                     "PkgImage = @NewPkgImage " +
                                      "WHERE PackageId = @PackageId " +
-                                     "  AND PkgName = @OldPkgName " +
-                                     "  AND PkgDesc = @OldPkgDesc " +
-                                     "  AND PkgStartDate = @OldPkgStartDate " +
-                                     "  AND PkgEndDate = @OldPkgEndDate " +
-                                     "  AND PkgBasePrice = @OldPkgBasePrice " +
-                                     "  AND PkgAgencyCommission = @OldPkgAgencyCommission " +
-                                     "  AND PkgImage = @OldImage";
+                                     "AND PkgName = @OldPkgName " +
+                                     "AND PkgDesc = @OldPkgDesc " +
+                                     "AND PkgStartDate = @OldPkgStartDate " +
+                                     "AND PkgEndDate = @OldPkgEndDate " +
+                                     "AND PkgBasePrice = @OldPkgBasePrice " +
+                                     "AND PkgAgencyCommission = @OldPkgAgencyCommission " +
+                                     "AND (PkgImage = @OldPkgImage "  +
+                                     "OR @OldPkgImage IS NULL AND PkgImage IS NULL)";
 
             SqlCommand updateCommand = new SqlCommand(updateStatement, connection);
             updateCommand.Parameters.AddWithValue("@OldPkgName", oldPack.PkgName);
@@ -173,7 +174,14 @@ namespace TravelExpertsDB
             updateCommand.Parameters.AddWithValue("@OldPkgEndDate", oldPack.PkgEndDate);
             updateCommand.Parameters.AddWithValue("@OldPkgBasePrice", oldPack.PkgBasePrice);
             updateCommand.Parameters.AddWithValue("@OldPkgAgencyCommission", oldPack.PkgAgencyCommission);
-            updateCommand.Parameters.AddWithValue("@OldPkgImage", oldPack.PkgImage);
+            if ( oldPack.PkgImage == null )
+            {
+                updateCommand.Parameters.AddWithValue("@OldPkgImage", DBNull.Value);
+            }
+            else
+            {
+                updateCommand.Parameters.AddWithValue("@OldPkgImage", oldPack.PkgImage);
+            }
             updateCommand.Parameters.AddWithValue("@PackageId", oldPack.PackageId);
             updateCommand.Parameters.AddWithValue("@NewPkgName", newPack.PkgName);
             updateCommand.Parameters.AddWithValue("@NewPkgDesc", newPack.PkgDesc);
@@ -182,17 +190,14 @@ namespace TravelExpertsDB
             updateCommand.Parameters.AddWithValue("@NewPkgBasePrice", newPack.PkgBasePrice);
             updateCommand.Parameters.AddWithValue("@NewPkgAgencyCommission", newPack.PkgAgencyCommission);
             updateCommand.Parameters.AddWithValue("@NewPkgImage", newPack.PkgImage);
+
             try
             {
                 connection.Open();
                 int indicator = updateCommand.ExecuteNonQuery();
                 if (indicator > 0)
                 {
-                    string selectStatement = "SELECT IDENT_CURRENT('Packages') " +
-                          "FROM Packages";
-                    SqlCommand selectCommand = new SqlCommand(selectStatement, connection);
-                    int packageId = int.Parse(selectCommand.ExecuteScalar().ToString()); //first col of the row is selected
-                    return packageId;
+                    return oldPack.PackageId;
                 }
                 else
                 {

@@ -3,19 +3,24 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using EntityLayer;
+using MaterialSkin;
+using MaterialSkin.Controls;
 using TravelExpertsDB;
+using Validation;
 
 namespace TravelExpertsApp
 {
-    public partial class frmPkgAddModify : Form
+    public partial class frmPkgAddModify : MaterialForm
     {
         private PackageList packages;
-        private Package activePackage;
+        public Package ActivePackage;
+        public bool Add;
 
         public frmPkgAddModify()
         {
@@ -24,16 +29,52 @@ namespace TravelExpertsApp
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            //Dock myDock = new Dock();
+            //this.panDock.Controls.Add(myDock);
+            //myDock.Dock = DockStyle.Fill;
+
             packages = PackagesTable.GetAllPackages();
-            activePackage = packages[0];
-            ProductSupplierTable.GetProductSuppliers(activePackage);
-            int i = 0;
-            foreach (ProductSupplier productsupplier in activePackage.PkgProductSuppliers)
+            if ( !Add )
             {
-                lvPkgProductSuppliers.Items.Add(productsupplier.ProductSupplierId.ToString());
-                lvPkgProductSuppliers.Items[i].SubItems.Add(productsupplier.ProdName.ToString());
-                lvPkgProductSuppliers.Items[i].SubItems.Add(productsupplier.SupName.ToString());
-                i++;
+                ProductSupplierTable.GetProductSuppliers(ActivePackage);
+                this.Text = "Modify Package " + ActivePackage.PackageId;
+                btnAddModify.Text = "Update";
+                SetActive();
+            }
+            DockProdSupSearch userCtrl = new DockProdSupSearch();
+            userCtrl.Show();
+            userCtrl.Dock = DockStyle.Fill;
+            panDock.Width = userCtrl.Width;
+            this.panDock.Controls.Add(userCtrl);
+            this.Size = new Size(this.Width + userCtrl.Width, this.Height);
+        }
+
+        private void SetActive()
+        {
+            txtPkgName.Text = ActivePackage.PkgName;
+            MaterialComboBoxItem cbItem1 = new MaterialComboBoxItem("Hello");
+            MaterialComboBoxItem cbItem2 = new MaterialComboBoxItem("Royal");
+            MaterialComboBoxItem cbItem3 = new MaterialComboBoxItem("Bissell");
+            txtPkgName.Add(cbItem1);
+            txtPkgName.Add(cbItem2);
+            txtPkgName.Add(cbItem3);
+            dtpStartDate.Value = ActivePackage.PkgStartDate;
+            dtpEndDate.Value = ActivePackage.PkgEndDate;
+            txtDesc.Text = ActivePackage.PkgDesc;
+            txtBasePrice.Text = ActivePackage.PkgBasePrice.ToString("c");
+            txtCommission.Text = ActivePackage.PkgAgencyCommission.ToString("c");
+            pbPkgImage.Image = ActivePackage.ImageFromBytes();
+            //For Some Reason I have to Write a File, then convert it into an image from a file.
+            File.WriteAllBytes("myImage.jpg", ActivePackage.PkgImage);
+            pbPkgImage.Image = Image.FromFile("myImage.jpg");
+
+            //Fill the List view with the Product Suppliers
+            var ps = ActivePackage.PkgProductSuppliers;
+            for (int i = 0; i < ps.Count; i++)
+            {
+                lvPkgProductSuppliers.Items.Add(ps[i].ProductSupplierId.ToString());
+                lvPkgProductSuppliers.Items[i].SubItems.Add(ps[i].MyProduct.ProdName);
+                lvPkgProductSuppliers.Items[i].SubItems.Add(ps[i].MySupplier.SupName);
             }
         }
 
@@ -42,9 +83,9 @@ namespace TravelExpertsApp
             //search all the packages in the packages list and check if they match
             foreach (Package package in packages)
             {
-                if ( activePackage.PkgName != txtPkgName.Text )
+                if ( ActivePackage.PkgName != txtPkgName.Text )
                 {
-                    txtPkgName.BackColor = Color.Chartreuse;
+                    
                 }
             }
         }
@@ -56,17 +97,83 @@ namespace TravelExpertsApp
             {
                 if (package.PkgName.Contains(txtPkgName.Text))
                 {
-                    lblMessages.Text = "Package Name Already Exists";
+                    //lblMessages.Text = "Package Name Already Exists";
                 }
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnImage_Click(object sender, EventArgs e)
         {
+            DialogResult result = ofdImage.ShowDialog();
+            if ( result == DialogResult.OK )
+            {
+                string path = ofdImage.FileName;
 
+                pbPkgImage.Image = Image.FromFile(path);
+                pbPkgImage.Tag = path;
+            }
         }
 
         private void btnAddModify_Click(object sender, EventArgs e)
+        {
+            if ( isValid() )
+            {
+                ImageConverter converter = new ImageConverter();
+                byte[] imgArray = (byte[])converter.ConvertTo(pbPkgImage.Image, typeof(byte[]));
+                string basePrice = txtBasePrice.Text.Replace("$", "");
+                string commission = txtCommission.Text.Replace("$", "");
+
+                Package newPkg = new Package
+                {
+                    PkgName = txtPkgName.Text,
+                    PkgStartDate = dtpStartDate.Value,
+                    PkgEndDate = dtpEndDate.Value,
+                    PkgDesc = txtDesc.Text,
+                    PkgBasePrice = Convert.ToDecimal(basePrice),
+                    PkgAgencyCommission = Convert.ToDecimal(commission),
+                    PkgImage = imgArray
+                };
+                if (Add)
+                {
+                    PackagesTable.AddPackage(newPkg);
+                }
+                else
+                {
+                    PackagesTable.UpdatePackage(ActivePackage, newPkg);
+                }
+                ActivePackage = newPkg;
+            }
+            //this.Close();
+        }
+
+        private bool isValid()
+        {
+            return Validator.IsPresent(txtPkgName) &&
+                   Validator.IsPresent(txtDesc) &&
+                   Validator.IsPresent(txtBasePrice) &&
+                   Validator.NonNegDecimal(txtBasePrice) &&
+                   Validator.NonNegDecimal(txtCommission) &&
+                   Validator.DateLessThan(dtpStartDate, dtpEndDate) &&
+                   Validator.InCharCount(txtPkgName) &&
+                   Validator.InCharCount(txtDesc) &&
+                   Validator.InCharCount(txtBasePrice) &&
+                   Validator.InCharCount(txtCommission);
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            frmProductSupplier prodSup = new frmProductSupplier();
+            prodSup.Height = this.Height;
+            prodSup.Dock = DockStyle.Right;
+            prodSup.Show();
+        }
+
+        private void btnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void panPkgImage_Paint(object sender, PaintEventArgs e)
         {
 
         }

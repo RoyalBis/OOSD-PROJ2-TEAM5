@@ -12,12 +12,14 @@ using TravelExpertsDB;
 using Validation;
 using TravelExpertsDB.TravelExpertsDataSetTableAdapters;
 using System.Xml;
+using MaterialSkin;
 using MaterialSkin.Controls;
 
 namespace TravelExpertsApp
 {
     public partial class frmPackage : MaterialForm
     {
+
         public frmPackage()
         {
             InitializeComponent();
@@ -203,40 +205,55 @@ namespace TravelExpertsApp
         private void btnAdd_Click_1(object sender, EventArgs e)
         {
             //create new package form: add
-            frmPackageEntry addPackageFrm = new frmPackageEntry();
-            addPackageFrm.AddPackage = true;
-            DialogResult result = addPackageFrm.ShowDialog();
-            //display the new package after it is added
-            try
-            {
-                MyPackage = addPackageFrm.package;
-                txtPackageId.Text = MyPackage.PackageId.ToString();
-                this.DisplayPackage();
-                enableButtons();
-            }
-            catch (Exception) { } //**
+            frmPkgAddModify addPkgForm = new frmPkgAddModify();
+            addPkgForm.ActivePackage = null;
+            addPkgForm.Add = true;
+            DialogResult result = addPkgForm.ShowDialog();
+            
+            //KEVINS FORM///////////////////////////////////////////////////
+            //frmPackageEntry addPackageFrm = new frmPackageEntry();
+            //addPackageFrm.AddPackage = true;
+            //DialogResult result = addPackageFrm.ShowDialog();
+            ////display the new package after it is added
+            //try
+            //{
+            //    MyPackage = addPackageFrm.package;
+            //    txtPackageId.Text = MyPackage.PackageId.ToString();
+            //    this.DisplayPackage();
+            //    enableButtons();
+            //}
+            //catch (Exception) { } //**
 
-            travelExpertsDataSet.Clear();
-            packagesTableAdapter.Fill(travelExpertsDataSet.Packages);
+            //travelExpertsDataSet.Clear();
+            //packagesTableAdapter.Fill(travelExpertsDataSet.Packages);
+            ////////////////////////////////////////////////////////////////
+
         }
 
         private void btnUpdate_Click_1(object sender, EventArgs e)
         {
             //create new package form: add
-            frmPackageEntry updatePackageFrm = new frmPackageEntry();
-            updatePackageFrm.AddPackage = false;
-            DialogResult result = updatePackageFrm.ShowDialog();
-            //display the new package after it is added
-            try
-            {
-                MyPackage = updatePackageFrm.package;
-                txtPackageId.Text = MyPackage.PackageId.ToString();
-                this.DisplayPackage();
-            }
-            catch (Exception) { } //**
+            frmPkgAddModify modifyPkgForm = new frmPkgAddModify();
+            modifyPkgForm.ActivePackage = MyPackage;
+            modifyPkgForm.Add = false;
+            DialogResult result = modifyPkgForm.ShowDialog();
 
-            travelExpertsDataSet.Clear();
-            packagesTableAdapter.Fill(travelExpertsDataSet.Packages);
+            //KEVINS FORM///////////////////////////////////////////////////
+            //frmPackageEntry updatePackageFrm = new frmPackageEntry();
+            //updatePackageFrm.AddPackage = false;
+            //DialogResult result = updatePackageFrm.ShowDialog();
+            ////display the new package after it is added
+            //try
+            //{
+            //    MyPackage = updatePackageFrm.package;
+            //    txtPackageId.Text = MyPackage.PackageId.ToString();
+            //    this.DisplayPackage();
+            //}
+            //catch (Exception) { } //**
+
+            //travelExpertsDataSet.Clear();
+            //packagesTableAdapter.Fill(travelExpertsDataSet.Packages);
+            ////////////////////////////////////////////////////////////////
         }
 
         private void btnDelete_Click_1(object sender, EventArgs e)

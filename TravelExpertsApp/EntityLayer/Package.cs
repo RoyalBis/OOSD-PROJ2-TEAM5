@@ -53,7 +53,9 @@ namespace EntityLayer
         {
             using (MemoryStream ms = new MemoryStream(this.PkgImage))
             {
-                return Image.FromStream(ms);
+                Image myImage = Image.FromStream(ms);
+                Image myBitmap = Bitmap.FromStream(ms);
+                return myBitmap;
             }
         }
     }

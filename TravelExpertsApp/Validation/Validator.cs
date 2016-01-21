@@ -71,8 +71,10 @@ namespace Validation
         {
             try
             {
-                decimal textValue = decimal.Parse(ctrl.Text);
-                if (textValue >= 0) return true;
+                //First unformat the string from the Control
+                string textValue = ctrl.Text.Replace("$", "").Replace(",", "");
+                decimal decValue = decimal.Parse(textValue);
+                if (decValue >= 0) return true;
                 else
                 {
                     MessageBox.Show("Error: " + ctrl.Name + " must be non-negative value!");
@@ -92,8 +94,10 @@ namespace Validation
         {
             try
             {
-                int textValue = int.Parse(ctrl.Text);
-                if (textValue >= 0) return true;
+                //First unformat the string from the Control
+                string textValue = ctrl.Text.Replace("$", "").Replace(",", "");
+                int intValue = int.Parse(textValue);
+                if (intValue >= 0) return true;
                 else
                 {
                     MessageBox.Show("Error: " + ctrl.Name + " must be non-negative value!");
@@ -107,6 +111,28 @@ namespace Validation
                 ctrl.Focus();
                 return false;
             }
+        }
+
+        public static bool DateLessThan(DateTimePicker ctrl1, DateTimePicker ctrl2)
+        {
+            if ( ctrl1.Value >= ctrl2.Value )
+            {
+                MessageBox.Show("Error: " + ctrl1.Name + " must be a date less than " + ctrl2.Name);
+                return false;
+            }
+            return true;
+        }
+
+        public static bool InCharCount(Control ctrl)
+        {
+            TextBox txt = (TextBox)ctrl;
+            char[] chars = txt.Text.ToCharArray();
+            if ( chars.Length > txt.MaxLength )
+            {
+                MessageBox.Show("Error: Number of characters in " + txt.Name + " must be less then or equal to " + txt.MaxLength);
+                return false;
+            }
+            return true;
         }
     }
 }

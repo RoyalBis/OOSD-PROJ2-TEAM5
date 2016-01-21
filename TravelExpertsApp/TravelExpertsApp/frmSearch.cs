@@ -167,8 +167,8 @@ namespace TravelExpertsApp
                 {
 
                     //Add items in an array
-                    arr[0] = ValueSuppliers.supplierId.ToString();
-                    arr[1] = ValueSuppliers.SupplierName.ToString();
+                    arr[0] = ValueSuppliers.SupplierId.ToString();
+                    arr[1] = ValueSuppliers.SupName.ToString();
                    
                     //add items in the list
                     var listViewItem = new ListViewItem(arr);

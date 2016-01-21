@@ -252,8 +252,8 @@ namespace TravelExpertsDB
                         //build a new Product Object for each returned product
                         Supplier supplier = new Supplier
                         {
-                            supplierId = (int)reader["supplierId"],
-                            SupplierName = reader["SupName"].ToString(),
+                            SupplierId = (int)reader["supplierId"],
+                            SupName = reader["SupName"].ToString(),
                             
                         };
                         //add the supplier to the list
