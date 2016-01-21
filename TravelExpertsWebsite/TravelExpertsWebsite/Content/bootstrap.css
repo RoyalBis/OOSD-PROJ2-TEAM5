@@ -4544,16 +4544,27 @@ textarea.input-group-sm > .input-group-btn > .btn {
 }
 
 .navbar-inverse .navbar-toggle {
-  border-color: #333333;
+  border-color: #e;
 }
 
-.navbar-inverse .navbar-toggle:hover,
-.navbar-inverse .navbar-toggle:focus {
-  background-color: #333333;
+.pager:before,
+.pager:after {
+  display: table;
+  content: " ";
 }
 
-.navbar-inverse .navbar-toggle .icon-bar {
-  background-color: #ffffff;
+.pager:after {
+  clear: both;
+}
+
+.pager:before,
+.pager:after {
+  display: table;
+  content: " ";
+}
+
+.pager:after {
+  clear: bot
 }
 
 .navbar-inverse .navbar-collapse,
