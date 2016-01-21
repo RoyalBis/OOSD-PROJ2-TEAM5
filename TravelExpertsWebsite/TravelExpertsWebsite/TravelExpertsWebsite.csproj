@@ -198,6 +198,10 @@
     <Content Include="Account\ResetPasswordConfirmation.aspx" />
     <Content Include="Account\TwoFactorAuthenticationSignIn.aspx" />
     <Content Include="Account\VerifyPhoneNumber.aspx" />
+    <Content Include="App_Data\TravelExperts.mdf" />
+    <Content Include="App_Data\TravelExperts_log.ldf">
+      <DependentUpon>TravelExperts.mdf</DependentUpon>
+    </Content>
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
@@ -420,7 +424,10 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
+    <Folder Include="App_Themes\Cerulean\" />
+    <Folder Include="App_Themes\Darkly\" />
+    <Folder Include="App_Themes\Flatly\" />
+    <Folder Include="App_Themes\United\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
