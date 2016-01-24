@@ -37,6 +37,7 @@ namespace MaterialSkin.Controls
         public MaterialComboBox()
         {
             this.dropdownPanel = new Panel();
+            dropdownPanel.BorderStyle = BorderStyle.FixedSingle;
             //this.dropdownPanel.Disposed += new EventHandler(DropDownPanelOnDisposed);
             this.dropdownPanel.VisibleChanged += new EventHandler(DropDownPanel_VisibleChanged);
             this.KeyDown += new KeyEventHandler(this.OnKeyDown_UpDown);

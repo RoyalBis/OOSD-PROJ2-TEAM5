@@ -23,24 +23,24 @@ namespace TravelExpertsDB
 
         //Statement for GetSuppliersofProduct()
         private const string GetAllOfSupplierStmt = "SELECT ProductID, ProdName " +
-                                                   "FROM Products " +
-                                                   "INNER JOIN Products_Suppliers " +
-                                                   "WHERE SupplierId = @SupplierId";
+                                                    "FROM Products " +
+                                                    "INNER JOIN Products_Suppliers " +
+                                                    "WHERE SupplierId = @SupplierId";
 
         //Statement for AddSupplier()
         private const string InsertStmt = "INSERT INTO Products " +
-                                                  "(ProductId, ProdName) " +
-                                                  "VALUES(@ProductId, @ProdName)";
+                                          "(ProductId, ProdName) " +
+                                          "VALUES(@ProductId, @ProdName)";
 
         //Statement for UpdateSupplier()
         private const string UpdateStmt = "UPDATE Products " +
-                                                  "SET ProdName = @NewProdName " +
-                                                  "WHERE ProductId = @OldProductId " +
-                                                  "AND ProdName = @OldProdName";
+                                          "SET ProdName = @NewProdName " +
+                                          "WHERE ProductId = @OldProductId " +
+                                          "AND ProdName = @OldProdName";
         //Statement for SearchProducts()
         private const string SearchAll = "SELECT ProductId, ProdName " +
-                                              " FROM Products " +
-                                              " WHERE ProdName LIKE  '%' + @searchIndex + '%' OR ProductId LIKE '%' + @searchIndex + '%'";
+                                         " FROM Products " +
+                                         " WHERE ProdName LIKE  '%' + @searchIndex + '%' OR ProductId LIKE '%' + @searchIndex + '%'";
         //\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
         public static List<Product> GetAllProducts()

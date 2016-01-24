@@ -21,10 +21,16 @@ namespace TravelExpertsApp
         private PackageList packages;
         public Package ActivePackage;
         public bool Add;
+        private MaterialSkinManager materialSkinManager;
 
         public frmPkgAddModify()
         {
             InitializeComponent();
+
+            materialSkinManager = MaterialSkinManager.Instance;
+            materialSkinManager.AddFormToManage(this);
+            materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
+            materialSkinManager.ColorScheme = new ColorScheme(Primary.BlueGrey800, Primary.BlueGrey900, Primary.BlueGrey500, Accent.LightBlue200, TextShade.WHITE);
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -41,12 +47,6 @@ namespace TravelExpertsApp
                 btnAddModify.Text = "Update";
                 SetActive();
             }
-            DockProdSupSearch userCtrl = new DockProdSupSearch();
-            userCtrl.Show();
-            userCtrl.Dock = DockStyle.Fill;
-            panDock.Width = userCtrl.Width;
-            this.panDock.Controls.Add(userCtrl);
-            this.Size = new Size(this.Width + userCtrl.Width, this.Height);
         }
 
         private void SetActive()
@@ -72,6 +72,7 @@ namespace TravelExpertsApp
             var ps = ActivePackage.PkgProductSuppliers;
             for (int i = 0; i < ps.Count; i++)
             {
+                //lvPkgProductSuppliers.Items.Add((ps[i]))
                 lvPkgProductSuppliers.Items.Add(ps[i].ProductSupplierId.ToString());
                 lvPkgProductSuppliers.Items[i].SubItems.Add(ps[i].MyProduct.ProdName);
                 lvPkgProductSuppliers.Items[i].SubItems.Add(ps[i].MySupplier.SupName);
@@ -109,7 +110,8 @@ namespace TravelExpertsApp
             {
                 string path = ofdImage.FileName;
 
-                pbPkgImage.Image = Image.FromFile(path);
+                Image myImage = Image.FromFile(path);
+                pbPkgImage.Image = myImage;
                 pbPkgImage.Tag = path;
             }
         }
@@ -153,29 +155,26 @@ namespace TravelExpertsApp
                    Validator.IsPresent(txtBasePrice) &&
                    Validator.NonNegDecimal(txtBasePrice) &&
                    Validator.NonNegDecimal(txtCommission) &&
-                   Validator.DateLessThan(dtpStartDate, dtpEndDate) &&
-                   Validator.InCharCount(txtPkgName) &&
-                   Validator.InCharCount(txtDesc) &&
-                   Validator.InCharCount(txtBasePrice) &&
-                   Validator.InCharCount(txtCommission);
+                   Validator.DateLessThan(dtpStartDate, dtpEndDate);
+                   //Validator.InCharCount(txtPkgName) &&
+                   //Validator.InCharCount(txtDesc) &&
+                   //Validator.InCharCount(txtBasePrice) &&
+                   //Validator.InCharCount(txtCommission);
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            frmProductSupplier prodSup = new frmProductSupplier();
-            prodSup.Height = this.Height;
-            prodSup.Dock = DockStyle.Right;
-            prodSup.Show();
+            DockProdSupSearch userCtrl = new DockProdSupSearch();
+            userCtrl.Show();
+            userCtrl.Dock = DockStyle.Fill;
+            panDock.Width = userCtrl.Width;
+            this.panDock.Controls.Add(userCtrl);
+            this.Size = new Size(this.Width + userCtrl.Width, this.Height);
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        private void panPkgImage_Paint(object sender, PaintEventArgs e)
-        {
-
         }
     }
 }
