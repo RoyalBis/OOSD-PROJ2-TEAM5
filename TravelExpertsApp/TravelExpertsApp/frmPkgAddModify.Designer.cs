@@ -1,6 +1,4 @@
-﻿using System.Drawing;
-using System.Windows.Forms;
-using MaterialSkin.Controls;
+﻿using MaterialSkin.Controls;
 
 namespace TravelExpertsApp
 {
@@ -33,55 +31,65 @@ namespace TravelExpertsApp
         private void InitializeComponent()
         {
             this.btnImage = new MaterialSkin.Controls.MaterialFlatButton();
-            this.btnAddModify = new MaterialSkin.Controls.MaterialRaisedButton();
-            this.btnCancel = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.btnAddModify = new System.Windows.Forms.Button();
+            this.btnCancel = new System.Windows.Forms.Button();
             this.fpanButtons = new System.Windows.Forms.FlowLayoutPanel();
             this.ofdImage = new System.Windows.Forms.OpenFileDialog();
             this.pbPkgImage = new System.Windows.Forms.PictureBox();
-            this.lblPkgImage = new MaterialSkin.Controls.MaterialLabel();
+            this.lblPkgImage = new System.Windows.Forms.Label();
             this.panPkgImage = new System.Windows.Forms.Panel();
-            this.mdivMainBtn = new MaterialSkin.Controls.MaterialDivider();
+            this.materialDivider1 = new MaterialSkin.Controls.MaterialDivider();
             this.panProdSup = new System.Windows.Forms.Panel();
             this.btnPSEdit = new MaterialSkin.Controls.MaterialFlatButton();
             this.btnPSDelete = new MaterialSkin.Controls.MaterialFlatButton();
             this.btnPSAdd = new MaterialSkin.Controls.MaterialFlatButton();
-            this.lvPkgProductSuppliers = new MaterialSkin.Controls.MaterialListView();
+            this.lvPkgProductSuppliers = new System.Windows.Forms.ListView();
             this.colProdSup = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colProdName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colSupName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.lblPkgProducts = new MaterialSkin.Controls.MaterialLabel();
+            this.lblPkgProducts = new System.Windows.Forms.Label();
             this.panFormGrp = new System.Windows.Forms.Panel();
-            this.txtCommission = new MaterialSkin.Controls.MaterialSingleLineTextField();
-            this.dtpEndDate = new System.Windows.Forms.DateTimePicker();
-            this.lblCommission = new MaterialSkin.Controls.MaterialLabel();
-            this.txtBasePrice = new MaterialSkin.Controls.MaterialSingleLineTextField();
-            this.lblEndDate = new MaterialSkin.Controls.MaterialLabel();
-            this.lblBasePrice = new MaterialSkin.Controls.MaterialLabel();
+            this.panStartDate = new System.Windows.Forms.Panel();
             this.dtpStartDate = new System.Windows.Forms.DateTimePicker();
+            this.lblStartDate = new System.Windows.Forms.Label();
+            this.lblPkgName = new System.Windows.Forms.Label();
+            this.panDesc = new System.Windows.Forms.Panel();
             this.txtDesc = new System.Windows.Forms.TextBox();
-            this.lblDesc = new MaterialSkin.Controls.MaterialLabel();
-            this.lblPkgName = new MaterialSkin.Controls.MaterialLabel();
-            this.lblStartDate = new MaterialSkin.Controls.MaterialLabel();
+            this.lblDesc = new System.Windows.Forms.Label();
+            this.panEndDate = new System.Windows.Forms.Panel();
+            this.dtpEndDate = new System.Windows.Forms.DateTimePicker();
+            this.lblEndDate = new System.Windows.Forms.Label();
+            this.panBasePrice = new System.Windows.Forms.Panel();
+            this.txtBasePrice = new System.Windows.Forms.TextBox();
+            this.lblBasePrice = new System.Windows.Forms.Label();
+            this.panCommission = new System.Windows.Forms.Panel();
+            this.txtCommission = new System.Windows.Forms.TextBox();
+            this.lblCommission = new System.Windows.Forms.Label();
             this.panForm = new System.Windows.Forms.Panel();
             this.panMain = new System.Windows.Forms.Panel();
             this.panDock = new System.Windows.Forms.Panel();
+            this.materialDivider2 = new MaterialSkin.Controls.MaterialDivider();
             this.txtPkgName = new MaterialSkin.Controls.MaterialComboBox();
             this.fpanButtons.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbPkgImage)).BeginInit();
             this.panPkgImage.SuspendLayout();
             this.panProdSup.SuspendLayout();
             this.panFormGrp.SuspendLayout();
+            this.panStartDate.SuspendLayout();
+            this.panDesc.SuspendLayout();
+            this.panEndDate.SuspendLayout();
+            this.panBasePrice.SuspendLayout();
+            this.panCommission.SuspendLayout();
             this.panForm.SuspendLayout();
             this.panMain.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnImage
             // 
-            this.btnImage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnImage.AutoSize = true;
             this.btnImage.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btnImage.Depth = 0;
-            this.btnImage.Location = new System.Drawing.Point(596, 359);
+            this.btnImage.Location = new System.Drawing.Point(614, 363);
             this.btnImage.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnImage.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnImage.Name = "btnImage";
@@ -89,18 +97,14 @@ namespace TravelExpertsApp
             this.btnImage.Size = new System.Drawing.Size(131, 36);
             this.btnImage.TabIndex = 2;
             this.btnImage.Text = "Select Image";
-            this.btnImage.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnImage.UseVisualStyleBackColor = true;
             this.btnImage.Click += new System.EventHandler(this.btnImage_Click);
             // 
             // btnAddModify
             // 
             this.btnAddModify.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnAddModify.Depth = 0;
             this.btnAddModify.Location = new System.Drawing.Point(611, 3);
-            this.btnAddModify.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnAddModify.Name = "btnAddModify";
-            this.btnAddModify.Primary = true;
             this.btnAddModify.Size = new System.Drawing.Size(110, 31);
             this.btnAddModify.TabIndex = 6;
             this.btnAddModify.UseVisualStyleBackColor = true;
@@ -109,11 +113,8 @@ namespace TravelExpertsApp
             // btnCancel
             // 
             this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCancel.Depth = 0;
             this.btnCancel.Location = new System.Drawing.Point(495, 3);
-            this.btnCancel.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Primary = true;
             this.btnCancel.Size = new System.Drawing.Size(110, 31);
             this.btnCancel.TabIndex = 5;
             this.btnCancel.Text = "Cancel";
@@ -139,26 +140,18 @@ namespace TravelExpertsApp
             // 
             // pbPkgImage
             // 
-            this.pbPkgImage.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.pbPkgImage.Location = new System.Drawing.Point(0, 28);
+            this.pbPkgImage.Location = new System.Drawing.Point(12, 21);
             this.pbPkgImage.Name = "pbPkgImage";
-            this.pbPkgImage.Size = new System.Drawing.Size(745, 329);
-            this.pbPkgImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbPkgImage.Size = new System.Drawing.Size(715, 336);
             this.pbPkgImage.TabIndex = 9;
             this.pbPkgImage.TabStop = false;
             // 
             // lblPkgImage
             // 
             this.lblPkgImage.AutoSize = true;
-            this.lblPkgImage.Depth = 0;
-            this.lblPkgImage.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.lblPkgImage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.lblPkgImage.Location = new System.Drawing.Point(15, 1);
-            this.lblPkgImage.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblPkgImage.Name = "lblPkgImage";
-            this.lblPkgImage.Size = new System.Drawing.Size(145, 24);
+            this.lblPkgImage.Size = new System.Drawing.Size(109, 17);
             this.lblPkgImage.TabIndex = 0;
             this.lblPkgImage.Text = "Package Image:";
             // 
@@ -170,23 +163,24 @@ namespace TravelExpertsApp
             this.panPkgImage.Controls.Add(this.pbPkgImage);
             this.panPkgImage.Location = new System.Drawing.Point(0, 292);
             this.panPkgImage.Name = "panPkgImage";
-            this.panPkgImage.Size = new System.Drawing.Size(745, 401);
+            this.panPkgImage.Size = new System.Drawing.Size(739, 401);
             this.panPkgImage.TabIndex = 10;
             // 
-            // mdivMainBtn
+            // materialDivider1
             // 
-            this.mdivMainBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.mdivMainBtn.Depth = 0;
-            this.mdivMainBtn.Location = new System.Drawing.Point(0, 690);
-            this.mdivMainBtn.MouseState = MaterialSkin.MouseState.HOVER;
-            this.mdivMainBtn.Name = "mdivMainBtn";
-            this.mdivMainBtn.Size = new System.Drawing.Size(742, 1);
-            this.mdivMainBtn.TabIndex = 10;
-            this.mdivMainBtn.Text = "mdivMainBtn";
+            this.materialDivider1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialDivider1.Depth = 0;
+            this.materialDivider1.Location = new System.Drawing.Point(0, 699);
+            this.materialDivider1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialDivider1.Name = "materialDivider1";
+            this.materialDivider1.Size = new System.Drawing.Size(748, 1);
+            this.materialDivider1.TabIndex = 10;
+            this.materialDivider1.Text = "mdivMainBtn";
             // 
             // panProdSup
             // 
             this.panProdSup.BackColor = System.Drawing.Color.White;
+            this.panProdSup.Controls.Add(this.materialDivider2);
             this.panProdSup.Controls.Add(this.btnPSEdit);
             this.panProdSup.Controls.Add(this.btnPSDelete);
             this.panProdSup.Controls.Add(this.btnPSAdd);
@@ -194,50 +188,47 @@ namespace TravelExpertsApp
             this.panProdSup.Controls.Add(this.lblPkgProducts);
             this.panProdSup.Location = new System.Drawing.Point(374, 0);
             this.panProdSup.Name = "panProdSup";
-            this.panProdSup.Size = new System.Drawing.Size(371, 286);
+            this.panProdSup.Size = new System.Drawing.Size(353, 286);
             this.panProdSup.TabIndex = 5;
             // 
             // btnPSEdit
             // 
-            this.btnPSEdit.AutoSize = true;
             this.btnPSEdit.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btnPSEdit.Depth = 0;
-            this.btnPSEdit.Location = new System.Drawing.Point(249, 244);
+            this.btnPSEdit.Location = new System.Drawing.Point(126, 244);
             this.btnPSEdit.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnPSEdit.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnPSEdit.Name = "btnPSEdit";
             this.btnPSEdit.Primary = true;
-            this.btnPSEdit.Size = new System.Drawing.Size(49, 36);
+            this.btnPSEdit.Size = new System.Drawing.Size(112, 36);
             this.btnPSEdit.TabIndex = 5;
             this.btnPSEdit.Text = "Edit";
             this.btnPSEdit.UseVisualStyleBackColor = true;
             // 
             // btnPSDelete
             // 
-            this.btnPSDelete.AutoSize = true;
             this.btnPSDelete.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btnPSDelete.Depth = 0;
-            this.btnPSDelete.Location = new System.Drawing.Point(168, 244);
+            this.btnPSDelete.Location = new System.Drawing.Point(6, 247);
             this.btnPSDelete.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnPSDelete.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnPSDelete.Name = "btnPSDelete";
             this.btnPSDelete.Primary = true;
-            this.btnPSDelete.Size = new System.Drawing.Size(73, 36);
+            this.btnPSDelete.Size = new System.Drawing.Size(112, 36);
             this.btnPSDelete.TabIndex = 4;
             this.btnPSDelete.Text = "Delete";
             this.btnPSDelete.UseVisualStyleBackColor = true;
             // 
             // btnPSAdd
             // 
-            this.btnPSAdd.AutoSize = true;
             this.btnPSAdd.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btnPSAdd.Depth = 0;
-            this.btnPSAdd.Location = new System.Drawing.Point(306, 244);
+            this.btnPSAdd.Location = new System.Drawing.Point(236, 244);
             this.btnPSAdd.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnPSAdd.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnPSAdd.Name = "btnPSAdd";
             this.btnPSAdd.Primary = true;
-            this.btnPSAdd.Size = new System.Drawing.Size(47, 36);
+            this.btnPSAdd.Size = new System.Drawing.Size(112, 36);
             this.btnPSAdd.TabIndex = 3;
             this.btnPSAdd.Text = "Add";
             this.btnPSAdd.UseVisualStyleBackColor = true;
@@ -245,25 +236,19 @@ namespace TravelExpertsApp
             // 
             // lvPkgProductSuppliers
             // 
-            this.lvPkgProductSuppliers.BackColor = System.Drawing.Color.White;
             this.lvPkgProductSuppliers.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.lvPkgProductSuppliers.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.colProdSup,
             this.colProdName,
             this.colSupName});
-            this.lvPkgProductSuppliers.Depth = 0;
-            this.lvPkgProductSuppliers.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
             this.lvPkgProductSuppliers.FullRowSelect = true;
             this.lvPkgProductSuppliers.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             this.lvPkgProductSuppliers.LabelEdit = true;
-            this.lvPkgProductSuppliers.Location = new System.Drawing.Point(0, 38);
-            this.lvPkgProductSuppliers.MouseLocation = new System.Drawing.Point(-1, -1);
-            this.lvPkgProductSuppliers.MouseState = MaterialSkin.MouseState.OUT;
+            this.lvPkgProductSuppliers.Location = new System.Drawing.Point(6, 28);
             this.lvPkgProductSuppliers.Name = "lvPkgProductSuppliers";
-            this.lvPkgProductSuppliers.OwnerDraw = true;
             this.lvPkgProductSuppliers.Scrollable = false;
             this.lvPkgProductSuppliers.ShowGroups = false;
-            this.lvPkgProductSuppliers.Size = new System.Drawing.Size(360, 204);
+            this.lvPkgProductSuppliers.Size = new System.Drawing.Size(342, 214);
             this.lvPkgProductSuppliers.TabIndex = 1;
             this.lvPkgProductSuppliers.UseCompatibleStateImageBehavior = false;
             this.lvPkgProductSuppliers.View = System.Windows.Forms.View.Details;
@@ -276,7 +261,7 @@ namespace TravelExpertsApp
             // colProdName
             // 
             this.colProdName.Text = "Product";
-            this.colProdName.Width = 160;
+            this.colProdName.Width = 150;
             // 
             // colSupName
             // 
@@ -286,173 +271,171 @@ namespace TravelExpertsApp
             // lblPkgProducts
             // 
             this.lblPkgProducts.AutoSize = true;
-            this.lblPkgProducts.Depth = 0;
-            this.lblPkgProducts.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.lblPkgProducts.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.lblPkgProducts.Location = new System.Drawing.Point(3, 7);
-            this.lblPkgProducts.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblPkgProducts.Name = "lblPkgProducts";
-            this.lblPkgProducts.Size = new System.Drawing.Size(164, 24);
+            this.lblPkgProducts.Size = new System.Drawing.Size(124, 17);
             this.lblPkgProducts.TabIndex = 0;
             this.lblPkgProducts.Text = "Product Suppliers:";
             // 
             // panFormGrp
             // 
             this.panFormGrp.BackColor = System.Drawing.Color.White;
-            this.panFormGrp.Controls.Add(this.txtCommission);
-            this.panFormGrp.Controls.Add(this.dtpEndDate);
-            this.panFormGrp.Controls.Add(this.lblCommission);
-            this.panFormGrp.Controls.Add(this.txtBasePrice);
-            this.panFormGrp.Controls.Add(this.lblEndDate);
-            this.panFormGrp.Controls.Add(this.lblBasePrice);
-            this.panFormGrp.Controls.Add(this.dtpStartDate);
-            this.panFormGrp.Controls.Add(this.txtDesc);
             this.panFormGrp.Controls.Add(this.txtPkgName);
-            this.panFormGrp.Controls.Add(this.lblDesc);
+            this.panFormGrp.Controls.Add(this.panStartDate);
             this.panFormGrp.Controls.Add(this.lblPkgName);
-            this.panFormGrp.Controls.Add(this.lblStartDate);
+            this.panFormGrp.Controls.Add(this.panDesc);
+            this.panFormGrp.Controls.Add(this.panEndDate);
+            this.panFormGrp.Controls.Add(this.panBasePrice);
+            this.panFormGrp.Controls.Add(this.panCommission);
             this.panFormGrp.Location = new System.Drawing.Point(12, 0);
             this.panFormGrp.Name = "panFormGrp";
             this.panFormGrp.Size = new System.Drawing.Size(353, 286);
             this.panFormGrp.TabIndex = 7;
             // 
-            // txtCommission
+            // panStartDate
             // 
-            this.txtCommission.Depth = 0;
-            this.txtCommission.Hint = "";
-            this.txtCommission.Location = new System.Drawing.Point(151, 251);
-            this.txtCommission.MaxLength = 12;
-            this.txtCommission.MouseState = MaterialSkin.MouseState.HOVER;
-            this.txtCommission.Name = "txtCommission";
-            this.txtCommission.PasswordChar = '\0';
-            this.txtCommission.SelectedText = "";
-            this.txtCommission.SelectionLength = 0;
-            this.txtCommission.SelectionStart = 0;
-            this.txtCommission.Size = new System.Drawing.Size(196, 28);
-            this.txtCommission.TabIndex = 1;
-            this.txtCommission.TabStop = false;
-            this.txtCommission.UseSystemPasswordChar = false;
-            // 
-            // dtpEndDate
-            // 
-            this.dtpEndDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpEndDate.Location = new System.Drawing.Point(152, 77);
-            this.dtpEndDate.Name = "dtpEndDate";
-            this.dtpEndDate.Size = new System.Drawing.Size(196, 22);
-            this.dtpEndDate.TabIndex = 1;
-            // 
-            // lblCommission
-            // 
-            this.lblCommission.AutoSize = true;
-            this.lblCommission.Depth = 0;
-            this.lblCommission.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.lblCommission.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblCommission.Location = new System.Drawing.Point(1, 251);
-            this.lblCommission.MouseState = MaterialSkin.MouseState.HOVER;
-            this.lblCommission.Name = "lblCommission";
-            this.lblCommission.Size = new System.Drawing.Size(119, 24);
-            this.lblCommission.TabIndex = 0;
-            this.lblCommission.Text = "Commission:";
-            // 
-            // txtBasePrice
-            // 
-            this.txtBasePrice.Depth = 0;
-            this.txtBasePrice.Hint = "";
-            this.txtBasePrice.Location = new System.Drawing.Point(151, 211);
-            this.txtBasePrice.MaxLength = 10;
-            this.txtBasePrice.MouseState = MaterialSkin.MouseState.HOVER;
-            this.txtBasePrice.Name = "txtBasePrice";
-            this.txtBasePrice.PasswordChar = '\0';
-            this.txtBasePrice.SelectedText = "";
-            this.txtBasePrice.SelectionLength = 0;
-            this.txtBasePrice.SelectionStart = 0;
-            this.txtBasePrice.Size = new System.Drawing.Size(196, 28);
-            this.txtBasePrice.TabIndex = 1;
-            this.txtBasePrice.TabStop = false;
-            this.txtBasePrice.UseSystemPasswordChar = false;
-            // 
-            // lblEndDate
-            // 
-            this.lblEndDate.AutoSize = true;
-            this.lblEndDate.Depth = 0;
-            this.lblEndDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.lblEndDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblEndDate.Location = new System.Drawing.Point(3, 77);
-            this.lblEndDate.MouseState = MaterialSkin.MouseState.HOVER;
-            this.lblEndDate.Name = "lblEndDate";
-            this.lblEndDate.Size = new System.Drawing.Size(93, 24);
-            this.lblEndDate.TabIndex = 0;
-            this.lblEndDate.Text = "End Date:";
-            // 
-            // lblBasePrice
-            // 
-            this.lblBasePrice.AutoSize = true;
-            this.lblBasePrice.Depth = 0;
-            this.lblBasePrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.lblBasePrice.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblBasePrice.Location = new System.Drawing.Point(1, 211);
-            this.lblBasePrice.MouseState = MaterialSkin.MouseState.HOVER;
-            this.lblBasePrice.Name = "lblBasePrice";
-            this.lblBasePrice.Size = new System.Drawing.Size(105, 24);
-            this.lblBasePrice.TabIndex = 0;
-            this.lblBasePrice.Text = "Base Price:";
+            this.panStartDate.BackColor = System.Drawing.Color.White;
+            this.panStartDate.Controls.Add(this.dtpStartDate);
+            this.panStartDate.Controls.Add(this.lblStartDate);
+            this.panStartDate.Location = new System.Drawing.Point(0, 38);
+            this.panStartDate.Name = "panStartDate";
+            this.panStartDate.Size = new System.Drawing.Size(353, 32);
+            this.panStartDate.TabIndex = 2;
             // 
             // dtpStartDate
             // 
             this.dtpStartDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtpStartDate.Location = new System.Drawing.Point(152, 38);
+            this.dtpStartDate.Location = new System.Drawing.Point(118, 4);
             this.dtpStartDate.Name = "dtpStartDate";
-            this.dtpStartDate.Size = new System.Drawing.Size(197, 22);
+            this.dtpStartDate.Size = new System.Drawing.Size(231, 22);
             this.dtpStartDate.TabIndex = 1;
+            // 
+            // lblStartDate
+            // 
+            this.lblStartDate.AutoSize = true;
+            this.lblStartDate.Location = new System.Drawing.Point(3, 7);
+            this.lblStartDate.Name = "lblStartDate";
+            this.lblStartDate.Size = new System.Drawing.Size(76, 17);
+            this.lblStartDate.TabIndex = 0;
+            this.lblStartDate.Text = "Start Date:";
+            // 
+            // lblPkgName
+            // 
+            this.lblPkgName.AutoSize = true;
+            this.lblPkgName.Location = new System.Drawing.Point(2, 7);
+            this.lblPkgName.Name = "lblPkgName";
+            this.lblPkgName.Size = new System.Drawing.Size(108, 17);
+            this.lblPkgName.TabIndex = 0;
+            this.lblPkgName.Text = "Package Name:";
+            // 
+            // panDesc
+            // 
+            this.panDesc.BackColor = System.Drawing.Color.White;
+            this.panDesc.Controls.Add(this.txtDesc);
+            this.panDesc.Controls.Add(this.lblDesc);
+            this.panDesc.Location = new System.Drawing.Point(0, 114);
+            this.panDesc.Name = "panDesc";
+            this.panDesc.Size = new System.Drawing.Size(353, 96);
+            this.panDesc.TabIndex = 4;
             // 
             // txtDesc
             // 
-            this.txtDesc.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.txtDesc.Location = new System.Drawing.Point(151, 113);
+            this.txtDesc.Location = new System.Drawing.Point(118, 7);
             this.txtDesc.MaxLength = 50;
             this.txtDesc.Multiline = true;
             this.txtDesc.Name = "txtDesc";
-            this.txtDesc.Size = new System.Drawing.Size(196, 82);
+            this.txtDesc.Size = new System.Drawing.Size(230, 82);
             this.txtDesc.TabIndex = 1;
             // 
             // lblDesc
             // 
             this.lblDesc.AutoSize = true;
-            this.lblDesc.Depth = 0;
-            this.lblDesc.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.lblDesc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblDesc.Location = new System.Drawing.Point(2, 110);
-            this.lblDesc.MouseState = MaterialSkin.MouseState.HOVER;
+            this.lblDesc.Location = new System.Drawing.Point(3, 7);
             this.lblDesc.Name = "lblDesc";
-            this.lblDesc.Size = new System.Drawing.Size(109, 24);
+            this.lblDesc.Size = new System.Drawing.Size(83, 17);
             this.lblDesc.TabIndex = 0;
             this.lblDesc.Text = "Description:";
             // 
-            // lblPkgName
+            // panEndDate
             // 
-            this.lblPkgName.AutoSize = true;
-            this.lblPkgName.Depth = 0;
-            this.lblPkgName.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.lblPkgName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblPkgName.Location = new System.Drawing.Point(2, 4);
-            this.lblPkgName.MouseState = MaterialSkin.MouseState.HOVER;
-            this.lblPkgName.Name = "lblPkgName";
-            this.lblPkgName.Size = new System.Drawing.Size(144, 24);
-            this.lblPkgName.TabIndex = 0;
-            this.lblPkgName.Text = "Package Name:";
+            this.panEndDate.BackColor = System.Drawing.Color.White;
+            this.panEndDate.Controls.Add(this.dtpEndDate);
+            this.panEndDate.Controls.Add(this.lblEndDate);
+            this.panEndDate.Location = new System.Drawing.Point(0, 76);
+            this.panEndDate.Name = "panEndDate";
+            this.panEndDate.Size = new System.Drawing.Size(353, 32);
+            this.panEndDate.TabIndex = 3;
             // 
-            // lblStartDate
+            // dtpEndDate
             // 
-            this.lblStartDate.AutoSize = true;
-            this.lblStartDate.Depth = 0;
-            this.lblStartDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.lblStartDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblStartDate.Location = new System.Drawing.Point(3, 38);
-            this.lblStartDate.MouseState = MaterialSkin.MouseState.HOVER;
-            this.lblStartDate.Name = "lblStartDate";
-            this.lblStartDate.Size = new System.Drawing.Size(94, 24);
-            this.lblStartDate.TabIndex = 0;
-            this.lblStartDate.Text = "Start Date:";
+            this.dtpEndDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtpEndDate.Location = new System.Drawing.Point(118, 4);
+            this.dtpEndDate.Name = "dtpEndDate";
+            this.dtpEndDate.Size = new System.Drawing.Size(230, 22);
+            this.dtpEndDate.TabIndex = 1;
+            // 
+            // lblEndDate
+            // 
+            this.lblEndDate.AutoSize = true;
+            this.lblEndDate.Location = new System.Drawing.Point(3, 7);
+            this.lblEndDate.Name = "lblEndDate";
+            this.lblEndDate.Size = new System.Drawing.Size(71, 17);
+            this.lblEndDate.TabIndex = 0;
+            this.lblEndDate.Text = "End Date:";
+            // 
+            // panBasePrice
+            // 
+            this.panBasePrice.BackColor = System.Drawing.Color.White;
+            this.panBasePrice.Controls.Add(this.txtBasePrice);
+            this.panBasePrice.Controls.Add(this.lblBasePrice);
+            this.panBasePrice.Location = new System.Drawing.Point(0, 216);
+            this.panBasePrice.Name = "panBasePrice";
+            this.panBasePrice.Size = new System.Drawing.Size(353, 32);
+            this.panBasePrice.TabIndex = 2;
+            // 
+            // txtBasePrice
+            // 
+            this.txtBasePrice.Location = new System.Drawing.Point(119, 4);
+            this.txtBasePrice.MaxLength = 10;
+            this.txtBasePrice.Name = "txtBasePrice";
+            this.txtBasePrice.Size = new System.Drawing.Size(230, 22);
+            this.txtBasePrice.TabIndex = 1;
+            // 
+            // lblBasePrice
+            // 
+            this.lblBasePrice.AutoSize = true;
+            this.lblBasePrice.Location = new System.Drawing.Point(3, 7);
+            this.lblBasePrice.Name = "lblBasePrice";
+            this.lblBasePrice.Size = new System.Drawing.Size(80, 17);
+            this.lblBasePrice.TabIndex = 0;
+            this.lblBasePrice.Text = "Base Price:";
+            // 
+            // panCommission
+            // 
+            this.panCommission.BackColor = System.Drawing.Color.White;
+            this.panCommission.Controls.Add(this.txtCommission);
+            this.panCommission.Controls.Add(this.lblCommission);
+            this.panCommission.Location = new System.Drawing.Point(0, 254);
+            this.panCommission.Name = "panCommission";
+            this.panCommission.Size = new System.Drawing.Size(353, 32);
+            this.panCommission.TabIndex = 3;
+            // 
+            // txtCommission
+            // 
+            this.txtCommission.Location = new System.Drawing.Point(119, 4);
+            this.txtCommission.MaxLength = 12;
+            this.txtCommission.Name = "txtCommission";
+            this.txtCommission.Size = new System.Drawing.Size(230, 22);
+            this.txtCommission.TabIndex = 1;
+            // 
+            // lblCommission
+            // 
+            this.lblCommission.AutoSize = true;
+            this.lblCommission.Location = new System.Drawing.Point(3, 7);
+            this.lblCommission.Name = "lblCommission";
+            this.lblCommission.Size = new System.Drawing.Size(87, 17);
+            this.lblCommission.TabIndex = 0;
+            this.lblCommission.Text = "Commission:";
             // 
             // panForm
             // 
@@ -464,7 +447,7 @@ namespace TravelExpertsApp
             this.panForm.Controls.Add(this.panProdSup);
             this.panForm.Location = new System.Drawing.Point(0, 3);
             this.panForm.Name = "panForm";
-            this.panForm.Size = new System.Drawing.Size(745, 696);
+            this.panForm.Size = new System.Drawing.Size(742, 696);
             this.panForm.TabIndex = 11;
             // 
             // panMain
@@ -472,7 +455,7 @@ namespace TravelExpertsApp
             this.panMain.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panMain.BackColor = System.Drawing.Color.White;
-            this.panMain.Controls.Add(this.mdivMainBtn);
+            this.panMain.Controls.Add(this.materialDivider1);
             this.panMain.Controls.Add(this.panDock);
             this.panMain.Controls.Add(this.fpanButtons);
             this.panMain.Controls.Add(this.panForm);
@@ -483,29 +466,37 @@ namespace TravelExpertsApp
             // 
             // panDock
             // 
-            this.panDock.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.panDock.BackColor = System.Drawing.Color.White;
+            this.panDock.Dock = System.Windows.Forms.DockStyle.Right;
             this.panDock.Location = new System.Drawing.Point(745, 0);
             this.panDock.Name = "panDock";
             this.panDock.Size = new System.Drawing.Size(0, 743);
             this.panDock.TabIndex = 11;
             // 
+            // materialDivider2
+            // 
+            this.materialDivider2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialDivider2.Depth = 0;
+            this.materialDivider2.Location = new System.Drawing.Point(0, 244);
+            this.materialDivider2.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialDivider2.Name = "materialDivider2";
+            this.materialDivider2.Size = new System.Drawing.Size(353, 1);
+            this.materialDivider2.TabIndex = 6;
+            this.materialDivider2.Text = "materialDivider2";
+            // 
             // txtPkgName
             // 
             this.txtPkgName.Depth = 0;
             this.txtPkgName.Hint = "";
-            this.txtPkgName.Location = new System.Drawing.Point(152, 4);
-            this.txtPkgName.MaxLength = 32767;
+            this.txtPkgName.Location = new System.Drawing.Point(118, 4);
             this.txtPkgName.MouseState = MaterialSkin.MouseState.HOVER;
             this.txtPkgName.Name = "txtPkgName";
             this.txtPkgName.PasswordChar = '\0';
             this.txtPkgName.SelectedText = "";
             this.txtPkgName.SelectionLength = 0;
             this.txtPkgName.SelectionStart = 0;
-            this.txtPkgName.Size = new System.Drawing.Size(196, 28);
+            this.txtPkgName.Size = new System.Drawing.Size(230, 28);
             this.txtPkgName.TabIndex = 1;
-            this.txtPkgName.TabStop = false;
             this.txtPkgName.UseSystemPasswordChar = false;
             this.txtPkgName.Leave += new System.EventHandler(this.txtPkgName_Leave);
             this.txtPkgName.TextChanged += new System.EventHandler(this.txtPkgName_TextChanged);
@@ -517,7 +508,6 @@ namespace TravelExpertsApp
             this.ClientSize = new System.Drawing.Size(745, 805);
             this.Controls.Add(this.panMain);
             this.Name = "frmPkgAddModify";
-            this.Sizable = false;
             this.Load += new System.EventHandler(this.Form1_Load);
             this.fpanButtons.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbPkgImage)).EndInit();
@@ -527,6 +517,16 @@ namespace TravelExpertsApp
             this.panProdSup.PerformLayout();
             this.panFormGrp.ResumeLayout(false);
             this.panFormGrp.PerformLayout();
+            this.panStartDate.ResumeLayout(false);
+            this.panStartDate.PerformLayout();
+            this.panDesc.ResumeLayout(false);
+            this.panDesc.PerformLayout();
+            this.panEndDate.ResumeLayout(false);
+            this.panEndDate.PerformLayout();
+            this.panBasePrice.ResumeLayout(false);
+            this.panBasePrice.PerformLayout();
+            this.panCommission.ResumeLayout(false);
+            this.panCommission.PerformLayout();
             this.panForm.ResumeLayout(false);
             this.panMain.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -534,39 +534,45 @@ namespace TravelExpertsApp
         }
 
         #endregion
-        private MaterialRaisedButton btnAddModify;
-        private MaterialRaisedButton btnCancel;
+        private System.Windows.Forms.Button btnAddModify;
+        private System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.FlowLayoutPanel fpanButtons;
         private System.Windows.Forms.OpenFileDialog ofdImage;
         private System.Windows.Forms.PictureBox pbPkgImage;
-        private MaterialLabel lblPkgImage;
+        private System.Windows.Forms.Label lblPkgImage;
         private System.Windows.Forms.Panel panPkgImage;
-        private MaterialLabel lblPkgProducts;
+        private System.Windows.Forms.Label lblPkgProducts;
         private System.Windows.Forms.ColumnHeader colSupName;
         private System.Windows.Forms.ColumnHeader colProdName;
         private System.Windows.Forms.ColumnHeader colProdSup;
+        private System.Windows.Forms.ListView lvPkgProductSuppliers;
         private MaterialFlatButton btnPSAdd;
         private MaterialFlatButton btnPSDelete;
         private MaterialFlatButton btnPSEdit;
         private System.Windows.Forms.Panel panProdSup;
-        private MaterialLabel lblCommission;
-        private MaterialSingleLineTextField txtCommission;
-        private MaterialLabel lblBasePrice;
-        private MaterialSingleLineTextField txtBasePrice;
-        private MaterialLabel lblEndDate;
+        private System.Windows.Forms.Label lblCommission;
+        private System.Windows.Forms.TextBox txtCommission;
+        private System.Windows.Forms.Panel panCommission;
+        private System.Windows.Forms.Label lblBasePrice;
+        private System.Windows.Forms.TextBox txtBasePrice;
+        private System.Windows.Forms.Panel panBasePrice;
+        private System.Windows.Forms.Label lblEndDate;
         private System.Windows.Forms.DateTimePicker dtpEndDate;
-        private MaterialLabel lblDesc;
+        private System.Windows.Forms.Panel panEndDate;
+        private System.Windows.Forms.Label lblDesc;
         private System.Windows.Forms.TextBox txtDesc;
-        private MaterialLabel lblStartDate;
+        private System.Windows.Forms.Panel panDesc;
+        private System.Windows.Forms.Label lblStartDate;
         private System.Windows.Forms.DateTimePicker dtpStartDate;
+        private System.Windows.Forms.Panel panStartDate;
         private System.Windows.Forms.Panel panFormGrp;
-        private MaterialLabel lblPkgName;
+        private System.Windows.Forms.Label lblPkgName;
         private MaterialSkin.Controls.MaterialComboBox txtPkgName;
         private System.Windows.Forms.Panel panForm;
         private System.Windows.Forms.Panel panMain;
         private System.Windows.Forms.Panel panDock;
         private MaterialFlatButton btnImage;
-        private MaterialDivider mdivMainBtn;
-        private MaterialListView lvPkgProductSuppliers;
+        private MaterialDivider materialDivider1;
+        private MaterialDivider materialDivider2;
     }
 }
