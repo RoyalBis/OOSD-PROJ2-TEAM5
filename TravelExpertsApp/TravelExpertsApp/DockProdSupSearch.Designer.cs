@@ -31,46 +31,60 @@ namespace TravelExpertsApp
         /// </summary>
         private void InitializeComponent()
         {
-            this.fpanButtons = new System.Windows.Forms.FlowLayoutPanel();
+            this.panButtons = new System.Windows.Forms.Panel();
+            this.mdivBtns = new MaterialSkin.Controls.MaterialDivider();
             this.mbtnAccept = new MaterialSkin.Controls.MaterialFlatButton();
             this.mbtnCancel = new MaterialSkin.Controls.MaterialFlatButton();
+            this.fpanRadio = new System.Windows.Forms.Panel();
+            this.mlblSearchby = new MaterialSkin.Controls.MaterialLabel();
+            this.mrbProdSup = new MaterialSkin.Controls.MaterialRadioButton();
+            this.mrbProd = new MaterialSkin.Controls.MaterialRadioButton();
+            this.mrbSup = new MaterialSkin.Controls.MaterialRadioButton();
+            this.panSearch = new System.Windows.Forms.Panel();
+            this.mtxtSearch = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.lblSearch = new MaterialSkin.Controls.MaterialLabel();
+            this.panMain = new System.Windows.Forms.Panel();
             this.lvResults = new MaterialSkin.Controls.MaterialListView();
             this.colID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colProduct = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colSupplier = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.mrbProdSup = new MaterialSkin.Controls.MaterialRadioButton();
-            this.mrbProd = new MaterialSkin.Controls.MaterialRadioButton();
-            this.fpanRadio = new System.Windows.Forms.Panel();
-            this.mlblSearchby = new MaterialSkin.Controls.MaterialLabel();
-            this.mrbSup = new MaterialSkin.Controls.MaterialRadioButton();
-            this.mtxtSearch = new MaterialSkin.Controls.MaterialSingleLineTextField();
-            this.lblSearch = new MaterialSkin.Controls.MaterialLabel();
-            this.panSearch = new System.Windows.Forms.Panel();
-            this.panMain = new System.Windows.Forms.Panel();
-            this.fpanButtons.SuspendLayout();
+            this.panButtons.SuspendLayout();
             this.fpanRadio.SuspendLayout();
             this.panSearch.SuspendLayout();
             this.SuspendLayout();
             // 
-            // fpanButtons
+            // panButtons
             // 
-            this.fpanButtons.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            this.panButtons.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.panButtons.BackColor = System.Drawing.Color.White;
+            this.panButtons.Controls.Add(this.mdivBtns);
+            this.panButtons.Controls.Add(this.mbtnAccept);
+            this.panButtons.Controls.Add(this.mbtnCancel);
+            this.panButtons.Location = new System.Drawing.Point(12, 639);
+            this.panButtons.Name = "panButtons";
+            this.panButtons.Size = new System.Drawing.Size(522, 40);
+            this.panButtons.TabIndex = 12;
+            // 
+            // mdivBtns
+            // 
+            this.mdivBtns.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.fpanButtons.BackColor = System.Drawing.Color.White;
-            this.fpanButtons.Controls.Add(this.mbtnAccept);
-            this.fpanButtons.Controls.Add(this.mbtnCancel);
-            this.fpanButtons.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.fpanButtons.Location = new System.Drawing.Point(20, 643);
-            this.fpanButtons.Name = "fpanButtons";
-            this.fpanButtons.Size = new System.Drawing.Size(506, 36);
-            this.fpanButtons.TabIndex = 12;
+            this.mdivBtns.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.mdivBtns.Depth = 0;
+            this.mdivBtns.Location = new System.Drawing.Point(0, 0);
+            this.mdivBtns.MouseState = MaterialSkin.MouseState.HOVER;
+            this.mdivBtns.Name = "mdivBtns";
+            this.mdivBtns.Size = new System.Drawing.Size(522, 1);
+            this.mdivBtns.TabIndex = 2;
+            this.mdivBtns.Text = "materialDivider1";
             // 
             // mbtnAccept
             // 
+            this.mbtnAccept.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
             this.mbtnAccept.AutoSize = true;
             this.mbtnAccept.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.mbtnAccept.Depth = 0;
-            this.mbtnAccept.Location = new System.Drawing.Point(231, 6);
+            this.mbtnAccept.Location = new System.Drawing.Point(243, 4);
             this.mbtnAccept.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.mbtnAccept.MouseState = MaterialSkin.MouseState.HOVER;
             this.mbtnAccept.Name = "mbtnAccept";
@@ -78,62 +92,52 @@ namespace TravelExpertsApp
             this.mbtnAccept.Size = new System.Drawing.Size(271, 36);
             this.mbtnAccept.TabIndex = 0;
             this.mbtnAccept.Text = "Add Selection(s) to Package";
+            this.mbtnAccept.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.mbtnAccept.UseVisualStyleBackColor = true;
             this.mbtnAccept.Click += new System.EventHandler(this.mbtnAccept_Click);
             // 
             // mbtnCancel
             // 
+            this.mbtnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.mbtnCancel.AutoSize = true;
             this.mbtnCancel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.mbtnCancel.Depth = 0;
-            this.mbtnCancel.Location = new System.Drawing.Point(145, 6);
+            this.mbtnCancel.Location = new System.Drawing.Point(20, 4);
             this.mbtnCancel.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.mbtnCancel.MouseState = MaterialSkin.MouseState.HOVER;
             this.mbtnCancel.Name = "mbtnCancel";
             this.mbtnCancel.Primary = true;
-            this.mbtnCancel.Size = new System.Drawing.Size(78, 36);
+            this.mbtnCancel.Size = new System.Drawing.Size(65, 36);
             this.mbtnCancel.TabIndex = 1;
-            this.mbtnCancel.Text = "Cancel";
+            this.mbtnCancel.Text = "Close";
             this.mbtnCancel.UseVisualStyleBackColor = true;
             // 
-            // lvResults
+            // fpanRadio
             // 
-            this.lvResults.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
+            this.fpanRadio.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.lvResults.BackColor = System.Drawing.Color.White;
-            this.lvResults.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.lvResults.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.colID,
-            this.colProduct,
-            this.colSupplier});
-            this.lvResults.Depth = 0;
-            this.lvResults.FullRowSelect = true;
-            this.lvResults.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
-            this.lvResults.Location = new System.Drawing.Point(20, 228);
-            this.lvResults.MouseLocation = new System.Drawing.Point(-1, -1);
-            this.lvResults.MouseState = MaterialSkin.MouseState.OUT;
-            this.lvResults.Name = "lvResults";
-            this.lvResults.OwnerDraw = true;
-            this.lvResults.Size = new System.Drawing.Size(506, 409);
-            this.lvResults.TabIndex = 21;
-            this.lvResults.UseCompatibleStateImageBehavior = false;
-            this.lvResults.View = System.Windows.Forms.View.Details;
+            this.fpanRadio.BackColor = System.Drawing.Color.White;
+            this.fpanRadio.Controls.Add(this.mlblSearchby);
+            this.fpanRadio.Controls.Add(this.mrbProdSup);
+            this.fpanRadio.Controls.Add(this.mrbProd);
+            this.fpanRadio.Controls.Add(this.mrbSup);
+            this.fpanRadio.Location = new System.Drawing.Point(20, 93);
+            this.fpanRadio.Name = "fpanRadio";
+            this.fpanRadio.Size = new System.Drawing.Size(506, 129);
+            this.fpanRadio.TabIndex = 25;
             // 
-            // colID
+            // mlblSearchby
             // 
-            this.colID.Text = "ID";
-            this.colID.Width = 50;
-            // 
-            // colProduct
-            // 
-            this.colProduct.Text = "Product";
-            this.colProduct.Width = 150;
-            // 
-            // colSupplier
-            // 
-            this.colSupplier.Text = "Supplier";
-            this.colSupplier.Width = 300;
+            this.mlblSearchby.AutoSize = true;
+            this.mlblSearchby.Depth = 0;
+            this.mlblSearchby.Font = new System.Drawing.Font("Roboto", 11F);
+            this.mlblSearchby.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.mlblSearchby.Location = new System.Drawing.Point(3, 0);
+            this.mlblSearchby.MouseState = MaterialSkin.MouseState.HOVER;
+            this.mlblSearchby.Name = "mlblSearchby";
+            this.mlblSearchby.Size = new System.Drawing.Size(97, 24);
+            this.mlblSearchby.TabIndex = 26;
+            this.mlblSearchby.Text = "Search by:";
             // 
             // mrbProdSup
             // 
@@ -172,33 +176,6 @@ namespace TravelExpertsApp
             this.mrbProd.UseVisualStyleBackColor = true;
             this.mrbProd.CheckedChanged += new System.EventHandler(this.mrbProd_CheckedChanged);
             // 
-            // fpanRadio
-            // 
-            this.fpanRadio.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.fpanRadio.BackColor = System.Drawing.Color.White;
-            this.fpanRadio.Controls.Add(this.mlblSearchby);
-            this.fpanRadio.Controls.Add(this.mrbProdSup);
-            this.fpanRadio.Controls.Add(this.mrbProd);
-            this.fpanRadio.Controls.Add(this.mrbSup);
-            this.fpanRadio.Location = new System.Drawing.Point(20, 93);
-            this.fpanRadio.Name = "fpanRadio";
-            this.fpanRadio.Size = new System.Drawing.Size(506, 129);
-            this.fpanRadio.TabIndex = 25;
-            // 
-            // mlblSearchby
-            // 
-            this.mlblSearchby.AutoSize = true;
-            this.mlblSearchby.Depth = 0;
-            this.mlblSearchby.Font = new System.Drawing.Font("Roboto", 11F);
-            this.mlblSearchby.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.mlblSearchby.Location = new System.Drawing.Point(3, 0);
-            this.mlblSearchby.MouseState = MaterialSkin.MouseState.HOVER;
-            this.mlblSearchby.Name = "mlblSearchby";
-            this.mlblSearchby.Size = new System.Drawing.Size(97, 24);
-            this.mlblSearchby.TabIndex = 26;
-            this.mlblSearchby.Text = "Search by:";
-            // 
             // mrbSup
             // 
             this.mrbSup.Depth = 0;
@@ -215,6 +192,18 @@ namespace TravelExpertsApp
             this.mrbSup.Text = "Supplier";
             this.mrbSup.UseVisualStyleBackColor = true;
             this.mrbSup.CheckedChanged += new System.EventHandler(this.mrbSup_CheckedChanged);
+            // 
+            // panSearch
+            // 
+            this.panSearch.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panSearch.BackColor = System.Drawing.Color.White;
+            this.panSearch.Controls.Add(this.mtxtSearch);
+            this.panSearch.Controls.Add(this.lblSearch);
+            this.panSearch.Location = new System.Drawing.Point(20, 4);
+            this.panSearch.Name = "panSearch";
+            this.panSearch.Size = new System.Drawing.Size(506, 83);
+            this.panSearch.TabIndex = 26;
             // 
             // mtxtSearch
             // 
@@ -247,18 +236,6 @@ namespace TravelExpertsApp
             this.lblSearch.TabIndex = 13;
             this.lblSearch.Text = "Search for a Product Supplier";
             // 
-            // panSearch
-            // 
-            this.panSearch.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panSearch.BackColor = System.Drawing.Color.White;
-            this.panSearch.Controls.Add(this.mtxtSearch);
-            this.panSearch.Controls.Add(this.lblSearch);
-            this.panSearch.Location = new System.Drawing.Point(20, 4);
-            this.panSearch.Name = "panSearch";
-            this.panSearch.Size = new System.Drawing.Size(506, 83);
-            this.panSearch.TabIndex = 26;
-            // 
             // panMain
             // 
             this.panMain.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -270,23 +247,62 @@ namespace TravelExpertsApp
             this.panMain.Size = new System.Drawing.Size(525, 682);
             this.panMain.TabIndex = 27;
             // 
+            // lvResults
+            // 
+            this.lvResults.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lvResults.BackColor = System.Drawing.Color.White;
+            this.lvResults.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.lvResults.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.colID,
+            this.colProduct,
+            this.colSupplier});
+            this.lvResults.Depth = 0;
+            this.lvResults.FullRowSelect = true;
+            this.lvResults.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
+            this.lvResults.Location = new System.Drawing.Point(20, 228);
+            this.lvResults.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.lvResults.MouseState = MaterialSkin.MouseState.OUT;
+            this.lvResults.Name = "lvResults";
+            this.lvResults.OwnerDraw = true;
+            this.lvResults.Size = new System.Drawing.Size(506, 405);
+            this.lvResults.TabIndex = 21;
+            this.lvResults.UseCompatibleStateImageBehavior = false;
+            this.lvResults.View = System.Windows.Forms.View.Details;
+            // 
+            // colID
+            // 
+            this.colID.Text = "ID";
+            this.colID.Width = 50;
+            // 
+            // colProduct
+            // 
+            this.colProduct.Text = "Product";
+            this.colProduct.Width = 150;
+            // 
+            // colSupplier
+            // 
+            this.colSupplier.Text = "Supplier";
+            this.colSupplier.Width = 300;
+            // 
             // DockProdSupSearch
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.Controls.Add(this.panButtons);
             this.Controls.Add(this.panSearch);
             this.Controls.Add(this.fpanRadio);
             this.Controls.Add(this.lvResults);
-            this.Controls.Add(this.fpanButtons);
             this.Controls.Add(this.panMain);
             this.Name = "DockProdSupSearch";
             this.Size = new System.Drawing.Size(534, 682);
             this.MouseClick += new System.Windows.Forms.MouseEventHandler(this.DockProdSupSearch_MouseClick);
             this.MouseEnter += new System.EventHandler(this.DockProdSupSearch_MouseEnter);
             this.MouseLeave += new System.EventHandler(this.DockProdSupSearch_MouseLeave);
-            this.fpanButtons.ResumeLayout(false);
-            this.fpanButtons.PerformLayout();
+            this.panButtons.ResumeLayout(false);
+            this.panButtons.PerformLayout();
             this.fpanRadio.ResumeLayout(false);
             this.fpanRadio.PerformLayout();
             this.panSearch.ResumeLayout(false);
@@ -295,7 +311,7 @@ namespace TravelExpertsApp
         }
 
         #endregion
-        private System.Windows.Forms.FlowLayoutPanel fpanButtons;
+        private Panel panButtons;
         private MaterialSkin.Controls.MaterialFlatButton mbtnAccept;
         private MaterialSkin.Controls.MaterialFlatButton mbtnCancel;
         private MaterialListView lvResults;
@@ -311,5 +327,6 @@ namespace TravelExpertsApp
         private System.Windows.Forms.ColumnHeader colID;
         private System.Windows.Forms.ColumnHeader colProduct;
         private System.Windows.Forms.ColumnHeader colSupplier;
+        private MaterialDivider mdivBtns;
     }
 }

@@ -19,10 +19,16 @@ namespace TravelExpertsApp
 {
     public partial class frmPackage : MaterialForm
     {
+        private MaterialSkinManager materialSkinManager;
 
         public frmPackage()
         {
             InitializeComponent();
+
+            materialSkinManager = MaterialSkinManager.Instance;
+            materialSkinManager.AddFormToManage(this);
+            materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
+            materialSkinManager.ColorScheme = new ColorScheme(Primary.DeepOrange800, Primary.DeepOrange900, Primary.DeepOrange500, Accent.Orange200, TextShade.WHITE);
         }
 
         public static Package MyPackage;

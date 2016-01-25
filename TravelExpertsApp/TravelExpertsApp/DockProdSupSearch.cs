@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using EntityLayer;
 using MaterialSkin;
+using MaterialSkin.Controls;
 using TravelExpertsDB;
 
 namespace TravelExpertsApp
@@ -26,16 +27,17 @@ namespace TravelExpertsApp
             InitializeComponent();
 
             AllProdSups = ProductSupplierTable.GetAllProductSuppliers();
+            this.BackColor = MaterialSkinManager.Instance.ColorScheme.PrimaryColor;
         }
 
         private void DockProdSupSearch_MouseEnter(object sender, EventArgs e)
         {
-            this.BackColor = Color.Gray;
+            this.BackColor = MaterialSkinManager.Instance.ColorScheme.AccentColor;
         }
 
         private void DockProdSupSearch_MouseLeave(object sender, EventArgs e)
         {
-            this.BackColor = Color.FromArgb(64,64,64);
+            this.BackColor = MaterialSkinManager.Instance.ColorScheme.PrimaryColor;
         }
 
         private void DockProdSupSearch_MouseClick(object sender, MouseEventArgs e)
@@ -79,14 +81,14 @@ namespace TravelExpertsApp
                     break;
                 case "Product":
                     results = from prodsup in AllProdSups
-                              where Convert.ToString(prodsup.MyProduct.ProductId).StartsWith(searchStr) || Convert.ToString(prodsup.MyProduct.ProdName).Contains(searchStr)
+                              where Convert.ToString(prodsup.MyProduct.ProductId).StartsWith(searchStr) || Convert.ToString(prodsup.MyProduct.ProdName.ToLower()).Contains(searchStr.ToLower())
                               orderby prodsup.MyProduct.ProductId
                               select prodsup;
                     ProdSupResults.AddRange(results);
                     break;
                 case "Supplier":
                     results = from prodsup in AllProdSups
-                              where Convert.ToString(prodsup.MySupplier.SupplierId).StartsWith(searchStr) || Convert.ToString(prodsup.MySupplier.SupName).Contains(searchStr)
+                              where Convert.ToString(prodsup.MySupplier.SupplierId).StartsWith(searchStr) || Convert.ToString(prodsup.MySupplier.SupName.ToLower()).Contains(searchStr.ToLower())
                               orderby prodsup.MyProduct.ProductId
                               select prodsup;
                     ProdSupResults.AddRange(results);
@@ -113,29 +115,29 @@ namespace TravelExpertsApp
 
         private void mrbProdSup_CheckedChanged(object sender, EventArgs e)
         {
-            //if (mrbProdSup.Checked)
-            //{
-            //    searchBy = "ProductSupplier";
-            //}
-            //searchProdSups();
+            if (mrbProdSup.Checked)
+            {
+                searchBy = "ProductSupplier";
+            }
+            searchProdSups();
         }
 
         private void mrbProd_CheckedChanged(object sender, EventArgs e)
         {
-            //if (mrbProd.Checked)
-            //{
-            //    searchBy = "Product";
-            //}
-            //searchProdSups();
+            if (mrbProd.Checked)
+            {
+                searchBy = "Product";
+            }
+            searchProdSups();
         }
 
         private void mrbSup_CheckedChanged(object sender, EventArgs e)
         {
-            //if (mrbSup.Checked)
-            //{
-            //    searchBy = "Supplier";
-            //}
-            //searchProdSups();
+            if (mrbSup.Checked)
+            {
+                searchBy = "Supplier";
+            }
+            searchProdSups();
         }
 
         private void mbtnAccept_Click(object sender, EventArgs e)

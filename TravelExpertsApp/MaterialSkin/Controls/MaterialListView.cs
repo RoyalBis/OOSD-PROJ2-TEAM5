@@ -58,7 +58,10 @@ namespace MaterialSkin.Controls
         protected override void OnDrawColumnHeader(DrawListViewColumnHeaderEventArgs e)
         {
             e.Graphics.FillRectangle(new SolidBrush(SkinManager.GetApplicationBackgroundColor()), new Rectangle(e.Bounds.X, e.Bounds.Y, Width, e.Bounds.Height));
-            e.Graphics.DrawString(e.Header.Text,
+            int headerMax = ((e.Bounds.Width - 3) / 10);
+            headerMax = (headerMax > 3) ? headerMax : 3;
+            string headerText = (e.Header.Text.Length > headerMax) ? e.Header.Text.Substring(0, (headerMax - 3)) + "..." : e.Header.Text;
+            e.Graphics.DrawString(headerText,
                 SkinManager.ROBOTO_MEDIUM_10,
                 SkinManager.GetSecondaryTextBrush(),
                 new Rectangle(e.Bounds.X + ITEM_PADDING, e.Bounds.Y + ITEM_PADDING, e.Bounds.Width - ITEM_PADDING * 2, e.Bounds.Height - ITEM_PADDING * 2),
@@ -92,7 +95,7 @@ namespace MaterialSkin.Controls
 			
 			foreach (ListViewItem.ListViewSubItem subItem in e.Item.SubItems)
 			{
-                int subItemMax = (subItem.Bounds.Width / 10);
+                int subItemMax = ( (subItem.Bounds.Width - 3) / 10);
                 subItemMax = (subItemMax > 3) ? subItemMax : 3;
                 string subItemText = (subItem.Text.Length > subItemMax) ? subItem.Text.Substring(0, (subItemMax - 3)) + "..." : subItem.Text;
                 //Draw text
