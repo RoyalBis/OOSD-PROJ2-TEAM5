@@ -20,6 +20,8 @@ namespace TravelExpertsApp
     public partial class frmPackage : MaterialForm
     {
         private MaterialSkinManager materialSkinManager;
+        private List<ColorScheme> mySchemes = new List<ColorScheme>(); 
+        private int myScheme;
 
         public frmPackage()
         {
@@ -28,7 +30,29 @@ namespace TravelExpertsApp
             materialSkinManager = MaterialSkinManager.Instance;
             materialSkinManager.AddFormToManage(this);
             materialSkinManager.Theme = MaterialSkinManager.Themes.LIGHT;
-            materialSkinManager.ColorScheme = new ColorScheme(Primary.DeepOrange800, Primary.DeepOrange900, Primary.DeepOrange500, Accent.Orange200, TextShade.WHITE);
+            ColorScheme Orange = new ColorScheme(Primary.DeepOrange800, Primary.DeepOrange900, Primary.DeepOrange500, Accent.Orange200, TextShade.WHITE);
+            ColorScheme Purple = new ColorScheme(Primary.DeepPurple800, Primary.DeepPurple900, Primary.DeepPurple500, Accent.Purple200, TextShade.WHITE);
+            ColorScheme Green = new ColorScheme(Primary.Green800, Primary.Green900, Primary.Green500, Accent.LightGreen200, TextShade.WHITE);
+            ColorScheme Blue = new ColorScheme(Primary.Blue800, Primary.Blue900, Primary.Blue500, Accent.LightBlue200, TextShade.WHITE);
+            ColorScheme Amber = new ColorScheme(Primary.Amber800, Primary.Amber900, Primary.Amber500, Accent.Amber100, TextShade.WHITE);
+            ColorScheme Indigo = new ColorScheme(Primary.Indigo800, Primary.Indigo900, Primary.Indigo500, Accent.Indigo100, TextShade.WHITE);
+            ColorScheme Brown = new ColorScheme(Primary.Brown800, Primary.Brown900, Primary.Brown500, Accent.Orange200, TextShade.WHITE);
+            ColorScheme Grey = new ColorScheme(Primary.Grey800, Primary.Grey900, Primary.Grey500, Accent.Orange200, TextShade.WHITE);
+            ColorScheme Red = new ColorScheme(Primary.Red800, Primary.Red900, Primary.Red500, Accent.Red100, TextShade.WHITE);
+            ColorScheme Pink = new ColorScheme(Primary.Pink800, Primary.Pink900, Primary.Pink500, Accent.Pink100, TextShade.WHITE);
+            ColorScheme Lime = new ColorScheme(Primary.Lime800, Primary.Lime900, Primary.Lime500, Accent.Lime700, TextShade.WHITE);
+            ColorScheme Cyan = new ColorScheme(Primary.Cyan800, Primary.Cyan900, Primary.Cyan500, Accent.Cyan700, TextShade.WHITE);
+            ColorScheme Teal = new ColorScheme(Primary.Teal800, Primary.Teal900, Primary.Teal500, Accent.Teal700, TextShade.WHITE);
+            ColorScheme Yellow = new ColorScheme(Primary.Yellow800, Primary.Yellow900, Primary.Yellow500, Accent.Yellow700, TextShade.WHITE);
+            ColorScheme BlueGrey = new ColorScheme(Primary.BlueGrey800, Primary.BlueGrey900, Primary.BlueGrey800, Accent.LightBlue700, TextShade.WHITE);
+            ColorScheme BlueGreen = new ColorScheme(Primary.BlueGrey900, Primary.Green600, Primary.Blue900, Accent.Green700, TextShade.WHITE);
+            ColorScheme GreyOrange = new ColorScheme(Primary.DeepOrange900, Primary.Grey900, Primary.Orange900, Accent.Orange700, TextShade.WHITE);
+            mySchemes.Add(Orange); mySchemes.Add(Purple); mySchemes.Add(Green); mySchemes.Add(Blue); mySchemes.Add(Amber);
+            mySchemes.Add(Indigo); mySchemes.Add(Brown); mySchemes.Add(Grey); mySchemes.Add(Red); mySchemes.Add(Pink); mySchemes.Add(Lime); mySchemes.Add(Cyan);
+            mySchemes.Add(Teal); mySchemes.Add(Yellow); mySchemes.Add(BlueGrey); mySchemes.Add(BlueGreen); mySchemes.Add(GreyOrange);
+            myScheme = mySchemes.Count - 1;
+            //materialSkinManager.ColorScheme = mySchemes[myScheme];
+            materialSkinManager.ColorScheme = GreyOrange;
         }
 
         public static Package MyPackage;
@@ -276,6 +300,16 @@ namespace TravelExpertsApp
         private void btnXML_Click_1(object sender, EventArgs e)
         {
             SaveOrder(packagelist);  //method to save data into xml
+        }
+
+        private void materialRaisedButton1_Click(object sender, EventArgs e)
+        {
+            myScheme = myScheme + 1;
+            if ( myScheme >= mySchemes.Count )
+            {
+                myScheme = 0;
+            }
+            MaterialSkinManager.Instance.ColorScheme = mySchemes[myScheme];
         }
     }
 }

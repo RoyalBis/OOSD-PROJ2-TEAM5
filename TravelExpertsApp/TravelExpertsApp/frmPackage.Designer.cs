@@ -61,6 +61,7 @@
             this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.lsvPackage_Supplier = new System.Windows.Forms.ListView();
+            this.materialRaisedButton1 = new MaterialSkin.Controls.MaterialRaisedButton();
             this.gbPackageDetail.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.travelExpertsDataSet1)).BeginInit();
             this.SuspendLayout();
@@ -363,12 +364,26 @@
             this.lsvPackage_Supplier.UseCompatibleStateImageBehavior = false;
             this.lsvPackage_Supplier.View = System.Windows.Forms.View.Details;
             // 
+            // materialRaisedButton1
+            // 
+            this.materialRaisedButton1.Depth = 0;
+            this.materialRaisedButton1.Location = new System.Drawing.Point(405, 501);
+            this.materialRaisedButton1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialRaisedButton1.Name = "materialRaisedButton1";
+            this.materialRaisedButton1.Primary = true;
+            this.materialRaisedButton1.Size = new System.Drawing.Size(185, 27);
+            this.materialRaisedButton1.TabIndex = 14;
+            this.materialRaisedButton1.Text = "Change Theme";
+            this.materialRaisedButton1.UseVisualStyleBackColor = true;
+            this.materialRaisedButton1.Click += new System.EventHandler(this.materialRaisedButton1_Click);
+            // 
             // frmPackage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1376, 539);
+            this.Controls.Add(this.materialRaisedButton1);
             this.Controls.Add(this.btnXML);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnUpdate);
@@ -424,5 +439,6 @@
         private System.Windows.Forms.ColumnHeader columnHeader8;
         private System.Windows.Forms.ListView lsvPackage_Supplier;
         private System.Windows.Forms.TextBox txtPkgName;
+        private MaterialSkin.Controls.MaterialRaisedButton materialRaisedButton1;
     }
 }
