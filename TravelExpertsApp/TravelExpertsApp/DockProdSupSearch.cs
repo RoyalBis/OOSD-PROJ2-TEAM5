@@ -16,11 +16,10 @@ namespace TravelExpertsApp
 {
     public partial class DockProdSupSearch : UserControl
     {
-        public bool Add;
-        public ProductSupplier ActiveProdSup;
-        public List<ProductSupplier> AddProdSupList;
+        public List<ProductSupplier> ProdSupResults = new List<ProductSupplier>();
         private List<ProductSupplier> AllProdSups;
         private string searchBy = "ProductSupplier"; //MAybe make this an Enum
+        public ListView UpdateControl;
 
         public DockProdSupSearch()
         {
@@ -66,8 +65,7 @@ namespace TravelExpertsApp
         private void searchProdSups()
         {
             string searchStr = mtxtSearch.Text;
-
-            List<ProductSupplier> prodSups = new List<ProductSupplier>();
+            ProdSupResults.Clear();
             IEnumerable<ProductSupplier> results;
 
             switch ( searchBy )
@@ -77,35 +75,35 @@ namespace TravelExpertsApp
                               where Convert.ToString(prodsup.ProductSupplierId).StartsWith(searchStr)
                               orderby prodsup.MyProduct.ProductId
                               select prodsup;
-                    prodSups.AddRange(results);
+                    ProdSupResults.AddRange(results);
                     break;
                 case "Product":
                     results = from prodsup in AllProdSups
                               where Convert.ToString(prodsup.MyProduct.ProductId).StartsWith(searchStr) || Convert.ToString(prodsup.MyProduct.ProdName).Contains(searchStr)
                               orderby prodsup.MyProduct.ProductId
                               select prodsup;
-                    prodSups.AddRange(results);
+                    ProdSupResults.AddRange(results);
                     break;
                 case "Supplier":
                     results = from prodsup in AllProdSups
                               where Convert.ToString(prodsup.MySupplier.SupplierId).StartsWith(searchStr) || Convert.ToString(prodsup.MySupplier.SupName).Contains(searchStr)
                               orderby prodsup.MyProduct.ProductId
                               select prodsup;
-                    prodSups.AddRange(results);
+                    ProdSupResults.AddRange(results);
                     break;
                 default:
                     break;
             }
-            addToResultsList(prodSups);
+            addToResultsList();
         }
 
-        private void addToResultsList(List<ProductSupplier> results)
+        private void addToResultsList()
         {
             lvResults.Items.Clear();
-            for (int i = 0; i < results.Count; i++)
+            for (int i = 0; i < ProdSupResults.Count; i++)
             {
-                ProductSupplier prodsup = results[i];
-                lvResults.Items.Add(results[i].ProductSupplierId.ToString());
+                ProductSupplier prodsup = ProdSupResults[i];
+                lvResults.Items.Add(ProdSupResults[i].ProductSupplierId.ToString());
                 lvResults.Items[i].SubItems.Add(prodsup.MyProduct.ProductId + " - " +
                                                 prodsup.MyProduct.ProdName);
                 lvResults.Items[i].SubItems.Add(prodsup.MySupplier.SupplierId + " - " +
@@ -138,6 +136,17 @@ namespace TravelExpertsApp
             //    searchBy = "Supplier";
             //}
             //searchProdSups();
+        }
+
+        private void mbtnAccept_Click(object sender, EventArgs e)
+        {
+            foreach (int item in lvResults.SelectedIndices)
+            {
+                ProductSupplier ps = ProdSupResults[item];
+
+                string[] row = {ps.ProductSupplierId.ToString(), ps.MyProduct.ProdName, ps.MySupplier.SupName};
+                UpdateControl.Items.Add(new ListViewItem(row) );
+            }
         }
     }
 }

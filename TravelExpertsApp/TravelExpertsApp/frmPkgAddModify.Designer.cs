@@ -31,8 +31,8 @@ namespace TravelExpertsApp
         private void InitializeComponent()
         {
             this.btnImage = new MaterialSkin.Controls.MaterialFlatButton();
-            this.btnAddModify = new System.Windows.Forms.Button();
-            this.btnCancel = new System.Windows.Forms.Button();
+            this.btnAddModify = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.btnCancel = new MaterialSkin.Controls.MaterialRaisedButton();
             this.fpanButtons = new System.Windows.Forms.FlowLayoutPanel();
             this.ofdImage = new System.Windows.Forms.OpenFileDialog();
             this.pbPkgImage = new System.Windows.Forms.PictureBox();
@@ -40,10 +40,10 @@ namespace TravelExpertsApp
             this.panPkgImage = new System.Windows.Forms.Panel();
             this.materialDivider1 = new MaterialSkin.Controls.MaterialDivider();
             this.panProdSup = new System.Windows.Forms.Panel();
-            this.btnPSEdit = new MaterialSkin.Controls.MaterialFlatButton();
+            this.materialDivider2 = new MaterialSkin.Controls.MaterialDivider();
             this.btnPSDelete = new MaterialSkin.Controls.MaterialFlatButton();
             this.btnPSAdd = new MaterialSkin.Controls.MaterialFlatButton();
-            this.lvPkgProductSuppliers = new System.Windows.Forms.ListView();
+            this.lvPkgProductSuppliers = new MaterialSkin.Controls.MaterialListView();
             this.colProdSup = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colProdName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colSupName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -68,7 +68,6 @@ namespace TravelExpertsApp
             this.panForm = new System.Windows.Forms.Panel();
             this.panMain = new System.Windows.Forms.Panel();
             this.panDock = new System.Windows.Forms.Panel();
-            this.materialDivider2 = new MaterialSkin.Controls.MaterialDivider();
             this.txtPkgName = new MaterialSkin.Controls.MaterialComboBox();
             this.fpanButtons.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbPkgImage)).BeginInit();
@@ -89,22 +88,25 @@ namespace TravelExpertsApp
             this.btnImage.AutoSize = true;
             this.btnImage.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btnImage.Depth = 0;
-            this.btnImage.Location = new System.Drawing.Point(614, 363);
+            this.btnImage.Location = new System.Drawing.Point(582, 359);
             this.btnImage.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnImage.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnImage.Name = "btnImage";
             this.btnImage.Primary = true;
-            this.btnImage.Size = new System.Drawing.Size(131, 36);
+            this.btnImage.Size = new System.Drawing.Size(145, 36);
             this.btnImage.TabIndex = 2;
-            this.btnImage.Text = "Select Image";
+            this.btnImage.Text = "Select Image...";
             this.btnImage.UseVisualStyleBackColor = true;
             this.btnImage.Click += new System.EventHandler(this.btnImage_Click);
             // 
             // btnAddModify
             // 
             this.btnAddModify.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAddModify.Depth = 0;
             this.btnAddModify.Location = new System.Drawing.Point(611, 3);
+            this.btnAddModify.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnAddModify.Name = "btnAddModify";
+            this.btnAddModify.Primary = true;
             this.btnAddModify.Size = new System.Drawing.Size(110, 31);
             this.btnAddModify.TabIndex = 6;
             this.btnAddModify.UseVisualStyleBackColor = true;
@@ -113,8 +115,11 @@ namespace TravelExpertsApp
             // btnCancel
             // 
             this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCancel.Depth = 0;
             this.btnCancel.Location = new System.Drawing.Point(495, 3);
+            this.btnCancel.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Primary = true;
             this.btnCancel.Size = new System.Drawing.Size(110, 31);
             this.btnCancel.TabIndex = 5;
             this.btnCancel.Text = "Cancel";
@@ -140,9 +145,9 @@ namespace TravelExpertsApp
             // 
             // pbPkgImage
             // 
-            this.pbPkgImage.Location = new System.Drawing.Point(12, 21);
+            this.pbPkgImage.Location = new System.Drawing.Point(0, 21);
             this.pbPkgImage.Name = "pbPkgImage";
-            this.pbPkgImage.Size = new System.Drawing.Size(715, 336);
+            this.pbPkgImage.Size = new System.Drawing.Size(739, 336);
             this.pbPkgImage.TabIndex = 9;
             this.pbPkgImage.TabStop = false;
             // 
@@ -181,7 +186,6 @@ namespace TravelExpertsApp
             // 
             this.panProdSup.BackColor = System.Drawing.Color.White;
             this.panProdSup.Controls.Add(this.materialDivider2);
-            this.panProdSup.Controls.Add(this.btnPSEdit);
             this.panProdSup.Controls.Add(this.btnPSDelete);
             this.panProdSup.Controls.Add(this.btnPSAdd);
             this.panProdSup.Controls.Add(this.lvPkgProductSuppliers);
@@ -191,46 +195,46 @@ namespace TravelExpertsApp
             this.panProdSup.Size = new System.Drawing.Size(353, 286);
             this.panProdSup.TabIndex = 5;
             // 
-            // btnPSEdit
+            // materialDivider2
             // 
-            this.btnPSEdit.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.btnPSEdit.Depth = 0;
-            this.btnPSEdit.Location = new System.Drawing.Point(126, 244);
-            this.btnPSEdit.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.btnPSEdit.MouseState = MaterialSkin.MouseState.HOVER;
-            this.btnPSEdit.Name = "btnPSEdit";
-            this.btnPSEdit.Primary = true;
-            this.btnPSEdit.Size = new System.Drawing.Size(112, 36);
-            this.btnPSEdit.TabIndex = 5;
-            this.btnPSEdit.Text = "Edit";
-            this.btnPSEdit.UseVisualStyleBackColor = true;
+            this.materialDivider2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialDivider2.Depth = 0;
+            this.materialDivider2.Location = new System.Drawing.Point(0, 244);
+            this.materialDivider2.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialDivider2.Name = "materialDivider2";
+            this.materialDivider2.Size = new System.Drawing.Size(353, 1);
+            this.materialDivider2.TabIndex = 6;
+            this.materialDivider2.Text = "materialDivider2";
             // 
             // btnPSDelete
             // 
+            this.btnPSDelete.AutoSize = true;
             this.btnPSDelete.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btnPSDelete.Depth = 0;
-            this.btnPSDelete.Location = new System.Drawing.Point(6, 247);
+            this.btnPSDelete.Location = new System.Drawing.Point(206, 244);
             this.btnPSDelete.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnPSDelete.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnPSDelete.Name = "btnPSDelete";
             this.btnPSDelete.Primary = true;
-            this.btnPSDelete.Size = new System.Drawing.Size(112, 36);
+            this.btnPSDelete.Size = new System.Drawing.Size(73, 36);
             this.btnPSDelete.TabIndex = 4;
             this.btnPSDelete.Text = "Delete";
             this.btnPSDelete.UseVisualStyleBackColor = true;
+            this.btnPSDelete.Click += new System.EventHandler(this.btnPSDelete_Click);
             // 
             // btnPSAdd
             // 
+            this.btnPSAdd.AutoSize = true;
             this.btnPSAdd.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btnPSAdd.Depth = 0;
-            this.btnPSAdd.Location = new System.Drawing.Point(236, 244);
+            this.btnPSAdd.Location = new System.Drawing.Point(287, 244);
             this.btnPSAdd.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnPSAdd.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnPSAdd.Name = "btnPSAdd";
             this.btnPSAdd.Primary = true;
-            this.btnPSAdd.Size = new System.Drawing.Size(112, 36);
+            this.btnPSAdd.Size = new System.Drawing.Size(61, 36);
             this.btnPSAdd.TabIndex = 3;
-            this.btnPSAdd.Text = "Add";
+            this.btnPSAdd.Text = "Add...";
             this.btnPSAdd.UseVisualStyleBackColor = true;
             this.btnPSAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
@@ -241,11 +245,15 @@ namespace TravelExpertsApp
             this.colProdSup,
             this.colProdName,
             this.colSupName});
+            this.lvPkgProductSuppliers.Depth = 0;
             this.lvPkgProductSuppliers.FullRowSelect = true;
             this.lvPkgProductSuppliers.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             this.lvPkgProductSuppliers.LabelEdit = true;
             this.lvPkgProductSuppliers.Location = new System.Drawing.Point(6, 28);
+            this.lvPkgProductSuppliers.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.lvPkgProductSuppliers.MouseState = MaterialSkin.MouseState.OUT;
             this.lvPkgProductSuppliers.Name = "lvPkgProductSuppliers";
+            this.lvPkgProductSuppliers.OwnerDraw = true;
             this.lvPkgProductSuppliers.Scrollable = false;
             this.lvPkgProductSuppliers.ShowGroups = false;
             this.lvPkgProductSuppliers.Size = new System.Drawing.Size(342, 214);
@@ -473,22 +481,12 @@ namespace TravelExpertsApp
             this.panDock.Size = new System.Drawing.Size(0, 743);
             this.panDock.TabIndex = 11;
             // 
-            // materialDivider2
-            // 
-            this.materialDivider2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialDivider2.Depth = 0;
-            this.materialDivider2.Location = new System.Drawing.Point(0, 244);
-            this.materialDivider2.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialDivider2.Name = "materialDivider2";
-            this.materialDivider2.Size = new System.Drawing.Size(353, 1);
-            this.materialDivider2.TabIndex = 6;
-            this.materialDivider2.Text = "materialDivider2";
-            // 
             // txtPkgName
             // 
             this.txtPkgName.Depth = 0;
             this.txtPkgName.Hint = "";
             this.txtPkgName.Location = new System.Drawing.Point(118, 4);
+            this.txtPkgName.MaxLength = 32767;
             this.txtPkgName.MouseState = MaterialSkin.MouseState.HOVER;
             this.txtPkgName.Name = "txtPkgName";
             this.txtPkgName.PasswordChar = '\0';
@@ -497,9 +495,8 @@ namespace TravelExpertsApp
             this.txtPkgName.SelectionStart = 0;
             this.txtPkgName.Size = new System.Drawing.Size(230, 28);
             this.txtPkgName.TabIndex = 1;
+            this.txtPkgName.TabStop = false;
             this.txtPkgName.UseSystemPasswordChar = false;
-            this.txtPkgName.Leave += new System.EventHandler(this.txtPkgName_Leave);
-            this.txtPkgName.TextChanged += new System.EventHandler(this.txtPkgName_TextChanged);
             // 
             // frmPkgAddModify
             // 
@@ -534,8 +531,8 @@ namespace TravelExpertsApp
         }
 
         #endregion
-        private System.Windows.Forms.Button btnAddModify;
-        private System.Windows.Forms.Button btnCancel;
+        private MaterialRaisedButton btnAddModify;
+        private MaterialRaisedButton btnCancel;
         private System.Windows.Forms.FlowLayoutPanel fpanButtons;
         private System.Windows.Forms.OpenFileDialog ofdImage;
         private System.Windows.Forms.PictureBox pbPkgImage;
@@ -545,10 +542,9 @@ namespace TravelExpertsApp
         private System.Windows.Forms.ColumnHeader colSupName;
         private System.Windows.Forms.ColumnHeader colProdName;
         private System.Windows.Forms.ColumnHeader colProdSup;
-        private System.Windows.Forms.ListView lvPkgProductSuppliers;
+        private MaterialListView lvPkgProductSuppliers;
         private MaterialFlatButton btnPSAdd;
         private MaterialFlatButton btnPSDelete;
-        private MaterialFlatButton btnPSEdit;
         private System.Windows.Forms.Panel panProdSup;
         private System.Windows.Forms.Label lblCommission;
         private System.Windows.Forms.TextBox txtCommission;

@@ -70,7 +70,6 @@ namespace TravelExpertsApp
             this.mbtnAccept.AutoSize = true;
             this.mbtnAccept.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.mbtnAccept.Depth = 0;
-            this.mbtnAccept.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.mbtnAccept.Location = new System.Drawing.Point(231, 6);
             this.mbtnAccept.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.mbtnAccept.MouseState = MaterialSkin.MouseState.HOVER;
@@ -80,13 +79,13 @@ namespace TravelExpertsApp
             this.mbtnAccept.TabIndex = 0;
             this.mbtnAccept.Text = "Add Selection(s) to Package";
             this.mbtnAccept.UseVisualStyleBackColor = true;
+            this.mbtnAccept.Click += new System.EventHandler(this.mbtnAccept_Click);
             // 
             // mbtnCancel
             // 
             this.mbtnCancel.AutoSize = true;
             this.mbtnCancel.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.mbtnCancel.Depth = 0;
-            this.mbtnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.mbtnCancel.Location = new System.Drawing.Point(145, 6);
             this.mbtnCancel.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.mbtnCancel.MouseState = MaterialSkin.MouseState.HOVER;
@@ -142,7 +141,7 @@ namespace TravelExpertsApp
             this.mrbProdSup.Depth = 0;
             this.mrbProdSup.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.mrbProdSup.Font = new System.Drawing.Font("Roboto", 10F);
-            this.mrbProdSup.Location = new System.Drawing.Point(7, 30);
+            this.mrbProdSup.Location = new System.Drawing.Point(7, 29);
             this.mrbProdSup.Margin = new System.Windows.Forms.Padding(0);
             this.mrbProdSup.MouseLocation = new System.Drawing.Point(-1, -1);
             this.mrbProdSup.MouseState = MaterialSkin.MouseState.HOVER;
@@ -153,13 +152,14 @@ namespace TravelExpertsApp
             this.mrbProdSup.TabStop = true;
             this.mrbProdSup.Text = "Product Supplier";
             this.mrbProdSup.UseVisualStyleBackColor = true;
+            this.mrbProdSup.CheckedChanged += new System.EventHandler(this.mrbProdSup_CheckedChanged);
             // 
             // mrbProd
             // 
             this.mrbProd.Depth = 0;
             this.mrbProd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.mrbProd.Font = new System.Drawing.Font("Roboto", 10F);
-            this.mrbProd.Location = new System.Drawing.Point(7, 90);
+            this.mrbProd.Location = new System.Drawing.Point(7, 59);
             this.mrbProd.Margin = new System.Windows.Forms.Padding(0);
             this.mrbProd.MouseLocation = new System.Drawing.Point(-1, -1);
             this.mrbProd.MouseState = MaterialSkin.MouseState.HOVER;
@@ -170,6 +170,7 @@ namespace TravelExpertsApp
             this.mrbProd.TabStop = true;
             this.mrbProd.Text = "Products";
             this.mrbProd.UseVisualStyleBackColor = true;
+            this.mrbProd.CheckedChanged += new System.EventHandler(this.mrbProd_CheckedChanged);
             // 
             // fpanRadio
             // 
@@ -203,7 +204,7 @@ namespace TravelExpertsApp
             this.mrbSup.Depth = 0;
             this.mrbSup.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.mrbSup.Font = new System.Drawing.Font("Roboto", 10F);
-            this.mrbSup.Location = new System.Drawing.Point(7, 60);
+            this.mrbSup.Location = new System.Drawing.Point(7, 89);
             this.mrbSup.Margin = new System.Windows.Forms.Padding(0);
             this.mrbSup.MouseLocation = new System.Drawing.Point(-1, -1);
             this.mrbSup.MouseState = MaterialSkin.MouseState.HOVER;
@@ -211,9 +212,9 @@ namespace TravelExpertsApp
             this.mrbSup.Ripple = true;
             this.mrbSup.Size = new System.Drawing.Size(243, 30);
             this.mrbSup.TabIndex = 25;
-            this.mrbSup.TabStop = true;
             this.mrbSup.Text = "Supplier";
             this.mrbSup.UseVisualStyleBackColor = true;
+            this.mrbSup.CheckedChanged += new System.EventHandler(this.mrbSup_CheckedChanged);
             // 
             // mtxtSearch
             // 

@@ -92,11 +92,11 @@ namespace MaterialSkin.Controls
 			
 			foreach (ListViewItem.ListViewSubItem subItem in e.Item.SubItems)
 			{
-			    int subItemMax = (subItem.Bounds.Width/10);
-			    subItemMax = (subItemMax > 3) ? subItemMax : 3; 
-                subItem.Text = (subItem.Text.Length > subItemMax ) ? subItem.Text.Substring(0, (subItemMax-3)) + "..." : subItem.Text; 
-				//Draw text
-				g.DrawString(subItem.Text, SkinManager.ROBOTO_MEDIUM_10, SkinManager.GetPrimaryTextBrush(),
+                int subItemMax = (subItem.Bounds.Width / 10);
+                subItemMax = (subItemMax > 3) ? subItemMax : 3;
+                string subItemText = (subItem.Text.Length > subItemMax) ? subItem.Text.Substring(0, (subItemMax - 3)) + "..." : subItem.Text;
+                //Draw text
+                g.DrawString(subItemText, SkinManager.ROBOTO_MEDIUM_10, SkinManager.GetPrimaryTextBrush(),
 								 new Rectangle(subItem.Bounds.Location.X + ITEM_PADDING, ITEM_PADDING, subItem.Bounds.Width - 2 * ITEM_PADDING, subItem.Bounds.Height - 2 * ITEM_PADDING),
 								 getStringFormat());
 			}

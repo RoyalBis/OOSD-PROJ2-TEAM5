@@ -51,12 +51,17 @@ namespace EntityLayer
         /// <returns>The Package Image</returns>
         public Image ImageFromBytes()
         {
-            using (MemoryStream ms = new MemoryStream(this.PkgImage))
+            if(PkgImage.Length > 0)
             {
-                Image myImage = Image.FromStream(ms);
-                Image myBitmap = Bitmap.FromStream(ms);
-                return myBitmap;
+	            using (MemoryStream ms = new MemoryStream(this.PkgImage))
+	            {
+                    //Still need this, because It could fail.
+	                Image myBitmap = Image.FromStream(ms);
+	                return myBitmap;
+	            }
             }
+            throw new ArgumentOutOfRangeException(nameof(this.PkgImage),this.PkgImage,"Unable to create an Image fro the data stored in the data base");
+            return null;
         }
     }
 }

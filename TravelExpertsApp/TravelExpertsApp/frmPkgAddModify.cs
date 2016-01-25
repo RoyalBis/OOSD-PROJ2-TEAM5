@@ -19,7 +19,8 @@ namespace TravelExpertsApp
     public partial class frmPkgAddModify : MaterialForm
     {
         private PackageList packages;
-        public Package ActivePackage;
+        public Package PkgIn;
+        public Package PkgOut = new Package();
         public bool Add;
         private MaterialSkinManager materialSkinManager;
 
@@ -35,15 +36,11 @@ namespace TravelExpertsApp
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            //Dock myDock = new Dock();
-            //this.panDock.Controls.Add(myDock);
-            //myDock.Dock = DockStyle.Fill;
-
             packages = PackagesTable.GetAllPackages();
             if ( !Add )
             {
-                ProductSupplierTable.GetProductSuppliers(ActivePackage);
-                this.Text = "Modify Package " + ActivePackage.PackageId;
+                ProductSupplierTable.GetProductSuppliers(PkgIn);
+                this.Text = "Modify Package " + PkgIn.PackageId;
                 btnAddModify.Text = "Update";
                 SetActive();
             }
@@ -51,55 +48,39 @@ namespace TravelExpertsApp
 
         private void SetActive()
         {
-            txtPkgName.Text = ActivePackage.PkgName;
+            txtPkgName.Text = PkgIn.PkgName;
             MaterialComboBoxItem cbItem1 = new MaterialComboBoxItem("Hello");
             MaterialComboBoxItem cbItem2 = new MaterialComboBoxItem("Royal");
             MaterialComboBoxItem cbItem3 = new MaterialComboBoxItem("Bissell");
             txtPkgName.Add(cbItem1);
             txtPkgName.Add(cbItem2);
             txtPkgName.Add(cbItem3);
-            dtpStartDate.Value = ActivePackage.PkgStartDate;
-            dtpEndDate.Value = ActivePackage.PkgEndDate;
-            txtDesc.Text = ActivePackage.PkgDesc;
-            txtBasePrice.Text = ActivePackage.PkgBasePrice.ToString("c");
-            txtCommission.Text = ActivePackage.PkgAgencyCommission.ToString("c");
-            pbPkgImage.Image = ActivePackage.ImageFromBytes();
-            //For Some Reason I have to Write a File, then convert it into an image from a file.
-            File.WriteAllBytes("myImage.jpg", ActivePackage.PkgImage);
-            pbPkgImage.Image = Image.FromFile("myImage.jpg");
+            dtpStartDate.Value = PkgIn.PkgStartDate;
+            dtpEndDate.Value = PkgIn.PkgEndDate;
+            txtDesc.Text = PkgIn.PkgDesc;
+            txtBasePrice.Text = PkgIn.PkgBasePrice.ToString("c");
+            txtCommission.Text = PkgIn.PkgAgencyCommission.ToString("c");
+            try
+            {
+                pbPkgImage.Image = PkgIn.ImageFromBytes();
+                //For Some Reason I have to Write a File, then convert it into an image from a file.
+                File.WriteAllBytes("myImage.jpg", PkgIn.PkgImage);
+                pbPkgImage.Image = Image.FromFile("myImage.jpg");
+                //File.Delete("myImage.jpg"); //just delete it when I am done with it
+            }
+            catch ( Exception e )
+            {
+                MessageBox.Show(e.Message);
+            }
 
             //Fill the List view with the Product Suppliers
-            var ps = ActivePackage.PkgProductSuppliers;
+            var ps = PkgIn.PkgProductSuppliers;
             for (int i = 0; i < ps.Count; i++)
             {
                 //lvPkgProductSuppliers.Items.Add((ps[i]))
                 lvPkgProductSuppliers.Items.Add(ps[i].ProductSupplierId.ToString());
                 lvPkgProductSuppliers.Items[i].SubItems.Add(ps[i].MyProduct.ProdName);
                 lvPkgProductSuppliers.Items[i].SubItems.Add(ps[i].MySupplier.SupName);
-            }
-        }
-
-        private void txtPkgName_TextChanged(object sender, EventArgs e)
-        {
-            //search all the packages in the packages list and check if they match
-            foreach (Package package in packages)
-            {
-                if ( ActivePackage.PkgName != txtPkgName.Text )
-                {
-                    
-                }
-            }
-        }
-
-        private void txtPkgName_Leave(object sender, EventArgs e)
-        {
-            //search all the packages in the packages list and check if they match
-            foreach (Package package in packages)
-            {
-                if (package.PkgName.Contains(txtPkgName.Text))
-                {
-                    //lblMessages.Text = "Package Name Already Exists";
-                }
             }
         }
 
@@ -125,27 +106,60 @@ namespace TravelExpertsApp
                 string basePrice = txtBasePrice.Text.Replace("$", "");
                 string commission = txtCommission.Text.Replace("$", "");
 
-                Package newPkg = new Package
+                PkgOut.PkgName = txtPkgName.Text;
+                PkgOut.PkgStartDate = dtpStartDate.Value;
+                PkgOut.PkgEndDate = dtpEndDate.Value;
+                PkgOut.PkgDesc = txtDesc.Text;
+                PkgOut.PkgBasePrice = Convert.ToDecimal(basePrice);
+                PkgOut.PkgAgencyCommission = Convert.ToDecimal(commission);
+                PkgOut.PkgImage = imgArray;
+                int[] prodSupIds = new int[lvPkgProductSuppliers.Items.Count];
+                for (int i = 0; i < lvPkgProductSuppliers.Items.Count; i++)
                 {
-                    PkgName = txtPkgName.Text,
-                    PkgStartDate = dtpStartDate.Value,
-                    PkgEndDate = dtpEndDate.Value,
-                    PkgDesc = txtDesc.Text,
-                    PkgBasePrice = Convert.ToDecimal(basePrice),
-                    PkgAgencyCommission = Convert.ToDecimal(commission),
-                    PkgImage = imgArray
-                };
+                    prodSupIds[i] = Convert.ToInt32(lvPkgProductSuppliers.Items[i].Text);
+                }
+                PkgOut.PkgProductSuppliers.AddRange(ProductSupplierTable.GetRangeProductSuppliers(prodSupIds));
+
                 if (Add)
                 {
-                    PackagesTable.AddPackage(newPkg);
+                    PkgOut.PackageId = PackagesTable.AddPackage(PkgOut);
+                    AddProductSuppliers(PkgOut);
                 }
                 else
                 {
-                    PackagesTable.UpdatePackage(ActivePackage, newPkg);
+                    PackagesTable.UpdatePackage(PkgIn, PkgOut);
+                    UpdateProductSuppliers(PkgIn, PkgOut);
                 }
-                ActivePackage = newPkg;
+                PkgIn = PkgOut;
             }
-            //this.Close();
+            this.Close();
+        }
+
+        private void UpdateProductSuppliers(Package PkgIn,Package PkgOut)
+        {
+            foreach (ProductSupplier prodsup in PkgIn.PkgProductSuppliers)
+            {
+                if ( !PkgOut.PkgProductSuppliers.Contains(prodsup) )
+                {
+                    PackagesProductsSuppliersTable.DeletePkgProdSup(PkgIn.PackageId, prodsup);
+                }
+            }
+
+            foreach (ProductSupplier prodsup in PkgOut.PkgProductSuppliers)
+            {
+                if (!PkgIn.PkgProductSuppliers.Contains(prodsup) )
+                {
+                    PackagesProductsSuppliersTable.AddSupplier(PkgIn.PackageId, prodsup);
+                }
+            }
+        }
+
+        private void AddProductSuppliers(Package PkgOut)
+        {
+            foreach (ProductSupplier prodsup in PkgOut.PkgProductSuppliers)
+            {
+                PackagesProductsSuppliersTable.AddSupplier(PkgOut.PackageId, prodsup);
+            }
         }
 
         private bool isValid()
@@ -164,7 +178,12 @@ namespace TravelExpertsApp
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
+            if ( this.panDock.Controls.Find("DockProdSupSearch",false).Length != 0 )
+            {
+                return;
+            }
             DockProdSupSearch userCtrl = new DockProdSupSearch();
+            userCtrl.UpdateControl = lvPkgProductSuppliers;
             userCtrl.Show();
             userCtrl.Dock = DockStyle.Fill;
             panDock.Width = userCtrl.Width;
@@ -175,6 +194,14 @@ namespace TravelExpertsApp
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnPSDelete_Click(object sender, EventArgs e)
+        {
+            foreach (ListViewItem item in lvPkgProductSuppliers.SelectedItems)
+            {
+                lvPkgProductSuppliers.Items.Remove(item);
+            }
         }
     }
 }

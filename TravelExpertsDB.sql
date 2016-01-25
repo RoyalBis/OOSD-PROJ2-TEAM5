@@ -15,3 +15,5 @@ WHERE PackageId = 1
 AND (PkgImage = 1 OR PkgImage IS NULL)5
 
 UPDATE Packages SET PkgImage = NULL
+
+SELECT * FROM Packages_Products_Suppliers WHERE PackageId = 5

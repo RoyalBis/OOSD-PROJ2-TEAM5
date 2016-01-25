@@ -206,7 +206,7 @@ namespace TravelExpertsApp
         {
             //create new package form: add
             frmPkgAddModify addPkgForm = new frmPkgAddModify();
-            addPkgForm.ActivePackage = null;
+            addPkgForm.PkgIn = null;
             addPkgForm.Add = true;
             DialogResult result = addPkgForm.ShowDialog();
             
@@ -234,26 +234,9 @@ namespace TravelExpertsApp
         {
             //create new package form: add
             frmPkgAddModify modifyPkgForm = new frmPkgAddModify();
-            modifyPkgForm.ActivePackage = MyPackage;
+            modifyPkgForm.PkgIn = MyPackage;
             modifyPkgForm.Add = false;
             DialogResult result = modifyPkgForm.ShowDialog();
-
-            //KEVINS FORM///////////////////////////////////////////////////
-            //frmPackageEntry updatePackageFrm = new frmPackageEntry();
-            //updatePackageFrm.AddPackage = false;
-            //DialogResult result = updatePackageFrm.ShowDialog();
-            ////display the new package after it is added
-            //try
-            //{
-            //    MyPackage = updatePackageFrm.package;
-            //    txtPackageId.Text = MyPackage.PackageId.ToString();
-            //    this.DisplayPackage();
-            //}
-            //catch (Exception) { } //**
-
-            //travelExpertsDataSet.Clear();
-            //packagesTableAdapter.Fill(travelExpertsDataSet.Packages);
-            ////////////////////////////////////////////////////////////////
         }
 
         private void btnDelete_Click_1(object sender, EventArgs e)
@@ -267,6 +250,7 @@ namespace TravelExpertsApp
                 {
                     try //delete
                     {
+                        PackagesProductsSuppliersTable.DeletePkgProdSup(MyPackage.PackageId);
                         PackagesTable.DeletePackage(MyPackage);
                         clearForm();
                         MessageBox.Show("Package <" + MyPackage.PkgName + "> has been deleted!");

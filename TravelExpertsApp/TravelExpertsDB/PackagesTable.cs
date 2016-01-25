@@ -9,6 +9,9 @@ using System.Data;
 
 namespace TravelExpertsDB
 {
+
+    //TODO: Manage NULLS IN THE DATABASE
+
     public static class PackagesTable
     {
         public static PackageList GetAllPackages()
@@ -118,6 +121,7 @@ namespace TravelExpertsDB
             insertCommand.Parameters.AddWithValue("@PkgEndDate", pack.PkgEndDate);
             insertCommand.Parameters.AddWithValue("@PkgBasePrice", pack.PkgBasePrice);
             insertCommand.Parameters.AddWithValue("@PkgAgencyCommission", pack.PkgAgencyCommission);
+
             insertCommand.Parameters.AddWithValue("@PkgImage", pack.PkgImage);
             try
             {
