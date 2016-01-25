@@ -32,7 +32,6 @@ namespace TravelExpertsApp
         private void InitializeComponent()
         {
             this.panButtons = new System.Windows.Forms.Panel();
-            this.mdivBtns = new MaterialSkin.Controls.MaterialDivider();
             this.mbtnAccept = new MaterialSkin.Controls.MaterialFlatButton();
             this.mbtnCancel = new MaterialSkin.Controls.MaterialFlatButton();
             this.fpanRadio = new System.Windows.Forms.Panel();
@@ -44,39 +43,33 @@ namespace TravelExpertsApp
             this.mtxtSearch = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.lblSearch = new MaterialSkin.Controls.MaterialLabel();
             this.panMain = new System.Windows.Forms.Panel();
+            this.mdivResults = new MaterialSkin.Controls.MaterialDivider();
+            this.mdivBtns = new MaterialSkin.Controls.MaterialDivider();
             this.lvResults = new MaterialSkin.Controls.MaterialListView();
             this.colID = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colProduct = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colSupplier = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.mctxtResults = new MaterialSkin.Controls.MaterialContextMenuStrip();
+            this.mctxtResultsAdd = new MaterialSkin.Controls.MaterialToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.mctxtResultsClose = new MaterialSkin.Controls.MaterialToolStripMenuItem();
             this.panButtons.SuspendLayout();
             this.fpanRadio.SuspendLayout();
             this.panSearch.SuspendLayout();
+            this.panMain.SuspendLayout();
+            this.mctxtResults.SuspendLayout();
             this.SuspendLayout();
             // 
             // panButtons
             // 
             this.panButtons.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.panButtons.BackColor = System.Drawing.Color.White;
-            this.panButtons.Controls.Add(this.mdivBtns);
             this.panButtons.Controls.Add(this.mbtnAccept);
             this.panButtons.Controls.Add(this.mbtnCancel);
             this.panButtons.Location = new System.Drawing.Point(12, 639);
             this.panButtons.Name = "panButtons";
             this.panButtons.Size = new System.Drawing.Size(522, 40);
             this.panButtons.TabIndex = 12;
-            // 
-            // mdivBtns
-            // 
-            this.mdivBtns.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.mdivBtns.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.mdivBtns.Depth = 0;
-            this.mdivBtns.Location = new System.Drawing.Point(0, 0);
-            this.mdivBtns.MouseState = MaterialSkin.MouseState.HOVER;
-            this.mdivBtns.Name = "mdivBtns";
-            this.mdivBtns.Size = new System.Drawing.Size(522, 1);
-            this.mdivBtns.TabIndex = 2;
-            this.mdivBtns.Text = "materialDivider1";
             // 
             // mbtnAccept
             // 
@@ -111,6 +104,7 @@ namespace TravelExpertsApp
             this.mbtnCancel.TabIndex = 1;
             this.mbtnCancel.Text = "Close";
             this.mbtnCancel.UseVisualStyleBackColor = true;
+            this.mbtnCancel.Click += new System.EventHandler(this.mbtnCancel_Click);
             // 
             // fpanRadio
             // 
@@ -242,10 +236,38 @@ namespace TravelExpertsApp
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panMain.BackColor = System.Drawing.Color.White;
+            this.panMain.Controls.Add(this.mdivResults);
+            this.panMain.Controls.Add(this.mdivBtns);
             this.panMain.Location = new System.Drawing.Point(9, 0);
             this.panMain.Name = "panMain";
             this.panMain.Size = new System.Drawing.Size(525, 682);
             this.panMain.TabIndex = 27;
+            // 
+            // mdivResults
+            // 
+            this.mdivResults.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.mdivResults.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.mdivResults.Depth = 0;
+            this.mdivResults.Location = new System.Drawing.Point(10, 228);
+            this.mdivResults.MouseState = MaterialSkin.MouseState.HOVER;
+            this.mdivResults.Name = "mdivResults";
+            this.mdivResults.Size = new System.Drawing.Size(508, 1);
+            this.mdivResults.TabIndex = 3;
+            this.mdivResults.Text = "materialDivider1";
+            // 
+            // mdivBtns
+            // 
+            this.mdivBtns.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.mdivBtns.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.mdivBtns.Depth = 0;
+            this.mdivBtns.Location = new System.Drawing.Point(10, 635);
+            this.mdivBtns.MouseState = MaterialSkin.MouseState.HOVER;
+            this.mdivBtns.Name = "mdivBtns";
+            this.mdivBtns.Size = new System.Drawing.Size(508, 1);
+            this.mdivBtns.TabIndex = 2;
+            this.mdivBtns.Text = "materialDivider1";
             // 
             // lvResults
             // 
@@ -258,18 +280,20 @@ namespace TravelExpertsApp
             this.colID,
             this.colProduct,
             this.colSupplier});
+            this.lvResults.ContextMenuStrip = this.mctxtResults;
             this.lvResults.Depth = 0;
             this.lvResults.FullRowSelect = true;
             this.lvResults.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
-            this.lvResults.Location = new System.Drawing.Point(20, 228);
+            this.lvResults.Location = new System.Drawing.Point(20, 235);
             this.lvResults.MouseLocation = new System.Drawing.Point(-1, -1);
             this.lvResults.MouseState = MaterialSkin.MouseState.OUT;
             this.lvResults.Name = "lvResults";
             this.lvResults.OwnerDraw = true;
-            this.lvResults.Size = new System.Drawing.Size(506, 405);
+            this.lvResults.Size = new System.Drawing.Size(506, 391);
             this.lvResults.TabIndex = 21;
             this.lvResults.UseCompatibleStateImageBehavior = false;
             this.lvResults.View = System.Windows.Forms.View.Details;
+            this.lvResults.SelectedIndexChanged += new System.EventHandler(this.lvResults_SelectedIndexChanged);
             // 
             // colID
             // 
@@ -284,7 +308,42 @@ namespace TravelExpertsApp
             // colSupplier
             // 
             this.colSupplier.Text = "Supplier";
-            this.colSupplier.Width = 300;
+            this.colSupplier.Width = 306;
+            // 
+            // mctxtResults
+            // 
+            this.mctxtResults.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.mctxtResults.Depth = 0;
+            this.mctxtResults.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.mctxtResults.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mctxtResultsAdd,
+            this.toolStripSeparator1,
+            this.mctxtResultsClose});
+            this.mctxtResults.MouseState = MaterialSkin.MouseState.HOVER;
+            this.mctxtResults.Name = "mcontext1";
+            this.mctxtResults.Size = new System.Drawing.Size(275, 62);
+            // 
+            // mctxtResultsAdd
+            // 
+            this.mctxtResultsAdd.AutoSize = false;
+            this.mctxtResultsAdd.Enabled = false;
+            this.mctxtResultsAdd.Name = "mctxtResultsAdd";
+            this.mctxtResultsAdd.Size = new System.Drawing.Size(274, 26);
+            this.mctxtResultsAdd.Text = "Add Selected Items";
+            this.mctxtResultsAdd.Click += new System.EventHandler(this.mctxtResultsAdd_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(271, 6);
+            // 
+            // mctxtResultsClose
+            // 
+            this.mctxtResultsClose.AutoSize = false;
+            this.mctxtResultsClose.Name = "mctxtResultsClose";
+            this.mctxtResultsClose.Size = new System.Drawing.Size(274, 26);
+            this.mctxtResultsClose.Text = "Close Product Supplier Panel";
+            this.mctxtResultsClose.Click += new System.EventHandler(this.mctxtResultsClose_Click);
             // 
             // DockProdSupSearch
             // 
@@ -306,6 +365,8 @@ namespace TravelExpertsApp
             this.fpanRadio.ResumeLayout(false);
             this.fpanRadio.PerformLayout();
             this.panSearch.ResumeLayout(false);
+            this.panMain.ResumeLayout(false);
+            this.mctxtResults.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -328,5 +389,10 @@ namespace TravelExpertsApp
         private System.Windows.Forms.ColumnHeader colProduct;
         private System.Windows.Forms.ColumnHeader colSupplier;
         private MaterialDivider mdivBtns;
+        private MaterialDivider mdivResults;
+        private MaterialContextMenuStrip mctxtResults;
+        private MaterialToolStripMenuItem mctxtResultsAdd;
+        private ToolStripSeparator toolStripSeparator1;
+        private MaterialToolStripMenuItem mctxtResultsClose;
     }
 }

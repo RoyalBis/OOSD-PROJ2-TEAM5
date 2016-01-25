@@ -34,9 +34,14 @@ namespace TravelExpertsApp
             if ( !Add )
             {
                 ProductSupplierTable.GetProductSuppliers(PkgIn);
-                this.Text = "Modify Package " + PkgIn.PackageId;
+                this.Text = "Modify Package ID: " + PkgIn.PackageId;
                 btnAddModify.Text = "Update";
                 SetActive();
+            }
+            else
+            {
+                this.Text = "Add New Package";
+                btnAddModify.Text = "Add";
             }
         }
 
@@ -177,13 +182,15 @@ namespace TravelExpertsApp
                 return;
             }
             DockProdSupSearch userCtrl = new DockProdSupSearch();
+            
             userCtrl.UpdateControl = lvPkgProductSuppliers;
-            userCtrl.Dock = DockStyle.Fill;
-            panDock.Width = userCtrl.Width;
-            this.panDock.Controls.Add(userCtrl);
-            this.Size = new Size(this.Width + userCtrl.Width, this.Height);
-            panForm.Width = panForm.Width - userCtrl.Width;
             userCtrl.Show();
+            panDock.Width = userCtrl.Width;
+            panForm.Width = panForm.Width - userCtrl.Width;
+            this.Size = new Size(this.Width + userCtrl.Width, this.Height);
+            this.panDock.Controls.Add(userCtrl);
+            userCtrl.Dock = DockStyle.Fill;
+            btnPSAdd.Enabled = false;
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -197,6 +204,11 @@ namespace TravelExpertsApp
             {
                 lvPkgProductSuppliers.Items.Remove(item);
             }
+        }
+
+        private void panDock_ControlRemoved(object sender, ControlEventArgs e)
+        {
+            btnPSAdd.Enabled = (e.Control.Name == "DockProdSupSearch") ? true : false;
         }
     }
 }

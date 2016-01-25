@@ -31,6 +31,7 @@ namespace MaterialSkin.Controls
 			ResizeRedraw = true;
 			BorderStyle = BorderStyle.None;
 			SetStyle(ControlStyles.DoubleBuffer | ControlStyles.OptimizedDoubleBuffer, true);
+            SizeChanged += MaterialListView_SizeChanged;
 
             //Fix for hovers, by default it doesn't redraw
             //TODO: should only redraw when the hovered line changed, this to reduce unnecessary redraws
@@ -54,6 +55,21 @@ namespace MaterialSkin.Controls
 				Invalidate();
 			};
 		}
+
+        private void MaterialListView_SizeChanged(object sender, EventArgs e)
+        {
+            MaterialListView lstView = (MaterialListView)sender;
+            int nCols = lstView.Columns.Count;
+            if ( nCols > 0 )
+            {
+                int colWidth = 0;
+                foreach (ColumnHeader column in lstView.Columns)
+                {
+                    colWidth += column.Width;
+                }
+                lstView.Columns[nCols - 1].Width = lstView.Columns[nCols - 1].Width + (lstView.Width - colWidth);
+            }
+        }
 
         protected override void OnDrawColumnHeader(DrawListViewColumnHeaderEventArgs e)
         {

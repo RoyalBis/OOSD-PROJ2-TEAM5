@@ -50,9 +50,12 @@ namespace TravelExpertsApp
             //Get Parent Control and Form
             Control parent = this.Parent;
             Form pf = this.ParentForm;
+            Control[] panForms = pf.Controls.Find("panForm", true);
+            Control panform = panForms[0];
             //Remove the form from the parent
             parent.Controls.Remove(this);
             //Set the new Parents Size
+            panform.Size = new Size(panform.Width + this.Width, panform.Height);
             parent.Size = new Size(parent.Width - this.Width, parent.Height);
             pf.Size = new Size(pf.Width - this.Width, pf.Height);
             //Finally Dispose of this
@@ -142,13 +145,38 @@ namespace TravelExpertsApp
 
         private void mbtnAccept_Click(object sender, EventArgs e)
         {
+            AddToUpdateControl();
+        }
+
+        private void AddToUpdateControl()
+        {
             foreach (int item in lvResults.SelectedIndices)
             {
                 ProductSupplier ps = ProdSupResults[item];
 
-                string[] row = {ps.ProductSupplierId.ToString(), ps.MyProduct.ProdName, ps.MySupplier.SupName};
-                UpdateControl.Items.Add(new ListViewItem(row) );
+                string[] row = { ps.ProductSupplierId.ToString(), ps.MyProduct.ProdName, ps.MySupplier.SupName };
+                UpdateControl.Items.Add(new ListViewItem(row));
             }
+        }
+
+        private void mctxtResultsAdd_Click(object sender, EventArgs e)
+        {
+            AddToUpdateControl();
+        }
+
+        private void mctxtResultsClose_Click(object sender, EventArgs e)
+        {
+            DockProdSupSearch_Disposing();
+        }
+
+        private void lvResults_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            mctxtResultsAdd.Enabled = (lvResults.SelectedItems.Count > 0) ? true : false;
+        }
+
+        private void mbtnCancel_Click(object sender, EventArgs e)
+        {
+            DockProdSupSearch_Disposing();
         }
     }
 }

@@ -22,6 +22,7 @@ namespace MaterialSkin.Controls
         {
             this.Value = value;
             this.MaterialControl.Text = value;
+            this.MaterialControl.BackColor = Color.White;
         }
         
         public string Value { get; set; }
@@ -94,9 +95,9 @@ namespace MaterialSkin.Controls
                 {
                     if (i != 0)
                     {
-                        Items[i - 1].MaterialControl.BackColor = SystemColors.Control; ;
+                        Items[i - 1].MaterialControl.BackColor = MaterialSkinManager.Instance.GetApplicationBackgroundColor(); ;
                     }
-                    Items[i].MaterialControl.BackColor = Color.LightSteelBlue;
+                    Items[i].MaterialControl.BackColor = MaterialSkinManager.Instance.ColorScheme.AccentColor;
                     base.Text = Items[i].Value;
                     this.selection = i;
                 }
@@ -108,9 +109,9 @@ namespace MaterialSkin.Controls
                 {
                     if (i != n)
                     {
-                        Items[i + 1].MaterialControl.BackColor = SystemColors.Control; ;
+                        Items[i + 1].MaterialControl.BackColor = MaterialSkinManager.Instance.GetApplicationBackgroundColor();
                     }
-                    Items[i].MaterialControl.BackColor = Color.LightSteelBlue;
+                    Items[i].MaterialControl.BackColor = MaterialSkinManager.Instance.ColorScheme.AccentColor;
                     base.Text = Items[i].Value;
                     this.selection = i;
                 }

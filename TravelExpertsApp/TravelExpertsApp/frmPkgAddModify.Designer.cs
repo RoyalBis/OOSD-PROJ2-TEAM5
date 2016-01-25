@@ -61,12 +61,13 @@ namespace TravelExpertsApp
             this.dtpEndDate = new System.Windows.Forms.DateTimePicker();
             this.lblEndDate = new MaterialSkin.Controls.MaterialLabel();
             this.panBasePrice = new System.Windows.Forms.Panel();
-            this.txtBasePrice = new System.Windows.Forms.TextBox();
+            this.txtBasePrice = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.lblBasePrice = new MaterialSkin.Controls.MaterialLabel();
             this.panCommission = new System.Windows.Forms.Panel();
-            this.txtCommission = new System.Windows.Forms.TextBox();
+            this.txtCommission = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.lblCommission = new MaterialSkin.Controls.MaterialLabel();
             this.panForm = new System.Windows.Forms.Panel();
+            this.mdivImage = new MaterialSkin.Controls.MaterialDivider();
             this.panMain = new System.Windows.Forms.Panel();
             this.panDock = new System.Windows.Forms.Panel();
             this.txtPkgName = new MaterialSkin.Controls.MaterialComboBox();
@@ -90,7 +91,7 @@ namespace TravelExpertsApp
             this.btnImage.AutoSize = true;
             this.btnImage.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btnImage.Depth = 0;
-            this.btnImage.Location = new System.Drawing.Point(582, 359);
+            this.btnImage.Location = new System.Drawing.Point(582, 351);
             this.btnImage.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnImage.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnImage.Name = "btnImage";
@@ -104,6 +105,7 @@ namespace TravelExpertsApp
             // btnAddModify
             // 
             this.btnAddModify.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAddModify.AutoSize = true;
             this.btnAddModify.Depth = 0;
             this.btnAddModify.Location = new System.Drawing.Point(622, 3);
             this.btnAddModify.MouseState = MaterialSkin.MouseState.HOVER;
@@ -117,6 +119,7 @@ namespace TravelExpertsApp
             // btnCancel
             // 
             this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnCancel.AutoSize = true;
             this.btnCancel.Depth = 0;
             this.btnCancel.Location = new System.Drawing.Point(506, 3);
             this.btnCancel.MouseState = MaterialSkin.MouseState.HOVER;
@@ -150,9 +153,10 @@ namespace TravelExpertsApp
             this.pbPkgImage.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.pbPkgImage.Location = new System.Drawing.Point(0, 27);
+            this.pbPkgImage.Location = new System.Drawing.Point(0, 30);
             this.pbPkgImage.Name = "pbPkgImage";
-            this.pbPkgImage.Size = new System.Drawing.Size(739, 330);
+            this.pbPkgImage.Size = new System.Drawing.Size(739, 319);
+            this.pbPkgImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbPkgImage.TabIndex = 9;
             this.pbPkgImage.TabStop = false;
             // 
@@ -162,7 +166,7 @@ namespace TravelExpertsApp
             this.lblPkgImage.Depth = 0;
             this.lblPkgImage.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             this.lblPkgImage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblPkgImage.Location = new System.Drawing.Point(15, 0);
+            this.lblPkgImage.Location = new System.Drawing.Point(16, 3);
             this.lblPkgImage.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblPkgImage.Name = "lblPkgImage";
             this.lblPkgImage.Size = new System.Drawing.Size(145, 24);
@@ -178,9 +182,9 @@ namespace TravelExpertsApp
             this.panPkgImage.Controls.Add(this.lblPkgImage);
             this.panPkgImage.Controls.Add(this.btnImage);
             this.panPkgImage.Controls.Add(this.pbPkgImage);
-            this.panPkgImage.Location = new System.Drawing.Point(0, 292);
+            this.panPkgImage.Location = new System.Drawing.Point(0, 300);
             this.panPkgImage.Name = "panPkgImage";
-            this.panPkgImage.Size = new System.Drawing.Size(739, 401);
+            this.panPkgImage.Size = new System.Drawing.Size(739, 393);
             this.panPkgImage.TabIndex = 10;
             // 
             // materialDivider1
@@ -189,10 +193,10 @@ namespace TravelExpertsApp
             | System.Windows.Forms.AnchorStyles.Right)));
             this.materialDivider1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.materialDivider1.Depth = 0;
-            this.materialDivider1.Location = new System.Drawing.Point(0, 699);
+            this.materialDivider1.Location = new System.Drawing.Point(3, 693);
             this.materialDivider1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialDivider1.Name = "materialDivider1";
-            this.materialDivider1.Size = new System.Drawing.Size(738, 1);
+            this.materialDivider1.Size = new System.Drawing.Size(731, 1);
             this.materialDivider1.TabIndex = 10;
             this.materialDivider1.Text = "mdivMainBtn";
             // 
@@ -213,6 +217,8 @@ namespace TravelExpertsApp
             // 
             // materialDivider2
             // 
+            this.materialDivider2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.materialDivider2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.materialDivider2.Depth = 0;
             this.materialDivider2.Location = new System.Drawing.Point(0, 246);
@@ -269,14 +275,14 @@ namespace TravelExpertsApp
             this.lvPkgProductSuppliers.FullRowSelect = true;
             this.lvPkgProductSuppliers.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
             this.lvPkgProductSuppliers.LabelEdit = true;
-            this.lvPkgProductSuppliers.Location = new System.Drawing.Point(6, 28);
+            this.lvPkgProductSuppliers.Location = new System.Drawing.Point(6, 42);
             this.lvPkgProductSuppliers.MouseLocation = new System.Drawing.Point(-1, -1);
             this.lvPkgProductSuppliers.MouseState = MaterialSkin.MouseState.OUT;
             this.lvPkgProductSuppliers.Name = "lvPkgProductSuppliers";
             this.lvPkgProductSuppliers.OwnerDraw = true;
             this.lvPkgProductSuppliers.Scrollable = false;
             this.lvPkgProductSuppliers.ShowGroups = false;
-            this.lvPkgProductSuppliers.Size = new System.Drawing.Size(342, 214);
+            this.lvPkgProductSuppliers.Size = new System.Drawing.Size(342, 200);
             this.lvPkgProductSuppliers.TabIndex = 1;
             this.lvPkgProductSuppliers.UseCompatibleStateImageBehavior = false;
             this.lvPkgProductSuppliers.View = System.Windows.Forms.View.Details;
@@ -294,7 +300,7 @@ namespace TravelExpertsApp
             // colSupName
             // 
             this.colSupName.Text = "Supplier";
-            this.colSupName.Width = 150;
+            this.colSupName.Width = 142;
             // 
             // lblPkgProducts
             // 
@@ -380,11 +386,13 @@ namespace TravelExpertsApp
             // 
             // txtDesc
             // 
-            this.txtDesc.Location = new System.Drawing.Point(149, 7);
+            this.txtDesc.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.txtDesc.Location = new System.Drawing.Point(8, 34);
             this.txtDesc.MaxLength = 50;
             this.txtDesc.Multiline = true;
             this.txtDesc.Name = "txtDesc";
-            this.txtDesc.Size = new System.Drawing.Size(199, 82);
+            this.txtDesc.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txtDesc.Size = new System.Drawing.Size(340, 55);
             this.txtDesc.TabIndex = 1;
             // 
             // lblDesc
@@ -443,11 +451,20 @@ namespace TravelExpertsApp
             // 
             // txtBasePrice
             // 
+            this.txtBasePrice.Depth = 0;
+            this.txtBasePrice.Hint = "";
             this.txtBasePrice.Location = new System.Drawing.Point(150, 4);
             this.txtBasePrice.MaxLength = 10;
+            this.txtBasePrice.MouseState = MaterialSkin.MouseState.HOVER;
             this.txtBasePrice.Name = "txtBasePrice";
-            this.txtBasePrice.Size = new System.Drawing.Size(199, 22);
+            this.txtBasePrice.PasswordChar = '\0';
+            this.txtBasePrice.SelectedText = "";
+            this.txtBasePrice.SelectionLength = 0;
+            this.txtBasePrice.SelectionStart = 0;
+            this.txtBasePrice.Size = new System.Drawing.Size(199, 28);
             this.txtBasePrice.TabIndex = 1;
+            this.txtBasePrice.TabStop = false;
+            this.txtBasePrice.UseSystemPasswordChar = false;
             // 
             // lblBasePrice
             // 
@@ -474,11 +491,20 @@ namespace TravelExpertsApp
             // 
             // txtCommission
             // 
+            this.txtCommission.Depth = 0;
+            this.txtCommission.Hint = "";
             this.txtCommission.Location = new System.Drawing.Point(150, 4);
             this.txtCommission.MaxLength = 12;
+            this.txtCommission.MouseState = MaterialSkin.MouseState.HOVER;
             this.txtCommission.Name = "txtCommission";
-            this.txtCommission.Size = new System.Drawing.Size(199, 22);
+            this.txtCommission.PasswordChar = '\0';
+            this.txtCommission.SelectedText = "";
+            this.txtCommission.SelectionLength = 0;
+            this.txtCommission.SelectionStart = 0;
+            this.txtCommission.Size = new System.Drawing.Size(199, 28);
             this.txtCommission.TabIndex = 1;
+            this.txtCommission.TabStop = false;
+            this.txtCommission.UseSystemPasswordChar = false;
             // 
             // lblCommission
             // 
@@ -499,6 +525,8 @@ namespace TravelExpertsApp
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panForm.BackColor = System.Drawing.Color.White;
+            this.panForm.Controls.Add(this.mdivImage);
+            this.panForm.Controls.Add(this.materialDivider1);
             this.panForm.Controls.Add(this.panFormGrp);
             this.panForm.Controls.Add(this.panPkgImage);
             this.panForm.Controls.Add(this.panButtons);
@@ -508,13 +536,25 @@ namespace TravelExpertsApp
             this.panForm.Size = new System.Drawing.Size(742, 737);
             this.panForm.TabIndex = 11;
             // 
+            // mdivImage
+            // 
+            this.mdivImage.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.mdivImage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.mdivImage.Depth = 0;
+            this.mdivImage.Location = new System.Drawing.Point(12, 293);
+            this.mdivImage.MouseState = MaterialSkin.MouseState.HOVER;
+            this.mdivImage.Name = "mdivImage";
+            this.mdivImage.Size = new System.Drawing.Size(715, 1);
+            this.mdivImage.TabIndex = 11;
+            this.mdivImage.Text = "materialDivider3";
+            // 
             // panMain
             // 
             this.panMain.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panMain.BackColor = System.Drawing.Color.White;
-            this.panMain.Controls.Add(this.materialDivider1);
             this.panMain.Controls.Add(this.panDock);
             this.panMain.Controls.Add(this.panForm);
             this.panMain.Location = new System.Drawing.Point(-1, 63);
@@ -530,6 +570,7 @@ namespace TravelExpertsApp
             this.panDock.Name = "panDock";
             this.panDock.Size = new System.Drawing.Size(0, 743);
             this.panDock.TabIndex = 11;
+            this.panDock.ControlRemoved += new System.Windows.Forms.ControlEventHandler(this.panDock_ControlRemoved);
             // 
             // txtPkgName
             // 
@@ -557,6 +598,7 @@ namespace TravelExpertsApp
             this.Name = "frmPkgAddModify";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.panButtons.ResumeLayout(false);
+            this.panButtons.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbPkgImage)).EndInit();
             this.panPkgImage.ResumeLayout(false);
             this.panPkgImage.PerformLayout();
@@ -597,10 +639,10 @@ namespace TravelExpertsApp
         private MaterialFlatButton btnPSDelete;
         private System.Windows.Forms.Panel panProdSup;
         private MaterialLabel lblCommission;
-        private System.Windows.Forms.TextBox txtCommission;
+        private MaterialSingleLineTextField txtCommission;
         private System.Windows.Forms.Panel panCommission;
         private MaterialLabel lblBasePrice;
-        private System.Windows.Forms.TextBox txtBasePrice;
+        private MaterialSingleLineTextField txtBasePrice;
         private System.Windows.Forms.Panel panBasePrice;
         private MaterialLabel lblEndDate;
         private System.Windows.Forms.DateTimePicker dtpEndDate;
@@ -620,5 +662,6 @@ namespace TravelExpertsApp
         private MaterialFlatButton btnImage;
         private MaterialDivider materialDivider1;
         private MaterialDivider materialDivider2;
+        private MaterialDivider mdivImage;
     }
 }
