@@ -53,6 +53,7 @@ namespace TravelExpertsApp
             this.mctxtResultsAdd = new MaterialSkin.Controls.MaterialToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.mctxtResultsClose = new MaterialSkin.Controls.MaterialToolStripMenuItem();
+            this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
             this.panButtons.SuspendLayout();
             this.fpanRadio.SuspendLayout();
             this.panSearch.SuspendLayout();
@@ -115,7 +116,7 @@ namespace TravelExpertsApp
             this.fpanRadio.Controls.Add(this.mrbProdSup);
             this.fpanRadio.Controls.Add(this.mrbProd);
             this.fpanRadio.Controls.Add(this.mrbSup);
-            this.fpanRadio.Location = new System.Drawing.Point(20, 93);
+            this.fpanRadio.Location = new System.Drawing.Point(11, 133);
             this.fpanRadio.Name = "fpanRadio";
             this.fpanRadio.Size = new System.Drawing.Size(506, 129);
             this.fpanRadio.TabIndex = 25;
@@ -126,7 +127,7 @@ namespace TravelExpertsApp
             this.mlblSearchby.Depth = 0;
             this.mlblSearchby.Font = new System.Drawing.Font("Roboto", 11F);
             this.mlblSearchby.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.mlblSearchby.Location = new System.Drawing.Point(3, 0);
+            this.mlblSearchby.Location = new System.Drawing.Point(3, 3);
             this.mlblSearchby.MouseState = MaterialSkin.MouseState.HOVER;
             this.mlblSearchby.Name = "mlblSearchby";
             this.mlblSearchby.Size = new System.Drawing.Size(97, 24);
@@ -139,7 +140,7 @@ namespace TravelExpertsApp
             this.mrbProdSup.Depth = 0;
             this.mrbProdSup.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.mrbProdSup.Font = new System.Drawing.Font("Roboto", 10F);
-            this.mrbProdSup.Location = new System.Drawing.Point(7, 29);
+            this.mrbProdSup.Location = new System.Drawing.Point(7, 32);
             this.mrbProdSup.Margin = new System.Windows.Forms.Padding(0);
             this.mrbProdSup.MouseLocation = new System.Drawing.Point(-1, -1);
             this.mrbProdSup.MouseState = MaterialSkin.MouseState.HOVER;
@@ -157,7 +158,7 @@ namespace TravelExpertsApp
             this.mrbProd.Depth = 0;
             this.mrbProd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.mrbProd.Font = new System.Drawing.Font("Roboto", 10F);
-            this.mrbProd.Location = new System.Drawing.Point(7, 59);
+            this.mrbProd.Location = new System.Drawing.Point(7, 62);
             this.mrbProd.Margin = new System.Windows.Forms.Padding(0);
             this.mrbProd.MouseLocation = new System.Drawing.Point(-1, -1);
             this.mrbProd.MouseState = MaterialSkin.MouseState.HOVER;
@@ -175,7 +176,7 @@ namespace TravelExpertsApp
             this.mrbSup.Depth = 0;
             this.mrbSup.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.mrbSup.Font = new System.Drawing.Font("Roboto", 10F);
-            this.mrbSup.Location = new System.Drawing.Point(7, 89);
+            this.mrbSup.Location = new System.Drawing.Point(7, 92);
             this.mrbSup.Margin = new System.Windows.Forms.Padding(0);
             this.mrbSup.MouseLocation = new System.Drawing.Point(-1, -1);
             this.mrbSup.MouseState = MaterialSkin.MouseState.HOVER;
@@ -194,7 +195,7 @@ namespace TravelExpertsApp
             this.panSearch.BackColor = System.Drawing.Color.White;
             this.panSearch.Controls.Add(this.mtxtSearch);
             this.panSearch.Controls.Add(this.lblSearch);
-            this.panSearch.Location = new System.Drawing.Point(20, 4);
+            this.panSearch.Location = new System.Drawing.Point(11, 44);
             this.panSearch.Name = "panSearch";
             this.panSearch.Size = new System.Drawing.Size(506, 83);
             this.panSearch.TabIndex = 26;
@@ -236,8 +237,11 @@ namespace TravelExpertsApp
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panMain.BackColor = System.Drawing.Color.White;
+            this.panMain.Controls.Add(this.materialLabel1);
             this.panMain.Controls.Add(this.mdivResults);
             this.panMain.Controls.Add(this.mdivBtns);
+            this.panMain.Controls.Add(this.panSearch);
+            this.panMain.Controls.Add(this.fpanRadio);
             this.panMain.Location = new System.Drawing.Point(9, 0);
             this.panMain.Name = "panMain";
             this.panMain.Size = new System.Drawing.Size(525, 682);
@@ -249,7 +253,7 @@ namespace TravelExpertsApp
             | System.Windows.Forms.AnchorStyles.Right)));
             this.mdivResults.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.mdivResults.Depth = 0;
-            this.mdivResults.Location = new System.Drawing.Point(10, 228);
+            this.mdivResults.Location = new System.Drawing.Point(11, 261);
             this.mdivResults.MouseState = MaterialSkin.MouseState.HOVER;
             this.mdivResults.Name = "mdivResults";
             this.mdivResults.Size = new System.Drawing.Size(508, 1);
@@ -284,12 +288,12 @@ namespace TravelExpertsApp
             this.lvResults.Depth = 0;
             this.lvResults.FullRowSelect = true;
             this.lvResults.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
-            this.lvResults.Location = new System.Drawing.Point(20, 235);
+            this.lvResults.Location = new System.Drawing.Point(20, 268);
             this.lvResults.MouseLocation = new System.Drawing.Point(-1, -1);
             this.lvResults.MouseState = MaterialSkin.MouseState.OUT;
             this.lvResults.Name = "lvResults";
             this.lvResults.OwnerDraw = true;
-            this.lvResults.Size = new System.Drawing.Size(506, 391);
+            this.lvResults.Size = new System.Drawing.Size(506, 358);
             this.lvResults.TabIndex = 21;
             this.lvResults.UseCompatibleStateImageBehavior = false;
             this.lvResults.View = System.Windows.Forms.View.Details;
@@ -345,14 +349,25 @@ namespace TravelExpertsApp
             this.mctxtResultsClose.Text = "Close Product Supplier Panel";
             this.mctxtResultsClose.Click += new System.EventHandler(this.mctxtResultsClose_Click);
             // 
+            // materialLabel1
+            // 
+            this.materialLabel1.AutoSize = true;
+            this.materialLabel1.Depth = 0;
+            this.materialLabel1.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel1.Location = new System.Drawing.Point(7, 17);
+            this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel1.Name = "materialLabel1";
+            this.materialLabel1.Size = new System.Drawing.Size(214, 24);
+            this.materialLabel1.TabIndex = 27;
+            this.materialLabel1.Text = "Add Product Suppliers...";
+            // 
             // DockProdSupSearch
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.Controls.Add(this.panButtons);
-            this.Controls.Add(this.panSearch);
-            this.Controls.Add(this.fpanRadio);
             this.Controls.Add(this.lvResults);
             this.Controls.Add(this.panMain);
             this.Name = "DockProdSupSearch";
@@ -366,6 +381,7 @@ namespace TravelExpertsApp
             this.fpanRadio.PerformLayout();
             this.panSearch.ResumeLayout(false);
             this.panMain.ResumeLayout(false);
+            this.panMain.PerformLayout();
             this.mctxtResults.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -394,5 +410,6 @@ namespace TravelExpertsApp
         private MaterialToolStripMenuItem mctxtResultsAdd;
         private ToolStripSeparator toolStripSeparator1;
         private MaterialToolStripMenuItem mctxtResultsClose;
+        private MaterialLabel materialLabel1;
     }
 }
