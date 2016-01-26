@@ -1,4 +1,6 @@
-﻿namespace TravelExpertsApp
+﻿using MaterialSkin.Controls;
+
+namespace TravelExpertsApp
 {
     partial class frmPackage
     {
@@ -46,29 +48,31 @@
             this.lblPkgName = new System.Windows.Forms.Label();
             this.txtPkgName = new System.Windows.Forms.TextBox();
             this.ttpPackage = new System.Windows.Forms.ToolTip(this.components);
-            this.travelExpertsDataSet1 = new TravelExpertsDB.TravelExpertsDataSet();
             this.btnSearch = new MaterialSkin.Controls.MaterialRaisedButton();
             this.btnAdd = new MaterialSkin.Controls.MaterialRaisedButton();
             this.btnUpdate = new MaterialSkin.Controls.MaterialRaisedButton();
             this.btnDelete = new MaterialSkin.Controls.MaterialRaisedButton();
             this.btnXML = new MaterialSkin.Controls.MaterialFlatButton();
-            this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader4 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader5 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader6 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.columnHeader7 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colId = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colDesc = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colStartDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colEndDate = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colBasePrice = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.colCommission = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader8 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
-            this.lsvPackage_Supplier = new System.Windows.Forms.ListView();
+            this.lvPackages = new MaterialSkin.Controls.MaterialListView();
             this.materialRaisedButton1 = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.travelExpertsDataSet1 = new TravelExpertsDB.TravelExpertsDataSet();
+            this.panMain = new System.Windows.Forms.Panel();
             this.gbPackageDetail.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.travelExpertsDataSet1)).BeginInit();
+            this.panMain.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtPackageId
             // 
-            this.txtPackageId.Location = new System.Drawing.Point(185, 98);
+            this.txtPackageId.Location = new System.Drawing.Point(1236, 33);
             this.txtPackageId.Margin = new System.Windows.Forms.Padding(4);
             this.txtPackageId.Name = "txtPackageId";
             this.txtPackageId.Size = new System.Drawing.Size(88, 22);
@@ -79,7 +83,7 @@
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(28, 100);
+            this.label1.Location = new System.Drawing.Point(1079, 35);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(111, 20);
@@ -101,7 +105,7 @@
             this.gbPackageDetail.Controls.Add(this.lblPkgDesc);
             this.gbPackageDetail.Controls.Add(this.lblPkgName);
             this.gbPackageDetail.Controls.Add(this.txtPkgName);
-            this.gbPackageDetail.Location = new System.Drawing.Point(19, 138);
+            this.gbPackageDetail.Location = new System.Drawing.Point(1070, 73);
             this.gbPackageDetail.Margin = new System.Windows.Forms.Padding(4);
             this.gbPackageDetail.Name = "gbPackageDetail";
             this.gbPackageDetail.Padding = new System.Windows.Forms.Padding(4);
@@ -219,15 +223,10 @@
             this.txtPkgName.Size = new System.Drawing.Size(175, 22);
             this.txtPkgName.TabIndex = 14;
             // 
-            // travelExpertsDataSet1
-            // 
-            this.travelExpertsDataSet1.DataSetName = "TravelExpertsDataSet";
-            this.travelExpertsDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // btnSearch
             // 
             this.btnSearch.Depth = 0;
-            this.btnSearch.Location = new System.Drawing.Point(291, 96);
+            this.btnSearch.Location = new System.Drawing.Point(1342, 31);
             this.btnSearch.Margin = new System.Windows.Forms.Padding(4);
             this.btnSearch.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnSearch.Name = "btnSearch";
@@ -287,7 +286,7 @@
             this.btnXML.AutoSize = true;
             this.btnXML.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btnXML.Depth = 0;
-            this.btnXML.Location = new System.Drawing.Point(1229, 485);
+            this.btnXML.Location = new System.Drawing.Point(1319, 496);
             this.btnXML.Margin = new System.Windows.Forms.Padding(5, 7, 5, 7);
             this.btnXML.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnXML.Name = "btnXML";
@@ -298,71 +297,65 @@
             this.btnXML.UseVisualStyleBackColor = true;
             this.btnXML.Click += new System.EventHandler(this.btnXML_Click_1);
             // 
-            // columnHeader1
+            // colId
             // 
-            this.columnHeader1.Text = "Package ID";
-            this.columnHeader1.Width = 70;
+            this.colId.Text = "ID";
+            this.colId.Width = 50;
             // 
-            // columnHeader2
+            // colName
             // 
-            this.columnHeader2.Text = "Package";
-            this.columnHeader2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader2.Width = 117;
+            this.colName.Text = "Name";
+            this.colName.Width = 200;
             // 
-            // columnHeader3
+            // colDesc
             // 
-            this.columnHeader3.Text = "Description";
-            this.columnHeader3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader3.Width = 191;
+            this.colDesc.Text = "Description";
+            this.colDesc.Width = 300;
             // 
-            // columnHeader4
+            // colStartDate
             // 
-            this.columnHeader4.Text = "Start Date";
-            this.columnHeader4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader4.Width = 84;
+            this.colStartDate.Text = "Start Date";
+            this.colStartDate.Width = 110;
             // 
-            // columnHeader5
+            // colEndDate
             // 
-            this.columnHeader5.Text = "End Date";
-            this.columnHeader5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader5.Width = 79;
+            this.colEndDate.Text = "End Date";
+            this.colEndDate.Width = 110;
             // 
-            // columnHeader6
+            // colBasePrice
             // 
-            this.columnHeader6.Text = "Base Price";
-            this.columnHeader6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader6.Width = 66;
+            this.colBasePrice.Text = "Base Price";
+            this.colBasePrice.Width = 110;
             // 
-            // columnHeader7
+            // colCommission
             // 
-            this.columnHeader7.Text = "Agency Commission";
-            this.columnHeader7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader7.Width = 107;
+            this.colCommission.Text = "Commission";
+            this.colCommission.Width = 157;
             // 
-            // columnHeader8
+            // lvPackages
             // 
-            this.columnHeader8.Text = "Product Supplier ID";
-            this.columnHeader8.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.columnHeader8.Width = 106;
-            // 
-            // lsvPackage_Supplier
-            // 
-            this.lsvPackage_Supplier.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader1,
-            this.columnHeader2,
-            this.columnHeader3,
-            this.columnHeader4,
-            this.columnHeader5,
-            this.columnHeader6,
-            this.columnHeader7,
-            this.columnHeader8});
-            this.lsvPackage_Supplier.Location = new System.Drawing.Point(405, 100);
-            this.lsvPackage_Supplier.Margin = new System.Windows.Forms.Padding(4);
-            this.lsvPackage_Supplier.Name = "lsvPackage_Supplier";
-            this.lsvPackage_Supplier.Size = new System.Drawing.Size(955, 374);
-            this.lsvPackage_Supplier.TabIndex = 7;
-            this.lsvPackage_Supplier.UseCompatibleStateImageBehavior = false;
-            this.lsvPackage_Supplier.View = System.Windows.Forms.View.Details;
+            this.lvPackages.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.lvPackages.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.colId,
+            this.colName,
+            this.colDesc,
+            this.colStartDate,
+            this.colEndDate,
+            this.colBasePrice,
+            this.colCommission});
+            this.lvPackages.Depth = 0;
+            this.lvPackages.FullRowSelect = true;
+            this.lvPackages.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
+            this.lvPackages.Location = new System.Drawing.Point(13, 13);
+            this.lvPackages.Margin = new System.Windows.Forms.Padding(4);
+            this.lvPackages.MouseLocation = new System.Drawing.Point(-1, -1);
+            this.lvPackages.MouseState = MaterialSkin.MouseState.OUT;
+            this.lvPackages.Name = "lvPackages";
+            this.lvPackages.OwnerDraw = true;
+            this.lvPackages.Size = new System.Drawing.Size(1037, 397);
+            this.lvPackages.TabIndex = 7;
+            this.lvPackages.UseCompatibleStateImageBehavior = false;
+            this.lvPackages.View = System.Windows.Forms.View.Details;
             // 
             // materialRaisedButton1
             // 
@@ -377,22 +370,36 @@
             this.materialRaisedButton1.UseVisualStyleBackColor = true;
             this.materialRaisedButton1.Click += new System.EventHandler(this.materialRaisedButton1_Click);
             // 
+            // travelExpertsDataSet1
+            // 
+            this.travelExpertsDataSet1.DataSetName = "TravelExpertsDataSet";
+            this.travelExpertsDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // panMain
+            // 
+            this.panMain.BackColor = System.Drawing.Color.Transparent;
+            this.panMain.Controls.Add(this.gbPackageDetail);
+            this.panMain.Controls.Add(this.txtPackageId);
+            this.panMain.Controls.Add(this.label1);
+            this.panMain.Controls.Add(this.btnSearch);
+            this.panMain.Controls.Add(this.lvPackages);
+            this.panMain.Location = new System.Drawing.Point(0, 64);
+            this.panMain.Name = "panMain";
+            this.panMain.Size = new System.Drawing.Size(1455, 475);
+            this.panMain.TabIndex = 15;
+            // 
             // frmPackage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(1376, 539);
+            this.ClientSize = new System.Drawing.Size(1455, 539);
             this.Controls.Add(this.materialRaisedButton1);
             this.Controls.Add(this.btnXML);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.btnAdd);
-            this.Controls.Add(this.btnSearch);
-            this.Controls.Add(this.lsvPackage_Supplier);
-            this.Controls.Add(this.gbPackageDetail);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.txtPackageId);
+            this.Controls.Add(this.panMain);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmPackage";
@@ -401,6 +408,8 @@
             this.gbPackageDetail.ResumeLayout(false);
             this.gbPackageDetail.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.travelExpertsDataSet1)).EndInit();
+            this.panMain.ResumeLayout(false);
+            this.panMain.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -429,16 +438,17 @@
         private MaterialSkin.Controls.MaterialRaisedButton btnUpdate;
         private MaterialSkin.Controls.MaterialRaisedButton btnDelete;
         private MaterialSkin.Controls.MaterialFlatButton btnXML;
-        private System.Windows.Forms.ColumnHeader columnHeader1;
-        private System.Windows.Forms.ColumnHeader columnHeader2;
-        private System.Windows.Forms.ColumnHeader columnHeader3;
-        private System.Windows.Forms.ColumnHeader columnHeader4;
-        private System.Windows.Forms.ColumnHeader columnHeader5;
-        private System.Windows.Forms.ColumnHeader columnHeader6;
-        private System.Windows.Forms.ColumnHeader columnHeader7;
+        private System.Windows.Forms.ColumnHeader colId;
+        private System.Windows.Forms.ColumnHeader colName;
+        private System.Windows.Forms.ColumnHeader colDesc;
+        private System.Windows.Forms.ColumnHeader colStartDate;
+        private System.Windows.Forms.ColumnHeader colEndDate;
+        private System.Windows.Forms.ColumnHeader colBasePrice;
+        private System.Windows.Forms.ColumnHeader colCommission;
         private System.Windows.Forms.ColumnHeader columnHeader8;
-        private System.Windows.Forms.ListView lsvPackage_Supplier;
+        private MaterialListView lvPackages;
         private System.Windows.Forms.TextBox txtPkgName;
         private MaterialSkin.Controls.MaterialRaisedButton materialRaisedButton1;
+        private System.Windows.Forms.Panel panMain;
     }
 }

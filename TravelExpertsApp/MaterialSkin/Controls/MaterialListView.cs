@@ -84,7 +84,7 @@ namespace MaterialSkin.Controls
                 getStringFormat());
         }
 
-        private const int ITEM_PADDING = 4;
+        private const int ITEM_PADDING = 2;
 		protected override void OnDrawItem(DrawListViewItemEventArgs e)
 		{
 			//We draw the current line of items (= item with subitems) on a temp bitmap, then draw the bitmap at once. This is to reduce flickering.
@@ -113,12 +113,12 @@ namespace MaterialSkin.Controls
 			{
                 int subItemMax = ( (subItem.Bounds.Width - 3) / 10);
                 subItemMax = (subItemMax > 3) ? subItemMax : 3;
-                string subItemText = (subItem.Text.Length > subItemMax) ? subItem.Text.Substring(0, (subItemMax - 3)) + "..." : subItem.Text;
+                string subItemText = (subItem.Text.Length > subItemMax) ? subItem.Text.Substring(0, (subItemMax - 1)) + "..." : subItem.Text;
                 //Draw text
                 g.DrawString(subItemText, SkinManager.ROBOTO_MEDIUM_10, SkinManager.GetPrimaryTextBrush(),
-								 new Rectangle(subItem.Bounds.Location.X + ITEM_PADDING, ITEM_PADDING, subItem.Bounds.Width - 2 * ITEM_PADDING, subItem.Bounds.Height - 2 * ITEM_PADDING),
+								 new Rectangle(subItem.Bounds.Location.X + ITEM_PADDING, ITEM_PADDING, subItem.Bounds.Width, subItem.Bounds.Height - ITEM_PADDING),
 								 getStringFormat());
-			}
+            }
 			e.Graphics.DrawImage((Image) b.Clone(), e.Item.Bounds.Location);
             g.Dispose();
 			b.Dispose();
@@ -128,7 +128,7 @@ namespace MaterialSkin.Controls
 		{
 			return new StringFormat
 			{
-				FormatFlags = StringFormatFlags.LineLimit,
+				//FormatFlags = StringFormatFlags.LineLimit,
 				Trimming = StringTrimming.EllipsisCharacter,
 				Alignment = StringAlignment.Near,
 				LineAlignment = StringAlignment.Center

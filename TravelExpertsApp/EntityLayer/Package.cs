@@ -61,7 +61,6 @@ namespace EntityLayer
 	            }
             }
             throw new ArgumentOutOfRangeException(nameof(this.PkgImage),this.PkgImage,"Unable to create an Image fro the data stored in the data base");
-            return null;
         }
     }
 }

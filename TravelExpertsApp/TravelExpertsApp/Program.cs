@@ -20,7 +20,8 @@ namespace TravelExpertsApp
             //Application.Run(new frmPkgAddModify());
             //Application.Run(new frmSearch());
             //Application.Run(new frmProductSupplier());
-            Application.Run(new frmPackage());
+            //Application.Run(new frmPackage());
+            Application.Run(new frmMain());
         }
     }
 }

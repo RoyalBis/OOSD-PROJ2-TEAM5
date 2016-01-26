@@ -132,20 +132,20 @@ namespace TravelExpertsApp
             {
                 if (package.PackageId.ToString() != packageId)
                 {
-                    lsvPackage_Supplier.Items.Add(package.PackageId.ToString());
+                    lvPackages.Items.Add(package.PackageId.ToString());
                     packageId = package.PackageId.ToString();
                 }
                 else
                 {
-                    lsvPackage_Supplier.Items.Add("");
+                    lvPackages.Items.Add("");
                 }
                 //add column members to the listview
-                lsvPackage_Supplier.Items[i].SubItems.Add(package.PkgName.ToString());
-                lsvPackage_Supplier.Items[i].SubItems.Add(package.PkgDesc.ToString());
-                lsvPackage_Supplier.Items[i].SubItems.Add(package.PkgStartDate.ToShortDateString());
-                lsvPackage_Supplier.Items[i].SubItems.Add(package.PkgEndDate.ToShortDateString());
-                lsvPackage_Supplier.Items[i].SubItems.Add(package.PkgBasePrice.ToString("C"));
-                lsvPackage_Supplier.Items[i].SubItems.Add(package.PkgAgencyCommission.ToString());
+                lvPackages.Items[i].SubItems.Add(package.PkgName.ToString());
+                lvPackages.Items[i].SubItems.Add(package.PkgDesc.ToString());
+                lvPackages.Items[i].SubItems.Add(package.PkgStartDate.ToShortDateString());
+                lvPackages.Items[i].SubItems.Add(package.PkgEndDate.ToShortDateString());
+                lvPackages.Items[i].SubItems.Add(package.PkgBasePrice.ToString("C"));
+                lvPackages.Items[i].SubItems.Add(package.PkgAgencyCommission.ToString());
                 //lsvPackage_Supplier.Items[i].SubItems.Add(package.ProductSupplierId.ToString());
 
                 //create objects
