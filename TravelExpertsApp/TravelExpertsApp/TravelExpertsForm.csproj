@@ -62,6 +62,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmSplashStart.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSplashStart.Designer.cs">
+      <DependentUpon>frmSplashStart.cs</DependentUpon>
+    </Compile>
     <Compile Include="MaterialComboBox.cs" />
     <Compile Include="frmProductSupplier.cs">
       <SubType>Form</SubType>
@@ -134,6 +140,9 @@
     <EmbeddedResource Include="frmPackageEntry.resx">
       <DependentUpon>frmPackageEntry.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmSplashStart.resx">
+      <DependentUpon>frmSplashStart.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -191,6 +200,9 @@
       <Project>{05206efe-c72e-491d-968f-60a0dcbe443a}</Project>
       <Name>Validation</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Sound\owl.mp3" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
