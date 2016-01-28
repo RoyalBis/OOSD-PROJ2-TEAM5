@@ -216,7 +216,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Images\otebri.jpg" />
+    <Content Include="Images\spyplease.jpg" />
     <Content Include="Packages.aspx" />
+    <Content Include="Complaints.aspx" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\ai.0.15.0-build58334.js" />
     <Content Include="Scripts\ai.0.15.0-build58334.min.js" />
@@ -255,6 +257,7 @@
     <Content Include="Global.asax" />
     <Content Include="Site.Master" />
     <Content Include="Sound\owl.mp3" />
+    <Content Include="Sound\hahaha.wav" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
@@ -433,6 +436,13 @@
     </Compile>
     <Compile Include="Packages.aspx.designer.cs">
       <DependentUpon>Packages.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Complaints.aspx.cs">
+      <DependentUpon>Complaints.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Complaints.aspx.designer.cs">
+      <DependentUpon>Complaints.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
