@@ -203,7 +203,7 @@ namespace TravelExpertsApp
                 xmlOut.WriteEndElement();
             }
 
-            //end tage for root element
+            //end tag for root element
             xmlOut.WriteEndElement();
             MessageBox.Show("The xml file has been saved.");
 
@@ -214,22 +214,18 @@ namespace TravelExpertsApp
         private void btnSearch_Click_1(object sender, EventArgs e)
         {
             //validate
-            if (Validator.IsPresent(txtPackageId) == true)
+            int packageId = int.Parse(txtPackageId.Text);
+            MyPackage = PackagesTable.SearchPackage(packageId);
+            if (MyPackage == null)
             {
-                int packageId = int.Parse(txtPackageId.Text);
-                MyPackage = PackagesTable.SearchPackage(packageId);
-                if (MyPackage == null)
-                {
-                    MessageBox.Show("No package found with this ID, try again!");
-                    txtPackageId.Clear();
-                }
-                else
-                {
-                    DisplayPackage(); //pass, display results
-                    enableButtons(); //enable update and delete
-                }
+                MessageBox.Show("No package found with this ID, try again!");
+                txtPackageId.Clear();
             }
-            else clearForm();
+            else
+            {
+                DisplayPackage(); //pass, display results
+                enableButtons(); //enable update and delete
+            }
         }
 
         private void btnAdd_Click_1(object sender, EventArgs e)
@@ -266,6 +262,11 @@ namespace TravelExpertsApp
             frmPkgAddModify modifyPkgForm = new frmPkgAddModify();
             modifyPkgForm.PkgIn = MyPackage;
             modifyPkgForm.Add = false;
+            //Panel hidePanel = new Panel();
+            //hidePanel.Size = this.Size;
+            //hidePanel.BackColor = Color.FromArgb(200, 0, 0, 0);
+            //this.Controls.Add(hidePanel);
+            //hidePanel.BringToFront();
             DialogResult result = modifyPkgForm.ShowDialog();
         }
 

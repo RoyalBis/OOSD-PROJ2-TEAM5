@@ -21,19 +21,32 @@ namespace TravelExpertsApp
             InitializeComponent();
         }
 
-        private bool isValide()
+        private Result isValid()
         {
-            return Validator.IsPresent(txtAgentName)&&  Validator.IsPresent(txtAgentPassword); ;
+            Result[] results = new Result[2];
+            results[0] = Validator.IsPresent(txtAgentName);
+            results[1] = Validator.IsPresent(txtAgentPassword);
+
+            foreach (Result result in results)
+            {
+                if (!result.Success) return result;
+            }
+            return new Result(true);
         }
 
-        private void btnLogin_Click_1(object sender, EventArgs e)
+        private void btnLogin_Click(object sender, EventArgs e)
         {
-            if (isValide())
+            Result message = isValid();
+            if (message.Success)
             {
                 AgentTable.Login(txtAgentName.ToString(), txtAgentPassword.ToString());
-                frmPackage fm = new frmPackage();
+                frmMain fm = new frmMain();
                 fm.Show();
                 this.Hide();
+            }
+            else
+            {
+                MaterialMessageBox.Show(this, message);
             }
         }
 

@@ -12,6 +12,7 @@ namespace TravelExpertsDB
     //Author: Royal
     public static class SuppliersTable
     {
+        #region Query Strings
         //SQL STATEMENTS\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
         //Statement for GetAllSuppliers()
         private const string GetAllStmt = "SELECT SupplierId, SupName " +
@@ -40,45 +41,40 @@ namespace TravelExpertsDB
                                                   "AND SupName = @OldSupName";
 
         //Statement for SearchAllSuppliers()
-        private const string SearchAll = "select supplierId, SupName from suppliers WHERE supplierId LIKE  '%' + @searchIndex + '%' OR SupName LIKE '%' + @searchIndex  ";
+        private const string SearchAll = "SELECT supplierId, SupName " +
+                                         "FROM suppliers " +
+                                         "WHERE supplierId " +
+                                         "LIKE  '%' + @searchIndex + '%' " +
+                                         "OR SupName LIKE '%' + @searchIndex  ";
 
         //\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+        #endregion
 
-
-
+        #region Database Queries
         //Static Method to return a list of all the Possible Suppliers
         public static List<Supplier> GetAllSuppliers()
         {
             //We need a suppliers list to return; either a list of suppliers or an empty list
             List<Supplier> suppliers = new List<Supplier>();
-            //get the connection and make a new select statement
-            SqlConnection connection = TravelExpertsCommon.GetConnection();
-            SqlCommand selectCommand = new SqlCommand(GetAllStmt, connection);
+
+            SqlCommand command = TravelExpertsCommon.GetCommand(GetAllStmt);
 
             //Using will auto close the connection once the block is ended
-            using (connection)
+            using (command.Connection)
             {
                 //try in case of errors and re-throw them to the UI
                 try
                 {
-                    connection.Open();
+                    command.Connection.Open();
 
-                    SqlDataReader reader = selectCommand.ExecuteReader();
+                    SqlDataReader reader = command.ExecuteReader();
                     while ( reader.Read() )
                     {
-                        //build a new Supplier Object for each returned Supplier
-                        Supplier supplier = new Supplier
-                        {
-                            SupplierId = (int)reader["SupplierId"],
-                            SupName = reader["SupName"].ToString()
-                        };
-                        //add the supplier to the list
-                        suppliers.Add(supplier);
+                        suppliers.Add( CreateSupplier(reader) );
                     }
                 }
                 catch (Exception ex)    //catch all exceptions and re-throw them
                 {
-                    suppliers = null;   //an error occurred so lets not continue
                     throw ex;
                 }
             }   //end of the using statement
@@ -88,31 +84,25 @@ namespace TravelExpertsDB
         //Static Method to return one supplier from a SupplierId
         public static Supplier GetSupplier(int supplierId)
         {
-            //We need a supplier to return or null
-            Supplier supplier = null;
-            //get the connection and make a new select statement
-            SqlConnection connection = TravelExpertsCommon.GetConnection();
-            SqlCommand selectCommand = new SqlCommand(GetStmt, connection);
+            //We need a suppliers list to return; either a list of suppliers or an empty list
+            List<Supplier> suppliers = new List<Supplier>();
+
+            SqlCommand command = TravelExpertsCommon.GetCommand(GetStmt);
             //add the supplierId Parameter to the SQL Command
-            selectCommand.Parameters.AddWithValue("@SupplierId", supplierId);
+            command.Parameters.AddWithValue("@SupplierId", supplierId);
 
             //Using will auto close the connection once the block is ended
-            using (connection)
+            using (command.Connection)
             {
                 //try in case of errors and re-throw them to the UI
                 try
                 {
-                    connection.Open();
+                    command.Connection.Open();
 
-                    SqlDataReader reader = selectCommand.ExecuteReader(CommandBehavior.SingleRow);
+                    SqlDataReader reader = command.ExecuteReader(CommandBehavior.SingleRow);
                     while (reader.Read())
                     {
-                        //build a new Supplier Object
-                        supplier = new Supplier
-                        {
-                            SupplierId = (int)reader["SupplierId"],
-                            SupName = reader["SupName"].ToString()
-                        };
+                        return CreateSupplier(reader);
                     }
                 }
                 catch (Exception ex)    //catch all exceptions and re-throw them
@@ -120,8 +110,7 @@ namespace TravelExpertsDB
                     throw ex;
                 }
             }   //end of the using statement
-
-            return supplier;
+            return null;
         }
 
         //Static Method to return a list of all the Suppliers of a specific product
@@ -129,30 +118,22 @@ namespace TravelExpertsDB
         {
             //We need a suppliers list to return; either a list of suppliers or an empty list
             List<Supplier> suppliers = new List<Supplier>();
-            //get the connection and make a new select statement
-            SqlConnection connection = TravelExpertsCommon.GetConnection();
-            SqlCommand selectCommand = new SqlCommand(GetAllOfProductStmt, connection);
-            selectCommand.Parameters.AddWithValue("@ProductId","productId");
+
+            SqlCommand command = TravelExpertsCommon.GetCommand(GetAllOfProductStmt);
+            command.Parameters.AddWithValue("@ProductId","productId");
 
             //Using will auto close the connection once the block is ended
-            using (connection)
+            using (command.Connection)
             {
                 //try in case of errors and re-throw them to the UI
                 try
                 {
-                    connection.Open();
+                    command.Connection.Open();
 
-                    SqlDataReader reader = selectCommand.ExecuteReader();
+                    SqlDataReader reader = command.ExecuteReader();
                     while (reader.Read())
                     {
-                        //build a new Supplier Object for each returned Supplier
-                        Supplier supplier = new Supplier
-                        {
-                            SupplierId = (int)reader["SupplierId"],
-                            SupName = reader["SupName"].ToString()
-                        };
-                        //add the supplier to the list
-                        suppliers.Add(supplier);
+                        suppliers.Add(CreateSupplier(reader));
                     }
                 }
                 catch (Exception ex)    //catch all exceptions and re-throw them
@@ -168,65 +149,25 @@ namespace TravelExpertsDB
         public static bool AddSupplier(Supplier sup)
         {
             //get the connection and make a new select statement
-            SqlConnection connection = TravelExpertsCommon.GetConnection();
-            SqlCommand insertCommand = new SqlCommand(InsertStmt, connection);
+            SqlCommand command = TravelExpertsCommon.GetCommand(InsertStmt);
             //add the Supplier Parameters to the SQL Insert Command
-            insertCommand.Parameters.AddWithValue("@SupplierId", sup.SupplierId);
-            insertCommand.Parameters.AddWithValue("@SupName", sup.SupName);
+            command.Parameters.AddWithValue("@SupplierId", sup.SupplierId);
+            command.Parameters.AddWithValue("@SupName", sup.SupName);
 
-            //Using will auto close the connection once the block is ended
-            using (connection)
-            {
-                //try in case of errors and re-throw them to the UI
-                try
-                {
-                    connection.Open();
-
-                    int nr = insertCommand.ExecuteNonQuery();   //nr is the number of rows that are affected
-                    if ( nr != 1 )  //number of rows affected should be 1
-                    {
-                        return false;
-                    }
-                }
-                catch (Exception ex)    //catch all exceptions and re-throw them
-                {
-                    throw ex;
-                }
-            }   //end of the using statement
-            return true;
+            return TravelExpertsCommon.PerformNonQuery(command);
         }
 
         //Static Method to update an existing Supplier
         public static bool UpdateSupplier(Supplier newSup, Supplier oldSup)
         {
             //get the connection and make a new select statement
-            SqlConnection connection = TravelExpertsCommon.GetConnection();
-            SqlCommand updateCommand = new SqlCommand(UpdateStmt, connection);
+            SqlCommand command = TravelExpertsCommon.GetCommand(UpdateStmt);
             //add the Supplier Parameters to the SQL update Command
-            updateCommand.Parameters.AddWithValue("@NewSupName", newSup.SupName);
-            updateCommand.Parameters.AddWithValue("@OldSupplierId", oldSup.SupplierId);
-            updateCommand.Parameters.AddWithValue("@OldSupName", oldSup.SupName);
+            command.Parameters.AddWithValue("@NewSupName", newSup.SupName);
+            command.Parameters.AddWithValue("@OldSupplierId", oldSup.SupplierId);
+            command.Parameters.AddWithValue("@OldSupName", oldSup.SupName);
 
-            //Using will auto close the connection once the block is ended
-            using (connection)
-            {
-                //try in case of errors and re-throw them to the UI
-                try
-                {
-                    connection.Open();
-
-                    int nr = updateCommand.ExecuteNonQuery();   //nr is the number of rows that are affected
-                    if (nr != 1)  //number of rows affected should be 1
-                    {
-                        return false;
-                    }
-                }
-                catch (Exception ex)    //catch all exceptions and re-throw them
-                {
-                    throw ex;
-                }
-            }   //end of the using statement
-            return true;
+            return TravelExpertsCommon.PerformNonQuery(command);
         }
 
         public static List<Supplier> SearchAllSuppliers(string searchIndex)
@@ -234,43 +175,41 @@ namespace TravelExpertsDB
             //We need a suppliers list to return; either a list of suppliers or an empty list
             List<Supplier> suppliers = new List<Supplier>();
             //get the connection and make a new select statement
-            SqlConnection connection = TravelExpertsCommon.GetConnection();
-            SqlCommand selectCommand = new SqlCommand(SearchAll, connection);
-            selectCommand.Parameters.AddWithValue("@searchIndex", searchIndex);
+            SqlCommand command = TravelExpertsCommon.GetCommand(SearchAll);
+            command.Parameters.AddWithValue("@searchIndex", searchIndex);
 
             //Using will auto close the connection once the block is ended
-            using (connection)
+            using (command.Connection)
             {
                 //try in case of errors and re-throw them to the UI
                 try
                 {
-                    connection.Open();
+                    command.Connection.Open();
 
-                    SqlDataReader reader = selectCommand.ExecuteReader();
+                    SqlDataReader reader = command.ExecuteReader();
                     while (reader.Read())
                     {
-                        //build a new Product Object for each returned product
-                        Supplier supplier = new Supplier
-                        {
-                            SupplierId = (int)reader["supplierId"],
-                            SupName = reader["SupName"].ToString(),
-                            
-                        };
-                        //add the supplier to the list
-                        suppliers.Add(supplier);
+                        //build a new Product Object for each returned product and add it to the list
+                        suppliers.Add(CreateSupplier(reader));
                     }
                 }
                 catch (Exception ex)    //catch all exceptions and re-throw them
                 {
-                    suppliers = null;   //an error occurred so lets not continue
                     throw ex;
-                }
-                finally
-                {
-                    connection.Close();
                 }
             }   //end of the using statement
             return suppliers;
+        }
+        #endregion
+
+        internal static Supplier CreateSupplier(SqlDataReader reader)
+        {
+            //build a new Supplier Object for each returned Supplier
+            Supplier supplier = new Supplier();
+            supplier.SupplierId = (int)reader["SupplierId"];
+            supplier.SupName = reader["SupName"].ToString();
+            //add the supplier to the list
+            return supplier;
         }
     }
 }

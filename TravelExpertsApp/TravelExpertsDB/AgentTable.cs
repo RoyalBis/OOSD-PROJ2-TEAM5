@@ -14,39 +14,27 @@ namespace TravelExpertsDB
 
         //
         //Statement for SearchProducts()
-        private const string SearchAll = "select AgentId, AgtFirstName, AgtMiddleInitial, AgtLastName, AgtEmail, AgtPosition from agents WHERE AgentId LIKE  '%' + @searchIndex + '%' OR AgtFirstName LIKE '%' + @searchIndex + '%' OR AgtMiddleInitial LIKE '%' + @searchIndex + '%' OR AgtLastName LIKE '%' + @searchIndex + '%'  OR AgtEmail LIKE '%' + @searchIndex + '%' OR AgtPosition LIKE '%' + @searchIndex + '%' ";
+        private const string SearchAll = "SELECT AgentId, AgtFirstName, AgtMiddleInitial, AgtLastName, AgtEmail, AgtPosition " +
+                                         "FROM agents WHERE AgentId LIKE  '%' + @searchIndex + '%' OR AgtFirstName " +
+                                         "LIKE '%' + @searchIndex + '%' " +
+                                         "OR AgtMiddleInitial LIKE '%' + @searchIndex + '%' " +
+                                         "OR AgtLastName LIKE '%' + @searchIndex + '%'  " +
+                                         "OR AgtEmail LIKE '%' + @searchIndex + '%' " +
+                                         "OR AgtPosition LIKE '%' + @searchIndex + '%' ";
+
+        private const string LoginStmt ="SELECT AgtFirstName, AgentPassword " +
+                                        "FROM Agents WHERE AgtFirstName=@username " +
+                                        "AND AgentPassword=@password";
 
         public static bool Login(string AgentFirstName, string AgentPassword)
-            {
-                      
-            SqlConnection connection = TravelExpertsCommon.GetConnection();
-            SqlCommand command = new SqlCommand("select AgtFirstName, AgentPassword from Agents where AgtFirstName=@username and AgentPassword=@password", connection);
+        {
+            SqlCommand command = TravelExpertsCommon.GetCommand(LoginStmt);
             command.Parameters.AddWithValue("@username", AgentFirstName);
             command.Parameters.AddWithValue("@password", AgentPassword);
-            int count = -1;
-            try
-            {
-               connection.Open();
-               count = command.ExecuteNonQuery();
 
-                if (count == 1)
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-            }
-            catch (SqlException ex)
-            {
-                throw ex;
-            }
-            finally
-            {
-                connection.Close();
-            }
+            return TravelExpertsCommon.PerformNonQuery(command);
         }
+
         public static List<Agent> SearchAllAgents(string searchIndex)
         {
             //We need a suppliers list to return; either a list of suppliers or an empty list

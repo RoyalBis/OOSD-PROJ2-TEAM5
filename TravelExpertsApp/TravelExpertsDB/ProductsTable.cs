@@ -43,42 +43,36 @@ namespace TravelExpertsDB
                                          " WHERE ProdName LIKE  '%' + @searchIndex + '%' OR ProductId LIKE '%' + @searchIndex + '%'";
         //\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
+        #region Database Queries
         public static List<Product> GetAllProducts()
         {
             //We need a suppliers list to return; either a list of suppliers or an empty list
             List<Product> products = new List<Product>();
             //get the connection and make a new select statement
-            SqlConnection connection = TravelExpertsCommon.GetConnection();
-            SqlCommand selectCommand = new SqlCommand(GetAllStmt, connection);
+            SqlCommand command = TravelExpertsCommon.GetCommand(GetAllStmt);
 
             //Using will auto close the connection once the block is ended
-            using (connection)
+            using (command.Connection)
             {
                 //try in case of errors and re-throw them to the UI
                 try
                 {
-                    connection.Open();
+                    command.Connection.Open();
 
-                    SqlDataReader reader = selectCommand.ExecuteReader();
+                    SqlDataReader reader = command.ExecuteReader();
                     while (reader.Read())
                     {
                         //build a new Product Object for each returned product
-                        Product product = new Product
-                        {
-                            ProductId = (int)reader["ProductId"],
-                            ProdName = reader["ProdName"].ToString()
-                        };
-                        //add the supplier to the list
-                        products.Add(product);
+                        //and add the supplier to the list
+                        products.Add(CreateProduct(reader));
                     }
+                    return products;
                 }
                 catch (Exception ex)    //catch all exceptions and re-throw them
                 {
-                    products = null;   //an error occurred so lets not continue
                     throw ex;
                 }
             }   //end of the using statement
-            return products;
         }
 
         public static Product GetProduct(string productId)
@@ -86,37 +80,31 @@ namespace TravelExpertsDB
             //We need a supplier to return or null
             Product product = null;
             //get the connection and make a new select statement
-            SqlConnection connection = TravelExpertsCommon.GetConnection();
-            SqlCommand selectCommand = new SqlCommand(GetStmt, connection);
+            SqlCommand command = TravelExpertsCommon.GetCommand(GetStmt);
             //add the supplierId Parameter to the SQL Command
-            selectCommand.Parameters.AddWithValue("@ProductId", productId);
+            command.Parameters.AddWithValue("@ProductId", productId);
 
             //Using will auto close the connection once the block is ended
-            using (connection)
+            using (command.Connection)
             {
                 //try in case of errors and re-throw them to the UI
                 try
                 {
-                    connection.Open();
+                    command.Connection.Open();
 
-                    SqlDataReader reader = selectCommand.ExecuteReader(CommandBehavior.SingleRow);
-                    while (reader.Read())
+                    SqlDataReader reader = command.ExecuteReader(CommandBehavior.SingleRow);
+                    if (reader.Read())
                     {
-                        //build a new Supplier Object
-                        product = new Product
-                        {
-                            ProductId = (int)reader["ProductId"],
-                            ProdName = reader["ProdName"].ToString()
-                        };
+                        //build a new Product Object
+                        return CreateProduct(reader);
                     }
+                    return null;
                 }
                 catch (Exception ex)    //catch all exceptions and re-throw them
                 {
                     throw ex;
                 }
             }   //end of the using statement
-
-            return product;
         }
 
         //Static Method to return a list of all the Product offered by a supplier
@@ -125,103 +113,56 @@ namespace TravelExpertsDB
             List<Product> products = new List<Product>();
 
             //get the connection and make a new select statement
-            SqlConnection connection = TravelExpertsCommon.GetConnection();
-            SqlCommand selectCommand = new SqlCommand(GetAllOfSupplierStmt, connection);
-            selectCommand.Parameters.AddWithValue("@SupplierId", "supplierId");
+            SqlCommand command = TravelExpertsCommon.GetCommand(GetStmt);
+            command.Parameters.AddWithValue("@SupplierId", "supplierId");
 
             //Using will auto close the connection once the block is ended
-            using (connection)
+            using (command.Connection)
             {
                 //try in case of errors and re-throw them to the UI
                 try
                 {
-                    connection.Open();
+                    command.Connection.Open();
 
-                    SqlDataReader reader = selectCommand.ExecuteReader();
+                    SqlDataReader reader = command.ExecuteReader();
                     while (reader.Read())
                     {
-                        //build a new Product Object for each returned Product
-                        Product product = new Product
-                        {
-                            ProductId = (int)reader["ProductId"],
-                            ProdName = reader["ProdName"].ToString()
-                        };
-                        //add the supplier to the list
-                        products.Add(product);
+                        //build a new Product Object for each returned product
+                        //and add the supplier to the list
+                        products.Add(CreateProduct(reader));
                     }
+                    return products;
                 }
                 catch (Exception ex)    //catch all exceptions and re-throw them
                 {
-                    products = null;   //an error occurred so lets not continue
                     throw ex;
                 }
             }   //end of the using statement
-            return products;
         }
 
         //Static Method to add a new Product
         public static bool AddProduct(Product prod)
         {
             //get the connection and make a new select statement
-            SqlConnection connection = TravelExpertsCommon.GetConnection();
-            SqlCommand insertCommand = new SqlCommand(InsertStmt, connection);
+            SqlCommand command = TravelExpertsCommon.GetCommand(InsertStmt);
             //add the Product Parameters to the SQL Insert Command
-            insertCommand.Parameters.AddWithValue("@ProductId", prod.ProductId);
-            insertCommand.Parameters.AddWithValue("@ProdName", prod.ProdName);
+            command.Parameters.AddWithValue("@ProductId", prod.ProductId);
+            command.Parameters.AddWithValue("@ProdName", prod.ProdName);
 
-            //Using will auto close the connection once the block is ended
-            using (connection)
-            {
-                //try in case of errors and re-throw them to the UI
-                try
-                {
-                    connection.Open();
-
-                    int nr = insertCommand.ExecuteNonQuery();   //nr is the number of rows that are affected
-                    if (nr != 1)  //number of rows affected should be 1
-                    {
-                        return false;
-                    }
-                }
-                catch (Exception ex)    //catch all exceptions and re-throw them
-                {
-                    throw ex;
-                }
-            }   //end of the using statement
-            return true;
+            return TravelExpertsCommon.PerformNonQuery(command);
         }
 
         //Static Method to update an existing Product
         public static bool UpdateProduct(Product newProd, Product oldProd)
         {
             //get the connection and make a new select statement
-            SqlConnection connection = TravelExpertsCommon.GetConnection();
-            SqlCommand updateCommand = new SqlCommand(UpdateStmt, connection);
+            SqlCommand command = TravelExpertsCommon.GetCommand(UpdateStmt);
             //add the Product Parameters to the SQL update Command
-            updateCommand.Parameters.AddWithValue("@NewProdName", newProd.ProdName);
-            updateCommand.Parameters.AddWithValue("@OldProductId", oldProd.ProductId);
-            updateCommand.Parameters.AddWithValue("@OldProdName", oldProd.ProdName);
+            command.Parameters.AddWithValue("@NewProdName", newProd.ProdName);
+            command.Parameters.AddWithValue("@OldProductId", oldProd.ProductId);
+            command.Parameters.AddWithValue("@OldProdName", oldProd.ProdName);
 
-            //Using will auto close the connection once the block is ended
-            using (connection)
-            {
-                //try in case of errors and re-throw them to the UI
-                try
-                {
-                    connection.Open();
-
-                    int nr = updateCommand.ExecuteNonQuery();   //nr is the number of rows that are affected
-                    if (nr != 1)  //number of rows affected should be 1
-                    {
-                        return false;
-                    }
-                }
-                catch (Exception ex)    //catch all exceptions and re-throw them
-                {
-                    throw ex;
-                }
-            }   //end of the using statement
-            return true;
+            return TravelExpertsCommon.PerformNonQuery(command);
         }
 
         public static List<Product> SearchAllProducts(string searchIndex)
@@ -229,42 +170,41 @@ namespace TravelExpertsDB
             //We need a suppliers list to return; either a list of suppliers or an empty list
             List<Product> products = new List<Product>();
             //get the connection and make a new select statement
-            SqlConnection connection = TravelExpertsCommon.GetConnection();
-            SqlCommand selectCommand = new SqlCommand(SearchAll, connection);
-            selectCommand.Parameters.AddWithValue("@searchIndex", searchIndex);
+            SqlCommand command = TravelExpertsCommon.GetCommand(SearchAll);
+            command.Parameters.AddWithValue("@searchIndex", searchIndex);
 
             //Using will auto close the connection once the block is ended
-            using (connection)
+            using (command.Connection)
             {
                 //try in case of errors and re-throw them to the UI
                 try
                 {
-                    connection.Open();
+                    command.Connection.Open();
 
-                    SqlDataReader reader = selectCommand.ExecuteReader();
+                    SqlDataReader reader = command.ExecuteReader();
                     while (reader.Read())
                     {
                         //build a new Product Object for each returned product
-                        Product product = new Product
-                        {
-                            ProductId = (int)reader["ProductId"],
-                            ProdName = reader["ProdName"].ToString()
-                        };
                         //add the products to the list
-                        products.Add(product);
+                        products.Add(CreateProduct(reader));
                     }
+                    return products;
                 }
                 catch (Exception ex)    //catch all exceptions and re-throw them
                 {
-                    products = null;   //an error occurred so lets not continue
                     throw ex;
                 }
-                finally
-                {
-                    connection.Close();
-                }
             }   //end of the using statement
-            return products;
+        }
+        #endregion
+
+        internal static Product CreateProduct(SqlDataReader reader)
+        {
+            Product product = new Product();
+            product.ProductId = (int)reader["ProductId"];
+            product.ProdName = reader["ProdName"].ToString();
+
+            return product;
         }
     }
 }

@@ -18,7 +18,6 @@ namespace MaterialSkin.Controls
         public MouseState MouseState { get; set; }
 
         public override string Text { get { return baseTextBox.Text; } set { baseTextBox.Text = value; } }
-        public new object Tag { get { return baseTextBox.Tag; } set { baseTextBox.Tag = value; } }
         public int MaxLength { get { return baseTextBox.MaxLength; } set { baseTextBox.MaxLength = value; } }
         
         public string SelectedText { get { return baseTextBox.SelectedText; } set { baseTextBox.SelectedText = value; } }

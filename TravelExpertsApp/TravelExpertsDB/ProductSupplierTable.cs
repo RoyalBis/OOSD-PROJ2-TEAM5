@@ -10,6 +10,7 @@ namespace TravelExpertsDB
 {
     public static class ProductSupplierTable
     {
+        #region Query Strings
         //Statement for SearchProducts()
         private static string SearchAllLikeProdSupID = "SELECT ps.ProductSupplierId, p.ProductId, ProdName, s.SupplierId, SupName " +
                                                        "FROM Products_Suppliers ps, Products p, Suppliers s " +
@@ -24,36 +25,40 @@ namespace TravelExpertsDB
                                         "AND ps.ProductId = p.ProductId " +
                                         "AND ps.ProductSupplierId = @ProductSupplierId";
 
+        private static string GetAllStmt = "SELECT ps.ProductSupplierId, p.ProductId, ProdName, s.SupplierId, SupName " +
+                                           "FROM Products_Suppliers ps, Products p, Suppliers s " +
+                                           "WHERE ps.SupplierId = s.SupplierId " +
+                                           "AND ps.ProductId = p.ProductId " +
+                                           "ORDER BY ProductID";
 
+        private static string GetAllofPkgStmt = "SELECT pps.ProductSupplierId, p.ProductId, ProdName, s.SupplierId, SupName " +
+                                                "FROM Packages_Products_Suppliers pps, Products_Suppliers ps, Products p, Suppliers s " +
+                                                "WHERE pps.ProductSupplierId = ps.ProductSupplierId " +
+                                                "AND ps.SupplierId = s.SupplierId " +
+                                                "AND ps.ProductId = p.ProductId " +
+                                                "AND PackageId = @PackageId";
+        #endregion
+
+        #region Database Queries
         public static ProductSupplier GetProductSupplier(int productSupplierId)
         {
-            SqlConnection connection = TravelExpertsCommon.GetConnection();
-            SqlCommand command = new SqlCommand(GetStmt, connection);
+            SqlCommand command = TravelExpertsCommon.GetCommand(GetStmt);
             command.Parameters.AddWithValue("@ProductSupplierId", productSupplierId);
 
             //Using will auto close the connection once the block is ended
-            using (connection)
+            using (command.Connection)
             {
                 //try in case of errors and re-throw them to the UI
                 try
                 {
-                    connection.Open();
+                    command.Connection.Open();
                     SqlDataReader reader = command.ExecuteReader();
-                    ProductSupplier prodSup = new ProductSupplier();
                     if (reader.Read())
                     {
-                        Product product = new Product();
-                        Supplier supplier = new Supplier();
-                        prodSup.ProductSupplierId = (int)reader["ProductSupplierId"];
-                        product.ProductId = (int)reader["ProductId"];
-                        product.ProdName = reader["ProdName"].ToString();
-                        supplier.SupplierId = (int)reader["SupplierId"];
-                        supplier.SupName = reader["SupName"].ToString();
-                        //Add the new product supplier to the package
-                        prodSup.MyProduct = product;
-                        prodSup.MySupplier = supplier;
+                        ProductSupplier prodSup = CreateProdSup(reader);
+                        return prodSup;
                     }
-                    return prodSup;
+                    return null;
                 }
                 catch (Exception ex) //catch all exceptions and re-throw them
                 {
@@ -65,36 +70,19 @@ namespace TravelExpertsDB
         public static List<ProductSupplier> GetAllProductSuppliers()
         {
             List<ProductSupplier> prodSups = new List<ProductSupplier>();
-            SqlConnection connection = TravelExpertsCommon.GetConnection();
-            string selectString = "SELECT ps.ProductSupplierId, p.ProductId, ProdName, s.SupplierId, SupName " +
-                                  "FROM Products_Suppliers ps, Products p, Suppliers s " +
-                                  "WHERE ps.SupplierId = s.SupplierId " +
-                                  "AND ps.ProductId = p.ProductId " +
-                                  "ORDER BY ProductID";
-            SqlCommand selectCommand = new SqlCommand(selectString, connection);
+            SqlCommand command = TravelExpertsCommon.GetCommand(GetAllStmt);
 
             //Using will auto close the connection once the block is ended
-            using (connection)
+            using (command.Connection)
             {
                 //try in case of errors and re-throw them to the UI
                 try
                 {
-                    connection.Open();
-                    SqlDataReader reader = selectCommand.ExecuteReader();
+                    command.Connection.Open();
+                    SqlDataReader reader = command.ExecuteReader();
                     while (reader.Read())
                     {
-                        ProductSupplier prodSup = new ProductSupplier();
-                        Product product = new Product();
-                        Supplier supplier = new Supplier();
-                        prodSup.ProductSupplierId = (int)reader["ProductSupplierId"];
-                        product.ProductId = (int)reader["ProductId"];
-                        product.ProdName = reader["ProdName"].ToString();
-                        supplier.SupplierId = (int)reader["SupplierId"];
-                        supplier.SupName = reader["SupName"].ToString();
-                        //Add the new product supplier to the package
-                        prodSup.MyProduct = product;
-                        prodSup.MySupplier = supplier;
-                        prodSups.Add(prodSup);
+                        prodSups.Add(CreateProdSup(reader));
                     }
                     return prodSups;
                 }
@@ -108,36 +96,26 @@ namespace TravelExpertsDB
         public static List<ProductSupplier> GetRangeProductSuppliers(int[] prodsupIds)
         {
             List<ProductSupplier> prodSups = new List<ProductSupplier>();
-            SqlConnection connection = TravelExpertsCommon.GetConnection();
-            string selectString = "SELECT ps.ProductSupplierId, p.ProductId, ProdName, s.SupplierId, SupName " +
-                                  "FROM Products_Suppliers ps, Products p, Suppliers s " +
-                                  "WHERE ps.SupplierId = s.SupplierId " +
-                                  "AND ps.ProductId = p.ProductId " +
-                                  "AND ProductSupplierId IN (" + string.Join(", ", prodsupIds ) + ")";
-            SqlCommand command = new SqlCommand(selectString, connection);
+            string GetAllFromIdsStmt = "SELECT ps.ProductSupplierId, p.ProductId, ProdName, s.SupplierId, SupName " +
+                                       "FROM Products_Suppliers ps, Products p, Suppliers s " +
+                                       "WHERE ps.SupplierId = s.SupplierId " +
+                                       "AND ps.ProductId = p.ProductId " +
+                                       "AND ProductSupplierId IN (" + string.Join(", ", prodsupIds) + ")";
+            SqlCommand command = TravelExpertsCommon.GetCommand(GetAllFromIdsStmt);
+
+            command.Parameters.AddWithValue("@ProductSupplierIds", string.Join(", ", prodsupIds));
 
             //Using will auto close the connection once the block is ended
-            using (connection)
+            using (command.Connection)
             {
                 //try in case of errors and re-throw them to the UI
                 try
                 {
-                    connection.Open();
+                    command.Connection.Open();
                     SqlDataReader reader = command.ExecuteReader();
                     while (reader.Read())
                     {
-                        ProductSupplier prodSup = new ProductSupplier();
-                        Product product = new Product();
-                        Supplier supplier = new Supplier();
-                        prodSup.ProductSupplierId = (int)reader["ProductSupplierId"];
-                        product.ProductId = (int)reader["ProductId"];
-                        product.ProdName = reader["ProdName"].ToString();
-                        supplier.SupplierId = (int)reader["SupplierId"];
-                        supplier.SupName = reader["SupName"].ToString();
-                        //Add the new product supplier to the package
-                        prodSup.MyProduct = product;
-                        prodSup.MySupplier = supplier;
-                        prodSups.Add(prodSup);
+                        prodSups.Add(CreateProdSup(reader));
                     }
                     return prodSups;
                 }
@@ -148,43 +126,24 @@ namespace TravelExpertsDB
             }   //end of the using statement
         }
 
-        public static void GetProductSuppliers(Package package)
+        public static void AssignPkgProductSuppliers(Package package)
         {
-
-            SqlConnection connection = TravelExpertsCommon.GetConnection();
-            string selectString = "SELECT pps.ProductSupplierId, p.ProductId, ProdName, s.SupplierId, SupName " +
-                                  "FROM Packages_Products_Suppliers pps, Products_Suppliers ps, Products p, Suppliers s " +
-                                  "WHERE pps.ProductSupplierId = ps.ProductSupplierId " +
-                                  "AND ps.SupplierId = s.SupplierId " +
-                                  "AND ps.ProductId = p.ProductId " +
-                                  "AND PackageId = @PackageId";
-            SqlCommand command = new SqlCommand(selectString, connection);
+            SqlCommand command = TravelExpertsCommon.GetCommand(GetAllofPkgStmt);
             command.Parameters.AddWithValue("@PackageId", package.PackageId);
 
             //Using will auto close the connection once the block is ended
-            using (connection)
+            using (command.Connection)
             {
                 //try in case of errors and re-throw them to the UI
                 try
                 {
-                    connection.Open();
+                    command.Connection.Open();
                     SqlDataReader reader = command.ExecuteReader();
                     //Empty the List of Current Product Suppliers
                     package.PkgProductSuppliers?.Clear();
                     while (reader.Read())
                     {
-                        ProductSupplier prodSup = new ProductSupplier();
-                        Product product = new Product();
-                        Supplier supplier = new Supplier();
-                        prodSup.ProductSupplierId = (int)reader["ProductSupplierId"];
-                        product.ProductId = (int)reader["ProductId"];
-                        product.ProdName = reader["ProdName"].ToString();
-                        supplier.SupplierId = (int)reader["SupplierId"];
-                        supplier.SupName = reader["SupName"].ToString();
-                        //Add the new product supplier to the package
-                        prodSup.MyProduct = product;
-                        prodSup.MySupplier = supplier;
-                        package.PkgProductSuppliers.Add(prodSup);
+                        package.PkgProductSuppliers?.Add(CreateProdSup(reader));
                     }
                     reader.Close();
                 }
@@ -195,7 +154,7 @@ namespace TravelExpertsDB
             }   //end of the using statement
         }
 
-
+        //NO LONGER NEEDED USING A LINQ STATEMENT AGAIN
         //private static string searchString;
         //public static List<ProductSupplier> SearchAllProdSups(string searchParam, string searchIndex)
         //{
@@ -258,5 +217,17 @@ namespace TravelExpertsDB
         //    }   //end of the using statement
         //    return prodSups;
         //}
+        #endregion
+
+        internal static ProductSupplier CreateProdSup(SqlDataReader reader)
+        {
+            ProductSupplier prodSup = new ProductSupplier();
+            prodSup.ProductSupplierId = (int)reader["ProductSupplierId"];
+            //Add the new product supplier to the package
+            prodSup.MyProduct = ProductsTable.CreateProduct(reader);
+            prodSup.MySupplier = SuppliersTable.CreateSupplier(reader);
+
+            return prodSup;
+        }
     }
 }

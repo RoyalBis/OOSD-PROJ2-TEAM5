@@ -10,15 +10,15 @@ namespace Validation
     public static class Validator
     {
         //Generic Method to Check if any Control is Empty Text
-        public static bool IsPresent(Control ctrl)
+        public static Result IsPresent(Control ctrl)
         {
             if (ctrl.Text == "")
             {
-                MessageBox.Show("Error: " + ctrl.Name + " is a required field!");
+                string message = "Please enter a " + ctrl.Tag;
                 ctrl.Focus();
-                return false;
+                return new Result(false, message);
             }
-            return true;
+            return new Result(true);
         }
 
         //public static bool IsPresent(TextBox textbox)
@@ -67,72 +67,72 @@ namespace Validation
         //    return true;
         //}
 
-        public static bool NonNegDecimal(Control ctrl)
+        public static Result NonNegDecimal(Control ctrl)
         {
             try
             {
                 //First unformat the string from the Control
                 string textValue = ctrl.Text.Replace("$", "").Replace(",", "");
                 decimal decValue = decimal.Parse(textValue);
-                if (decValue >= 0) return true;
+                if (decValue >= 0) return new Result(true);
                 else
                 {
-                    MessageBox.Show("Error: " + ctrl.Name + " must be non-negative value!");
+                    string message = "Error: " + ctrl.Tag + "("+ textValue + ")" + " must be non-negative value!";
                     ctrl.Focus();
-                    return false;
+                    return new Result(false, message);
                 }
             }
             catch (FormatException)
             {
-                MessageBox.Show("Error: " + ctrl.Name + " must be decimal number!");
+                string message = "Error: " + ctrl.Tag + "(" + ctrl.Text + ")" + " must be decimal number!";
                 ctrl.Focus();
-                return false;
+                return new Result(false, message);
             }
         }
 
-        public static bool NonNegInt(Control ctrl)
+        public static Result NonNegInt(Control ctrl)
         {
             try
             {
                 //First unformat the string from the Control
                 string textValue = ctrl.Text.Replace("$", "").Replace(",", "");
                 int intValue = int.Parse(textValue);
-                if (intValue >= 0) return true;
+                if (intValue >= 0) return new Result(true);
                 else
                 {
-                    MessageBox.Show("Error: " + ctrl.Name + " must be non-negative value!");
+                    string message = "Error: " + ctrl.Tag + "(" + textValue + ")" + " must be non-negative value!";
                     ctrl.Focus();
-                    return false;
+                    return new Result(false,message);
                 }
             }
             catch (FormatException)
             {
-                MessageBox.Show("Error: " + ctrl.Name + " must be integer number!");
+                string message = "Error: " + ctrl.Tag + " must be integer number!";
                 ctrl.Focus();
-                return false;
+                return new Result(false, message);
             }
         }
 
-        public static bool DateLessThan(DateTimePicker ctrl1, DateTimePicker ctrl2)
+        public static Result DateLessThan(DateTimePicker ctrl1, DateTimePicker ctrl2)
         {
             if ( ctrl1.Value >= ctrl2.Value )
             {
-                MessageBox.Show("Error: " + ctrl1.Name + " must be a date less than " + ctrl2.Name);
-                return false;
+                string message = "Error: " + ctrl1.Tag + "(" + ctrl1.Value + ")" + " must be a date less than " + ctrl2.Tag + "(" + ctrl2.Value + ")";
+                return new Result(false, message);
             }
-            return true;
+            return new Result(true);
         }
 
-        public static bool InCharCount(Control ctrl)
+        public static Result InCharCount(Control ctrl)
         {
             TextBox txt = (TextBox)ctrl;
             char[] chars = txt.Text.ToCharArray();
             if ( chars.Length > txt.MaxLength )
             {
-                MessageBox.Show("Error: Number of characters in " + txt.Name + " must be less then or equal to " + txt.MaxLength);
-                return false;
+                string message = "Error: Number of characters in " + txt.Tag + " must be less then or equal to " + txt.MaxLength;
+                return new Result(false, message);
             }
-            return true;
+            return new Result(true);
         }
     }
 }

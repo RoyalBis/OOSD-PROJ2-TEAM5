@@ -33,7 +33,7 @@ namespace TravelExpertsApp
             packages = PackagesTable.GetAllPackages();
             if ( !Add )
             {
-                ProductSupplierTable.GetProductSuppliers(PkgIn);
+                ProductSupplierTable.AssignPkgProductSuppliers(PkgIn);
                 this.Text = "Modify Package ID: " + PkgIn.PackageId;
                 btnAddModify.Text = "Update";
                 SetActive();
@@ -48,17 +48,13 @@ namespace TravelExpertsApp
         private void SetActive()
         {
             txtPkgName.Text = PkgIn.PkgName;
-            MaterialComboBoxItem cbItem1 = new MaterialComboBoxItem("Hello");
-            MaterialComboBoxItem cbItem2 = new MaterialComboBoxItem("Royal");
-            MaterialComboBoxItem cbItem3 = new MaterialComboBoxItem("Bissell");
-            txtPkgName.Add(cbItem1);
-            txtPkgName.Add(cbItem2);
-            txtPkgName.Add(cbItem3);
             dtpStartDate.Value = PkgIn.PkgStartDate;
             dtpEndDate.Value = PkgIn.PkgEndDate;
             txtDesc.Text = PkgIn.PkgDesc;
             txtBasePrice.Text = PkgIn.PkgBasePrice.ToString("c");
             txtCommission.Text = PkgIn.PkgAgencyCommission.ToString("c");
+
+            //PLEASE FIX ME LATER AND USE EMILES IDEA. THANKS EMILE, TALK TO YOU SOON! SINCERLY ROYAL
             try
             {
                 pbPkgImage.Image = PkgIn.ImageFromBytes();
@@ -98,7 +94,8 @@ namespace TravelExpertsApp
 
         private void btnAddModify_Click(object sender, EventArgs e)
         {
-            if ( isValid() )
+            Result message = isValid();
+            if (message.Success )
             {
                 ImageConverter converter = new ImageConverter();
                 byte[] imgArray = (byte[])converter.ConvertTo(pbPkgImage.Image, typeof(byte[]));
@@ -130,8 +127,12 @@ namespace TravelExpertsApp
                     UpdateProductSuppliers(PkgIn, PkgOut);
                 }
                 PkgIn = PkgOut;
+                this.Close();
             }
-            this.Close();
+            else
+            {
+                MaterialMessageBox.Show(this,message);
+            }
         }
 
         private void UpdateProductSuppliers(Package PkgIn,Package PkgOut)
@@ -146,7 +147,7 @@ namespace TravelExpertsApp
 
             foreach (ProductSupplier prodsup in PkgOut.PkgProductSuppliers)
             {
-                if (!PkgIn.PkgProductSuppliers.Contains(prodsup) )
+                if ( !PkgIn.PkgProductSuppliers.Contains(prodsup) )
                 {
                     PackagesProductsSuppliersTable.AddSupplier(PkgIn.PackageId, prodsup);
                 }
@@ -161,18 +162,21 @@ namespace TravelExpertsApp
             }
         }
 
-        private bool isValid()
+        private Result isValid()
         {
-            return Validator.IsPresent(txtPkgName) &&
-                   Validator.IsPresent(txtDesc) &&
-                   Validator.IsPresent(txtBasePrice) &&
-                   Validator.NonNegDecimal(txtBasePrice) &&
-                   Validator.NonNegDecimal(txtCommission) &&
-                   Validator.DateLessThan(dtpStartDate, dtpEndDate);
-                   //Validator.InCharCount(txtPkgName) &&
-                   //Validator.InCharCount(txtDesc) &&
-                   //Validator.InCharCount(txtBasePrice) &&
-                   //Validator.InCharCount(txtCommission);
+            Result[] results = new Result[6];
+            results[0] = Validator.IsPresent(txtPkgName);
+            results[1] = Validator.IsPresent(txtDesc);
+            results[2] = Validator.IsPresent(txtBasePrice);
+            results[3] = Validator.NonNegDecimal(txtBasePrice);
+            results[4] = Validator.NonNegDecimal(txtCommission);
+            results[5] = Validator.DateLessThan(dtpStartDate, dtpEndDate);
+
+            foreach (Result result in results)
+            {
+                if ( !result.Success ) return result;
+            }
+            return new Result(true);
         }
 
         private void btnAdd_Click(object sender, EventArgs e)

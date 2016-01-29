@@ -50,6 +50,7 @@ namespace TravelExpertsApp
             this.colSupName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.lblPkgProducts = new MaterialSkin.Controls.MaterialLabel();
             this.panFormGrp = new System.Windows.Forms.Panel();
+            this.txtPkgName = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.panStartDate = new System.Windows.Forms.Panel();
             this.dtpStartDate = new System.Windows.Forms.DateTimePicker();
             this.lblStartDate = new MaterialSkin.Controls.MaterialLabel();
@@ -70,7 +71,6 @@ namespace TravelExpertsApp
             this.mdivImage = new MaterialSkin.Controls.MaterialDivider();
             this.panMain = new System.Windows.Forms.Panel();
             this.panDock = new System.Windows.Forms.Panel();
-            this.txtPkgName = new MaterialSkin.Controls.MaterialComboBox();
             this.panButtons.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbPkgImage)).BeginInit();
             this.panPkgImage.SuspendLayout();
@@ -159,17 +159,18 @@ namespace TravelExpertsApp
             this.pbPkgImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbPkgImage.TabIndex = 9;
             this.pbPkgImage.TabStop = false;
+            this.pbPkgImage.Tag = "Package Image";
             // 
             // lblPkgImage
             // 
             this.lblPkgImage.AutoSize = true;
             this.lblPkgImage.Depth = 0;
-            this.lblPkgImage.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.lblPkgImage.Font = new System.Drawing.Font("Roboto", 11F);
             this.lblPkgImage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.lblPkgImage.Location = new System.Drawing.Point(16, 3);
             this.lblPkgImage.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblPkgImage.Name = "lblPkgImage";
-            this.lblPkgImage.Size = new System.Drawing.Size(145, 24);
+            this.lblPkgImage.Size = new System.Drawing.Size(146, 24);
             this.lblPkgImage.TabIndex = 0;
             this.lblPkgImage.Text = "Package Image:";
             // 
@@ -284,6 +285,7 @@ namespace TravelExpertsApp
             this.lvPkgProductSuppliers.ShowGroups = false;
             this.lvPkgProductSuppliers.Size = new System.Drawing.Size(342, 200);
             this.lvPkgProductSuppliers.TabIndex = 1;
+            this.lvPkgProductSuppliers.Tag = "Product Suppliers";
             this.lvPkgProductSuppliers.UseCompatibleStateImageBehavior = false;
             this.lvPkgProductSuppliers.View = System.Windows.Forms.View.Details;
             // 
@@ -306,12 +308,12 @@ namespace TravelExpertsApp
             // 
             this.lblPkgProducts.AutoSize = true;
             this.lblPkgProducts.Depth = 0;
-            this.lblPkgProducts.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.lblPkgProducts.Font = new System.Drawing.Font("Roboto", 11F);
             this.lblPkgProducts.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.lblPkgProducts.Location = new System.Drawing.Point(3, 7);
             this.lblPkgProducts.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblPkgProducts.Name = "lblPkgProducts";
-            this.lblPkgProducts.Size = new System.Drawing.Size(164, 24);
+            this.lblPkgProducts.Size = new System.Drawing.Size(165, 24);
             this.lblPkgProducts.TabIndex = 0;
             this.lblPkgProducts.Text = "Product Suppliers:";
             // 
@@ -330,6 +332,24 @@ namespace TravelExpertsApp
             this.panFormGrp.Size = new System.Drawing.Size(353, 286);
             this.panFormGrp.TabIndex = 7;
             // 
+            // txtPkgName
+            // 
+            this.txtPkgName.Depth = 0;
+            this.txtPkgName.Hint = "";
+            this.txtPkgName.Location = new System.Drawing.Point(149, 4);
+            this.txtPkgName.MaxLength = 32767;
+            this.txtPkgName.MouseState = MaterialSkin.MouseState.HOVER;
+            this.txtPkgName.Name = "txtPkgName";
+            this.txtPkgName.PasswordChar = '\0';
+            this.txtPkgName.SelectedText = "";
+            this.txtPkgName.SelectionLength = 0;
+            this.txtPkgName.SelectionStart = 0;
+            this.txtPkgName.Size = new System.Drawing.Size(199, 28);
+            this.txtPkgName.TabIndex = 1;
+            this.txtPkgName.TabStop = false;
+            this.txtPkgName.Tag = "Package Name";
+            this.txtPkgName.UseSystemPasswordChar = false;
+            // 
             // panStartDate
             // 
             this.panStartDate.BackColor = System.Drawing.Color.White;
@@ -347,17 +367,18 @@ namespace TravelExpertsApp
             this.dtpStartDate.Name = "dtpStartDate";
             this.dtpStartDate.Size = new System.Drawing.Size(200, 22);
             this.dtpStartDate.TabIndex = 1;
+            this.dtpStartDate.Tag = "Start Date";
             // 
             // lblStartDate
             // 
             this.lblStartDate.AutoSize = true;
             this.lblStartDate.Depth = 0;
-            this.lblStartDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.lblStartDate.Font = new System.Drawing.Font("Roboto", 11F);
             this.lblStartDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.lblStartDate.Location = new System.Drawing.Point(3, 4);
             this.lblStartDate.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblStartDate.Name = "lblStartDate";
-            this.lblStartDate.Size = new System.Drawing.Size(94, 24);
+            this.lblStartDate.Size = new System.Drawing.Size(97, 24);
             this.lblStartDate.TabIndex = 0;
             this.lblStartDate.Text = "Start Date:";
             // 
@@ -365,7 +386,7 @@ namespace TravelExpertsApp
             // 
             this.lblPkgName.AutoSize = true;
             this.lblPkgName.Depth = 0;
-            this.lblPkgName.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.lblPkgName.Font = new System.Drawing.Font("Roboto", 11F);
             this.lblPkgName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.lblPkgName.Location = new System.Drawing.Point(3, 4);
             this.lblPkgName.MouseState = MaterialSkin.MouseState.HOVER;
@@ -394,17 +415,18 @@ namespace TravelExpertsApp
             this.txtDesc.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txtDesc.Size = new System.Drawing.Size(340, 55);
             this.txtDesc.TabIndex = 1;
+            this.txtDesc.Tag = "Package Description";
             // 
             // lblDesc
             // 
             this.lblDesc.AutoSize = true;
             this.lblDesc.Depth = 0;
-            this.lblDesc.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.lblDesc.Font = new System.Drawing.Font("Roboto", 11F);
             this.lblDesc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.lblDesc.Location = new System.Drawing.Point(3, 7);
             this.lblDesc.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblDesc.Name = "lblDesc";
-            this.lblDesc.Size = new System.Drawing.Size(109, 24);
+            this.lblDesc.Size = new System.Drawing.Size(111, 24);
             this.lblDesc.TabIndex = 0;
             this.lblDesc.Text = "Description:";
             // 
@@ -425,17 +447,18 @@ namespace TravelExpertsApp
             this.dtpEndDate.Name = "dtpEndDate";
             this.dtpEndDate.Size = new System.Drawing.Size(199, 22);
             this.dtpEndDate.TabIndex = 1;
+            this.dtpEndDate.Tag = "End Date";
             // 
             // lblEndDate
             // 
             this.lblEndDate.AutoSize = true;
             this.lblEndDate.Depth = 0;
-            this.lblEndDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.lblEndDate.Font = new System.Drawing.Font("Roboto", 11F);
             this.lblEndDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.lblEndDate.Location = new System.Drawing.Point(4, 2);
             this.lblEndDate.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblEndDate.Name = "lblEndDate";
-            this.lblEndDate.Size = new System.Drawing.Size(93, 24);
+            this.lblEndDate.Size = new System.Drawing.Size(90, 24);
             this.lblEndDate.TabIndex = 0;
             this.lblEndDate.Text = "End Date:";
             // 
@@ -454,7 +477,7 @@ namespace TravelExpertsApp
             this.txtBasePrice.Depth = 0;
             this.txtBasePrice.Hint = "";
             this.txtBasePrice.Location = new System.Drawing.Point(150, 4);
-            this.txtBasePrice.MaxLength = 10;
+            this.txtBasePrice.MaxLength = 32767;
             this.txtBasePrice.MouseState = MaterialSkin.MouseState.HOVER;
             this.txtBasePrice.Name = "txtBasePrice";
             this.txtBasePrice.PasswordChar = '\0';
@@ -464,13 +487,14 @@ namespace TravelExpertsApp
             this.txtBasePrice.Size = new System.Drawing.Size(199, 28);
             this.txtBasePrice.TabIndex = 1;
             this.txtBasePrice.TabStop = false;
+            this.txtBasePrice.Tag = "Base Price";
             this.txtBasePrice.UseSystemPasswordChar = false;
             // 
             // lblBasePrice
             // 
             this.lblBasePrice.AutoSize = true;
             this.lblBasePrice.Depth = 0;
-            this.lblBasePrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.lblBasePrice.Font = new System.Drawing.Font("Roboto", 11F);
             this.lblBasePrice.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.lblBasePrice.Location = new System.Drawing.Point(3, 4);
             this.lblBasePrice.MouseState = MaterialSkin.MouseState.HOVER;
@@ -494,7 +518,7 @@ namespace TravelExpertsApp
             this.txtCommission.Depth = 0;
             this.txtCommission.Hint = "";
             this.txtCommission.Location = new System.Drawing.Point(150, 4);
-            this.txtCommission.MaxLength = 12;
+            this.txtCommission.MaxLength = 32767;
             this.txtCommission.MouseState = MaterialSkin.MouseState.HOVER;
             this.txtCommission.Name = "txtCommission";
             this.txtCommission.PasswordChar = '\0';
@@ -504,18 +528,19 @@ namespace TravelExpertsApp
             this.txtCommission.Size = new System.Drawing.Size(199, 28);
             this.txtCommission.TabIndex = 1;
             this.txtCommission.TabStop = false;
+            this.txtCommission.Tag = "Commission";
             this.txtCommission.UseSystemPasswordChar = false;
             // 
             // lblCommission
             // 
             this.lblCommission.AutoSize = true;
             this.lblCommission.Depth = 0;
-            this.lblCommission.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            this.lblCommission.Font = new System.Drawing.Font("Roboto", 11F);
             this.lblCommission.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.lblCommission.Location = new System.Drawing.Point(3, 2);
             this.lblCommission.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblCommission.Name = "lblCommission";
-            this.lblCommission.Size = new System.Drawing.Size(119, 24);
+            this.lblCommission.Size = new System.Drawing.Size(123, 24);
             this.lblCommission.TabIndex = 0;
             this.lblCommission.Text = "Commission:";
             // 
@@ -572,23 +597,6 @@ namespace TravelExpertsApp
             this.panDock.TabIndex = 11;
             this.panDock.ControlRemoved += new System.Windows.Forms.ControlEventHandler(this.panDock_ControlRemoved);
             // 
-            // txtPkgName
-            // 
-            this.txtPkgName.Depth = 0;
-            this.txtPkgName.Hint = "";
-            this.txtPkgName.Location = new System.Drawing.Point(149, 4);
-            this.txtPkgName.MaxLength = 32767;
-            this.txtPkgName.MouseState = MaterialSkin.MouseState.HOVER;
-            this.txtPkgName.Name = "txtPkgName";
-            this.txtPkgName.PasswordChar = '\0';
-            this.txtPkgName.SelectedText = "";
-            this.txtPkgName.SelectionLength = 0;
-            this.txtPkgName.SelectionStart = 0;
-            this.txtPkgName.Size = new System.Drawing.Size(199, 28);
-            this.txtPkgName.TabIndex = 1;
-            this.txtPkgName.TabStop = false;
-            this.txtPkgName.UseSystemPasswordChar = false;
-            // 
             // frmPkgAddModify
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -596,6 +604,7 @@ namespace TravelExpertsApp
             this.ClientSize = new System.Drawing.Size(745, 805);
             this.Controls.Add(this.panMain);
             this.Name = "frmPkgAddModify";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Load += new System.EventHandler(this.Form1_Load);
             this.panButtons.ResumeLayout(false);
             this.panButtons.PerformLayout();
@@ -655,7 +664,7 @@ namespace TravelExpertsApp
         private System.Windows.Forms.Panel panStartDate;
         private System.Windows.Forms.Panel panFormGrp;
         private MaterialLabel lblPkgName;
-        private MaterialSkin.Controls.MaterialComboBox txtPkgName;
+        private MaterialSingleLineTextField txtPkgName;
         private System.Windows.Forms.Panel panForm;
         private System.Windows.Forms.Panel panMain;
         private System.Windows.Forms.Panel panDock;

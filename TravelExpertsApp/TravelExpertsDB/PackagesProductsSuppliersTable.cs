@@ -26,122 +26,40 @@ namespace TravelExpertsDB
 
         //\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
-
         //Static Method to add a new Supplier
         public static bool AddSupplier(int pkgId, ProductSupplier prodSup, SqlTransaction transaction = null)
         {
-            SqlCommand command;
             //get the connection and make a new select statement
-            SqlConnection connection = TravelExpertsCommon.GetConnection();
-            if ( transaction != null )
-            {
-                command = new SqlCommand(InsertStmt, connection, transaction);
-            }
-            else
-            {
-                command = new SqlCommand(InsertStmt, connection);
-            }
+            SqlCommand command = TravelExpertsCommon.GetCommand(InsertStmt);
+            command.Transaction = transaction;
+
             //add the Supplier Parameters to the SQL Insert Command
             command.Parameters.AddWithValue("@PackageId", pkgId);
             command.Parameters.AddWithValue("@ProductSupplierId", prodSup.ProductSupplierId);
 
-            //Using will auto close the connection once the block is ended
-            using (connection)
-            {
-                //try in case of errors and re-throw them to the UI
-                try
-                {
-                    connection.Open();
-
-                    int nr = command.ExecuteNonQuery();   //nr is the number of rows that are affected
-                    if (nr != 1)  //number of rows affected should be 1
-                    {
-                        return false;
-                    }
-                }
-                catch (Exception ex)    //catch all exceptions and re-throw them
-                {
-                    throw ex;
-                }
-            }   //end of the using statement
-            return true;
+            return TravelExpertsCommon.PerformNonQuery(command);
         }
 
         public static bool DeletePkgProdSup(int pkgId, ProductSupplier prodSup, SqlTransaction transaction = null)
         {
-            SqlCommand command;
-            //get the connection and make a new select statement
-            SqlConnection connection = TravelExpertsCommon.GetConnection();
-            if (transaction != null)
-            {
-                command = new SqlCommand(DeleteStmt, connection, transaction);
-            }
-            else
-            {
-                command = new SqlCommand(DeleteStmt, connection);
-            }
+            SqlCommand command = TravelExpertsCommon.GetCommand(DeleteStmt);
+            command.Transaction = transaction;
+
             //add the Supplier Parameters to the SQL Insert Command
             command.Parameters.AddWithValue("@PackageId", pkgId);
             command.Parameters.AddWithValue("@ProductSupplierId", prodSup.ProductSupplierId);
 
-            //Using will auto close the connection once the block is ended
-            using (connection)
-            {
-                //try in case of errors and re-throw them to the UI
-                try
-                {
-                    connection.Open();
-
-                    int nr = command.ExecuteNonQuery();   //nr is the number of rows that are affected
-                    if (nr != 1)  //number of rows affected should be 1
-                    {
-                        return false;
-                    }
-                }
-                catch (Exception ex)    //catch all exceptions and re-throw them
-                {
-                    throw ex;
-                }
-            }   //end of the using statement
-            return true;
+            return TravelExpertsCommon.PerformNonQuery(command);
         }
 
         public static bool DeletePkgProdSup(int pkgId, SqlTransaction transaction = null)
         {
-            SqlCommand command;
-            //get the connection and make a new select statement
-            SqlConnection connection = TravelExpertsCommon.GetConnection();
-            if (transaction != null)
-            {
-                command = new SqlCommand(DeletePkgStmt, connection, transaction);
-            }
-            else
-            {
-                command = new SqlCommand(DeletePkgStmt, connection);
-            }
+            SqlCommand command = TravelExpertsCommon.GetCommand(DeletePkgStmt);
+            command.Transaction = transaction;
             //add the Supplier Parameters to the SQL Insert Command
             command.Parameters.AddWithValue("@PackageId", pkgId);
 
-            //Using will auto close the connection once the block is ended
-            using (connection)
-            {
-                //try in case of errors and re-throw them to the UI
-                try
-                {
-                    connection.Open();
-
-                    int nr = command.ExecuteNonQuery();   //nr is the number of rows that are affected
-                    if (nr != 1)  //number of rows affected should be 1
-                    {
-                        return false;
-                    }
-                }
-                catch (Exception ex)    //catch all exceptions and re-throw them
-                {
-                    throw ex;
-                }
-            }   //end of the using statement
-            return true;
+            return TravelExpertsCommon.PerformNonQuery(command);
         }
     }
 }

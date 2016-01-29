@@ -34,7 +34,6 @@
             this.mtabControl = new MaterialSkin.Controls.MaterialTabControl();
             this.tabPkgs = new System.Windows.Forms.TabPage();
             this.panPkgBtns = new System.Windows.Forms.Panel();
-            this.panForm = new System.Windows.Forms.Panel();
             this.materialDivider1 = new MaterialSkin.Controls.MaterialDivider();
             this.mbtnAdd = new MaterialSkin.Controls.MaterialFlatButton();
             this.mbtnDelete = new MaterialSkin.Controls.MaterialFlatButton();
@@ -49,17 +48,18 @@
             this.colCommission = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tabSettings = new System.Windows.Forms.TabPage();
             this.panMainInner = new System.Windows.Forms.Panel();
-            this.materialDivider2 = new MaterialSkin.Controls.MaterialDivider();
+            this.panDock = new System.Windows.Forms.Panel();
+            this.panForm = new System.Windows.Forms.Panel();
             this.panBtns = new System.Windows.Forms.Panel();
+            this.materialDivider2 = new MaterialSkin.Controls.MaterialDivider();
             this.mbtnLogout = new MaterialSkin.Controls.MaterialRaisedButton();
             this.mbtnExit = new MaterialSkin.Controls.MaterialRaisedButton();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.panMain.SuspendLayout();
             this.mtabControl.SuspendLayout();
             this.tabPkgs.SuspendLayout();
             this.panPkgBtns.SuspendLayout();
-            this.panForm.SuspendLayout();
             this.panMainInner.SuspendLayout();
+            this.panForm.SuspendLayout();
             this.panBtns.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -115,7 +115,6 @@
             this.tabPkgs.Size = new System.Drawing.Size(1026, 364);
             this.tabPkgs.TabIndex = 0;
             this.tabPkgs.Text = "Package Browser";
-            this.tabPkgs.Click += new System.EventHandler(this.tabPkgs_Click);
             // 
             // panPkgBtns
             // 
@@ -129,18 +128,6 @@
             this.panPkgBtns.Name = "panPkgBtns";
             this.panPkgBtns.Size = new System.Drawing.Size(1010, 45);
             this.panPkgBtns.TabIndex = 12;
-            // 
-            // panForm
-            // 
-            this.panForm.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panForm.Controls.Add(this.panBtns);
-            this.panForm.Controls.Add(this.mtabControl);
-            this.panForm.Location = new System.Drawing.Point(0, 0);
-            this.panForm.Name = "panForm";
-            this.panForm.Size = new System.Drawing.Size(1037, 447);
-            this.panForm.TabIndex = 13;
             // 
             // materialDivider1
             // 
@@ -170,6 +157,7 @@
             this.mbtnAdd.TabIndex = 9;
             this.mbtnAdd.Text = "Add";
             this.mbtnAdd.UseVisualStyleBackColor = true;
+            this.mbtnAdd.Click += new System.EventHandler(this.mbtnAdd_Click);
             // 
             // mbtnDelete
             // 
@@ -273,7 +261,7 @@
             this.tabSettings.Location = new System.Drawing.Point(4, 25);
             this.tabSettings.Name = "tabSettings";
             this.tabSettings.Padding = new System.Windows.Forms.Padding(3);
-            this.tabSettings.Size = new System.Drawing.Size(1034, 359);
+            this.tabSettings.Size = new System.Drawing.Size(1026, 364);
             this.tabSettings.TabIndex = 1;
             this.tabSettings.Text = "Settings";
             // 
@@ -282,25 +270,32 @@
             this.panMainInner.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panMainInner.Controls.Add(this.panel1);
+            this.panMainInner.Controls.Add(this.panDock);
             this.panMainInner.Controls.Add(this.panForm);
             this.panMainInner.Location = new System.Drawing.Point(0, 74);
             this.panMainInner.Name = "panMainInner";
             this.panMainInner.Size = new System.Drawing.Size(1040, 446);
             this.panMainInner.TabIndex = 3;
             // 
-            // materialDivider2
+            // panDock
             // 
-            this.materialDivider2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.panDock.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panDock.Location = new System.Drawing.Point(1039, 0);
+            this.panDock.Name = "panDock";
+            this.panDock.Size = new System.Drawing.Size(1, 446);
+            this.panDock.TabIndex = 14;
+            // 
+            // panForm
+            // 
+            this.panForm.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.materialDivider2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialDivider2.Depth = 0;
-            this.materialDivider2.Location = new System.Drawing.Point(3, 0);
-            this.materialDivider2.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialDivider2.Name = "materialDivider2";
-            this.materialDivider2.Size = new System.Drawing.Size(1030, 1);
-            this.materialDivider2.TabIndex = 3;
-            this.materialDivider2.Text = "materialDivider2";
+            this.panForm.Controls.Add(this.panBtns);
+            this.panForm.Controls.Add(this.mtabControl);
+            this.panForm.Location = new System.Drawing.Point(0, 0);
+            this.panForm.Name = "panForm";
+            this.panForm.Size = new System.Drawing.Size(1037, 447);
+            this.panForm.TabIndex = 13;
             // 
             // panBtns
             // 
@@ -314,6 +309,19 @@
             this.panBtns.Name = "panBtns";
             this.panBtns.Size = new System.Drawing.Size(1030, 45);
             this.panBtns.TabIndex = 2;
+            // 
+            // materialDivider2
+            // 
+            this.materialDivider2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.materialDivider2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialDivider2.Depth = 0;
+            this.materialDivider2.Location = new System.Drawing.Point(3, 0);
+            this.materialDivider2.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialDivider2.Name = "materialDivider2";
+            this.materialDivider2.Size = new System.Drawing.Size(1030, 1);
+            this.materialDivider2.TabIndex = 3;
+            this.materialDivider2.Text = "materialDivider2";
             // 
             // mbtnLogout
             // 
@@ -341,14 +349,6 @@
             this.mbtnExit.Text = "Exit";
             this.mbtnExit.UseVisualStyleBackColor = true;
             // 
-            // panel1
-            // 
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel1.Location = new System.Drawing.Point(1039, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1, 446);
-            this.panel1.TabIndex = 14;
-            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -359,13 +359,14 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmMain";
             this.Text = "Travel Experts Package Editor";
+            this.Load += new System.EventHandler(this.frmMain_Load);
             this.panMain.ResumeLayout(false);
             this.mtabControl.ResumeLayout(false);
             this.tabPkgs.ResumeLayout(false);
             this.panPkgBtns.ResumeLayout(false);
             this.panPkgBtns.PerformLayout();
-            this.panForm.ResumeLayout(false);
             this.panMainInner.ResumeLayout(false);
+            this.panForm.ResumeLayout(false);
             this.panBtns.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -397,7 +398,7 @@
         private MaterialSkin.Controls.MaterialDivider materialDivider1;
         private MaterialSkin.Controls.MaterialDivider materialDivider2;
         private System.Windows.Forms.Panel panForm;
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panDock;
     }
 }
 

@@ -403,6 +403,7 @@ namespace TravelExpertsApp
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmPackage";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Package Report";
             this.Load += new System.EventHandler(this.frmPackage_Load);
             this.gbPackageDetail.ResumeLayout(false);

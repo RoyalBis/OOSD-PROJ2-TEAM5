@@ -35,19 +35,19 @@
             this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
             this.btnExit = new MaterialSkin.Controls.MaterialRaisedButton();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.pan = new System.Windows.Forms.Panel();
-            this.panForm = new System.Windows.Forms.Panel();
             this.mdivBtns = new MaterialSkin.Controls.MaterialDivider();
+            this.panForm = new System.Windows.Forms.Panel();
+            this.pan = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
-            this.pan.SuspendLayout();
             this.panForm.SuspendLayout();
+            this.pan.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnLogin
             // 
             this.btnLogin.Depth = 0;
             this.btnLogin.Location = new System.Drawing.Point(257, 4);
-            this.btnLogin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnLogin.Margin = new System.Windows.Forms.Padding(4);
             this.btnLogin.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnLogin.Name = "btnLogin";
             this.btnLogin.Primary = true;
@@ -55,7 +55,7 @@
             this.btnLogin.TabIndex = 0;
             this.btnLogin.Text = "Login";
             this.btnLogin.UseVisualStyleBackColor = true;
-            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click_1);
+            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
             // txtAgentName
             // 
@@ -63,7 +63,7 @@
             this.txtAgentName.Depth = 0;
             this.txtAgentName.Hint = "";
             this.txtAgentName.Location = new System.Drawing.Point(226, 38);
-            this.txtAgentName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtAgentName.Margin = new System.Windows.Forms.Padding(4);
             this.txtAgentName.MaxLength = 32767;
             this.txtAgentName.MouseState = MaterialSkin.MouseState.HOVER;
             this.txtAgentName.Name = "txtAgentName";
@@ -74,6 +74,7 @@
             this.txtAgentName.Size = new System.Drawing.Size(172, 28);
             this.txtAgentName.TabIndex = 1;
             this.txtAgentName.TabStop = false;
+            this.txtAgentName.Tag = "Username";
             this.txtAgentName.UseSystemPasswordChar = false;
             // 
             // txtAgentPassword
@@ -82,7 +83,7 @@
             this.txtAgentPassword.Depth = 0;
             this.txtAgentPassword.Hint = "";
             this.txtAgentPassword.Location = new System.Drawing.Point(226, 86);
-            this.txtAgentPassword.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txtAgentPassword.Margin = new System.Windows.Forms.Padding(4);
             this.txtAgentPassword.MaxLength = 32767;
             this.txtAgentPassword.MouseState = MaterialSkin.MouseState.HOVER;
             this.txtAgentPassword.Name = "txtAgentPassword";
@@ -93,6 +94,7 @@
             this.txtAgentPassword.Size = new System.Drawing.Size(172, 28);
             this.txtAgentPassword.TabIndex = 2;
             this.txtAgentPassword.TabStop = false;
+            this.txtAgentPassword.Tag = "Password";
             this.txtAgentPassword.UseSystemPasswordChar = true;
             // 
             // materialLabel1
@@ -129,7 +131,7 @@
             // 
             this.btnExit.Depth = 0;
             this.btnExit.Location = new System.Drawing.Point(365, 4);
-            this.btnExit.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnExit.Margin = new System.Windows.Forms.Padding(4);
             this.btnExit.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnExit.Name = "btnExit";
             this.btnExit.Primary = true;
@@ -149,16 +151,18 @@
             this.panel1.Size = new System.Drawing.Size(476, 202);
             this.panel1.TabIndex = 6;
             // 
-            // pan
+            // mdivBtns
             // 
-            this.pan.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            this.mdivBtns.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.pan.Controls.Add(this.btnExit);
-            this.pan.Controls.Add(this.btnLogin);
-            this.pan.Location = new System.Drawing.Point(3, 164);
-            this.pan.Name = "pan";
-            this.pan.Size = new System.Drawing.Size(470, 35);
-            this.pan.TabIndex = 0;
+            this.mdivBtns.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.mdivBtns.Depth = 0;
+            this.mdivBtns.Location = new System.Drawing.Point(3, 160);
+            this.mdivBtns.MouseState = MaterialSkin.MouseState.HOVER;
+            this.mdivBtns.Name = "mdivBtns";
+            this.mdivBtns.Size = new System.Drawing.Size(470, 1);
+            this.mdivBtns.TabIndex = 2;
+            this.mdivBtns.Text = "materialDivider1";
             // 
             // panForm
             // 
@@ -174,18 +178,16 @@
             this.panForm.Size = new System.Drawing.Size(469, 154);
             this.panForm.TabIndex = 1;
             // 
-            // mdivBtns
+            // pan
             // 
-            this.mdivBtns.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            this.pan.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.mdivBtns.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.mdivBtns.Depth = 0;
-            this.mdivBtns.Location = new System.Drawing.Point(3, 160);
-            this.mdivBtns.MouseState = MaterialSkin.MouseState.HOVER;
-            this.mdivBtns.Name = "mdivBtns";
-            this.mdivBtns.Size = new System.Drawing.Size(470, 1);
-            this.mdivBtns.TabIndex = 2;
-            this.mdivBtns.Text = "materialDivider1";
+            this.pan.Controls.Add(this.btnExit);
+            this.pan.Controls.Add(this.btnLogin);
+            this.pan.Location = new System.Drawing.Point(3, 164);
+            this.pan.Name = "pan";
+            this.pan.Size = new System.Drawing.Size(470, 35);
+            this.pan.TabIndex = 0;
             // 
             // frmLogin
             // 
@@ -199,9 +201,9 @@
             this.Sizable = false;
             this.Text = "Login";
             this.panel1.ResumeLayout(false);
-            this.pan.ResumeLayout(false);
             this.panForm.ResumeLayout(false);
             this.panForm.PerformLayout();
+            this.pan.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

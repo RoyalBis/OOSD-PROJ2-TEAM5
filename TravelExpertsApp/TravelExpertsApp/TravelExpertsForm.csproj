@@ -93,11 +93,11 @@
     <Compile Include="frmPackage.Designer.cs">
       <DependentUpon>frmPackage.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmPackageEntry.cs">
+    <Compile Include="MaterialMessageBox.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmPackageEntry.Designer.cs">
-      <DependentUpon>frmPackageEntry.cs</DependentUpon>
+    <Compile Include="MaterialMessageBox.Designer.cs">
+      <DependentUpon>MaterialMessageBox.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="DockProdSupSearch.cs">
@@ -105,6 +105,12 @@
     </Compile>
     <Compile Include="DockProdSupSearch.Designer.cs">
       <DependentUpon>DockProdSupSearch.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DockPkgViewer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DockPkgViewer.Designer.cs">
+      <DependentUpon>DockPkgViewer.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="frmPkgAddModify.resx">
       <DependentUpon>frmPkgAddModify.cs</DependentUpon>
@@ -131,8 +137,8 @@
     <EmbeddedResource Include="frmPackage.resx">
       <DependentUpon>frmPackage.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmPackageEntry.resx">
-      <DependentUpon>frmPackageEntry.cs</DependentUpon>
+    <EmbeddedResource Include="MaterialMessageBox.resx">
+      <DependentUpon>MaterialMessageBox.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -146,6 +152,9 @@
     </Compile>
     <EmbeddedResource Include="DockProdSupSearch.resx">
       <DependentUpon>DockProdSupSearch.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DockPkgViewer.resx">
+      <DependentUpon>DockPkgViewer.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="ClassDiagram1.cd" />
     <None Include="Properties\DataSources\EntityLayer.Product.datasource" />
