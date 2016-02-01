@@ -25,6 +25,16 @@ namespace TravelExpertsApp
             Form owner = this.Owner;
             this.Text = caption;
             lblMessage.Text = message;
+            mbtnCancel.Visible = false;
+        }
+
+        protected MaterialMessageBox(string message, bool cancelable, string caption = "") : this()
+        {
+            Form parent = this.ParentForm;
+            Form owner = this.Owner;
+            this.Text = caption;
+            lblMessage.Text = message;
+            mbtnCancel.Visible = cancelable;
         }
 
         private void mbtnOk_Click(object sender, EventArgs e)
@@ -51,7 +61,7 @@ namespace TravelExpertsApp
             base.WndProc(ref m);
         }
 
-        public static void Show(Form sender, Result result)
+        public static DialogResult Show(Form sender, Result result)
         {
             Panel hidePanel = new Panel();
             hidePanel.Size = sender.Size;
@@ -63,10 +73,35 @@ namespace TravelExpertsApp
             mbox.Width = sender.Width;
             mbox.Location = new Point(0, (sender.Height / 2) - (mbox.Height / 2));
             DialogResult mboxResult = mbox.ShowDialog();
-            if (mboxResult == DialogResult.OK)
+            if (mboxResult != DialogResult.None)
             {
                 hidePanel.Dispose();
             }
+            return mboxResult;
+        }
+
+        public static DialogResult Show(Form sender, bool cancelable,  string message)
+        {
+            Panel hidePanel = new Panel();
+            hidePanel.Size = sender.Size;
+            hidePanel.BackColor = Color.FromArgb(200, 0, 0, 0);
+            sender.Controls.Add(hidePanel);
+            hidePanel.BringToFront();
+
+            MaterialMessageBox mbox = new MaterialMessageBox(message, cancelable,"Confirm Delete");
+            mbox.Width = sender.Width;
+            mbox.Location = new Point(0, (sender.Height / 2) - (mbox.Height / 2));
+            DialogResult mboxResult = mbox.ShowDialog();
+            if (mboxResult != DialogResult.None)
+            {
+                hidePanel.Dispose();
+            }
+            return mboxResult;
+        }
+
+        private void mbtnCancel_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

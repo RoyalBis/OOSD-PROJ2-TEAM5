@@ -230,11 +230,6 @@ namespace TravelExpertsApp
 
         private void btnAdd_Click_1(object sender, EventArgs e)
         {
-            //create new package form: add
-            frmPkgAddModify addPkgForm = new frmPkgAddModify();
-            addPkgForm.PkgIn = null;
-            addPkgForm.Add = true;
-            DialogResult result = addPkgForm.ShowDialog();
             
             //KEVINS FORM///////////////////////////////////////////////////
             //frmPackageEntry addPackageFrm = new frmPackageEntry();
@@ -254,20 +249,6 @@ namespace TravelExpertsApp
             //packagesTableAdapter.Fill(travelExpertsDataSet.Packages);
             ////////////////////////////////////////////////////////////////
 
-        }
-
-        private void btnUpdate_Click_1(object sender, EventArgs e)
-        {
-            //create new package form: add
-            frmPkgAddModify modifyPkgForm = new frmPkgAddModify();
-            modifyPkgForm.PkgIn = MyPackage;
-            modifyPkgForm.Add = false;
-            //Panel hidePanel = new Panel();
-            //hidePanel.Size = this.Size;
-            //hidePanel.BackColor = Color.FromArgb(200, 0, 0, 0);
-            //this.Controls.Add(hidePanel);
-            //hidePanel.BringToFront();
-            DialogResult result = modifyPkgForm.ShowDialog();
         }
 
         private void btnDelete_Click_1(object sender, EventArgs e)

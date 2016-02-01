@@ -34,15 +34,15 @@ namespace EntityLayer
         /// <param name="path">The Path to the package image</param>
         public void StoreImage(string path)
         {
-            // Read the file into a byte array
-            //using (FileStream fs = new FileStream(path, FileMode.Open, FileAccess.Read))
-            //{
-            //    byte[] imageData = new Byte[fs.Length];
-            //    fs.Read(imageData, 0, (int)fs.Length);
-            //    PkgImage = imageData;
-            //}
+            //Read the file into a byte array
+            using (FileStream fs = new FileStream(path, FileMode.Open, FileAccess.Read))
+            {
+                byte[] imageData = new Byte[fs.Length];
+                fs.Read(imageData, 0, (int)fs.Length);
+                PkgImage = imageData;
+            }
 
-            PkgImage = File.ReadAllBytes(path);
+            //PkgImage = File.ReadAllBytes(path);
         }
 
         /// <summary>
@@ -51,7 +51,7 @@ namespace EntityLayer
         /// <returns>The Package Image</returns>
         public Image ImageFromBytes()
         {
-            if(PkgImage.Length > 0)
+            if(PkgImage?.Length > 0)
             {
 	            using (MemoryStream ms = new MemoryStream(this.PkgImage))
 	            {
@@ -60,7 +60,7 @@ namespace EntityLayer
 	                return myBitmap;
 	            }
             }
-            throw new ArgumentOutOfRangeException(nameof(this.PkgImage),this.PkgImage,"Unable to create an Image fro the data stored in the data base");
+            throw new ArgumentOutOfRangeException(nameof(this.PkgImage),this.PkgImage,"Unable to create an Image for data stored in the database");
         }
     }
 }

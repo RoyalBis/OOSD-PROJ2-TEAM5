@@ -30,6 +30,7 @@
         {
             this.lblMessage = new MaterialSkin.Controls.MaterialLabel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.mbtnCancel = new MaterialSkin.Controls.MaterialRaisedButton();
             this.materialDivider1 = new MaterialSkin.Controls.MaterialDivider();
             this.mbtnOk = new MaterialSkin.Controls.MaterialRaisedButton();
             this.panel1.SuspendLayout();
@@ -57,12 +58,28 @@
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.mbtnCancel);
             this.panel1.Controls.Add(this.materialDivider1);
             this.panel1.Controls.Add(this.mbtnOk);
             this.panel1.Location = new System.Drawing.Point(12, 186);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(487, 50);
             this.panel1.TabIndex = 1;
+            // 
+            // mbtnCancel
+            // 
+            this.mbtnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.mbtnCancel.Depth = 0;
+            this.mbtnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.mbtnCancel.Location = new System.Drawing.Point(172, 16);
+            this.mbtnCancel.MouseState = MaterialSkin.MouseState.HOVER;
+            this.mbtnCancel.Name = "mbtnCancel";
+            this.mbtnCancel.Primary = true;
+            this.mbtnCancel.Size = new System.Drawing.Size(153, 31);
+            this.mbtnCancel.TabIndex = 2;
+            this.mbtnCancel.Text = "Cancel";
+            this.mbtnCancel.UseVisualStyleBackColor = true;
+            this.mbtnCancel.Click += new System.EventHandler(this.mbtnCancel_Click);
             // 
             // materialDivider1
             // 
@@ -97,7 +114,7 @@
             this.AcceptButton = this.mbtnOk;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.CancelButton = this.mbtnOk;
+            this.CancelButton = this.mbtnCancel;
             this.ClientSize = new System.Drawing.Size(511, 248);
             this.ControlBox = false;
             this.Controls.Add(this.panel1);
@@ -117,5 +134,6 @@
         private System.Windows.Forms.Panel panel1;
         private MaterialSkin.Controls.MaterialDivider materialDivider1;
         private MaterialSkin.Controls.MaterialRaisedButton mbtnOk;
+        private MaterialSkin.Controls.MaterialRaisedButton mbtnCancel;
     }
 }

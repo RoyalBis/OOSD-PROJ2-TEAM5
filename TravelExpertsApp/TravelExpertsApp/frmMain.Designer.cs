@@ -54,6 +54,12 @@
             this.materialDivider2 = new MaterialSkin.Controls.MaterialDivider();
             this.mbtnLogout = new MaterialSkin.Controls.MaterialRaisedButton();
             this.mbtnExit = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.tabProductSuppliers = new System.Windows.Forms.TabPage();
+            this.panProducts = new System.Windows.Forms.Panel();
+            this.panSuppliers = new System.Windows.Forms.Panel();
+            this.panProductSuppliers = new System.Windows.Forms.Panel();
+            this.materialSingleLineTextField1 = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panMain.SuspendLayout();
             this.mtabControl.SuspendLayout();
             this.tabPkgs.SuspendLayout();
@@ -61,6 +67,9 @@
             this.panMainInner.SuspendLayout();
             this.panForm.SuspendLayout();
             this.panBtns.SuspendLayout();
+            this.tabProductSuppliers.SuspendLayout();
+            this.panProducts.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // panMain
@@ -73,7 +82,7 @@
             this.panMain.Controls.Add(this.panMainInner);
             this.panMain.Location = new System.Drawing.Point(0, 64);
             this.panMain.Name = "panMain";
-            this.panMain.Size = new System.Drawing.Size(1040, 521);
+            this.panMain.Size = new System.Drawing.Size(1040, 680);
             this.panMain.TabIndex = 0;
             // 
             // mtabSelector
@@ -95,13 +104,14 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.mtabControl.Controls.Add(this.tabPkgs);
+            this.mtabControl.Controls.Add(this.tabProductSuppliers);
             this.mtabControl.Controls.Add(this.tabSettings);
             this.mtabControl.Depth = 0;
             this.mtabControl.Location = new System.Drawing.Point(3, 3);
             this.mtabControl.MouseState = MaterialSkin.MouseState.HOVER;
             this.mtabControl.Name = "mtabControl";
             this.mtabControl.SelectedIndex = 0;
-            this.mtabControl.Size = new System.Drawing.Size(1034, 393);
+            this.mtabControl.Size = new System.Drawing.Size(1034, 552);
             this.mtabControl.TabIndex = 1;
             // 
             // tabPkgs
@@ -112,9 +122,9 @@
             this.tabPkgs.Location = new System.Drawing.Point(4, 25);
             this.tabPkgs.Name = "tabPkgs";
             this.tabPkgs.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPkgs.Size = new System.Drawing.Size(1026, 364);
+            this.tabPkgs.Size = new System.Drawing.Size(1026, 523);
             this.tabPkgs.TabIndex = 0;
-            this.tabPkgs.Text = "Package Browser";
+            this.tabPkgs.Text = "Packages";
             // 
             // panPkgBtns
             // 
@@ -124,7 +134,7 @@
             this.panPkgBtns.Controls.Add(this.mbtnAdd);
             this.panPkgBtns.Controls.Add(this.mbtnDelete);
             this.panPkgBtns.Controls.Add(this.mbtnEdit);
-            this.panPkgBtns.Location = new System.Drawing.Point(9, 319);
+            this.panPkgBtns.Location = new System.Drawing.Point(9, 478);
             this.panPkgBtns.Name = "panPkgBtns";
             this.panPkgBtns.Size = new System.Drawing.Size(1010, 45);
             this.panPkgBtns.TabIndex = 12;
@@ -165,6 +175,7 @@
             this.mbtnDelete.AutoSize = true;
             this.mbtnDelete.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.mbtnDelete.Depth = 0;
+            this.mbtnDelete.Enabled = false;
             this.mbtnDelete.Location = new System.Drawing.Point(821, 6);
             this.mbtnDelete.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.mbtnDelete.MouseState = MaterialSkin.MouseState.HOVER;
@@ -181,6 +192,7 @@
             this.mbtnEdit.AutoSize = true;
             this.mbtnEdit.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.mbtnEdit.Depth = 0;
+            this.mbtnEdit.Enabled = false;
             this.mbtnEdit.Location = new System.Drawing.Point(902, 6);
             this.mbtnEdit.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.mbtnEdit.MouseState = MaterialSkin.MouseState.HOVER;
@@ -213,12 +225,15 @@
             this.lvPackages.Margin = new System.Windows.Forms.Padding(4);
             this.lvPackages.MouseLocation = new System.Drawing.Point(-1, -1);
             this.lvPackages.MouseState = MaterialSkin.MouseState.OUT;
+            this.lvPackages.MultiSelect = false;
             this.lvPackages.Name = "lvPackages";
             this.lvPackages.OwnerDraw = true;
-            this.lvPackages.Size = new System.Drawing.Size(1010, 309);
+            this.lvPackages.Size = new System.Drawing.Size(1010, 468);
             this.lvPackages.TabIndex = 8;
             this.lvPackages.UseCompatibleStateImageBehavior = false;
             this.lvPackages.View = System.Windows.Forms.View.Details;
+            this.lvPackages.SelectedIndexChanged += new System.EventHandler(this.lvPackages_SelectedIndexChanged);
+            this.lvPackages.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lvPackages_MouseDoubleClick);
             // 
             // colId
             // 
@@ -261,7 +276,7 @@
             this.tabSettings.Location = new System.Drawing.Point(4, 25);
             this.tabSettings.Name = "tabSettings";
             this.tabSettings.Padding = new System.Windows.Forms.Padding(3);
-            this.tabSettings.Size = new System.Drawing.Size(1026, 364);
+            this.tabSettings.Size = new System.Drawing.Size(1026, 523);
             this.tabSettings.TabIndex = 1;
             this.tabSettings.Text = "Settings";
             // 
@@ -274,7 +289,7 @@
             this.panMainInner.Controls.Add(this.panForm);
             this.panMainInner.Location = new System.Drawing.Point(0, 74);
             this.panMainInner.Name = "panMainInner";
-            this.panMainInner.Size = new System.Drawing.Size(1040, 446);
+            this.panMainInner.Size = new System.Drawing.Size(1040, 605);
             this.panMainInner.TabIndex = 3;
             // 
             // panDock
@@ -282,7 +297,7 @@
             this.panDock.Dock = System.Windows.Forms.DockStyle.Right;
             this.panDock.Location = new System.Drawing.Point(1039, 0);
             this.panDock.Name = "panDock";
-            this.panDock.Size = new System.Drawing.Size(1, 446);
+            this.panDock.Size = new System.Drawing.Size(1, 605);
             this.panDock.TabIndex = 14;
             // 
             // panForm
@@ -294,7 +309,7 @@
             this.panForm.Controls.Add(this.mtabControl);
             this.panForm.Location = new System.Drawing.Point(0, 0);
             this.panForm.Name = "panForm";
-            this.panForm.Size = new System.Drawing.Size(1037, 447);
+            this.panForm.Size = new System.Drawing.Size(1037, 606);
             this.panForm.TabIndex = 13;
             // 
             // panBtns
@@ -305,7 +320,7 @@
             this.panBtns.Controls.Add(this.materialDivider2);
             this.panBtns.Controls.Add(this.mbtnLogout);
             this.panBtns.Controls.Add(this.mbtnExit);
-            this.panBtns.Location = new System.Drawing.Point(3, 398);
+            this.panBtns.Location = new System.Drawing.Point(3, 557);
             this.panBtns.Name = "panBtns";
             this.panBtns.Size = new System.Drawing.Size(1030, 45);
             this.panBtns.TabIndex = 2;
@@ -349,15 +364,78 @@
             this.mbtnExit.Text = "Exit";
             this.mbtnExit.UseVisualStyleBackColor = true;
             // 
+            // tabProductSuppliers
+            // 
+            this.tabProductSuppliers.BackColor = System.Drawing.Color.White;
+            this.tabProductSuppliers.Controls.Add(this.panProductSuppliers);
+            this.tabProductSuppliers.Controls.Add(this.panSuppliers);
+            this.tabProductSuppliers.Controls.Add(this.panProducts);
+            this.tabProductSuppliers.Location = new System.Drawing.Point(4, 25);
+            this.tabProductSuppliers.Name = "tabProductSuppliers";
+            this.tabProductSuppliers.Size = new System.Drawing.Size(1026, 523);
+            this.tabProductSuppliers.TabIndex = 2;
+            this.tabProductSuppliers.Text = "Products & Suppliers";
+            // 
+            // panProducts
+            // 
+            this.panProducts.BackColor = System.Drawing.Color.White;
+            this.panProducts.Controls.Add(this.pictureBox1);
+            this.panProducts.Controls.Add(this.materialSingleLineTextField1);
+            this.panProducts.Location = new System.Drawing.Point(4, 4);
+            this.panProducts.Name = "panProducts";
+            this.panProducts.Size = new System.Drawing.Size(335, 516);
+            this.panProducts.TabIndex = 0;
+            // 
+            // panSuppliers
+            // 
+            this.panSuppliers.Location = new System.Drawing.Point(345, 4);
+            this.panSuppliers.Name = "panSuppliers";
+            this.panSuppliers.Size = new System.Drawing.Size(335, 516);
+            this.panSuppliers.TabIndex = 1;
+            // 
+            // panProductSuppliers
+            // 
+            this.panProductSuppliers.Location = new System.Drawing.Point(686, 4);
+            this.panProductSuppliers.Name = "panProductSuppliers";
+            this.panProductSuppliers.Size = new System.Drawing.Size(335, 516);
+            this.panProductSuppliers.TabIndex = 1;
+            // 
+            // materialSingleLineTextField1
+            // 
+            this.materialSingleLineTextField1.Depth = 0;
+            this.materialSingleLineTextField1.Hint = "";
+            this.materialSingleLineTextField1.Location = new System.Drawing.Point(4, 4);
+            this.materialSingleLineTextField1.MaxLength = 32767;
+            this.materialSingleLineTextField1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialSingleLineTextField1.Name = "materialSingleLineTextField1";
+            this.materialSingleLineTextField1.PasswordChar = '\0';
+            this.materialSingleLineTextField1.SelectedText = "";
+            this.materialSingleLineTextField1.SelectionLength = 0;
+            this.materialSingleLineTextField1.SelectionStart = 0;
+            this.materialSingleLineTextField1.Size = new System.Drawing.Size(294, 28);
+            this.materialSingleLineTextField1.TabIndex = 0;
+            this.materialSingleLineTextField1.TabStop = false;
+            this.materialSingleLineTextField1.Text = "materialSingleLineTextField1";
+            this.materialSingleLineTextField1.UseSystemPasswordChar = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(304, 4);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(28, 28);
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1040, 585);
+            this.ClientSize = new System.Drawing.Size(1040, 744);
             this.Controls.Add(this.panMain);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmMain";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Travel Experts Package Editor";
             this.Load += new System.EventHandler(this.frmMain_Load);
             this.panMain.ResumeLayout(false);
@@ -368,6 +446,9 @@
             this.panMainInner.ResumeLayout(false);
             this.panForm.ResumeLayout(false);
             this.panBtns.ResumeLayout(false);
+            this.tabProductSuppliers.ResumeLayout(false);
+            this.panProducts.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -399,6 +480,12 @@
         private MaterialSkin.Controls.MaterialDivider materialDivider2;
         private System.Windows.Forms.Panel panForm;
         private System.Windows.Forms.Panel panDock;
+        private System.Windows.Forms.TabPage tabProductSuppliers;
+        private System.Windows.Forms.Panel panProducts;
+        private System.Windows.Forms.Panel panProductSuppliers;
+        private System.Windows.Forms.Panel panSuppliers;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private MaterialSkin.Controls.MaterialSingleLineTextField materialSingleLineTextField1;
     }
 }
 

@@ -6,14 +6,19 @@ SET AgentPassword = '123ABC'
 
 SELECT * FROM Agents
 
-SELECT * FROM PACKAGES WHERE PkgImage is NULL
+SELECT * FROM PACKAGES 
 
 SELECT * FROM PACKAGES
 
 SELECT * FROM Packages
 WHERE PackageId = 1
-AND (PkgImage = 1 OR PkgImage IS NULL)5
+AND (PkgImage = 1 OR PkgImage IS NULL)
 
 UPDATE Packages SET PkgImage = NULL
 
-SELECT * FROM Packages_Products_Suppliers WHERE PackageId = 5
+SELECT * FROM Packages_Products_Suppliers
+
+SELECt * FROM Agents
+
+SELECT * FROM Products
+
