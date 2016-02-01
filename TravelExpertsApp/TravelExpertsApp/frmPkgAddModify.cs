@@ -89,6 +89,7 @@ namespace TravelExpertsApp
                 Image myImage = Image.FromFile(path);
                 pbPkgImage.Image = myImage;
                 pbPkgImage.Tag = path;
+                //ADD THE EMILE FLAG HERE
             }
         }
 
@@ -127,6 +128,7 @@ namespace TravelExpertsApp
                     UpdateProductSuppliers(PkgIn, PkgOut);
                 }
                 PkgIn = PkgOut;
+                this.DialogResult = DialogResult.OK;
                 this.Close();
             }
             else
@@ -199,7 +201,14 @@ namespace TravelExpertsApp
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            this.Close();
+            string action = (this.Add) ? "adding" : "editing";
+            string confirmMsg = $"Are you sure you want to cancel {action} this package?";
+            DialogResult result= MaterialMessageBox.Show(this, true, confirmMsg);
+            if ( result == DialogResult.OK )
+            {
+                this.DialogResult = DialogResult.Cancel;
+                this.Close();
+            }
         }
 
         private void btnPSDelete_Click(object sender, EventArgs e)

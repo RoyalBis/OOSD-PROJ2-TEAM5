@@ -15,12 +15,12 @@ namespace TravelExpertsDB
         //
         //Statement for SearchProducts()
         private const string SearchAll = "SELECT AgentId, AgtFirstName, AgtMiddleInitial, AgtLastName, AgtEmail, AgtPosition " +
-                                                                         "FROM agents WHERE AgentId LIKE  '%' + @searchIndex + '%' OR AgtFirstName " +
-                                                                         "LIKE '%' + @searchIndex + '%' " +
-                                                                         "OR AgtMiddleInitial LIKE '%' + @searchIndex + '%' " +
-                                                                         "OR AgtLastName LIKE '%' + @searchIndex + '%'  " +
-                                                                         "OR AgtEmail LIKE '%' + @searchIndex + '%' " +
-                                                                         "OR AgtPosition LIKE '%' + @searchIndex + '%' ";
+                                         "FROM agents WHERE AgentId LIKE  '%' + @searchIndex + '%' OR AgtFirstName " +
+                                         "LIKE '%' + @searchIndex + '%' " +
+                                         "OR AgtMiddleInitial LIKE '%' + @searchIndex + '%' " +
+                                         "OR AgtLastName LIKE '%' + @searchIndex + '%'  " +
+                                         "OR AgtEmail LIKE '%' + @searchIndex + '%' " +
+                                         "OR AgtPosition LIKE '%' + @searchIndex + '%' ";
 
         private const string LoginStmt ="SELECT AgtFirstName, AgentPassword " +
                                                                            "FROM Agents " +
@@ -33,8 +33,28 @@ namespace TravelExpertsDB
             command.Parameters.AddWithValue("@username", AgentFirstName);
             command.Parameters.AddWithValue("@password", AgentPassword);
 
-            return TravelExpertsCommon.PerformNonQuery(command);
+            //Using will auto close the connection once the block is ended
+            using (command.Connection)
+            {
+                //try in case of errors and re-throw them to the UI
+                try
+                {
+                    command.Connection.Open();
+
+                    SqlDataReader reader = command.ExecuteReader();
+                    if ( reader.Read() )
+                    {
+                        return true;
+                    }
+                    return false;
+                }
+                catch ( Exception ex ) //catch all exceptions and re-throw them
+                {
+                    throw ex;
+                }
+            }
         }
+
 
         public static List<Agent> SearchAllAgents(string searchIndex)
         {
@@ -65,7 +85,6 @@ namespace TravelExpertsDB
                             AgentLastName = reader["AgtLastName"].ToString(),
                             AgentEmail = reader["AgtEmail"].ToString(),
                             AgentPosition = reader["AgtPosition"].ToString(),
-                           
                         };
                         //add the agents to the list
                         agents.Add(agent);

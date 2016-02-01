@@ -18,7 +18,7 @@ namespace TravelExpertsDB
         //SQL STATEMENTS\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
         //Statement for GetAllPackages()
         private const string GetAllStmt = "SELECT PackageId, PkgName, PkgStartDate, PkgEndDate, PkgDesc, PkgBasePrice, PkgAgencyCommission, PkgImage " +
-                                          "FROM Packages";
+                                          "FROM Packages ORDER BY PackageId";
         
         //Statement for GetSupplier()
         private const string GetStmt = "SELECT PackageId, PkgName, PkgStartDate, PkgEndDate, PkgDesc, PkgBasePrice, PkgAgencyCommission, PkgImage " +
@@ -141,8 +141,22 @@ namespace TravelExpertsDB
             if ( TravelExpertsCommon.PerformNonQuery(command) )
             {
                 SqlCommand commCurr = TravelExpertsCommon.GetCommand(GetCurrentStmt);
-                int packageId = int.Parse(commCurr.ExecuteScalar().ToString()); //first col of the row is selected
-                return packageId;
+                //Using will auto close the connection once the block is ended
+                using (commCurr.Connection)
+                {
+                    //try in case of errors and re-throw them to the UI
+                    try
+                    {
+                        commCurr.Connection.Open();
+
+                        int packageId = int.Parse(commCurr.ExecuteScalar().ToString()); //first col of the row is selected
+                        return packageId;
+                    }
+                    catch (Exception ex)    //catch all exceptions and re-throw them
+                    {
+                        throw ex;
+                    }
+                }   //end of the using statement
             }
             else
             {

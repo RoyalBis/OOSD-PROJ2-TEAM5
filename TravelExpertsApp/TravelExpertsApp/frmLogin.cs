@@ -27,7 +27,7 @@ namespace TravelExpertsApp
             Result message = isValid();
             if (message.Success)
             {
-                if ( AgentTable.Login1(txtAgentName.Text, txtAgentPassword.Text) )
+                if ( AgentTable.Login(txtAgentName.Text, txtAgentPassword.Text) )
                 {
                     this.DialogResult = DialogResult.OK;
                     this.Close();

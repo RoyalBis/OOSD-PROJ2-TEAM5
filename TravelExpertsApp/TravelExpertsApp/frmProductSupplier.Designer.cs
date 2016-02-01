@@ -54,7 +54,7 @@
             // mbtnAccept
             // 
             this.mbtnAccept.Depth = 0;
-            this.mbtnAccept.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.mbtnAccept.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.mbtnAccept.Location = new System.Drawing.Point(512, 3);
             this.mbtnAccept.MouseState = MaterialSkin.MouseState.HOVER;
             this.mbtnAccept.Name = "mbtnAccept";
@@ -125,8 +125,10 @@
             // 
             // frmProductSupplier
             // 
+            this.AcceptButton = this.mbtnAccept;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.mbtnCancel;
             this.ClientSize = new System.Drawing.Size(650, 237);
             this.ControlBox = false;
             this.Controls.Add(this.cbSupplier);

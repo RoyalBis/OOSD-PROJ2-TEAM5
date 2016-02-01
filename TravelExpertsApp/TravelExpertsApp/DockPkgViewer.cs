@@ -150,11 +150,27 @@ namespace TravelExpertsApp
 
         private void mbtnAccept_Click(object sender, EventArgs e)
         {
+            //hide panel
+            Panel hidePanel = new Panel();
+            hidePanel.Size = MyDocker.FormInstance.Size;
+            hidePanel.BackColor = Color.FromArgb(200, 0, 0, 0);
+            MyDocker.FormInstance.Controls.Add(hidePanel);
+            hidePanel.BringToFront();
+
             //create new package form: add
             frmPkgAddModify modifyPkgForm = new frmPkgAddModify();
             modifyPkgForm.PkgIn = ActivePackage;
             modifyPkgForm.Add = false;
             DialogResult result = modifyPkgForm.ShowDialog();
+            if ( result != DialogResult.None )
+            {
+                hidePanel.Dispose();
+                if (result == DialogResult.OK)
+                {
+                    MyDocker.FillPackages();
+                    MyDocker.ActivePkgId = MyDocker.ActivePkgId;
+                }
+            }
         }
 
         private void mbtnCancel_Click(object sender, EventArgs e)

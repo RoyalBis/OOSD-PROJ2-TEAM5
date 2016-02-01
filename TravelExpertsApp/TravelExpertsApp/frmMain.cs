@@ -121,13 +121,6 @@ namespace TravelExpertsApp
             if ( lvPackages.FocusedItem != null )
             {
                 ActivePkgId = lvPackages.FocusedItem.Index;
-                mbtnDelete.Enabled = true;
-                mbtnEdit.Enabled = true;
-            }
-            else
-            {
-                mbtnDelete.Enabled = false;
-                mbtnEdit.Enabled = false;
             }
         }
 
@@ -172,7 +165,7 @@ namespace TravelExpertsApp
         private void UpdateActivePackage()
         {
             if (MyPkgViewer != null) MyPkgViewer?.DisplayActivePkg();
-            if ( lvPackages.FocusedItem.Index != ActivePkgId )
+            if ( lvPackages.FocusedItem?.Index != ActivePkgId )
             {
                 lvPackages.Items[ActivePkgId].Focused = true;
                 lvPackages.Items[ActivePkgId].Selected = true;

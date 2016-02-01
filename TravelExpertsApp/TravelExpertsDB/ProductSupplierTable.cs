@@ -107,7 +107,7 @@ namespace TravelExpertsDB
                                        "AND ProductSupplierId IN (" + string.Join(", ", prodsupIds) + ")";
             SqlCommand command = TravelExpertsCommon.GetCommand(GetAllFromIdsStmt);
 
-            command.Parameters.AddWithValue("@ProductSupplierIds", string.Join(", ", prodsupIds));
+            //command.Parameters.AddWithValue("@ProductSupplierIds", string.Join(", ", prodsupIds));
 
             //Using will auto close the connection once the block is ended
             using (command.Connection)

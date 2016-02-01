@@ -107,7 +107,6 @@ namespace TravelExpertsApp
             this.btnAddModify.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnAddModify.AutoSize = true;
             this.btnAddModify.Depth = 0;
-            this.btnAddModify.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.btnAddModify.Location = new System.Drawing.Point(622, 3);
             this.btnAddModify.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnAddModify.Name = "btnAddModify";
@@ -122,7 +121,6 @@ namespace TravelExpertsApp
             this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnCancel.AutoSize = true;
             this.btnCancel.Depth = 0;
-            this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnCancel.Location = new System.Drawing.Point(506, 3);
             this.btnCancel.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnCancel.Name = "btnCancel";

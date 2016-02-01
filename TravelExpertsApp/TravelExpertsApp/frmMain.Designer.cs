@@ -36,8 +36,6 @@
             this.panPkgBtns = new System.Windows.Forms.Panel();
             this.materialDivider1 = new MaterialSkin.Controls.MaterialDivider();
             this.mbtnAdd = new MaterialSkin.Controls.MaterialFlatButton();
-            this.mbtnDelete = new MaterialSkin.Controls.MaterialFlatButton();
-            this.mbtnEdit = new MaterialSkin.Controls.MaterialFlatButton();
             this.lvPackages = new MaterialSkin.Controls.MaterialListView();
             this.colId = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -48,25 +46,28 @@
             this.colCommission = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tabProductSuppliers = new System.Windows.Forms.TabPage();
             this.mtxtSearch = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.panProductSuppliers = new System.Windows.Forms.Panel();
             this.mlvProdSupp = new MaterialSkin.Controls.MaterialListView();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.materialDivider5 = new MaterialSkin.Controls.MaterialDivider();
             this.mbtnProdSuppEdit = new MaterialSkin.Controls.MaterialFlatButton();
             this.mbtnProdSuppAdd = new MaterialSkin.Controls.MaterialFlatButton();
             this.materialLabel3 = new MaterialSkin.Controls.MaterialLabel();
             this.panSuppliers = new System.Windows.Forms.Panel();
             this.mlvSupp = new MaterialSkin.Controls.MaterialListView();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.materialDivider4 = new MaterialSkin.Controls.MaterialDivider();
             this.mbtnSuppEdit = new MaterialSkin.Controls.MaterialFlatButton();
             this.mbtnSuppAdd = new MaterialSkin.Controls.MaterialFlatButton();
             this.materialLabel2 = new MaterialSkin.Controls.MaterialLabel();
             this.panProducts = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.materialDivider3 = new MaterialSkin.Controls.MaterialDivider();
             this.mbtnProdEdit = new MaterialSkin.Controls.MaterialFlatButton();
             this.mbtnProdAdd = new MaterialSkin.Controls.MaterialFlatButton();
             this.mlvProd = new MaterialSkin.Controls.MaterialListView();
             this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
-            this.tabSettings = new System.Windows.Forms.TabPage();
             this.panMainInner = new System.Windows.Forms.Panel();
             this.panDock = new System.Windows.Forms.Panel();
             this.panForm = new System.Windows.Forms.Panel();
@@ -74,15 +75,12 @@
             this.materialDivider2 = new MaterialSkin.Controls.MaterialDivider();
             this.mbtnLogout = new MaterialSkin.Controls.MaterialRaisedButton();
             this.mbtnExit = new MaterialSkin.Controls.MaterialRaisedButton();
-            this.materialDivider3 = new MaterialSkin.Controls.MaterialDivider();
-            this.materialDivider4 = new MaterialSkin.Controls.MaterialDivider();
-            this.materialDivider5 = new MaterialSkin.Controls.MaterialDivider();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.panMain.SuspendLayout();
             this.mtabControl.SuspendLayout();
             this.tabPkgs.SuspendLayout();
             this.panPkgBtns.SuspendLayout();
             this.tabProductSuppliers.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.panProductSuppliers.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panSuppliers.SuspendLayout();
@@ -92,7 +90,6 @@
             this.panMainInner.SuspendLayout();
             this.panForm.SuspendLayout();
             this.panBtns.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.SuspendLayout();
             // 
             // panMain
@@ -128,7 +125,6 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.mtabControl.Controls.Add(this.tabPkgs);
             this.mtabControl.Controls.Add(this.tabProductSuppliers);
-            this.mtabControl.Controls.Add(this.tabSettings);
             this.mtabControl.Depth = 0;
             this.mtabControl.Location = new System.Drawing.Point(3, 3);
             this.mtabControl.MouseState = MaterialSkin.MouseState.HOVER;
@@ -155,8 +151,6 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panPkgBtns.Controls.Add(this.materialDivider1);
             this.panPkgBtns.Controls.Add(this.mbtnAdd);
-            this.panPkgBtns.Controls.Add(this.mbtnDelete);
-            this.panPkgBtns.Controls.Add(this.mbtnEdit);
             this.panPkgBtns.Location = new System.Drawing.Point(9, 478);
             this.panPkgBtns.Name = "panPkgBtns";
             this.panPkgBtns.Size = new System.Drawing.Size(988, 45);
@@ -181,50 +175,16 @@
             this.mbtnAdd.AutoSize = true;
             this.mbtnAdd.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.mbtnAdd.Depth = 0;
-            this.mbtnAdd.Location = new System.Drawing.Point(937, 6);
+            this.mbtnAdd.Location = new System.Drawing.Point(800, 6);
             this.mbtnAdd.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.mbtnAdd.MouseState = MaterialSkin.MouseState.HOVER;
             this.mbtnAdd.Name = "mbtnAdd";
             this.mbtnAdd.Primary = true;
-            this.mbtnAdd.Size = new System.Drawing.Size(47, 36);
+            this.mbtnAdd.Size = new System.Drawing.Size(184, 36);
             this.mbtnAdd.TabIndex = 9;
-            this.mbtnAdd.Text = "Add";
+            this.mbtnAdd.Text = "Add New Package...";
             this.mbtnAdd.UseVisualStyleBackColor = true;
             this.mbtnAdd.Click += new System.EventHandler(this.mbtnAdd_Click);
-            // 
-            // mbtnDelete
-            // 
-            this.mbtnDelete.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.mbtnDelete.AutoSize = true;
-            this.mbtnDelete.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.mbtnDelete.Depth = 0;
-            this.mbtnDelete.Enabled = false;
-            this.mbtnDelete.Location = new System.Drawing.Point(799, 6);
-            this.mbtnDelete.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.mbtnDelete.MouseState = MaterialSkin.MouseState.HOVER;
-            this.mbtnDelete.Name = "mbtnDelete";
-            this.mbtnDelete.Primary = true;
-            this.mbtnDelete.Size = new System.Drawing.Size(73, 36);
-            this.mbtnDelete.TabIndex = 11;
-            this.mbtnDelete.Text = "Delete";
-            this.mbtnDelete.UseVisualStyleBackColor = true;
-            // 
-            // mbtnEdit
-            // 
-            this.mbtnEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.mbtnEdit.AutoSize = true;
-            this.mbtnEdit.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.mbtnEdit.Depth = 0;
-            this.mbtnEdit.Enabled = false;
-            this.mbtnEdit.Location = new System.Drawing.Point(880, 6);
-            this.mbtnEdit.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
-            this.mbtnEdit.MouseState = MaterialSkin.MouseState.HOVER;
-            this.mbtnEdit.Name = "mbtnEdit";
-            this.mbtnEdit.Primary = true;
-            this.mbtnEdit.Size = new System.Drawing.Size(49, 36);
-            this.mbtnEdit.TabIndex = 10;
-            this.mbtnEdit.Text = "Edit";
-            this.mbtnEdit.UseVisualStyleBackColor = true;
             // 
             // lvPackages
             // 
@@ -327,6 +287,16 @@
             this.mtxtSearch.UseSystemPasswordChar = false;
             this.mtxtSearch.TextChanged += new System.EventHandler(this.mtxtSearch_TextChanged);
             // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox4.Image = global::TravelExpertsApp.Properties.Resources.magnifier_24__bluegrey;
+            this.pictureBox4.Location = new System.Drawing.Point(973, 13);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(28, 28);
+            this.pictureBox4.TabIndex = 4;
+            this.pictureBox4.TabStop = false;
+            // 
             // panProductSuppliers
             // 
             this.panProductSuppliers.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -372,6 +342,19 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(309, 38);
             this.panel3.TabIndex = 6;
+            // 
+            // materialDivider5
+            // 
+            this.materialDivider5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.materialDivider5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialDivider5.Depth = 0;
+            this.materialDivider5.Location = new System.Drawing.Point(1, 0);
+            this.materialDivider5.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialDivider5.Name = "materialDivider5";
+            this.materialDivider5.Size = new System.Drawing.Size(308, 1);
+            this.materialDivider5.TabIndex = 2;
+            this.materialDivider5.Text = "materialDivider5";
             // 
             // mbtnProdSuppEdit
             // 
@@ -463,6 +446,19 @@
             this.panel2.Size = new System.Drawing.Size(328, 38);
             this.panel2.TabIndex = 5;
             // 
+            // materialDivider4
+            // 
+            this.materialDivider4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.materialDivider4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialDivider4.Depth = 0;
+            this.materialDivider4.Location = new System.Drawing.Point(0, 0);
+            this.materialDivider4.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialDivider4.Name = "materialDivider4";
+            this.materialDivider4.Size = new System.Drawing.Size(328, 1);
+            this.materialDivider4.TabIndex = 2;
+            this.materialDivider4.Text = "materialDivider4";
+            // 
             // mbtnSuppEdit
             // 
             this.mbtnSuppEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -534,6 +530,19 @@
             this.panel1.Size = new System.Drawing.Size(328, 38);
             this.panel1.TabIndex = 4;
             // 
+            // materialDivider3
+            // 
+            this.materialDivider3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.materialDivider3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialDivider3.Depth = 0;
+            this.materialDivider3.Location = new System.Drawing.Point(-2, 0);
+            this.materialDivider3.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialDivider3.Name = "materialDivider3";
+            this.materialDivider3.Size = new System.Drawing.Size(330, 1);
+            this.materialDivider3.TabIndex = 2;
+            this.materialDivider3.Text = "materialDivider3";
+            // 
             // mbtnProdEdit
             // 
             this.mbtnProdEdit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -599,16 +608,6 @@
             this.materialLabel1.Size = new System.Drawing.Size(91, 24);
             this.materialLabel1.TabIndex = 2;
             this.materialLabel1.Text = "Products:";
-            // 
-            // tabSettings
-            // 
-            this.tabSettings.BackColor = System.Drawing.Color.White;
-            this.tabSettings.Location = new System.Drawing.Point(4, 25);
-            this.tabSettings.Name = "tabSettings";
-            this.tabSettings.Padding = new System.Windows.Forms.Padding(3);
-            this.tabSettings.Size = new System.Drawing.Size(1004, 523);
-            this.tabSettings.TabIndex = 1;
-            this.tabSettings.Text = "Settings";
             // 
             // panMainInner
             // 
@@ -695,55 +694,6 @@
             this.mbtnExit.UseVisualStyleBackColor = true;
             this.mbtnExit.Click += new System.EventHandler(this.mbtnExit_Click);
             // 
-            // materialDivider3
-            // 
-            this.materialDivider3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.materialDivider3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialDivider3.Depth = 0;
-            this.materialDivider3.Location = new System.Drawing.Point(-2, 0);
-            this.materialDivider3.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialDivider3.Name = "materialDivider3";
-            this.materialDivider3.Size = new System.Drawing.Size(330, 1);
-            this.materialDivider3.TabIndex = 2;
-            this.materialDivider3.Text = "materialDivider3";
-            // 
-            // materialDivider4
-            // 
-            this.materialDivider4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.materialDivider4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialDivider4.Depth = 0;
-            this.materialDivider4.Location = new System.Drawing.Point(0, 0);
-            this.materialDivider4.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialDivider4.Name = "materialDivider4";
-            this.materialDivider4.Size = new System.Drawing.Size(328, 1);
-            this.materialDivider4.TabIndex = 2;
-            this.materialDivider4.Text = "materialDivider4";
-            // 
-            // materialDivider5
-            // 
-            this.materialDivider5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.materialDivider5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialDivider5.Depth = 0;
-            this.materialDivider5.Location = new System.Drawing.Point(1, 0);
-            this.materialDivider5.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialDivider5.Name = "materialDivider5";
-            this.materialDivider5.Size = new System.Drawing.Size(308, 1);
-            this.materialDivider5.TabIndex = 2;
-            this.materialDivider5.Text = "materialDivider5";
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox4.Image = global::TravelExpertsApp.Properties.Resources.magnifier_24__bluegrey;
-            this.pictureBox4.Location = new System.Drawing.Point(973, 13);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(28, 28);
-            this.pictureBox4.TabIndex = 4;
-            this.pictureBox4.TabStop = false;
-            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -761,6 +711,7 @@
             this.panPkgBtns.ResumeLayout(false);
             this.panPkgBtns.PerformLayout();
             this.tabProductSuppliers.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.panProductSuppliers.ResumeLayout(false);
             this.panProductSuppliers.PerformLayout();
             this.panel3.ResumeLayout(false);
@@ -776,7 +727,6 @@
             this.panMainInner.ResumeLayout(false);
             this.panForm.ResumeLayout(false);
             this.panBtns.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -788,7 +738,6 @@
         private MaterialSkin.Controls.MaterialRaisedButton mbtnExit;
         private MaterialSkin.Controls.MaterialTabControl mtabControl;
         private System.Windows.Forms.TabPage tabPkgs;
-        private System.Windows.Forms.TabPage tabSettings;
         private MaterialSkin.Controls.MaterialTabSelector mtabSelector;
         private MaterialSkin.Controls.MaterialRaisedButton mbtnLogout;
         private MaterialSkin.Controls.MaterialListView lvPackages;
@@ -799,8 +748,6 @@
         private System.Windows.Forms.ColumnHeader colEndDate;
         private System.Windows.Forms.ColumnHeader colBasePrice;
         private System.Windows.Forms.ColumnHeader colCommission;
-        private MaterialSkin.Controls.MaterialFlatButton mbtnDelete;
-        private MaterialSkin.Controls.MaterialFlatButton mbtnEdit;
         private MaterialSkin.Controls.MaterialFlatButton mbtnAdd;
         private System.Windows.Forms.Panel panMainInner;
         private System.Windows.Forms.Panel panPkgBtns;
