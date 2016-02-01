@@ -77,8 +77,6 @@ namespace TravelExpertsDB
 
         public static Product GetProduct(string productId)
         {
-            //We need a supplier to return or null
-            Product product = null;
             //get the connection and make a new select statement
             SqlCommand command = TravelExpertsCommon.GetCommand(GetStmt);
             //add the supplierId Parameter to the SQL Command

@@ -123,18 +123,9 @@
     <EmbeddedResource Include="frmPkgAddModify.resx">
       <DependentUpon>frmPkgAddModify.cs</DependentUpon>
     </EmbeddedResource>
-    <Compile Include="frmSearch.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmSearch.Designer.cs">
-      <DependentUpon>frmSearch.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <EmbeddedResource Include="frmProductSupplier.resx">
       <DependentUpon>frmProductSupplier.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmSearch.resx">
-      <DependentUpon>frmSearch.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
@@ -163,7 +154,6 @@
       <DependentUpon>DockPkgViewer.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="ClassDiagram1.cd" />
-    <None Include="ClassDiagram2.cd" />
     <None Include="Properties\DataSources\EntityLayer.Product.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -372,7 +362,111 @@
   <ItemGroup>
     <None Include="Resources\Images\Travel\Airplane1_64_bluegrey.png" />
   </ItemGroup>
-  <Content Include="Sound\owl.mp3" />
+  <ItemGroup>
+    <None Include="Resources\Images\Search\magnifier_24_ bluegrey.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Images\Search\magnifier_24_ darkpurple.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Images\Search\magnifier_24_ green.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Images\Search\magnifier_24_ lightorange.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Images\Search\magnifier_24_ orange.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Images\Search\magnifier_24_ red.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Images\Search\magnifier_24_ turqoise.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Images\Search\magnifier_24_ yellow.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Images\Search\magnifier_24_black.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Images\Search\magnifier_24_blue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Images\Search\magnifier_24_brown.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Images\Search\magnifier_24_darkblue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Images\Search\magnifier_24_gold.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Images\Search\magnifier_24_grey.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Images\Search\magnifier_24_lightblue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Images\Search\magnifier_24_lightgreen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Images\Search\magnifier_24_pink.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Images\Search\magnifier_24_purple.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Images\Search\magnifier_24_teal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Images\Search\magnifier_24_white.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Images\Search\magnifier_24_yellowgreen.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Images\Close\close_512_black.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Images\Close\close_512_bluegrey.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Images\Close\close_512_grey.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Images\Close\close_512_orange.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Images\Close\close_512_pink.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Images\Close\close_512_red.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Images\X\X_412_pink.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Images\X\X_512_black.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Images\X\X_512_bluegrey.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Images\X\X_512_grey.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Images\X\X_512_orange.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Images\X\X_512_red.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Images\X\X_512_white.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Images\X\X_512_pink.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
@@ -380,5 +474,6 @@
   </Target>
   <Target Name="AfterBuild">
   </Target>
+   <Content Include="Sound\owl.mp3" />
   -->
 </Project>

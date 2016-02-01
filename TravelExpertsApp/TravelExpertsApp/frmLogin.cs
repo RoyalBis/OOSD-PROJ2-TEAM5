@@ -27,10 +27,16 @@ namespace TravelExpertsApp
             Result message = isValid();
             if (message.Success)
             {
-                AgentTable.Login(txtAgentName.ToString(), txtAgentPassword.ToString());
-                frmMain fm = new frmMain();
-                fm.ShowDialog();
-                this.Hide();
+                if ( AgentTable.Login1(txtAgentName.Text, txtAgentPassword.Text) )
+                {
+                    this.DialogResult = DialogResult.OK;
+                    this.Close();
+                }
+                else
+                {
+                    string invalidMsg = $"Incorrent login for user {txtAgentName.Text}.";
+                    MaterialMessageBox.Show(this, false, invalidMsg);
+                }
             }
             else
             {

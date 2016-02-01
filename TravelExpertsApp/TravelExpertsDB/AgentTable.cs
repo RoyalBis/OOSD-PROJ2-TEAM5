@@ -15,16 +15,17 @@ namespace TravelExpertsDB
         //
         //Statement for SearchProducts()
         private const string SearchAll = "SELECT AgentId, AgtFirstName, AgtMiddleInitial, AgtLastName, AgtEmail, AgtPosition " +
-                                         "FROM agents WHERE AgentId LIKE  '%' + @searchIndex + '%' OR AgtFirstName " +
-                                         "LIKE '%' + @searchIndex + '%' " +
-                                         "OR AgtMiddleInitial LIKE '%' + @searchIndex + '%' " +
-                                         "OR AgtLastName LIKE '%' + @searchIndex + '%'  " +
-                                         "OR AgtEmail LIKE '%' + @searchIndex + '%' " +
-                                         "OR AgtPosition LIKE '%' + @searchIndex + '%' ";
+                                                                         "FROM agents WHERE AgentId LIKE  '%' + @searchIndex + '%' OR AgtFirstName " +
+                                                                         "LIKE '%' + @searchIndex + '%' " +
+                                                                         "OR AgtMiddleInitial LIKE '%' + @searchIndex + '%' " +
+                                                                         "OR AgtLastName LIKE '%' + @searchIndex + '%'  " +
+                                                                         "OR AgtEmail LIKE '%' + @searchIndex + '%' " +
+                                                                         "OR AgtPosition LIKE '%' + @searchIndex + '%' ";
 
         private const string LoginStmt ="SELECT AgtFirstName, AgentPassword " +
-                                        "FROM Agents WHERE AgtFirstName=@username " +
-                                        "AND AgentPassword=@password";
+                                                                           "FROM Agents " +
+                                                                           "WHERE AgtFirstName = @username " +
+                                                                           "AND AgentPassword = @password";
 
         public static bool Login(string AgentFirstName, string AgentPassword)
         {

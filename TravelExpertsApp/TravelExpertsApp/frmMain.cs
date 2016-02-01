@@ -23,11 +23,40 @@ namespace TravelExpertsApp
         {
             InitializeComponent();
             MyPkgViewer = null;
+            frmLogin  agtLogin = new frmLogin();
+
+            //hide panel
+            Panel hidePanel = DisplayHidePanel();
+            DialogResult result = agtLogin.ShowDialog();
+
+            if (result != DialogResult.None)
+            {
+                hidePanel.Dispose();
+                if (result == DialogResult.OK)
+                {
+                    //get the user that just logged in here.
+                }
+            }
         }
 
         private void frmMain_Load(object sender, EventArgs e)
         {
             FillPackages();
+            FillProductSuppliers();
+        }
+
+        private void FillProductSuppliers()
+        {
+            //adding columns for Products search
+            mlvProd.Columns.Add("ID", 60, HorizontalAlignment.Right);
+            mlvProd.Columns.Add("Product Name", 300, HorizontalAlignment.Right);
+            //adding columns for Suppliers search
+            mlvSupp.Columns.Add("ID", 60, HorizontalAlignment.Right);
+            mlvSupp.Columns.Add("Suppliers Name", 285, HorizontalAlignment.Right);
+            //adding columns for Suppliers search
+            mlvProdSupp.Columns.Add("ID", 60, HorizontalAlignment.Right);
+            mlvProdSupp.Columns.Add("Product",100, HorizontalAlignment.Right);
+            mlvProdSupp.Columns.Add("Supplier", 200, HorizontalAlignment.Right);
         }
 
         public void FillPackages()
@@ -53,11 +82,7 @@ namespace TravelExpertsApp
         private void mbtnAdd_Click(object sender, EventArgs e)
         {
             //hide panel
-            Panel hidePanel = new Panel();
-            hidePanel.Size = this.Size;
-            hidePanel.BackColor = Color.FromArgb(200, 0, 0, 0);
-            this.Controls.Add(hidePanel);
-            hidePanel.BringToFront();
+            Panel hidePanel = DisplayHidePanel();
 
             //create new package form: add
             frmPkgAddModify addPkgForm = new frmPkgAddModify();
@@ -76,9 +101,20 @@ namespace TravelExpertsApp
             }
         }
 
+        private Panel DisplayHidePanel()
+        {
+            Panel hidePanel = new Panel();
+            hidePanel.Size = this.Size;
+            hidePanel.BackColor = Color.FromArgb(200, 0, 0, 0);
+            this.Controls.Add(hidePanel);
+            hidePanel.BringToFront();
+
+            return hidePanel;
+        }
+
         private void lvPackages_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if ( MyPkgViewer == null )
+            if ( MyPkgViewer == null  || MyPkgViewer.IsDisposed)
             {
                 MyPkgViewer = new DockPkgViewer(this.panDock);
             }
@@ -141,6 +177,145 @@ namespace TravelExpertsApp
                 lvPackages.Items[ActivePkgId].Focused = true;
                 lvPackages.Items[ActivePkgId].Selected = true;
             }
+        }
+
+        private void SearchProdSupps(string searchStr)
+        {
+            //refreshes and clears the listview
+            this.mlvProdSupp.Items.Clear();
+            this.mlvProdSupp.Update();  // In case there is databinding
+            this.mlvProdSupp.Refresh(); // Redraw items
+
+            //
+            try
+            {
+                List<ProductSupplier> allProductSuppliers = ProductSupplierTable.SearchAllProdSups(searchStr);
+                DisplayProdSups(allProductSuppliers);
+            }
+            catch (Exception ex)
+            {
+                string failMessage = $"Unable to retrieve Product Suppliers from the Database, {Environment.NewLine} Error: {ex.GetType()} {Environment.NewLine} {ex.Message}";
+                MaterialMessageBox.Show(this, false, failMessage);
+            }
+        }
+
+        private void DisplayProdSups(List<ProductSupplier> allProductSuppliers)
+        {
+            string[] arr = new string[3];
+            foreach (ProductSupplier ProductSupplier in allProductSuppliers)
+            {
+                //Add items in an array
+                arr[0] = ProductSupplier.ProductSupplierId.ToString();
+                arr[1] = ProductSupplier.MyProduct.ProductId + " - " + ProductSupplier.MyProduct.ProdName;
+                arr[2] = ProductSupplier.MySupplier.SupplierId + " - " + ProductSupplier.MySupplier.SupName; ;
+
+                //add items in the list
+                var listViewItem = new ListViewItem(arr);
+
+                //populates the listview
+                mlvProdSupp.Items.Add(listViewItem);
+            }
+        }
+
+        private void SearchSuppliers(string searchStr)
+        {
+            //refreshes and clears the listview
+            this.mlvSupp.Items.Clear();
+            this.mlvSupp.Update();  // In case there is databinding
+            this.mlvSupp.Refresh(); // Redraw items
+
+            //
+            try
+            {
+                List<Supplier> allSuppliers = SuppliersTable.SearchAllSuppliers(searchStr);
+                DisplaySuppliers(allSuppliers);
+            }
+            catch (Exception ex)
+            {
+                string failMessage = $"Unable to retrieve Suppliers from the Database, {Environment.NewLine} Error: {ex.GetType()} {Environment.NewLine} {ex.Message}";
+                MaterialMessageBox.Show(this, false, failMessage);
+            }
+        }
+
+        private void DisplaySuppliers(List<Supplier> allSuppliers)
+        {
+            string[] arr = new string[2];
+            foreach (Supplier ValueSuppliers in allSuppliers)
+            {
+                //Add items in an array
+                arr[0] = ValueSuppliers.SupplierId.ToString();
+                arr[1] = ValueSuppliers.SupName.ToString();
+
+                //add items in the list
+                var listViewItem = new ListViewItem(arr);
+
+                //populates the listview
+                mlvSupp.Items.Add(listViewItem);
+            }
+        }
+
+        private void SearchProducts(string searchStr)
+        {
+            //refreshes and clears the listview
+            this.mlvProd.Items.Clear();
+            this.mlvProd.Update();  // In case there is databinding
+            this.mlvProd.Refresh(); // Redraw items
+
+            //
+            try
+            {
+                List<Product> allProducts = ProductsTable.SearchAllProducts(searchStr);
+                DisplayProducts(allProducts);
+            }
+            catch (Exception ex)
+            {
+                string failMessage = $"Unable to retrieve Products from the Database, {Environment.NewLine} Error: {ex.GetType()} {Environment.NewLine} {ex.Message}";
+                MaterialMessageBox.Show(this, false, failMessage);
+            }
+        }
+
+        private void DisplayProducts(List<Product> allProducts )
+        {
+            string[] arr = new string[2];
+            foreach (Product ValueType in allProducts)
+            {
+                //Add items in an array
+                arr[0] = ValueType.ProductId.ToString();
+                arr[1] = ValueType.ProdName;
+
+                //add items in the list
+                var listViewItem = new ListViewItem(arr);
+
+                //populates the listview
+                mlvProd.Items.Add(listViewItem);
+            }
+        }
+
+        private void mtxtSearch_TextChanged(object sender, EventArgs e)
+        {
+            SearchProducts(mtxtSearch.Text);
+            SearchSuppliers(mtxtSearch.Text);
+            SearchProdSupps(mtxtSearch.Text);
+        }
+
+        private void mbtnExit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void mlvProd_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            mbtnProdEdit.Enabled = (mlvProd.SelectedItems.Count > 0);
+        }
+
+        private void mlvSupp_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            mbtnSuppEdit.Enabled = (mlvSupp.SelectedItems.Count > 0);
+        }
+
+        private void mlvProdSupp_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            mbtnProdSuppEdit.Enabled = (mlvProdSupp.SelectedItems.Count > 0);
         }
     }
 }

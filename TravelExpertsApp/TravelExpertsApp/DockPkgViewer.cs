@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.VisualStyles;
 using EntityLayer;
 using MaterialSkin;
 using TravelExpertsApp.Properties;
@@ -38,11 +39,20 @@ namespace TravelExpertsApp
 
         public void AddDock()
         {
+            int newHeight = (this.Height > MyDocker.FormInstance.Height) ? this.Height : MyDocker.FormInstance.Height;
             MyDockingPanel.Width = this.Width;
             SiblingFormPanel.Width = SiblingFormPanel.Width - this.Width;
-            MyDocker.FormInstance.Size = new Size(MyDocker.FormInstance.Width + this.Width, this.Height);
+            MyDocker.FormInstance.Size = new Size(MyDocker.FormInstance.Width + this.Width, newHeight);
             MyDockingPanel.Controls.Add(this);
             this.Dock = DockStyle.Fill;
+            if ( MyDocker.FormInstance.Width + MyDocker.FormInstance.Left > Screen.PrimaryScreen.Bounds.Width )
+            {
+                MyDocker.FormInstance.Left = 0;
+                //MyDocker.FormInstance.WindowState = FormWindowState.Maximized;
+                int oversize = MyDocker.FormInstance.Width - Screen.PrimaryScreen.Bounds.Width;
+                MyDocker.FormInstance.Width -= oversize;
+                //SiblingFormPanel.Width -= oversize;
+            }
         }
 
         private void Dock_MouseEnter(object sender, EventArgs e)
@@ -112,12 +122,19 @@ namespace TravelExpertsApp
             ActivePackage = MyDocker.MyPackageList[MyDocker.ActivePkgId];
             ProductSupplierTable.AssignPkgProductSuppliers(ActivePackage);
             lblPkg.Text = ActivePackage.PkgName;
-            pbPkgImage.Image = ActivePackage.ImageFromBytes();
             txtDescription.Text = ActivePackage.PkgDesc;
             mlblStartDate.Text = ActivePackage.PkgStartDate.ToShortDateString();
             mlblEndDate.Text = ActivePackage.PkgEndDate.ToShortDateString();
             mlblBasePrice.Text = ActivePackage.PkgBasePrice.ToString("c");
             mlblCommission.Text = ActivePackage.PkgAgencyCommission.ToString("c");
+            try
+            {
+                pbPkgImage.Image = ActivePackage.ImageFromBytes();
+            }
+            catch ( Exception )
+            {
+                pbPkgImage.Image = Resources.X_512_bluegrey;
+            }
 
             //Fill the List view with the Product Suppliers
             mlvProdSuppliers.Items.Clear();

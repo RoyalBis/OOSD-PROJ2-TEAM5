@@ -63,9 +63,9 @@ namespace TravelExpertsApp.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Airplane1_32_black {
+        internal static System.Drawing.Bitmap close_512_black {
             get {
-                object obj = ResourceManager.GetObject("Airplane1_32_black", resourceCulture);
+                object obj = ResourceManager.GetObject("close_512_black", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -73,9 +73,9 @@ namespace TravelExpertsApp.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Airplane1_32_bluegrey {
+        internal static System.Drawing.Bitmap close_512_bluegrey {
             get {
-                object obj = ResourceManager.GetObject("Airplane1_32_bluegrey", resourceCulture);
+                object obj = ResourceManager.GetObject("close_512_bluegrey", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -83,9 +83,9 @@ namespace TravelExpertsApp.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Airplane1_32_grey {
+        internal static System.Drawing.Bitmap close_512_grey {
             get {
-                object obj = ResourceManager.GetObject("Airplane1_32_grey", resourceCulture);
+                object obj = ResourceManager.GetObject("close_512_grey", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -93,9 +93,9 @@ namespace TravelExpertsApp.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Airplane1_32_orange {
+        internal static System.Drawing.Bitmap close_512_orange {
             get {
-                object obj = ResourceManager.GetObject("Airplane1_32_orange", resourceCulture);
+                object obj = ResourceManager.GetObject("close_512_orange", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -103,9 +103,9 @@ namespace TravelExpertsApp.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Airplane1_32_red {
+        internal static System.Drawing.Bitmap close_512_pink {
             get {
-                object obj = ResourceManager.GetObject("Airplane1_32_red", resourceCulture);
+                object obj = ResourceManager.GetObject("close_512_pink", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -113,69 +113,9 @@ namespace TravelExpertsApp.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Airplane1_32_white {
+        internal static System.Drawing.Bitmap close_512_red {
             get {
-                object obj = ResourceManager.GetObject("Airplane1_32_white", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Airplane1_64_black {
-            get {
-                object obj = ResourceManager.GetObject("Airplane1_64_black", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Airplane1_64_bluegrey {
-            get {
-                object obj = ResourceManager.GetObject("Airplane1_64_bluegrey", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Airplane1_64_grey {
-            get {
-                object obj = ResourceManager.GetObject("Airplane1_64_grey", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Airplane1_64_orange {
-            get {
-                object obj = ResourceManager.GetObject("Airplane1_64_orange", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Airplane1_64_red {
-            get {
-                object obj = ResourceManager.GetObject("Airplane1_64_red", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Airplane1_64_white {
-            get {
-                object obj = ResourceManager.GetObject("Airplane1_64_white", resourceCulture);
+                object obj = ResourceManager.GetObject("close_512_red", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -576,6 +516,286 @@ namespace TravelExpertsApp.Properties {
         internal static System.Drawing.Bitmap keyboard_right_yellow {
             get {
                 object obj = ResourceManager.GetObject("keyboard_right_yellow", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap magnifier_24__bluegrey {
+            get {
+                object obj = ResourceManager.GetObject("magnifier_24__bluegrey", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap magnifier_24__darkpurple {
+            get {
+                object obj = ResourceManager.GetObject("magnifier_24__darkpurple", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap magnifier_24__green {
+            get {
+                object obj = ResourceManager.GetObject("magnifier_24__green", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap magnifier_24__lightorange {
+            get {
+                object obj = ResourceManager.GetObject("magnifier_24__lightorange", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap magnifier_24__orange {
+            get {
+                object obj = ResourceManager.GetObject("magnifier_24__orange", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap magnifier_24__red {
+            get {
+                object obj = ResourceManager.GetObject("magnifier_24__red", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap magnifier_24__turqoise {
+            get {
+                object obj = ResourceManager.GetObject("magnifier_24__turqoise", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap magnifier_24__yellow {
+            get {
+                object obj = ResourceManager.GetObject("magnifier_24__yellow", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap magnifier_24_black {
+            get {
+                object obj = ResourceManager.GetObject("magnifier_24_black", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap magnifier_24_blue {
+            get {
+                object obj = ResourceManager.GetObject("magnifier_24_blue", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap magnifier_24_brown {
+            get {
+                object obj = ResourceManager.GetObject("magnifier_24_brown", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap magnifier_24_darkblue {
+            get {
+                object obj = ResourceManager.GetObject("magnifier_24_darkblue", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap magnifier_24_gold {
+            get {
+                object obj = ResourceManager.GetObject("magnifier_24_gold", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap magnifier_24_grey {
+            get {
+                object obj = ResourceManager.GetObject("magnifier_24_grey", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap magnifier_24_lightblue {
+            get {
+                object obj = ResourceManager.GetObject("magnifier_24_lightblue", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap magnifier_24_lightgreen {
+            get {
+                object obj = ResourceManager.GetObject("magnifier_24_lightgreen", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap magnifier_24_pink {
+            get {
+                object obj = ResourceManager.GetObject("magnifier_24_pink", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap magnifier_24_purple {
+            get {
+                object obj = ResourceManager.GetObject("magnifier_24_purple", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap magnifier_24_teal {
+            get {
+                object obj = ResourceManager.GetObject("magnifier_24_teal", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap magnifier_24_white {
+            get {
+                object obj = ResourceManager.GetObject("magnifier_24_white", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap magnifier_24_yellowgreen {
+            get {
+                object obj = ResourceManager.GetObject("magnifier_24_yellowgreen", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap X_512_black {
+            get {
+                object obj = ResourceManager.GetObject("X_512_black", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap X_512_bluegrey {
+            get {
+                object obj = ResourceManager.GetObject("X_512_bluegrey", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap X_512_grey {
+            get {
+                object obj = ResourceManager.GetObject("X_512_grey", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap X_512_orange {
+            get {
+                object obj = ResourceManager.GetObject("X_512_orange", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap X_512_pink {
+            get {
+                object obj = ResourceManager.GetObject("X_512_pink", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap X_512_red {
+            get {
+                object obj = ResourceManager.GetObject("X_512_red", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap X_512_white {
+            get {
+                object obj = ResourceManager.GetObject("X_512_white", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

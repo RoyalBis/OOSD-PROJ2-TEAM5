@@ -31,10 +31,8 @@
             this.fpanButtons = new System.Windows.Forms.FlowLayoutPanel();
             this.mbtnAccept = new MaterialSkin.Controls.MaterialRaisedButton();
             this.mbtnCancel = new MaterialSkin.Controls.MaterialRaisedButton();
-            this.lblID = new MaterialSkin.Controls.MaterialLabel();
             this.lblProductId = new MaterialSkin.Controls.MaterialLabel();
             this.lblSupplier = new MaterialSkin.Controls.MaterialLabel();
-            this.cbProductSupplier = new System.Windows.Forms.ComboBox();
             this.cbProduct = new System.Windows.Forms.ComboBox();
             this.cbSupplier = new System.Windows.Forms.ComboBox();
             this.fpanButtons.SuspendLayout();
@@ -81,20 +79,6 @@
             this.mbtnCancel.UseVisualStyleBackColor = true;
             this.mbtnCancel.Click += new System.EventHandler(this.mbtnCancel_Click);
             // 
-            // lblID
-            // 
-            this.lblID.AutoSize = true;
-            this.lblID.BackColor = System.Drawing.Color.White;
-            this.lblID.Depth = 0;
-            this.lblID.Font = new System.Drawing.Font("Roboto", 11F);
-            this.lblID.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblID.Location = new System.Drawing.Point(13, 83);
-            this.lblID.MouseState = MaterialSkin.MouseState.HOVER;
-            this.lblID.Name = "lblID";
-            this.lblID.Size = new System.Drawing.Size(177, 24);
-            this.lblID.TabIndex = 3;
-            this.lblID.Text = "Product Supplier ID:";
-            // 
             // lblProductId
             // 
             this.lblProductId.AutoSize = true;
@@ -102,7 +86,7 @@
             this.lblProductId.Depth = 0;
             this.lblProductId.Font = new System.Drawing.Font("Roboto", 11F);
             this.lblProductId.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblProductId.Location = new System.Drawing.Point(13, 117);
+            this.lblProductId.Location = new System.Drawing.Point(13, 89);
             this.lblProductId.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblProductId.Name = "lblProductId";
             this.lblProductId.Size = new System.Drawing.Size(81, 24);
@@ -116,26 +100,17 @@
             this.lblSupplier.Depth = 0;
             this.lblSupplier.Font = new System.Drawing.Font("Roboto", 11F);
             this.lblSupplier.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblSupplier.Location = new System.Drawing.Point(13, 151);
+            this.lblSupplier.Location = new System.Drawing.Point(13, 123);
             this.lblSupplier.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblSupplier.Name = "lblSupplier";
             this.lblSupplier.Size = new System.Drawing.Size(84, 24);
             this.lblSupplier.TabIndex = 8;
             this.lblSupplier.Text = "Supplier:";
             // 
-            // cbProductSupplier
-            // 
-            this.cbProductSupplier.FormattingEnabled = true;
-            this.cbProductSupplier.Location = new System.Drawing.Point(197, 81);
-            this.cbProductSupplier.Name = "cbProductSupplier";
-            this.cbProductSupplier.Size = new System.Drawing.Size(438, 24);
-            this.cbProductSupplier.TabIndex = 9;
-            this.cbProductSupplier.SelectedIndexChanged += new System.EventHandler(this.cbProductSupplier_SelectedIndexChanged);
-            // 
             // cbProduct
             // 
             this.cbProduct.FormattingEnabled = true;
-            this.cbProduct.Location = new System.Drawing.Point(197, 117);
+            this.cbProduct.Location = new System.Drawing.Point(197, 89);
             this.cbProduct.Name = "cbProduct";
             this.cbProduct.Size = new System.Drawing.Size(438, 24);
             this.cbProduct.TabIndex = 10;
@@ -143,7 +118,7 @@
             // cbSupplier
             // 
             this.cbSupplier.FormattingEnabled = true;
-            this.cbSupplier.Location = new System.Drawing.Point(197, 151);
+            this.cbSupplier.Location = new System.Drawing.Point(197, 123);
             this.cbSupplier.Name = "cbSupplier";
             this.cbSupplier.Size = new System.Drawing.Size(438, 24);
             this.cbSupplier.TabIndex = 11;
@@ -156,10 +131,8 @@
             this.ControlBox = false;
             this.Controls.Add(this.cbSupplier);
             this.Controls.Add(this.cbProduct);
-            this.Controls.Add(this.cbProductSupplier);
             this.Controls.Add(this.lblSupplier);
             this.Controls.Add(this.lblProductId);
-            this.Controls.Add(this.lblID);
             this.Controls.Add(this.fpanButtons);
             this.Name = "frmProductSupplier";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
@@ -176,10 +149,8 @@
         private System.Windows.Forms.FlowLayoutPanel fpanButtons;
         private MaterialSkin.Controls.MaterialRaisedButton mbtnAccept;
         private MaterialSkin.Controls.MaterialRaisedButton mbtnCancel;
-        private MaterialSkin.Controls.MaterialLabel lblID;
         private MaterialSkin.Controls.MaterialLabel lblProductId;
         private MaterialSkin.Controls.MaterialLabel lblSupplier;
-        private System.Windows.Forms.ComboBox cbProductSupplier;
         private System.Windows.Forms.ComboBox cbProduct;
         private System.Windows.Forms.ComboBox cbSupplier;
     }

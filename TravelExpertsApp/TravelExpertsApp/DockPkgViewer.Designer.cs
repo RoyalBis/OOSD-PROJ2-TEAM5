@@ -35,6 +35,7 @@ namespace TravelExpertsApp
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DockPkgViewer));
             this.panMain = new System.Windows.Forms.Panel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.materialDivider1 = new MaterialSkin.Controls.MaterialDivider();
             this.panel3 = new System.Windows.Forms.Panel();
             this.mlblCommission = new MaterialSkin.Controls.MaterialLabel();
             this.materialLabel6 = new MaterialSkin.Controls.MaterialLabel();
@@ -64,7 +65,6 @@ namespace TravelExpertsApp
             this.mbtnCancel = new MaterialSkin.Controls.MaterialFlatButton();
             this.mdivBtns = new MaterialSkin.Controls.MaterialDivider();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.materialDivider1 = new MaterialSkin.Controls.MaterialDivider();
             this.panMain.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -109,6 +109,17 @@ namespace TravelExpertsApp
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(633, 636);
             this.panel1.TabIndex = 28;
+            // 
+            // materialDivider1
+            // 
+            this.materialDivider1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialDivider1.Depth = 0;
+            this.materialDivider1.Location = new System.Drawing.Point(0, 362);
+            this.materialDivider1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialDivider1.Name = "materialDivider1";
+            this.materialDivider1.Size = new System.Drawing.Size(634, 1);
+            this.materialDivider1.TabIndex = 30;
+            this.materialDivider1.Text = "materialDivider1";
             // 
             // panel3
             // 
@@ -392,7 +403,7 @@ namespace TravelExpertsApp
             this.lblPkg.Primary = true;
             this.lblPkg.Size = new System.Drawing.Size(635, 50);
             this.lblPkg.TabIndex = 19;
-            this.lblPkg.Text = "materialRaisedButton1";
+            this.lblPkg.Text = "Pkg Name";
             this.lblPkg.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.lblPkg.UseVisualStyleBackColor = true;
             // 
@@ -428,14 +439,14 @@ namespace TravelExpertsApp
             this.mbtnDelete.AutoSize = true;
             this.mbtnDelete.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.mbtnDelete.Depth = 0;
-            this.mbtnDelete.Location = new System.Drawing.Point(313, 4);
+            this.mbtnDelete.Location = new System.Drawing.Point(327, 4);
             this.mbtnDelete.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.mbtnDelete.MouseState = MaterialSkin.MouseState.HOVER;
             this.mbtnDelete.Name = "mbtnDelete";
             this.mbtnDelete.Primary = true;
-            this.mbtnDelete.Size = new System.Drawing.Size(169, 36);
+            this.mbtnDelete.Size = new System.Drawing.Size(155, 36);
             this.mbtnDelete.TabIndex = 2;
-            this.mbtnDelete.Text = "Delete Package...";
+            this.mbtnDelete.Text = "Delete Package";
             this.mbtnDelete.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.mbtnDelete.UseVisualStyleBackColor = true;
             this.mbtnDelete.Click += new System.EventHandler(this.mbtnDelete_Click);
@@ -487,17 +498,6 @@ namespace TravelExpertsApp
             this.mdivBtns.Size = new System.Drawing.Size(624, 1);
             this.mdivBtns.TabIndex = 13;
             this.mdivBtns.Text = "materialDivider1";
-            // 
-            // materialDivider1
-            // 
-            this.materialDivider1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialDivider1.Depth = 0;
-            this.materialDivider1.Location = new System.Drawing.Point(0, 362);
-            this.materialDivider1.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialDivider1.Name = "materialDivider1";
-            this.materialDivider1.Size = new System.Drawing.Size(634, 1);
-            this.materialDivider1.TabIndex = 30;
-            this.materialDivider1.Text = "materialDivider1";
             // 
             // DockPkgViewer
             // 

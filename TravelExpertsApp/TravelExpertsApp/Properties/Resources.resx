@@ -118,42 +118,6 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="Airplane1_32_black" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Images\Travel\Airplane1_32_black.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Airplane1_32_bluegrey" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Images\Travel\Airplane1_32_bluegrey.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Airplane1_32_grey" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Images\Travel\Airplane1_32_grey.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Airplane1_32_orange" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Images\Travel\Airplane1_32_orange.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Airplane1_32_red" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Images\Travel\Airplane1_32_red.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Airplane1_32_white" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Images\Travel\Airplane1_32_white.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Airplane1_64_black" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Images\Travel\Airplane1_64_black.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Airplane1_64_bluegrey" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Images\Travel\Airplane1_64_bluegrey.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Airplane1_64_grey" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Images\Travel\Airplane1_64_grey.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Airplane1_64_orange" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Images\Travel\Airplane1_64_orange.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Airplane1_64_red" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Images\Travel\Airplane1_64_red.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Airplane1_64_white" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Images\Travel\Airplane1_64_white.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="keyboard_left_black" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Images\KeyboardArrows\keyboard_left_black.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -273,5 +237,107 @@
   </data>
   <data name="keyboard_right_yellow" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Images\KeyboardArrows\keyboard_right_yellow.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="magnifier_24_black" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\Search\magnifier_24_black.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="magnifier_24_blue" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\Search\magnifier_24_blue.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="magnifier_24_brown" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\Search\magnifier_24_brown.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="magnifier_24_darkblue" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\Search\magnifier_24_darkblue.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="magnifier_24_gold" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\Search\magnifier_24_gold.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="magnifier_24_grey" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\Search\magnifier_24_grey.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="magnifier_24_lightblue" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\Search\magnifier_24_lightblue.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="magnifier_24_lightgreen" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\Search\magnifier_24_lightgreen.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="magnifier_24_pink" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\Search\magnifier_24_pink.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="magnifier_24_purple" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\Search\magnifier_24_purple.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="magnifier_24_teal" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\Search\magnifier_24_teal.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="magnifier_24_white" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\Search\magnifier_24_white.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="magnifier_24_yellowgreen" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\Search\magnifier_24_yellowgreen.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="magnifier_24__bluegrey" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\Search\magnifier_24_ bluegrey.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="magnifier_24__darkpurple" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\Search\magnifier_24_ darkpurple.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="magnifier_24__green" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\Search\magnifier_24_ green.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="magnifier_24__lightorange" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\Search\magnifier_24_ lightorange.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="magnifier_24__orange" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\Search\magnifier_24_ orange.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="magnifier_24__red" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\Search\magnifier_24_ red.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="magnifier_24__turqoise" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\Search\magnifier_24_ turqoise.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="magnifier_24__yellow" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\Search\magnifier_24_ yellow.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="close_512_black" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\Close\close_512_black.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="close_512_bluegrey" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\Close\close_512_bluegrey.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="close_512_grey" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\Close\close_512_grey.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="close_512_orange" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\Close\close_512_orange.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="close_512_pink" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\Close\close_512_pink.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="close_512_red" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\Close\close_512_red.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="X_512_black" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\X\X_512_black.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="X_512_bluegrey" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\X\X_512_bluegrey.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="X_512_grey" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\X\X_512_grey.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="X_512_orange" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\X\X_512_orange.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="X_512_pink" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\X\X_512_pink.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="X_512_red" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\X\X_512_red.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="X_512_white" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Images\X\X_512_white.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

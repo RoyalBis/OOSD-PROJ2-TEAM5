@@ -32,9 +32,7 @@ namespace TravelExpertsApp
 
             foreach (ProductSupplier prodsup in prodsups)
             {
-                cbProductSupplier.Items.Add(prodsup.ProductSupplierId + "  -  " + prodsup.MyProduct.ProductId + ":" +
-                                            prodsup.MyProduct.ProdName + "  -  " + prodsup.MySupplier.SupplierId + ":" +
-                                            prodsup.MySupplier.SupName);
+
             }
             foreach (Product product in products)
             {
@@ -45,7 +43,6 @@ namespace TravelExpertsApp
             {
                 cbSupplier.Items.Add(supplier.SupplierId + " - " + supplier.SupName);
             }
-            cbProductSupplier.Items.Add(".....Add New Product Supplier.....");
             cbProduct.Items.Add(".....Add New Product.....");
             cbSupplier.Items.Add(".....Add New Supplier.....");
 
@@ -61,15 +58,6 @@ namespace TravelExpertsApp
         private void mbtnAccept_Click(object sender, EventArgs e)
         {
 
-        }
-
-        private void cbProductSupplier_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if ( cbProductSupplier.SelectedIndex == cbProductSupplier.Items.Count - 1 )
-            {
-                cbProduct.Enabled = true;
-                cbSupplier.Enabled = true;
-            }
         }
     }
 }

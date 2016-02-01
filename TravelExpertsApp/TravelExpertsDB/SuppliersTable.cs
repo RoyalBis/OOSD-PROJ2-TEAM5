@@ -43,9 +43,8 @@ namespace TravelExpertsDB
         //Statement for SearchAllSuppliers()
         private const string SearchAll = "SELECT supplierId, SupName " +
                                          "FROM suppliers " +
-                                         "WHERE supplierId " +
-                                         "LIKE  '%' + @searchIndex + '%' " +
-                                         "OR SupName LIKE '%' + @searchIndex  ";
+                                         "WHERE supplierId LIKE @searchIndex + '%' " +
+                                         "OR SupName LIKE '%' + @searchIndex  + '%' ";
 
         //\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
         #endregion

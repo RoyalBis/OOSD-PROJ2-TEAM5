@@ -22,3 +22,9 @@ SELECt * FROM Agents
 
 SELECT * FROM Products
 
+SELECT * FROM [dbo].[Products_Suppliers]
+
+SELECT AgtFirstName, AgentPassword
+FROM Agents 
+WHERE AgtFirstName = 'Janet'
+AND AgentPassword = '123ABC'
