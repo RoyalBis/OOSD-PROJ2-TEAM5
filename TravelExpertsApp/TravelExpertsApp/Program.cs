@@ -16,6 +16,7 @@ namespace TravelExpertsApp
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            //Application.Run(new frmSplashStart());
             //Application.Run(new frmLogin());
             //Application.Run(new frmPkgAddModify());
             //Application.Run(new frmSearch());

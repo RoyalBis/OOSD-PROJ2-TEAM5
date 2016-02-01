@@ -63,6 +63,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IPkgViewerDocker.cs" />
+    <Compile Include="frmSplashStart.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSplashStart.Designer.cs">
+      <DependentUpon>frmSplashStart.cs</DependentUpon>
+    </Compile>
     <Compile Include="MaterialComboBox.cs" />
     <Compile Include="frmProductSupplier.cs">
       <SubType>Form</SubType>
@@ -142,6 +148,9 @@
     <EmbeddedResource Include="MaterialMessageBox.resx">
       <DependentUpon>MaterialMessageBox.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmSplashStart.resx">
+      <DependentUpon>frmSplashStart.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>
@@ -154,6 +163,7 @@
       <DependentUpon>DockPkgViewer.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="ClassDiagram1.cd" />
+    <None Include="ClassDiagram2.cd" />
     <None Include="Properties\DataSources\EntityLayer.Product.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -362,6 +372,7 @@
   <ItemGroup>
     <None Include="Resources\Images\Travel\Airplane1_64_bluegrey.png" />
   </ItemGroup>
+  <Content Include="Sound\owl.mp3" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
