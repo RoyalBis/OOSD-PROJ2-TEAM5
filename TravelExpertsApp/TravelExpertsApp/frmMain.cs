@@ -23,6 +23,7 @@ namespace TravelExpertsApp
         {
             InitializeComponent();
             MyPkgViewer = null;
+            frmSplashStart start = new frmSplashStart();
             frmLogin  agtLogin = new frmLogin();
 
             //hide panel

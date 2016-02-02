@@ -14,7 +14,7 @@ namespace TravelExpertsApp
     public partial class frmSplashStart : Form
     {
         private int tLeft;
-        private SoundPlayer hoot = new SoundPlayer();
+        private SoundPlayer hoot = new SoundPlayer("~/Resources/Sound/owl.wav");
         public frmSplashStart()
         {
             InitializeComponent();
@@ -23,7 +23,7 @@ namespace TravelExpertsApp
         private void frmSplashStart_Load(object sender, EventArgs e)
         {
             //When the application starts, display this page.
-            tLeft = 5;
+            tLeft = 10;
             hoot.Play();
             tmStart.Start();
         }
@@ -37,9 +37,9 @@ namespace TravelExpertsApp
             }
             tmStart.Stop();
             //Loading form goes here.
-
+            new frmLogin();
             hoot.Stop();
-            this.Hide();
+            this.Close();
         }
     }
 }
