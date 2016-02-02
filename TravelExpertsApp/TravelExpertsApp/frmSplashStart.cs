@@ -14,7 +14,7 @@ namespace TravelExpertsApp
     public partial class frmSplashStart : Form
     {
         private int tLeft;
-        private SoundPlayer hoot = new SoundPlayer("~/Resources/Sound/owl.wav");
+        private SoundPlayer hoot = new SoundPlayer("../../Resources/Sound/owl.wav");
         public frmSplashStart()
         {
             InitializeComponent();
