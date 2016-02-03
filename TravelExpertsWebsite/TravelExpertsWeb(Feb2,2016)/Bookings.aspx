@@ -7,7 +7,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <br /><asp:Label class="fs-title" ID="lblUsername" runat="server" ForeColor="white"></asp:Label><br /><br /><br />
+                    <br /><u style="color:white"><asp:Label class="welcome" ID="lblUsername" runat="server" ForeColor="white"></asp:Label></u><br /><br /><br />
                     <form id="form2" runat="server">
                         <div class = "col-lg-3" style ="background-color: rgba(38, 38, 38, 0.8); color:white">
                             <br /><p>Customer Information</p>

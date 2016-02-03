@@ -249,7 +249,7 @@
 		    <asp:Label class="fs-subtitle" ID="lblMsg2" runat="server">Done, please check before submit</asp:Label>
 		    <br />
             <br />
-            <table class="summary-table">
+            <table style="color:white">
                 <tr>
                     <td>&nbsp;&nbsp;&nbsp;&nbsp;Username:</td>
                     <td>

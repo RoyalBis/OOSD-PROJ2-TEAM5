@@ -39,6 +39,6 @@ public partial class RegForm : System.Web.UI.Page
                 Session.Add("User", custName);
                 Label lblUser = (Label)Master.FindControl("UserLogin");
                 lblUser.Text = "Hello, " + Session["User"].ToString();
-                Response.Redirect("Package.aspx");
+                Response.Redirect("Pack.aspx");
     }
 }
