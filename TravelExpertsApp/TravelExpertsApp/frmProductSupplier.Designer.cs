@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmProductSupplier));
             this.fpanButtons = new System.Windows.Forms.FlowLayoutPanel();
             this.mbtnAccept = new MaterialSkin.Controls.MaterialRaisedButton();
             this.mbtnCancel = new MaterialSkin.Controls.MaterialRaisedButton();
@@ -136,6 +137,7 @@
             this.Controls.Add(this.lblSupplier);
             this.Controls.Add(this.lblProductId);
             this.Controls.Add(this.fpanButtons);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmProductSupplier";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "Edit Product Suppliers";

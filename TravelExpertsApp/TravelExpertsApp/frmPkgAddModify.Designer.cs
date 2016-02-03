@@ -31,6 +31,7 @@ namespace TravelExpertsApp
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPkgAddModify));
             this.btnImage = new MaterialSkin.Controls.MaterialFlatButton();
             this.btnAddModify = new MaterialSkin.Controls.MaterialRaisedButton();
             this.btnCancel = new MaterialSkin.Controls.MaterialRaisedButton();
@@ -97,7 +98,7 @@ namespace TravelExpertsApp
             this.btnImage.Name = "btnImage";
             this.btnImage.Primary = true;
             this.btnImage.Size = new System.Drawing.Size(145, 36);
-            this.btnImage.TabIndex = 2;
+            this.btnImage.TabIndex = 9;
             this.btnImage.Text = "Select Image...";
             this.btnImage.UseVisualStyleBackColor = true;
             this.btnImage.Click += new System.EventHandler(this.btnImage_Click);
@@ -112,7 +113,7 @@ namespace TravelExpertsApp
             this.btnAddModify.Name = "btnAddModify";
             this.btnAddModify.Primary = true;
             this.btnAddModify.Size = new System.Drawing.Size(110, 31);
-            this.btnAddModify.TabIndex = 6;
+            this.btnAddModify.TabIndex = 11;
             this.btnAddModify.UseVisualStyleBackColor = true;
             this.btnAddModify.Click += new System.EventHandler(this.btnAddModify_Click);
             // 
@@ -126,7 +127,7 @@ namespace TravelExpertsApp
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Primary = true;
             this.btnCancel.Size = new System.Drawing.Size(110, 31);
-            this.btnCancel.TabIndex = 5;
+            this.btnCancel.TabIndex = 10;
             this.btnCancel.Text = "Cancel";
             this.btnCancel.UseVisualStyleBackColor = true;
             this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
@@ -241,7 +242,7 @@ namespace TravelExpertsApp
             this.btnPSDelete.Name = "btnPSDelete";
             this.btnPSDelete.Primary = true;
             this.btnPSDelete.Size = new System.Drawing.Size(73, 36);
-            this.btnPSDelete.TabIndex = 4;
+            this.btnPSDelete.TabIndex = 8;
             this.btnPSDelete.Text = "Delete";
             this.btnPSDelete.UseVisualStyleBackColor = true;
             this.btnPSDelete.Click += new System.EventHandler(this.btnPSDelete_Click);
@@ -258,7 +259,7 @@ namespace TravelExpertsApp
             this.btnPSAdd.Name = "btnPSAdd";
             this.btnPSAdd.Primary = true;
             this.btnPSAdd.Size = new System.Drawing.Size(61, 36);
-            this.btnPSAdd.TabIndex = 3;
+            this.btnPSAdd.TabIndex = 7;
             this.btnPSAdd.Text = "Add...";
             this.btnPSAdd.UseVisualStyleBackColor = true;
             this.btnPSAdd.Click += new System.EventHandler(this.btnAdd_Click);
@@ -366,7 +367,7 @@ namespace TravelExpertsApp
             this.dtpStartDate.Location = new System.Drawing.Point(149, 4);
             this.dtpStartDate.Name = "dtpStartDate";
             this.dtpStartDate.Size = new System.Drawing.Size(200, 22);
-            this.dtpStartDate.TabIndex = 1;
+            this.dtpStartDate.TabIndex = 2;
             this.dtpStartDate.Tag = "Start Date";
             // 
             // lblStartDate
@@ -414,7 +415,7 @@ namespace TravelExpertsApp
             this.txtDesc.Name = "txtDesc";
             this.txtDesc.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txtDesc.Size = new System.Drawing.Size(340, 55);
-            this.txtDesc.TabIndex = 1;
+            this.txtDesc.TabIndex = 4;
             this.txtDesc.Tag = "Package Description";
             // 
             // lblDesc
@@ -446,7 +447,7 @@ namespace TravelExpertsApp
             this.dtpEndDate.Location = new System.Drawing.Point(149, 4);
             this.dtpEndDate.Name = "dtpEndDate";
             this.dtpEndDate.Size = new System.Drawing.Size(199, 22);
-            this.dtpEndDate.TabIndex = 1;
+            this.dtpEndDate.TabIndex = 3;
             this.dtpEndDate.Tag = "End Date";
             // 
             // lblEndDate
@@ -485,7 +486,7 @@ namespace TravelExpertsApp
             this.txtBasePrice.SelectionLength = 0;
             this.txtBasePrice.SelectionStart = 0;
             this.txtBasePrice.Size = new System.Drawing.Size(199, 28);
-            this.txtBasePrice.TabIndex = 1;
+            this.txtBasePrice.TabIndex = 5;
             this.txtBasePrice.TabStop = false;
             this.txtBasePrice.Tag = "Base Price";
             this.txtBasePrice.UseSystemPasswordChar = false;
@@ -526,7 +527,7 @@ namespace TravelExpertsApp
             this.txtCommission.SelectionLength = 0;
             this.txtCommission.SelectionStart = 0;
             this.txtCommission.Size = new System.Drawing.Size(199, 28);
-            this.txtCommission.TabIndex = 1;
+            this.txtCommission.TabIndex = 6;
             this.txtCommission.TabStop = false;
             this.txtCommission.Tag = "Commission";
             this.txtCommission.UseSystemPasswordChar = false;
@@ -603,6 +604,7 @@ namespace TravelExpertsApp
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(745, 805);
             this.Controls.Add(this.panMain);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frmPkgAddModify";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Load += new System.EventHandler(this.Form1_Load);
