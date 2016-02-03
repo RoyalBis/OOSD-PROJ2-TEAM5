@@ -31,7 +31,7 @@ namespace MaterialSkin.Controls
 
     public class MaterialComboBox : MaterialSingleLineTextField
     {
-        private List<MaterialComboBoxItem> Items = new List<MaterialComboBoxItem>();
+        public  List<MaterialComboBoxItem> Items = new List<MaterialComboBoxItem>();
         private Panel dropdownPanel;
         private int selection = -1;
 
@@ -39,6 +39,7 @@ namespace MaterialSkin.Controls
         {
             this.dropdownPanel = new Panel();
             dropdownPanel.BorderStyle = BorderStyle.FixedSingle;
+            dropdownPanel.SetBounds(Left,Bottom,this.Width,this.Height*8);
             //this.dropdownPanel.Disposed += new EventHandler(DropDownPanelOnDisposed);
             this.dropdownPanel.VisibleChanged += new EventHandler(DropDownPanel_VisibleChanged);
             this.KeyDown += new KeyEventHandler(this.OnKeyDown_UpDown);
@@ -64,6 +65,7 @@ namespace MaterialSkin.Controls
             this.Parent.Controls.Add(dropdownPanel);
             this.dropdownPanel.Visible = true;
             this.dropdownPanel.BringToFront();
+            this.dropdownPanel.Show();
         }
 
         private void MaterialCB_OnLostFocus(object sender, EventArgs e)

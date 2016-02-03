@@ -23,6 +23,7 @@ namespace TravelExpertsApp
             //Application.Run(new frmProductSupplier());
             //Application.Run(new frmPackage());
             Application.Run(new frmMain());
+            //Application.Run(new frmSupplier());
         }
     }
 }

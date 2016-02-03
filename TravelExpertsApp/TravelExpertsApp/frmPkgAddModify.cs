@@ -108,7 +108,7 @@ namespace TravelExpertsApp
                 }
                 else
                 {
-                    PkgOut.PkgImage = PkgIn.PkgImage;
+                    PkgOut.PkgImage = PkgIn?.PkgImage;
                 }
                 string basePrice = txtBasePrice.Text.Replace("$", "");
                 string commission = txtCommission.Text.Replace("$", "");
@@ -120,11 +120,14 @@ namespace TravelExpertsApp
                 PkgOut.PkgBasePrice = Convert.ToDecimal(basePrice);
                 PkgOut.PkgAgencyCommission = Convert.ToDecimal(commission);
                 int[] prodSupIds = new int[lvPkgProductSuppliers.Items.Count];
-                for (int i = 0; i < lvPkgProductSuppliers.Items.Count; i++)
+                if (lvPkgProductSuppliers.Items.Count > 0 )
                 {
-                    prodSupIds[i] = Convert.ToInt32(lvPkgProductSuppliers.Items[i].Text);
+                    for (int i = 0; i < lvPkgProductSuppliers.Items.Count; i++)
+                    {
+                        prodSupIds[i] = Convert.ToInt32(lvPkgProductSuppliers.Items[i].Text);
+                    }
+                    PkgOut.PkgProductSuppliers.AddRange(ProductSupplierTable.GetRangeProductSuppliers(prodSupIds)); 
                 }
-                PkgOut.PkgProductSuppliers.AddRange(ProductSupplierTable.GetRangeProductSuppliers(prodSupIds));
 
                 if (Add)
                 {
@@ -206,6 +209,14 @@ namespace TravelExpertsApp
             this.panDock.Controls.Add(userCtrl);
             userCtrl.Dock = DockStyle.Fill;
             btnPSAdd.Enabled = false;
+            if (this.Width + this.Left > Screen.PrimaryScreen.Bounds.Width)
+            {
+                this.Left = 0;
+                //MyDocker.FormInstance.WindowState = FormWindowState.Maximized;
+                int oversize = this.Width - Screen.PrimaryScreen.Bounds.Width;
+                this.Width -= oversize;
+                //SiblingFormPanel.Width -= oversize;
+            }
         }
 
         private void btnCancel_Click(object sender, EventArgs e)

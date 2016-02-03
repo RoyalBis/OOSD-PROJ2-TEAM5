@@ -62,6 +62,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmProduct.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmProduct.Designer.cs">
+      <DependentUpon>frmProduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmSupplier.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSupplier.Designer.cs">
+      <DependentUpon>frmSupplier.cs</DependentUpon>
+    </Compile>
     <Compile Include="IPkgViewerDocker.cs" />
     <Compile Include="frmSplashStart.cs">
       <SubType>Form</SubType>
@@ -124,6 +136,9 @@
       <DependentUpon>frmPkgAddModify.cs</DependentUpon>
     </EmbeddedResource>
     <Compile Include="Program.cs" />
+    <EmbeddedResource Include="frmProduct.resx">
+      <DependentUpon>frmProduct.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmProductSupplier.resx">
       <DependentUpon>frmProductSupplier.cs</DependentUpon>
     </EmbeddedResource>
@@ -135,6 +150,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmPackage.resx">
       <DependentUpon>frmPackage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSupplier.resx">
+      <DependentUpon>frmSupplier.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MaterialMessageBox.resx">
       <DependentUpon>MaterialMessageBox.cs</DependentUpon>

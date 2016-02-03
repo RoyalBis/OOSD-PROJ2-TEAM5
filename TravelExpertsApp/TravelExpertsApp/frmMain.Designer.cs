@@ -46,7 +46,6 @@
             this.colCommission = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tabProductSuppliers = new System.Windows.Forms.TabPage();
             this.mtxtSearch = new MaterialSkin.Controls.MaterialSingleLineTextField();
-            this.pbSearch = new System.Windows.Forms.PictureBox();
             this.panProductSuppliers = new System.Windows.Forms.Panel();
             this.mlvProdSupp = new MaterialSkin.Controls.MaterialListView();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -75,12 +74,12 @@
             this.materialDivider2 = new MaterialSkin.Controls.MaterialDivider();
             this.mbtnLogout = new MaterialSkin.Controls.MaterialRaisedButton();
             this.mbtnExit = new MaterialSkin.Controls.MaterialRaisedButton();
+            this.pbSearch = new System.Windows.Forms.PictureBox();
             this.panMain.SuspendLayout();
             this.mtabControl.SuspendLayout();
             this.tabPkgs.SuspendLayout();
             this.panPkgBtns.SuspendLayout();
             this.tabProductSuppliers.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbSearch)).BeginInit();
             this.panProductSuppliers.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panSuppliers.SuspendLayout();
@@ -90,6 +89,7 @@
             this.panMainInner.SuspendLayout();
             this.panForm.SuspendLayout();
             this.panBtns.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbSearch)).BeginInit();
             this.SuspendLayout();
             // 
             // panMain
@@ -289,16 +289,6 @@
             this.mtxtSearch.Leave += new System.EventHandler(this.mtxtSearch_Leave);
             this.mtxtSearch.TextChanged += new System.EventHandler(this.mtxtSearch_TextChanged);
             // 
-            // pbSearch
-            // 
-            this.pbSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pbSearch.Image = global::TravelExpertsApp.Properties.Resources.magnifier_24__bluegrey;
-            this.pbSearch.Location = new System.Drawing.Point(973, 13);
-            this.pbSearch.Name = "pbSearch";
-            this.pbSearch.Size = new System.Drawing.Size(28, 28);
-            this.pbSearch.TabIndex = 4;
-            this.pbSearch.TabStop = false;
-            // 
             // panProductSuppliers
             // 
             this.panProductSuppliers.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -332,6 +322,7 @@
             this.mlvProdSupp.UseCompatibleStateImageBehavior = false;
             this.mlvProdSupp.View = System.Windows.Forms.View.Details;
             this.mlvProdSupp.SelectedIndexChanged += new System.EventHandler(this.mlvProdSupp_SelectedIndexChanged);
+            this.mlvProdSupp.Leave += new System.EventHandler(this.mlvProdSupp_Leave);
             // 
             // panel3
             // 
@@ -374,6 +365,7 @@
             this.mbtnProdSuppEdit.TabIndex = 1;
             this.mbtnProdSuppEdit.Text = "Edit";
             this.mbtnProdSuppEdit.UseVisualStyleBackColor = true;
+            this.mbtnProdSuppEdit.Click += new System.EventHandler(this.mbtnProdSuppEdit_Click);
             // 
             // mbtnProdSuppAdd
             // 
@@ -390,6 +382,7 @@
             this.mbtnProdSuppAdd.TabIndex = 0;
             this.mbtnProdSuppAdd.Text = "Add";
             this.mbtnProdSuppAdd.UseVisualStyleBackColor = true;
+            this.mbtnProdSuppAdd.Click += new System.EventHandler(this.mbtnProdSuppAdd_Click);
             // 
             // materialLabel3
             // 
@@ -435,6 +428,7 @@
             this.mlvSupp.UseCompatibleStateImageBehavior = false;
             this.mlvSupp.View = System.Windows.Forms.View.Details;
             this.mlvSupp.SelectedIndexChanged += new System.EventHandler(this.mlvSupp_SelectedIndexChanged);
+            this.mlvSupp.Leave += new System.EventHandler(this.mlvSupp_Leave);
             // 
             // panel2
             // 
@@ -477,6 +471,7 @@
             this.mbtnSuppEdit.TabIndex = 1;
             this.mbtnSuppEdit.Text = "Edit";
             this.mbtnSuppEdit.UseVisualStyleBackColor = true;
+            this.mbtnSuppEdit.Click += new System.EventHandler(this.mbtnSuppEdit_Click);
             // 
             // mbtnSuppAdd
             // 
@@ -493,6 +488,7 @@
             this.mbtnSuppAdd.TabIndex = 0;
             this.mbtnSuppAdd.Text = "Add";
             this.mbtnSuppAdd.UseVisualStyleBackColor = true;
+            this.mbtnSuppAdd.Click += new System.EventHandler(this.mbtnSuppAdd_Click);
             // 
             // materialLabel2
             // 
@@ -561,6 +557,7 @@
             this.mbtnProdEdit.TabIndex = 1;
             this.mbtnProdEdit.Text = "Edit";
             this.mbtnProdEdit.UseVisualStyleBackColor = true;
+            this.mbtnProdEdit.Click += new System.EventHandler(this.mbtnProdEdit_Click);
             // 
             // mbtnProdAdd
             // 
@@ -577,6 +574,7 @@
             this.mbtnProdAdd.TabIndex = 0;
             this.mbtnProdAdd.Text = "Add";
             this.mbtnProdAdd.UseVisualStyleBackColor = true;
+            this.mbtnProdAdd.Click += new System.EventHandler(this.mbtnProdAdd_Click);
             // 
             // mlvProd
             // 
@@ -597,6 +595,7 @@
             this.mlvProd.UseCompatibleStateImageBehavior = false;
             this.mlvProd.View = System.Windows.Forms.View.Details;
             this.mlvProd.SelectedIndexChanged += new System.EventHandler(this.mlvProd_SelectedIndexChanged);
+            this.mlvProd.Leave += new System.EventHandler(this.mlvProd_Leave);
             // 
             // materialLabel1
             // 
@@ -696,6 +695,16 @@
             this.mbtnExit.UseVisualStyleBackColor = true;
             this.mbtnExit.Click += new System.EventHandler(this.mbtnExit_Click);
             // 
+            // pbSearch
+            // 
+            this.pbSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pbSearch.Image = global::TravelExpertsApp.Properties.Resources.magnifier_24__bluegrey;
+            this.pbSearch.Location = new System.Drawing.Point(973, 13);
+            this.pbSearch.Name = "pbSearch";
+            this.pbSearch.Size = new System.Drawing.Size(28, 28);
+            this.pbSearch.TabIndex = 4;
+            this.pbSearch.TabStop = false;
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -713,7 +722,6 @@
             this.panPkgBtns.ResumeLayout(false);
             this.panPkgBtns.PerformLayout();
             this.tabProductSuppliers.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pbSearch)).EndInit();
             this.panProductSuppliers.ResumeLayout(false);
             this.panProductSuppliers.PerformLayout();
             this.panel3.ResumeLayout(false);
@@ -729,6 +737,7 @@
             this.panMainInner.ResumeLayout(false);
             this.panForm.ResumeLayout(false);
             this.panBtns.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pbSearch)).EndInit();
             this.ResumeLayout(false);
 
         }

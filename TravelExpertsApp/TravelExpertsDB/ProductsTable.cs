@@ -29,8 +29,8 @@ namespace TravelExpertsDB
 
         //Statement for AddSupplier()
         private const string InsertStmt = "INSERT INTO Products " +
-                                          "(ProductId, ProdName) " +
-                                          "VALUES(@ProductId, @ProdName)";
+                                          "(ProdName) " +
+                                          "VALUES(@ProdName)";
 
         //Statement for UpdateSupplier()
         private const string UpdateStmt = "UPDATE Products " +
@@ -75,7 +75,7 @@ namespace TravelExpertsDB
             }   //end of the using statement
         }
 
-        public static Product GetProduct(string productId)
+        public static Product GetProduct(int productId)
         {
             //get the connection and make a new select statement
             SqlCommand command = TravelExpertsCommon.GetCommand(GetStmt);
@@ -144,7 +144,7 @@ namespace TravelExpertsDB
             //get the connection and make a new select statement
             SqlCommand command = TravelExpertsCommon.GetCommand(InsertStmt);
             //add the Product Parameters to the SQL Insert Command
-            command.Parameters.AddWithValue("@ProductId", prod.ProductId);
+            //command.Parameters.AddWithValue("@ProductId", prod.ProductId);
             command.Parameters.AddWithValue("@ProdName", prod.ProdName);
 
             return TravelExpertsCommon.PerformNonQuery(command);

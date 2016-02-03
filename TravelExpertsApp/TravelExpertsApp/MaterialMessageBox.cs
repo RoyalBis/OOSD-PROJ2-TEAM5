@@ -39,6 +39,7 @@ namespace TravelExpertsApp
 
         private void mbtnOk_Click(object sender, EventArgs e)
         {
+            this.DialogResult = DialogResult.OK;
             this.Close();
         }
 
@@ -101,7 +102,8 @@ namespace TravelExpertsApp
 
         private void mbtnCancel_Click(object sender, EventArgs e)
         {
-            this.Close();
+            this.DialogResult = DialogResult.Cancel;
+            //this.Close();
         }
     }
 }

@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using EntityLayer;
 using MaterialSkin;
 using MaterialSkin.Controls;
+using TravelExpertsApp.Properties;
 using TravelExpertsDB;
 
 namespace TravelExpertsApp
@@ -177,6 +178,16 @@ namespace TravelExpertsApp
         private void mbtnCancel_Click(object sender, EventArgs e)
         {
             DockProdSupSearch_Disposing();
+        }
+
+        private void mtxtSearch_Enter(object sender, EventArgs e)
+        {
+            pbSearch.Image = Resources.magnifier_24_lightblue;
+        }
+
+        private void mtxtSearch_Leave(object sender, EventArgs e)
+        {
+            pbSearch.Image = Resources.magnifier_24__bluegrey;
         }
     }
 }

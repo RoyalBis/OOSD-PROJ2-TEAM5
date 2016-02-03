@@ -196,6 +196,7 @@ namespace TravelExpertsApp
                         if (PackagesTable.DeletePackage(ActivePackage) )
                         {
                             MyDocker.FillPackages();
+                            MyDocker.ActivePkgId = MyDocker.ActivePkgId;
                             MaterialMessageBox.Show(MyDocker.FormInstance, false, successMsg);
                         }
                         else

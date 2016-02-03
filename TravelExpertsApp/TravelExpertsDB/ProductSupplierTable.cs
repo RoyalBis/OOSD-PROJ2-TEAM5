@@ -41,6 +41,19 @@ namespace TravelExpertsDB
                                                                                         "AND ps.SupplierId = s.SupplierId " +
                                                                                         "AND ps.ProductId = p.ProductId " +
                                                                                         "AND PackageId = @PackageId";
+
+        //Statement for AddSupplier()
+        private const string InsertStmt = "INSERT INTO Products_Suppliers " +
+                                                                            "(ProductId, SupplierId) " +
+                                                                            "VALUES(@ProductId, @SupplierId)";
+
+        //Statement for UpdateSupplier()
+        private const string UpdateStmt = "UPDATE Products_Suppliers " +
+                                                                                "SET ProductId = @NewProductId, " +
+                                                                                "SupplierId = @NewSupplierId " +
+                                                                                "WHERE ProductSupplierId = @ProductSupplierId " +
+                                                                                "AND ProductId = @OldProductId " +
+                                                                                "AND SupplierId = @OldSupplierId";
         #endregion
 
         #region Database Queries
@@ -186,6 +199,33 @@ namespace TravelExpertsDB
                     throw ex;
                 }
             }   //end of the using statement
+        }
+
+        //Static Method to add a new ProductSupplier
+        public static bool AddProdSupp(ProductSupplier prodsupp)
+        {
+            //get the connection and make a new select statement
+            SqlCommand command = TravelExpertsCommon.GetCommand(InsertStmt);
+            //add the Product Parameters to the SQL Insert Command
+            command.Parameters.AddWithValue("@ProductId", prodsupp.MyProduct.ProductId);
+            command.Parameters.AddWithValue("@SupplierId", prodsupp.MySupplier.SupplierId);
+
+            return TravelExpertsCommon.PerformNonQuery(command);
+        }
+
+        //Static Method to update an existing Product
+        public static bool UpdateProdSupp(ProductSupplier newProdSupp, ProductSupplier oldProdSupp)
+        {
+            //get the connection and make a new select statement
+            SqlCommand command = TravelExpertsCommon.GetCommand(UpdateStmt);
+            //add the Product Parameters to the SQL update Command
+            command.Parameters.AddWithValue("@ProductSupplierId", oldProdSupp.ProductSupplierId);
+            command.Parameters.AddWithValue("@NewProductId", newProdSupp.MyProduct.ProductId);
+            command.Parameters.AddWithValue("@NewSupplierId", newProdSupp.MySupplier.SupplierId);
+            command.Parameters.AddWithValue("@OldProductId", oldProdSupp.MyProduct.ProductId);
+            command.Parameters.AddWithValue("@OldSupplierId", oldProdSupp.MySupplier.SupplierId);
+
+            return TravelExpertsCommon.PerformNonQuery(command);
         }
         #endregion
 

@@ -26,18 +26,21 @@ namespace TravelExpertsApp
             MyPkgViewer = null;
             frmSplashStart start = new frmSplashStart();
             frmLogin  agtLogin = new frmLogin();
-
-            //hide panel
             Panel hidePanel = DisplayHidePanel();
-            DialogResult result = agtLogin.ShowDialog();
-
-            if (result != DialogResult.None)
+            DialogResult splash = start.ShowDialog();
+            if (splash == DialogResult.OK)
             {
-                hidePanel.Dispose();
-                if (result == DialogResult.OK)
+                //hide panel
+                DialogResult result = agtLogin.ShowDialog();
+
+                if (result != DialogResult.None)
                 {
-                    //get the user that just logged in here.
-                }
+                    hidePanel.Dispose();
+                    if (result == DialogResult.OK)
+                    {
+                        //get the user that just logged in here.
+                    }
+                } 
             }
         }
 
@@ -288,6 +291,11 @@ namespace TravelExpertsApp
 
         private void mtxtSearch_TextChanged(object sender, EventArgs e)
         {
+            SearchAll();
+        }
+
+        private void SearchAll()
+        {
             SearchProducts(mtxtSearch.Text);
             SearchSuppliers(mtxtSearch.Text);
             SearchProdSupps(mtxtSearch.Text);
@@ -321,6 +329,114 @@ namespace TravelExpertsApp
         private void mtxtSearch_Leave(object sender, EventArgs e)
         {
             pbSearch.Image = Resources.magnifier_24__bluegrey;
+        }
+
+        private void mbtnProdSuppAdd_Click(object sender, EventArgs e)
+        {
+            Panel hidePanel = DisplayHidePanel();
+
+            frmProductSupplier myFrmProductSupplier = new frmProductSupplier(this);
+            myFrmProductSupplier.Add = true;
+            DialogResult result = myFrmProductSupplier.ShowDialog();
+            if ( result != DialogResult.None )
+            {
+                hidePanel.Dispose();
+                SearchAll();
+            }
+        }
+
+        private void mbtnProdSuppEdit_Click(object sender, EventArgs e)
+        {
+            Panel hidePanel = DisplayHidePanel();
+
+            int myProdSupId = Convert.ToInt32(mlvProdSupp.SelectedItems[0].SubItems[0].Text);
+            ProductSupplier myProdSupp = ProductSupplierTable.GetProductSupplier(myProdSupId);
+            frmProductSupplier myFrmProductSupplier = new frmProductSupplier(this);
+            myFrmProductSupplier.Add = false;
+            myFrmProductSupplier.ProdSuppIn = myProdSupp;
+            DialogResult result = myFrmProductSupplier.ShowDialog();
+            if (result != DialogResult.None)
+            {
+                hidePanel.Dispose();
+                SearchAll();
+            }
+        }
+
+        private void mbtnProdAdd_Click(object sender, EventArgs e)
+        {
+            Panel hidePanel = DisplayHidePanel();
+
+            frmProduct myFrmProduct = new frmProduct(this);
+            myFrmProduct.Add = true;
+            DialogResult result = myFrmProduct.ShowDialog();
+            if (result != DialogResult.None)
+            {
+                hidePanel.Dispose();
+                SearchAll();
+            }
+        }
+
+        private void mbtnProdEdit_Click(object sender, EventArgs e)
+        {
+            Panel hidePanel = DisplayHidePanel();
+
+            int myProdId = Convert.ToInt32(mlvProd.SelectedItems[0].SubItems[0].Text);
+            Product myProd = ProductsTable.GetProduct(myProdId);
+            frmProduct myFrmProduct = new frmProduct(this);
+            myFrmProduct.Add = false;
+            myFrmProduct.ProdIn = myProd;
+            DialogResult result = myFrmProduct.ShowDialog();
+            if (result != DialogResult.None)
+            {
+                hidePanel.Dispose();
+                SearchAll();
+            }
+        }
+
+        private void mbtnSuppAdd_Click(object sender, EventArgs e)
+        {
+            Panel hidePanel = DisplayHidePanel();
+
+            frmSupplier myFrmSupplier = new frmSupplier(this);
+            myFrmSupplier.Add = true;
+            DialogResult result = myFrmSupplier.ShowDialog();
+            if (result != DialogResult.None)
+            {
+                hidePanel.Dispose();
+                SearchAll();
+            }
+        }
+
+        private void mbtnSuppEdit_Click(object sender, EventArgs e)
+        {
+            Panel hidePanel = DisplayHidePanel();
+
+            int mySuppId = Convert.ToInt32(mlvSupp.SelectedItems[0].SubItems[0].Text);
+            Supplier mySupp = SuppliersTable.GetSupplier(mySuppId);
+            frmSupplier myFrmSupplier = new frmSupplier(this);
+            myFrmSupplier.Add = false;
+            myFrmSupplier.SuppIn = mySupp;
+            DialogResult result = myFrmSupplier.ShowDialog();
+            if (result != DialogResult.None)
+            {
+                hidePanel.Dispose();
+                SearchAll();
+            }
+        }
+
+        private void mlvProdSupp_Leave(object sender, EventArgs e)
+        {
+            mbtnProdSuppEdit.Enabled = false;
+        }
+
+        private void mlvSupp_Leave(object sender, EventArgs e)
+        {
+            mbtnSuppEdit.Enabled = false;
+        }
+
+        private void mlvProd_Leave(object sender, EventArgs e)
+        {
+            mbtnProdEdit.Enabled = false;
         }
     }
 }

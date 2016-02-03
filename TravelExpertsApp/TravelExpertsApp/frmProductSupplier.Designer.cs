@@ -1,4 +1,6 @@
-﻿namespace TravelExpertsApp
+﻿using MaterialSkin.Controls;
+
+namespace TravelExpertsApp
 {
     partial class frmProductSupplier
     {
@@ -33,8 +35,8 @@
             this.mbtnCancel = new MaterialSkin.Controls.MaterialRaisedButton();
             this.lblProductId = new MaterialSkin.Controls.MaterialLabel();
             this.lblSupplier = new MaterialSkin.Controls.MaterialLabel();
-            this.cbProduct = new System.Windows.Forms.ComboBox();
-            this.cbSupplier = new System.Windows.Forms.ComboBox();
+            this.cbProducts = new System.Windows.Forms.ComboBox();
+            this.cbSuppliers = new System.Windows.Forms.ComboBox();
             this.fpanButtons.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -53,6 +55,8 @@
             // 
             // mbtnAccept
             // 
+            this.mbtnAccept.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.mbtnAccept.Depth = 0;
             this.mbtnAccept.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.mbtnAccept.Location = new System.Drawing.Point(512, 3);
@@ -67,6 +71,8 @@
             // 
             // mbtnCancel
             // 
+            this.mbtnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.mbtnCancel.Depth = 0;
             this.mbtnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.mbtnCancel.Location = new System.Drawing.Point(396, 3);
@@ -86,7 +92,7 @@
             this.lblProductId.Depth = 0;
             this.lblProductId.Font = new System.Drawing.Font("Roboto", 11F);
             this.lblProductId.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblProductId.Location = new System.Drawing.Point(13, 89);
+            this.lblProductId.Location = new System.Drawing.Point(12, 95);
             this.lblProductId.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblProductId.Name = "lblProductId";
             this.lblProductId.Size = new System.Drawing.Size(81, 24);
@@ -100,39 +106,48 @@
             this.lblSupplier.Depth = 0;
             this.lblSupplier.Font = new System.Drawing.Font("Roboto", 11F);
             this.lblSupplier.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.lblSupplier.Location = new System.Drawing.Point(13, 123);
+            this.lblSupplier.Location = new System.Drawing.Point(13, 131);
             this.lblSupplier.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblSupplier.Name = "lblSupplier";
             this.lblSupplier.Size = new System.Drawing.Size(84, 24);
             this.lblSupplier.TabIndex = 8;
             this.lblSupplier.Text = "Supplier:";
             // 
-            // cbProduct
+            // cbProducts
             // 
-            this.cbProduct.FormattingEnabled = true;
-            this.cbProduct.Location = new System.Drawing.Point(197, 89);
-            this.cbProduct.Name = "cbProduct";
-            this.cbProduct.Size = new System.Drawing.Size(438, 24);
-            this.cbProduct.TabIndex = 10;
+            this.cbProducts.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbProducts.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbProducts.Font = new System.Drawing.Font("Roboto", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbProducts.FormattingEnabled = true;
+            this.cbProducts.Location = new System.Drawing.Point(197, 89);
+            this.cbProducts.Name = "cbProducts";
+            this.cbProducts.Size = new System.Drawing.Size(438, 30);
+            this.cbProducts.TabIndex = 14;
+            this.cbProducts.SelectedIndexChanged += new System.EventHandler(this.cbProducts_SelectedIndexChanged);
             // 
-            // cbSupplier
+            // cbSuppliers
             // 
-            this.cbSupplier.FormattingEnabled = true;
-            this.cbSupplier.Location = new System.Drawing.Point(197, 123);
-            this.cbSupplier.Name = "cbSupplier";
-            this.cbSupplier.Size = new System.Drawing.Size(438, 24);
-            this.cbSupplier.TabIndex = 11;
+            this.cbSuppliers.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cbSuppliers.BackColor = System.Drawing.Color.White;
+            this.cbSuppliers.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbSuppliers.Font = new System.Drawing.Font("Roboto", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbSuppliers.FormattingEnabled = true;
+            this.cbSuppliers.Location = new System.Drawing.Point(197, 125);
+            this.cbSuppliers.Name = "cbSuppliers";
+            this.cbSuppliers.Size = new System.Drawing.Size(438, 30);
+            this.cbSuppliers.TabIndex = 15;
+            this.cbSuppliers.SelectedIndexChanged += new System.EventHandler(this.cbSuppliers_SelectedIndexChanged);
             // 
             // frmProductSupplier
             // 
-            this.AcceptButton = this.mbtnAccept;
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.CancelButton = this.mbtnCancel;
             this.ClientSize = new System.Drawing.Size(650, 237);
             this.ControlBox = false;
-            this.Controls.Add(this.cbSupplier);
-            this.Controls.Add(this.cbProduct);
+            this.Controls.Add(this.cbSuppliers);
+            this.Controls.Add(this.cbProducts);
             this.Controls.Add(this.lblSupplier);
             this.Controls.Add(this.lblProductId);
             this.Controls.Add(this.fpanButtons);
@@ -153,7 +168,7 @@
         private MaterialSkin.Controls.MaterialRaisedButton mbtnCancel;
         private MaterialSkin.Controls.MaterialLabel lblProductId;
         private MaterialSkin.Controls.MaterialLabel lblSupplier;
-        private System.Windows.Forms.ComboBox cbProduct;
-        private System.Windows.Forms.ComboBox cbSupplier;
+        private System.Windows.Forms.ComboBox cbProducts;
+        private System.Windows.Forms.ComboBox cbSuppliers;
     }
 }

@@ -36,9 +36,10 @@ namespace TravelExpertsApp
                 tLeft -= tLeft;
             }
             tmStart.Stop();
-            //Loading form goes here.
-            new frmLogin();
+            ////Loading form goes here.
+            //new frmLogin();
             hoot.Stop();
+            this.DialogResult = DialogResult.OK;
             this.Close();
         }
     }

@@ -16,7 +16,8 @@ namespace TravelExpertsDB
         //SQL STATEMENTS\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
         //Statement for GetAllSuppliers()
         private const string GetAllStmt = "SELECT SupplierId, SupName " +
-                                          "FROM Suppliers";
+                                          "FROM Suppliers " +
+                                          "ORDER BY SupplierId";
 
         //Statement for GetSupplier()
         private const string GetStmt = "SELECT SupplierId, SupName " +

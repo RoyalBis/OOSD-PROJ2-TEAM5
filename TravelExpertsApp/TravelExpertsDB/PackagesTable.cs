@@ -136,7 +136,14 @@ namespace TravelExpertsDB
             command.Parameters.AddWithValue("@PkgEndDate", pack.PkgEndDate);
             command.Parameters.AddWithValue("@PkgBasePrice", pack.PkgBasePrice);
             command.Parameters.AddWithValue("@PkgAgencyCommission", pack.PkgAgencyCommission);
-            command.Parameters.AddWithValue("@PkgImage", pack.PkgImage);
+            if ( pack.PkgImage == null )
+            {
+                command.Parameters.AddWithValue("@PkgImage", new byte [0] );
+            }
+            else
+            {
+                command.Parameters.AddWithValue("@PkgImage", pack.PkgImage);
+            }
 
             if ( TravelExpertsCommon.PerformNonQuery(command) )
             {
