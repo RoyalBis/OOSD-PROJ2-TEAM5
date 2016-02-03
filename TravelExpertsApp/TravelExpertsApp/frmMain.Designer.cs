@@ -46,7 +46,7 @@
             this.colCommission = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tabProductSuppliers = new System.Windows.Forms.TabPage();
             this.mtxtSearch = new MaterialSkin.Controls.MaterialSingleLineTextField();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.pbSearch = new System.Windows.Forms.PictureBox();
             this.panProductSuppliers = new System.Windows.Forms.Panel();
             this.mlvProdSupp = new MaterialSkin.Controls.MaterialListView();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -80,7 +80,7 @@
             this.tabPkgs.SuspendLayout();
             this.panPkgBtns.SuspendLayout();
             this.tabProductSuppliers.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbSearch)).BeginInit();
             this.panProductSuppliers.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panSuppliers.SuspendLayout();
@@ -257,7 +257,7 @@
             // 
             this.tabProductSuppliers.BackColor = System.Drawing.Color.White;
             this.tabProductSuppliers.Controls.Add(this.mtxtSearch);
-            this.tabProductSuppliers.Controls.Add(this.pictureBox4);
+            this.tabProductSuppliers.Controls.Add(this.pbSearch);
             this.tabProductSuppliers.Controls.Add(this.panProductSuppliers);
             this.tabProductSuppliers.Controls.Add(this.panSuppliers);
             this.tabProductSuppliers.Controls.Add(this.panProducts);
@@ -285,17 +285,19 @@
             this.mtxtSearch.TabIndex = 3;
             this.mtxtSearch.TabStop = false;
             this.mtxtSearch.UseSystemPasswordChar = false;
+            this.mtxtSearch.Enter += new System.EventHandler(this.mtxtSearch_Enter);
+            this.mtxtSearch.Leave += new System.EventHandler(this.mtxtSearch_Leave);
             this.mtxtSearch.TextChanged += new System.EventHandler(this.mtxtSearch_TextChanged);
             // 
-            // pictureBox4
+            // pbSearch
             // 
-            this.pictureBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox4.Image = global::TravelExpertsApp.Properties.Resources.magnifier_24__bluegrey;
-            this.pictureBox4.Location = new System.Drawing.Point(973, 13);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(28, 28);
-            this.pictureBox4.TabIndex = 4;
-            this.pictureBox4.TabStop = false;
+            this.pbSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pbSearch.Image = global::TravelExpertsApp.Properties.Resources.magnifier_24__bluegrey;
+            this.pbSearch.Location = new System.Drawing.Point(973, 13);
+            this.pbSearch.Name = "pbSearch";
+            this.pbSearch.Size = new System.Drawing.Size(28, 28);
+            this.pbSearch.TabIndex = 4;
+            this.pbSearch.TabStop = false;
             // 
             // panProductSuppliers
             // 
@@ -711,7 +713,7 @@
             this.panPkgBtns.ResumeLayout(false);
             this.panPkgBtns.PerformLayout();
             this.tabProductSuppliers.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbSearch)).EndInit();
             this.panProductSuppliers.ResumeLayout(false);
             this.panProductSuppliers.PerformLayout();
             this.panel3.ResumeLayout(false);
@@ -762,7 +764,7 @@
         private MaterialSkin.Controls.MaterialLabel materialLabel3;
         private MaterialSkin.Controls.MaterialLabel materialLabel2;
         private MaterialSkin.Controls.MaterialLabel materialLabel1;
-        private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.PictureBox pbSearch;
         private MaterialSkin.Controls.MaterialSingleLineTextField mtxtSearch;
         private System.Windows.Forms.Panel panel3;
         private MaterialSkin.Controls.MaterialFlatButton mbtnProdSuppEdit;

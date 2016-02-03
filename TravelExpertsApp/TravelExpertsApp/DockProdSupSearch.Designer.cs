@@ -43,6 +43,7 @@ namespace TravelExpertsApp
             this.mtxtSearch = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.lblSearch = new MaterialSkin.Controls.MaterialLabel();
             this.panMain = new System.Windows.Forms.Panel();
+            this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
             this.mdivResults = new MaterialSkin.Controls.MaterialDivider();
             this.mdivBtns = new MaterialSkin.Controls.MaterialDivider();
             this.lvResults = new MaterialSkin.Controls.MaterialListView();
@@ -53,12 +54,13 @@ namespace TravelExpertsApp
             this.mctxtResultsAdd = new MaterialSkin.Controls.MaterialToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.mctxtResultsClose = new MaterialSkin.Controls.MaterialToolStripMenuItem();
-            this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
+            this.pbSearch = new System.Windows.Forms.PictureBox();
             this.panButtons.SuspendLayout();
             this.fpanRadio.SuspendLayout();
             this.panSearch.SuspendLayout();
             this.panMain.SuspendLayout();
             this.mctxtResults.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbSearch)).BeginInit();
             this.SuspendLayout();
             // 
             // panButtons
@@ -193,6 +195,7 @@ namespace TravelExpertsApp
             this.panSearch.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panSearch.BackColor = System.Drawing.Color.White;
+            this.panSearch.Controls.Add(this.pbSearch);
             this.panSearch.Controls.Add(this.mtxtSearch);
             this.panSearch.Controls.Add(this.lblSearch);
             this.panSearch.Location = new System.Drawing.Point(11, 44);
@@ -212,7 +215,7 @@ namespace TravelExpertsApp
             this.mtxtSearch.SelectedText = "";
             this.mtxtSearch.SelectionLength = 0;
             this.mtxtSearch.SelectionStart = 0;
-            this.mtxtSearch.Size = new System.Drawing.Size(495, 28);
+            this.mtxtSearch.Size = new System.Drawing.Size(462, 28);
             this.mtxtSearch.TabIndex = 14;
             this.mtxtSearch.TabStop = false;
             this.mtxtSearch.UseSystemPasswordChar = false;
@@ -246,6 +249,19 @@ namespace TravelExpertsApp
             this.panMain.Name = "panMain";
             this.panMain.Size = new System.Drawing.Size(525, 682);
             this.panMain.TabIndex = 27;
+            // 
+            // materialLabel1
+            // 
+            this.materialLabel1.AutoSize = true;
+            this.materialLabel1.Depth = 0;
+            this.materialLabel1.Font = new System.Drawing.Font("Roboto", 11F);
+            this.materialLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.materialLabel1.Location = new System.Drawing.Point(7, 17);
+            this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel1.Name = "materialLabel1";
+            this.materialLabel1.Size = new System.Drawing.Size(214, 24);
+            this.materialLabel1.TabIndex = 27;
+            this.materialLabel1.Text = "Add Product Suppliers...";
             // 
             // mdivResults
             // 
@@ -325,7 +341,7 @@ namespace TravelExpertsApp
             this.mctxtResultsClose});
             this.mctxtResults.MouseState = MaterialSkin.MouseState.HOVER;
             this.mctxtResults.Name = "mcontext1";
-            this.mctxtResults.Size = new System.Drawing.Size(275, 62);
+            this.mctxtResults.Size = new System.Drawing.Size(269, 62);
             // 
             // mctxtResultsAdd
             // 
@@ -339,7 +355,7 @@ namespace TravelExpertsApp
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(271, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(265, 6);
             // 
             // mctxtResultsClose
             // 
@@ -349,18 +365,15 @@ namespace TravelExpertsApp
             this.mctxtResultsClose.Text = "Close Product Supplier Panel";
             this.mctxtResultsClose.Click += new System.EventHandler(this.mctxtResultsClose_Click);
             // 
-            // materialLabel1
+            // pbSearch
             // 
-            this.materialLabel1.AutoSize = true;
-            this.materialLabel1.Depth = 0;
-            this.materialLabel1.Font = new System.Drawing.Font("Roboto", 11F);
-            this.materialLabel1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.materialLabel1.Location = new System.Drawing.Point(7, 17);
-            this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
-            this.materialLabel1.Name = "materialLabel1";
-            this.materialLabel1.Size = new System.Drawing.Size(214, 24);
-            this.materialLabel1.TabIndex = 27;
-            this.materialLabel1.Text = "Add Product Suppliers...";
+            this.pbSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pbSearch.Image = global::TravelExpertsApp.Properties.Resources.magnifier_24__bluegrey;
+            this.pbSearch.Location = new System.Drawing.Point(475, 40);
+            this.pbSearch.Name = "pbSearch";
+            this.pbSearch.Size = new System.Drawing.Size(28, 28);
+            this.pbSearch.TabIndex = 15;
+            this.pbSearch.TabStop = false;
             // 
             // DockProdSupSearch
             // 
@@ -383,6 +396,7 @@ namespace TravelExpertsApp
             this.panMain.ResumeLayout(false);
             this.panMain.PerformLayout();
             this.mctxtResults.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pbSearch)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -411,5 +425,6 @@ namespace TravelExpertsApp
         private ToolStripSeparator toolStripSeparator1;
         private MaterialToolStripMenuItem mctxtResultsClose;
         private MaterialLabel materialLabel1;
+        private PictureBox pbSearch;
     }
 }

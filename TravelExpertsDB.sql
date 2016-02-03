@@ -26,5 +26,5 @@ SELECT * FROM [dbo].[Products_Suppliers]
 
 SELECT AgtFirstName, AgentPassword
 FROM Agents 
-WHERE AgtFirstName = 'Janet'
-AND AgentPassword = '123ABC'
+WHERE AgtFirstName='Janet'
+AND AgentPassword='123ABC'

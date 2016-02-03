@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using EntityLayer;
 using MaterialSkin;
 using MaterialSkin.Controls;
+using TravelExpertsApp.Properties;
 using TravelExpertsDB;
 using Validation;
 
@@ -22,6 +23,7 @@ namespace TravelExpertsApp
         public Package PkgIn;
         public Package PkgOut = new Package();
         public bool Add;
+        private bool imageChanged = false; 
 
         public frmPkgAddModify()
         {
@@ -59,13 +61,13 @@ namespace TravelExpertsApp
             {
                 pbPkgImage.Image = PkgIn.ImageFromBytes();
                 //For Some Reason I have to Write a File, then convert it into an image from a file.
-                File.WriteAllBytes("myImage.jpg", PkgIn.PkgImage);
-                pbPkgImage.Image = Image.FromFile("myImage.jpg");
+                //File.WriteAllBytes("myImage.jpg", PkgIn.PkgImage);
+                //pbPkgImage.Image = Image.FromFile("myImage.jpg");
                 //File.Delete("myImage.jpg"); //just delete it when I am done with it
             }
-            catch ( Exception e )
+            catch ( Exception)
             {
-                MessageBox.Show(e.Message);
+                pbPkgImage.Image = Resources.X_512_bluegrey;
             }
 
             //Fill the List view with the Product Suppliers
@@ -89,7 +91,7 @@ namespace TravelExpertsApp
                 Image myImage = Image.FromFile(path);
                 pbPkgImage.Image = myImage;
                 pbPkgImage.Tag = path;
-                //ADD THE EMILE FLAG HERE
+                imageChanged = true;
             }
         }
 
@@ -98,8 +100,16 @@ namespace TravelExpertsApp
             Result message = isValid();
             if (message.Success )
             {
-                ImageConverter converter = new ImageConverter();
-                byte[] imgArray = (byte[])converter.ConvertTo(pbPkgImage.Image, typeof(byte[]));
+                if ( imageChanged == true )
+                {
+                    ImageConverter converter = new ImageConverter();
+                    byte[] imgArray = (byte[])converter.ConvertTo(pbPkgImage.Image, typeof (byte[]));
+                    PkgOut.PkgImage = imgArray;
+                }
+                else
+                {
+                    PkgOut.PkgImage = PkgIn.PkgImage;
+                }
                 string basePrice = txtBasePrice.Text.Replace("$", "");
                 string commission = txtCommission.Text.Replace("$", "");
 
@@ -109,7 +119,6 @@ namespace TravelExpertsApp
                 PkgOut.PkgDesc = txtDesc.Text;
                 PkgOut.PkgBasePrice = Convert.ToDecimal(basePrice);
                 PkgOut.PkgAgencyCommission = Convert.ToDecimal(commission);
-                PkgOut.PkgImage = imgArray;
                 int[] prodSupIds = new int[lvPkgProductSuppliers.Items.Count];
                 for (int i = 0; i < lvPkgProductSuppliers.Items.Count; i++)
                 {
