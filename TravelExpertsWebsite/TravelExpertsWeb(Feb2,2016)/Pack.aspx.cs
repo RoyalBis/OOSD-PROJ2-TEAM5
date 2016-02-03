@@ -22,6 +22,7 @@ public partial class Pack : System.Web.UI.Page
         try
         {
             string[] arr = new string[7];
+            DateTime startDate, endDate;
             foreach (Package ValuePackages in selectedPackage)
             {
 
@@ -30,15 +31,21 @@ public partial class Pack : System.Web.UI.Page
                 arr[1] = ValuePackages.PkgName.ToString();
                 arr[2] = ValuePackages.PkgStartDate.ToString();
                 arr[3] = ValuePackages.PkgEndDate.ToString();
-                arr[4] = ValuePackages.PkgBasePrice.ToString();
+                arr[4] = ValuePackages.PkgBasePrice.ToString("c");
                 arr[5] = ValuePackages.PkgDesc.ToString();
-                arr[6] = ValuePackages.PkgAgencyCommission.ToString();
-                //add items in the list
+                arr[6] = ValuePackages.PkgAgencyCommission.ToString("c");
+                //add items in the list   
+                arr[2]=arr[2].Replace("12:00:00 AM", "");
+                startDate =Convert.ToDateTime(arr[2]);
+                arr[2]= startDate.ToString("dd MMMM, yyyy");
 
+                arr[3] = arr[3].Replace("12:00:00 AM", "");
+                endDate = Convert.ToDateTime(arr[3]);
+                arr[3] = endDate.ToString("dd MMMM, yyyy");
 
             }
 
-            displayLabels(arr[0].ToString(), arr[1].ToString(), arr[2].ToString(), arr[3].ToString(), arr[4].ToString(), arr[5].ToString(), arr[6].ToString());
+            displayLabels(arr[0].ToString(), arr[1].ToString(), arr[2], arr[3].ToString(), arr[4].ToString(), arr[5].ToString(), arr[6].ToString());
 
 
         }
