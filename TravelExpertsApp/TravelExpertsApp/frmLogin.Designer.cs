@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmLogin));
             this.btnLogin = new MaterialSkin.Controls.MaterialRaisedButton();
             this.txtAgentName = new MaterialSkin.Controls.MaterialSingleLineTextField();
             this.txtAgentPassword = new MaterialSkin.Controls.MaterialSingleLineTextField();
@@ -130,6 +131,7 @@
             // btnExit
             // 
             this.btnExit.Depth = 0;
+            this.btnExit.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnExit.Location = new System.Drawing.Point(365, 4);
             this.btnExit.Margin = new System.Windows.Forms.Padding(4);
             this.btnExit.MouseState = MaterialSkin.MouseState.HOVER;
@@ -199,6 +201,7 @@
             this.ClientSize = new System.Drawing.Size(476, 266);
             this.ControlBox = false;
             this.Controls.Add(this.panel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "frmLogin";
             this.Sizable = false;

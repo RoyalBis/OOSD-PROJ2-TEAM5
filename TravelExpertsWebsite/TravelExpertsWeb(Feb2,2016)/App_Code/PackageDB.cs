@@ -35,6 +35,7 @@ public static class PackageDB
                 pack.PkgAgencyCommission = (decimal)reader["PkgAgencyCommission"];
                 pack.PkgStartDate = (DateTime)reader["PkgStartDate"];
                 pack.PkgEndDate = (DateTime)reader["PkgEndDate"];
+                pack.PkgImage = (byte[]) reader["PkgImage"];
 
                 packages.Add(pack);
 

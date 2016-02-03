@@ -110,11 +110,14 @@ public static class CustomerDB
             {
                 BookingDetail bd = new BookingDetail();
                 bd.BookingId = (int)bdReader["BookingId"];
-                bd.TripStart = (DateTime)bdReader["TripStart"];
-                bd.TripEnd = (DateTime)bdReader["TripEnd"];
+                DateTime TripStart = (DateTime)bdReader["TripStart"];
+                bd.TripStart = TripStart.ToString("yyyy-MM-dd");
+                DateTime TripEnd = (DateTime)bdReader["TripEnd"];
+                bd.TripEnd = TripEnd.ToString("yyyy-MM-dd");
                 bd.Description = bdReader["Description"].ToString();
                 bd.Destination = bdReader["Destination"].ToString();
-                bd.BasePrice = (decimal)bdReader["BasePrice"];
+                decimal BasePrice = (decimal)bdReader["BasePrice"];
+                bd.BasePrice = BasePrice.ToString("C");
                 bd.ClassId = bdReader["ClassId"].ToString();
                 mylist.Add(bd);
             }

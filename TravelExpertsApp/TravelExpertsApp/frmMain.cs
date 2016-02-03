@@ -30,7 +30,14 @@ namespace TravelExpertsApp
             DialogResult splash = start.ShowDialog();
             if (splash == DialogResult.OK)
             {
+            DialogResult started = start.ShowDialog();
+
+            if (started == DialogResult.OK)
+            {
+                frmLogin agtLogin = new frmLogin();
+
                 //hide panel
+                Panel hidePanel = DisplayHidePanel();
                 DialogResult result = agtLogin.ShowDialog();
 
                 if (result != DialogResult.None)

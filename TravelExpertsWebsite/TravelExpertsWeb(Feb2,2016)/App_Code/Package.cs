@@ -25,4 +25,6 @@ public class Package
     public decimal PkgBasePrice { get; set; }
 
     public decimal PkgAgencyCommission { get; set; }
+
+    public byte[] PkgImage { get; set; }
 }

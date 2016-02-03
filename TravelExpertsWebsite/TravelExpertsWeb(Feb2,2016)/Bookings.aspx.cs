@@ -21,6 +21,11 @@ public partial class Bookings : System.Web.UI.Page
             gvBooking.DataBind();
 
             lblUsername.Text = "Welcome " + Session["User"].ToString();
+            Label lblUser = (Label)Master.FindControl("UserLogin");
+            lblUser.Text = "Hello, " + Session["User"].ToString();
+
+            gvBooking.Font.Size = FontUnit.XSmall;
+            dvCustomer.Font.Size = FontUnit.XSmall;
         }
     }
 }
