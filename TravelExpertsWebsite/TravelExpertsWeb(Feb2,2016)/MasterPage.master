@@ -16,7 +16,7 @@
          <!--nav bar-->
          <nav class="navbar navbar-inverse">
             <div class="navbar-header">
-                <img src="image/iconbig.png" /><a class="navbar-brand" href="#">Travel Experts</a>
+                <img src="image/icon.png" /><a class="navbar-brand" href="#">Travel Experts</a>
             </div>
             <ul class="nav navbar-nav">
                 <li><a href="Login.aspx">Home</a></li>
