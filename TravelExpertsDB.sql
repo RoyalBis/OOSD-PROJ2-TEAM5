@@ -1,5 +1,8 @@
+ALTER TABLE Packages
+ADD PkgImage varchar(20) NULL DEFAULT NULL
+
 ALTER TABLE Agents
-ADD AgentPassword varbinary(max) NOT NULL DEFAULT '123ABC'
+ADD AgentPassword varchar(20) NOT NULL DEFAULT '123ABC'
 
 UPDATE Agents
 SET AgentPassword = '123ABC'
