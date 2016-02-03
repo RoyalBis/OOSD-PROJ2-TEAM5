@@ -23,21 +23,22 @@ namespace TravelExpertsApp
         private void frmSplashStart_Load(object sender, EventArgs e)
         {
             //When the application starts, display this page.
-            tLeft = 10;
             hoot.Play();
+            tLeft = 20;
             tmStart.Start();
         }
 
         private void tmStart_Tick(object sender, EventArgs e)
         {
             //When the timer ends, hide this splash page.
-            while (tLeft < 0)
+            while (tLeft > 0)
             {
                 tLeft -= tLeft;
+                return;
             }
             tmStart.Stop();
             //Loading form goes here.
-            new frmLogin();
+            this.DialogResult = DialogResult.OK;
             hoot.Stop();
             this.Close();
         }

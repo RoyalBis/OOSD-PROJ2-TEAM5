@@ -25,18 +25,23 @@ namespace TravelExpertsApp
             InitializeComponent();
             MyPkgViewer = null;
             frmSplashStart start = new frmSplashStart();
-            frmLogin  agtLogin = new frmLogin();
+            DialogResult started = start.ShowDialog();
 
-            //hide panel
-            Panel hidePanel = DisplayHidePanel();
-            DialogResult result = agtLogin.ShowDialog();
-
-            if (result != DialogResult.None)
+            if (started == DialogResult.OK)
             {
-                hidePanel.Dispose();
-                if (result == DialogResult.OK)
+                frmLogin agtLogin = new frmLogin();
+
+                //hide panel
+                Panel hidePanel = DisplayHidePanel();
+                DialogResult result = agtLogin.ShowDialog();
+
+                if (result != DialogResult.None)
                 {
-                    //get the user that just logged in here.
+                    hidePanel.Dispose();
+                    if (result == DialogResult.OK)
+                    {
+                        //get the user that just logged in here.
+                    }
                 }
             }
         }

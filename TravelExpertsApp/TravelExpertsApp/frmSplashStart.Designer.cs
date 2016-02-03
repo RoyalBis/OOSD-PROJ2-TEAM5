@@ -57,6 +57,7 @@
             // 
             // tmStart
             // 
+            this.tmStart.Interval = 2000;
             this.tmStart.Tick += new System.EventHandler(this.tmStart_Tick);
             // 
             // frmSplashStart
