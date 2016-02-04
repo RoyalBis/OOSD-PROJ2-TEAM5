@@ -14,7 +14,7 @@
                 <br />
                 <br />
                 <br />
-                <p>If you have any complaints about our customer service, packages or anything particular, click <asp:HyperLink style="color:blue" ID="hlComplaints" runat="server" NavigateUrl="~/Complaints.aspx">here</asp:HyperLink>.</p>
+                <p>If you have any complaints about our customer service, packages or anything particular, click <asp:HyperLink style="color:lightcyan" ID="hlComplaints" runat="server" NavigateUrl="~/Complaints.aspx">here</asp:HyperLink>.</p>
             </div>
         </div>
     </div>
