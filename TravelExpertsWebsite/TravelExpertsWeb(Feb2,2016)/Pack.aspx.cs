@@ -11,7 +11,7 @@ public partial class Pack : System.Web.UI.Page
     public static Package packages;
     protected void Page_Load(object sender, EventArgs e)
     {
-        for (int i = 1; i < 16; i++)
+        for (int i = 1; i < 17; i++)
             displayPackage(i);
 
         if (Session["User"] != null)
@@ -92,7 +92,7 @@ public partial class Pack : System.Web.UI.Page
         if (Convert.ToInt32(pkgID.ToString()) == 1)
         {
 
-            Label11.Text = pkgID.ToString();
+           
             Label12.Text = pkgName.ToString();
             Label13.Text = startDate.ToString();
             Label14.Text = endDate.ToString();
@@ -104,7 +104,7 @@ public partial class Pack : System.Web.UI.Page
         }
         if (Convert.ToInt32(pkgID.ToString()) == 2)
         {
-            Label21.Text = pkgID.ToString();
+            
             Label22.Text = pkgName.ToString();
             Label23.Text = startDate.ToString();
             Label24.Text = endDate.ToString();
@@ -117,7 +117,7 @@ public partial class Pack : System.Web.UI.Page
         }
         if (Convert.ToInt32(pkgID.ToString()) == 3)
         {
-            Label31.Text = pkgID.ToString();
+      
             Label32.Text = pkgName.ToString();
             Label33.Text = startDate.ToString();
             Label34.Text = endDate.ToString();
@@ -129,7 +129,7 @@ public partial class Pack : System.Web.UI.Page
         }
         if (Convert.ToInt32(pkgID.ToString()) == 4)
         {
-            Label41.Text = pkgID.ToString();
+            
             Label42.Text = pkgName.ToString();
             Label43.Text = startDate.ToString();
             Label44.Text = endDate.ToString();
@@ -141,7 +141,7 @@ public partial class Pack : System.Web.UI.Page
         }
         if (Convert.ToInt32(pkgID.ToString()) == 5)
         {
-            Label51.Text = pkgID.ToString();
+           
             Label52.Text = pkgName.ToString();
             Label53.Text = startDate.ToString();
             Label54.Text = endDate.ToString();
@@ -152,7 +152,7 @@ public partial class Pack : System.Web.UI.Page
         }
         if (Convert.ToInt32(pkgID.ToString()) == 6)
         {
-            Label61.Text = pkgID.ToString();
+           
             Label62.Text = pkgName.ToString();
             Label63.Text = startDate.ToString();
             Label64.Text = endDate.ToString();
@@ -164,7 +164,7 @@ public partial class Pack : System.Web.UI.Page
         }
         if (Convert.ToInt32(pkgID.ToString()) == 7)
         {
-            Label71.Text = pkgID.ToString();
+           
             Label72.Text = pkgName.ToString();
             Label73.Text = startDate.ToString();
             Label74.Text = endDate.ToString();
@@ -176,7 +176,7 @@ public partial class Pack : System.Web.UI.Page
         }
         if (Convert.ToInt32(pkgID.ToString()) == 8)
         {
-            Label81.Text = pkgID.ToString();
+            
             Label82.Text = pkgName.ToString();
             Label83.Text = startDate.ToString();
             Label84.Text = endDate.ToString();
@@ -188,7 +188,7 @@ public partial class Pack : System.Web.UI.Page
         }
         if (Convert.ToInt32(pkgID.ToString()) == 9)
         {
-            Label91.Text = pkgID.ToString();
+           
             Label92.Text = pkgName.ToString();
             Label93.Text = startDate.ToString();
             Label94.Text = endDate.ToString();
@@ -200,7 +200,7 @@ public partial class Pack : System.Web.UI.Page
         }
         if (Convert.ToInt32(pkgID.ToString()) == 10)
         {
-            Label101.Text = pkgID.ToString();
+        
             Label102.Text = pkgName.ToString();
             Label103.Text = startDate.ToString();
             Label104.Text = endDate.ToString();
@@ -212,7 +212,7 @@ public partial class Pack : System.Web.UI.Page
         }
         if (Convert.ToInt32(pkgID.ToString()) == 11)
         {
-            Label111.Text = pkgID.ToString();
+          
             Label112.Text = pkgName.ToString();
             Label113.Text = startDate.ToString();
             Label114.Text = endDate.ToString();
@@ -224,7 +224,7 @@ public partial class Pack : System.Web.UI.Page
         }
         if (Convert.ToInt32(pkgID.ToString()) == 12)
         {
-            Label121.Text = pkgID.ToString();
+           
             Label122.Text = pkgName.ToString();
             Label123.Text = startDate.ToString();
             Label124.Text = endDate.ToString();
@@ -236,7 +236,7 @@ public partial class Pack : System.Web.UI.Page
         }
         if (Convert.ToInt32(pkgID.ToString()) == 13)
         {
-            Label131.Text = pkgID.ToString();
+           
             Label132.Text = pkgName.ToString();
             Label133.Text = startDate.ToString();
             Label134.Text = endDate.ToString();
@@ -248,7 +248,7 @@ public partial class Pack : System.Web.UI.Page
         }
         if (Convert.ToInt32(pkgID.ToString()) == 14)
         {
-            Label141.Text = pkgID.ToString();
+           
             Label142.Text = pkgName.ToString();
             Label143.Text = startDate.ToString();
             Label144.Text = endDate.ToString();
@@ -258,9 +258,9 @@ public partial class Pack : System.Web.UI.Page
 
             _14.ImageUrl = getImgUrl(pkgID, pkgImage);
         }
-        if (Convert.ToInt32(pkgID.ToString()) == 15)
+        if (Convert.ToInt32(pkgID.ToString()) == 16)
         {
-            Label151.Text = pkgID.ToString();
+            
             Label152.Text = pkgName.ToString();
             Label153.Text = startDate.ToString();
             Label154.Text = endDate.ToString();

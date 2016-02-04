@@ -15,7 +15,7 @@
                         <asp:Image name="1" ID="_1"  runat="server"    />
                          </div>
                             <div class="titleBox" >
-                       <asp:Label ID="Label11" runat="server"  ></asp:Label>
+                       
                         <br />
                         <asp:Label ID="Label12" runat="server"  ></asp:Label>
                         <br />
@@ -36,7 +36,7 @@
 					    <asp:Image ID="_2"  runat="server"   />
                              </div>
                         <div class="titleBox">
-                        <asp:Label ID="Label21" runat="server"  ></asp:Label>
+                        
                         <br />
                         <asp:Label ID="Label22" runat="server"  ></asp:Label>
                         <br />
@@ -59,7 +59,7 @@
                          </div>
                              <div class="titleBox">
                    
-                        <asp:Label ID="Label31" runat="server"  ></asp:Label>
+                        
                         <br />
                         <asp:Label ID="Label32" runat="server"  ></asp:Label>
                         <br />
@@ -82,7 +82,7 @@
                         <asp:Image ID="_4"  runat="server"     />
                           </div>
                              <div class="titleBox">
-                       <asp:Label ID="Label41" runat="server"  ></asp:Label>
+                       
                         <br />
                         <asp:Label ID="Label42" runat="server"  ></asp:Label>
                         <br />
@@ -105,7 +105,6 @@
 					    <asp:Image ID="_5"   runat="server"     />
                         </div> 
                         <div class="titleBox">
-                       <asp:Label ID="Label51" runat="server"  ></asp:Label>
                         <br />
                         <asp:Label ID="Label52" runat="server"  ></asp:Label>
                         <br />
@@ -127,7 +126,6 @@
                         <asp:Image ID="_6"   runat="server"     />
                          </div>
                              <div class="titleBox">
-                       <asp:Label ID="Label61" runat="server"  ></asp:Label>
                         <br />
                         <asp:Label ID="Label62" runat="server"  ></asp:Label>
                         <br />
@@ -149,7 +147,6 @@
 				    <asp:Image ID="_7"  runat="server"     />
                          </div>
                              <div class="titleBox">
-                       <asp:Label ID="Label71" runat="server"  ></asp:Label>
                         <br />
                         <asp:Label ID="Label72" runat="server"  ></asp:Label>
                         <br />
@@ -171,7 +168,6 @@
 					    <asp:Image ID="_8"    runat="server"     />
                         </div>
                              <div class="titleBox">
-                       <asp:Label ID="Label81" runat="server"  ></asp:Label>
                         <br />
                         <asp:Label ID="Label82" runat="server"  ></asp:Label>
                         <br />
@@ -193,7 +189,6 @@
                         <asp:Image ID="_9"   runat="server"     />
                          </div>
                              <div class="titleBox">
-                  <asp:Label ID="Label91" runat="server"  ></asp:Label>
                         <br />
                         <asp:Label ID="Label92" runat="server"  ></asp:Label>
                         <br />
@@ -215,7 +210,6 @@
                         <asp:Image ID="_10"   runat="server"    />
                          </div>
                              <div class="titleBox">
-                  <asp:Label ID="Label101" runat="server"  ></asp:Label>
                         <br />
                         <asp:Label ID="Label102" runat="server"  ></asp:Label>
                         <br />
@@ -237,7 +231,6 @@
                         <asp:Image ID="_11" runat="server"      />
                          </div>
                              <div class="titleBox">
-                   <asp:Label ID="Label111" runat="server"  ></asp:Label>
                         <br />
                         <asp:Label ID="Label112" runat="server"  ></asp:Label>
                         <br />
@@ -259,7 +252,6 @@
                         <asp:Image ID="_12"  runat="server"     />
                      </div>    
                          <div class="titleBox">
-                   <asp:Label ID="Label121" runat="server"  ></asp:Label>
                         <br />
                         <asp:Label ID="Label122" runat="server"  ></asp:Label>
                         <br />
@@ -281,7 +273,6 @@
                         <asp:Image ID="_13"  runat="server"    />
                      </div>    
                          <div class="titleBox">
-                <asp:Label ID="Label131" runat="server"  ></asp:Label>
                         <br />
                         <asp:Label ID="Label132" runat="server"  ></asp:Label>
                         <br />
@@ -304,7 +295,6 @@
                         <asp:Image ID="_14" runat="server"    />
                         </div>
                              <div class="titleBox">
-                   <asp:Label ID="Label141" runat="server"  ></asp:Label>
                         <br />
                         <asp:Label ID="Label142" runat="server"  ></asp:Label>
                         <br />
@@ -326,7 +316,6 @@
                         <asp:Image ID="_15"  runat="server"    />
                          </div>
                              <div class="titleBox">
-               <asp:Label ID="Label151" runat="server"  ></asp:Label>
                         <br />
                         <asp:Label ID="Label152" runat="server"  ></asp:Label>
                         <br />
