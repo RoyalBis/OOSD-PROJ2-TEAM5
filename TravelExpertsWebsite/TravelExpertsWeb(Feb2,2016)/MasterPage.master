@@ -20,7 +20,7 @@
             </div>
             <ul class="nav navbar-nav">
                 <li><a href="Login.aspx">Home</a></li>
-                <li><a href="#">About</a></li>
+                <li><a href="About.aspx">About</a></li>
                 <li><a href="Pack.aspx">Packages</a></li>
                 <li><a href="Bookings.aspx">Profile</a></li>
                 <li><a href="#">Contact</a></li>
