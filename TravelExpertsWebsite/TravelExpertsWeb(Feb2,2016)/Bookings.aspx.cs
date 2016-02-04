@@ -20,6 +20,8 @@ public partial class Bookings : System.Web.UI.Page
             gvBooking.DataSource = list;
             gvBooking.DataBind();
 
+            Customer thisCustomer = CustomerDB.SelectThisCustomer(CustID);
+
             lblUsername.Text = "Welcome " + Session["User"].ToString();
             Label lblUser = (Label)Master.FindControl("UserLogin");
             lblUser.Text = "Hello, " + Session["User"].ToString();

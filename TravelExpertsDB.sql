@@ -31,3 +31,13 @@ SELECT AgtFirstName, AgentPassword
 FROM Agents 
 WHERE AgtFirstName='Janet'
 AND AgentPassword='123ABC'
+
+ALTER TABLE customers
+ADD Username varchar(20)
+
+ALTER TABLE customers
+ADD Password varchar(20)
+
+UPDATE Customers
+SET Username='User', Password='P@ssw0rd'
+WHERE CustomerId = 143

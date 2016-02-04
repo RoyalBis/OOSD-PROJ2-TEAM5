@@ -9,7 +9,7 @@ using System.Web;
 /// <summary>
 /// Summary description for CustomerDB
 /// </summary>
-
+[DataObject]
 public static class CustomerDB
 {
     public static int AddCustomer(Customer customer)
@@ -122,6 +122,160 @@ public static class CustomerDB
                 mylist.Add(bd);
             }
             return mylist;
+        }
+        catch (SqlException ex)
+        {
+            throw ex;
+        }
+        finally
+        {
+            connection.Close();
+        }
+    }
+
+    [DataObjectMethod(DataObjectMethodType.Select)]
+    public static Customer SelectThisCustomer(int custID)
+    {
+        SqlConnection connection = TravelExpertsDB.GetConnection();
+        string selectStatement = "SELECT CustomerId, CustFirstName, CustLastName, CustAddress, CustCity, CustProv, CustPostal, CustCountry, CustHomePhone, CustBusPhone, CustEmail, AgentId, Username, Password " +
+                                 "FROM Customers " +
+                                 "WHERE CustomerId=@CustomerId";
+        SqlCommand selectCommand = new SqlCommand(selectStatement, connection);
+        selectCommand.Parameters.AddWithValue("@CustomerId", custID);
+
+        try
+        {
+            connection.Open();
+            SqlDataReader custReader = selectCommand.ExecuteReader();
+            if (custReader.Read())
+            {
+                Customer cust = new Customer();
+                cust.CustomerId = (int)custReader["CustomerId"];
+                cust.CustFirstName = custReader["CustFirstName"].ToString();
+                cust.CustLastName = custReader["CustLastName"].ToString();
+                cust.CustAddress = custReader["CustAddress"].ToString();
+                cust.CustCity = custReader["CustCity"].ToString();
+                cust.CustProv = custReader["CustProv"].ToString();
+                cust.CustPostal = custReader["CustPostal"].ToString();
+                cust.CustCountry = custReader["CustCountry"].ToString();
+                cust.CustHomePhone = custReader["CustHomePhone"].ToString();
+                cust.CustBusPhone = custReader["CustBusPhone"].ToString();
+                cust.CustEmail = custReader["CustEmail"].ToString();
+                cust.AgentId = custReader["AgentId"].ToString();
+                cust.Username = custReader["Username"].ToString();
+                cust.Password = custReader["Password"].ToString();
+                return cust;
+            }
+            else
+            {
+                return null;
+            }
+        }
+        catch (SqlException ex)
+        {
+            throw ex;
+        }
+        finally
+        {
+            connection.Close();
+        }
+    }
+
+    [DataObjectMethod(DataObjectMethodType.Update)]
+    public static int UpdateCustomer(Customer original_Cust, Customer Cust) //update method
+    {
+        int indicator = 0;
+        SqlConnection connection = TravelExpertsDB.GetConnection();
+        string updateStatement = "UPDATE Customers " +
+                                 "SET CustomerId = @CustomerId, " +
+                                 "    CustFirstName = @CustFirstName, " +
+                                 "    CustLastName = @CustLastName, " +
+                                 "    CustAddress = @CustAddress, " +
+                                 "    CustCity = @CustCity, " +
+                                 "    CustProv = @CustProv, " +
+                                 "    CustPostal = @CustPostal, " +
+                                 "    CustCountry = @CustCountry, " +
+                                 "    CustHomePhone = @CustHomePhone, " +
+                                 "    CustBusPhone = @CustBusPhone, " +
+                                 "    CustEmail = @CustEmail, " +
+                                 "    AgentId = @AgentId, " +
+                                 "    Username = @Username, " +
+                                 "    Password = @Password " +
+                                 "WHERE CustomerId = @OldCustomerId " +
+                                 "  AND CustFIrstName = @OldCustFirstName " +
+                                 "  AND CustLastName = @OldCustLastName " +
+                                 "  AND CustAddress = @OldCustAddress " +
+                                 "  AND CustCity = @OldCustCity " +
+                                 "  AND CustProv = @OldCustProv " +
+                                 "  AND CustPostal = @OldCustPostal " +
+                                 "  AND CustCountry = @OldCustCountry " +
+                                 "  AND CustHomePhone = @OldCustHomePhone " +
+                                 "  AND CustBusPhone = @OldCustBusPhone " +
+                                 "  AND CustEmail = @OldCustEmail " +
+                                 "  AND AgentId = @OldAgentId " +
+                                 "  AND Username = @OldUsername " +
+                                 "  AND Password = @OldPassword";
+
+        SqlCommand updateCommand = new SqlCommand(updateStatement, connection);
+        updateCommand.Parameters.AddWithValue("@OldCustomerId", original_Cust.CustomerId);
+        updateCommand.Parameters.AddWithValue("@OldCustFirstName", original_Cust.CustFirstName);
+        updateCommand.Parameters.AddWithValue("@OldCustLastName", original_Cust.CustLastName);
+        updateCommand.Parameters.AddWithValue("@OldCustAddress", original_Cust.CustAddress);
+        updateCommand.Parameters.AddWithValue("@OldCustCity", original_Cust.CustCity);
+        updateCommand.Parameters.AddWithValue("@OldCustProv", original_Cust.CustProv);
+        updateCommand.Parameters.AddWithValue("@OldCustPostal", original_Cust.CustPostal);
+        updateCommand.Parameters.AddWithValue("@OldCustCountry", original_Cust.CustCountry);
+        updateCommand.Parameters.AddWithValue("@OldCustHomePhone", original_Cust.CustHomePhone);
+        updateCommand.Parameters.AddWithValue("@OldCustBusPhone", original_Cust.CustBusPhone);
+        updateCommand.Parameters.AddWithValue("@OldCustEmail", original_Cust.CustEmail);
+        if (original_Cust.AgentId == null)
+        {
+            updateCommand.Parameters.AddWithValue("@OldAgentId", DBNull.Value);
+        }
+        else
+        {
+            updateCommand.Parameters.AddWithValue("@OldAgentId", original_Cust.AgentId);
+        }
+        updateCommand.Parameters.AddWithValue("@OldUsername", original_Cust.Username);
+        updateCommand.Parameters.AddWithValue("@OldPassword", original_Cust.Password);
+        updateCommand.Parameters.AddWithValue("@CustomerId", Cust.CustomerId);
+        updateCommand.Parameters.AddWithValue("@CustFirstName", Cust.CustFirstName);
+        updateCommand.Parameters.AddWithValue("@CustLastName", Cust.CustLastName);
+        updateCommand.Parameters.AddWithValue("@CustAddress", Cust.CustAddress);
+        updateCommand.Parameters.AddWithValue("@CustCity", Cust.CustCity);
+        updateCommand.Parameters.AddWithValue("@CustProv", Cust.CustProv);
+        updateCommand.Parameters.AddWithValue("@CustPostal", Cust.CustPostal);
+        updateCommand.Parameters.AddWithValue("@CustCountry", Cust.CustCountry);
+        updateCommand.Parameters.AddWithValue("@CustHomePhone", Cust.CustHomePhone);
+        updateCommand.Parameters.AddWithValue("@CustBusPhone", Cust.CustBusPhone);
+        updateCommand.Parameters.AddWithValue("@CustEmail", Cust.CustEmail);
+        if (Cust.AgentId == null)
+        {
+            updateCommand.Parameters.AddWithValue("@AgentId", DBNull.Value);
+        }
+        else
+        {
+            updateCommand.Parameters.AddWithValue("@AgentId", Cust.AgentId);
+        }
+        updateCommand.Parameters.AddWithValue("@Username", Cust.Username);
+        updateCommand.Parameters.AddWithValue("@Password", Cust.Password);
+        try
+        {
+            connection.Open();
+            indicator = updateCommand.ExecuteNonQuery();
+            return indicator;
+            //if (indicator > 0)
+            //{
+            //    string selectStatement = "SELECT IDENT_CURRENT('Customers') " +
+            //          "FROM Customers";
+            //    SqlCommand selectCommand = new SqlCommand(selectStatement, connection);
+            //    int customerId = int.Parse(selectCommand.ExecuteScalar().ToString()); //first col of the row is selected
+            //    return customerId;
+            //}
+            //else
+            //{
+            //    return -1;
+            //}
         }
         catch (SqlException ex)
         {

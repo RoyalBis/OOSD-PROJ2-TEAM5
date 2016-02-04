@@ -20,7 +20,7 @@ public class Customer
     public string CustHomePhone { get; set; }
     public string CustBusPhone { get; set; }
     public string CustEmail { get; set; }
-    public int AgentId { get; set; }
+    public string AgentId { get; set; }
     public string Username { get; set; }
     public string Password { get; set; }
 }
