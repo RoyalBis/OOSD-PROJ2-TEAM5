@@ -17,8 +17,11 @@ public partial class Bookings : System.Web.UI.Page
         {
             int CustID = int.Parse(Session["CustID"].ToString());
             List<BookingDetail> list = CustomerDB.UserBooking(CustID);
+            
             gvBooking.DataSource = list;
             gvBooking.DataBind();
+            lblTotal.Text = CustomerDB.GetTotal(CustID).ToString("c");
+
 
             Customer thisCustomer = CustomerDB.SelectThisCustomer(CustID);
 

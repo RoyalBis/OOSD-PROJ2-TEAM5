@@ -43,6 +43,10 @@
                             <asp:GridView ID="gvBooking" runat="server" CellPadding="6" CssClass="table" GridLines="None">
                             </asp:GridView>
                             <br />
+                            <asp:Label ID="Label1" runat="server" Text="Total: "></asp:Label>
+                            <asp:Label ID="lblTotal" runat="server" Text="Label"></asp:Label>
+                            <br />
+                            <br />
                         </div>
                     </form>
                 </div>

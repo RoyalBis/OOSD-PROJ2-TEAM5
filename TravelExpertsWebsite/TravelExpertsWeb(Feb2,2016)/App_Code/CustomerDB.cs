@@ -12,6 +12,7 @@ using System.Web;
 [DataObject]
 public static class CustomerDB
 {
+    
     public static int AddCustomer(Customer customer)
     {
         SqlConnection connection = TravelExpertsDB.GetConnection();
@@ -52,6 +53,43 @@ public static class CustomerDB
         {
             connection.Close();
         }
+    }
+
+    public static decimal GetTotal(int custID)
+    {
+        decimal sumCust = 0,BasePrice;
+        SqlConnection connection = TravelExpertsDB.GetConnection();
+        string selectStatement = "SELECT BasePrice " +
+                                 "FROM Bookings as b, BookingDetails as bd " +
+                                 "WHERE b.BookingId=bd.BookingId " +
+                                 "  AND CustomerId=@CustomerId";
+        SqlCommand selectCommand = new SqlCommand(selectStatement, connection);
+        selectCommand.Parameters.AddWithValue("@CustomerId", custID);
+
+
+        try
+        {
+            connection.Open();
+            SqlDataReader bdReader = selectCommand.ExecuteReader();
+                   
+            while (bdReader.Read())
+            {
+                     
+                BasePrice = (decimal)bdReader["BasePrice"];
+                sumCust += BasePrice ;
+         
+            }
+            return sumCust;
+        }
+        catch (SqlException ex)
+        {
+            throw ex;
+        }
+        finally
+        {
+            connection.Close();
+        }
+
     }
 
     public static Customer UserLogin(Customer customer)
@@ -105,6 +143,7 @@ public static class CustomerDB
         {
             connection.Open();
             SqlDataReader bdReader = selectCommand.ExecuteReader();
+            
             List<BookingDetail> mylist = new List<BookingDetail>();
             while (bdReader.Read())
             {
