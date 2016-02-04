@@ -242,9 +242,9 @@ namespace TravelExpertsApp
             this.lblSearch.Location = new System.Drawing.Point(3, 13);
             this.lblSearch.MouseState = MaterialSkin.MouseState.HOVER;
             this.lblSearch.Name = "lblSearch";
-            this.lblSearch.Size = new System.Drawing.Size(251, 24);
+            this.lblSearch.Size = new System.Drawing.Size(500, 24);
             this.lblSearch.TabIndex = 13;
-            this.lblSearch.Text = "Search for a Product Supplier";
+            this.lblSearch.Text = "Search for a Product Supplier...";
             // 
             // panMain
             // 
@@ -353,7 +353,7 @@ namespace TravelExpertsApp
             this.mctxtResultsClose});
             this.mctxtResults.MouseState = MaterialSkin.MouseState.HOVER;
             this.mctxtResults.Name = "mcontext1";
-            this.mctxtResults.Size = new System.Drawing.Size(275, 62);
+            this.mctxtResults.Size = new System.Drawing.Size(269, 62);
             // 
             // mctxtResultsAdd
             // 
@@ -367,7 +367,7 @@ namespace TravelExpertsApp
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(271, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(265, 6);
             // 
             // mctxtResultsClose
             // 

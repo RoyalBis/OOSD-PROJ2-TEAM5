@@ -7,21 +7,31 @@ using System.Threading.Tasks;
 
 namespace EntityLayer
 {
+    /// <summary>
+    /// Package Wrapper Class, Holds packages
+    /// </summary>
     public class PackageList : IEnumerable<Package>
     {
+        //the list of packages
         public List<Package> Packages;
-
+        //change handlers to monitor changes to the list of packages
         public delegate void ChangeHandler(PackageList packages);
-
+        //the onchanged event for the package list
         public event ChangeHandler OnChanged;
+        //this.Count will return a count of the List of Packages
+        public int Count => Packages.Count;
 
+        //when we make a new package list, make a new Lust of Package
         public PackageList()
         {
             Packages = new List<Package>();
         }
 
-        public int Count => Packages.Count;
-
+        /// <summary>
+        /// get and set the the package at index 'i' of the list of packages
+        /// </summary>
+        /// <param name="i">this index to get/set</param>
+        /// <returns>Package at index 'i'</returns>
         public Package this[int i]
         {
             get
@@ -43,17 +53,29 @@ namespace EntityLayer
             }
         }
 
+        /// <summary>
+        /// Add a new Package to the list of packages
+        /// </summary>
+        /// <param name="package">A Package Object</param>
         public void Add(Package package)
         {
             Packages.Add(package);
         }
 
+        /// <summary>
+        /// Remove a Package from the list of packages
+        /// </summary>
+        /// <param name="product">A Package Object</param>
         public void Remove(Package product)
         {
             Packages.Remove(product);
             OnChanged(this);
         }
 
+        /// <summary>
+        /// Allows enumerating through the list of pacakges
+        /// </summary>
+        /// <returns>IEnumerator of Package</returns>
         public IEnumerator<Package> GetEnumerator()
         {
             for (int i = 0; i < Packages.Count; i++)

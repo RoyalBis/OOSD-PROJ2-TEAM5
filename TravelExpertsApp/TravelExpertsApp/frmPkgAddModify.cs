@@ -163,7 +163,7 @@ namespace TravelExpertsApp
             {
                 if ( !PkgIn.PkgProductSuppliers.Contains(prodsup) )
                 {
-                    PackagesProductsSuppliersTable.AddSupplier(PkgIn.PackageId, prodsup);
+                    PackagesProductsSuppliersTable.AddPkgProdSup(PkgIn.PackageId, prodsup);
                 }
             }
         }
@@ -172,7 +172,7 @@ namespace TravelExpertsApp
         {
             foreach (ProductSupplier prodsup in PkgOut.PkgProductSuppliers)
             {
-                PackagesProductsSuppliersTable.AddSupplier(PkgOut.PackageId, prodsup);
+                PackagesProductsSuppliersTable.AddPkgProdSup(PkgOut.PackageId, prodsup);
             }
         }
 

@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace EntityLayer
 {
+    /// <summary>
+    /// Entity class for products
+    /// </summary>
     public class Product
     {
         //Class properties

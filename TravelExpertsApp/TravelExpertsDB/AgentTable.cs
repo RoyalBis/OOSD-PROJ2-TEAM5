@@ -9,11 +9,14 @@ using System.Data;
 
 namespace TravelExpertsDB
 {
+    /// <summary>
+    /// TravelExperts Agents Table Access Class
+    /// </summary>
     public static class AgentTable
     {
 
-        //
-        //Statement for SearchProducts()
+        #region Query Strings
+        //Statement for Search All Agents, Unused...
         private const string SearchAll = "SELECT AgentId, AgtFirstName, AgtMiddleInitial, AgtLastName, AgtEmail, AgtPosition " +
                                          "FROM agents WHERE AgentId LIKE  '%' + @searchIndex + '%' OR AgtFirstName " +
                                          "LIKE '%' + @searchIndex + '%' " +
@@ -22,14 +25,25 @@ namespace TravelExpertsDB
                                          "OR AgtEmail LIKE '%' + @searchIndex + '%' " +
                                          "OR AgtPosition LIKE '%' + @searchIndex + '%' ";
 
+        //Statement to login an Agent
         private const string LoginStmt ="SELECT AgtFirstName, AgentPassword " +
                                                                            "FROM Agents " +
                                                                            "WHERE AgtFirstName = @username " +
                                                                            "AND AgentPassword = @password";
+        #endregion
 
+        #region Queries
+        /// <summary>
+        /// Query to login the agent
+        /// </summary>
+        /// <param name="AgentFirstName">string</param>
+        /// <param name="AgentPassword">string</param>
+        /// <returns>true if the username and password match one in the database.</returns>
         public static bool Login(string AgentFirstName, string AgentPassword)
         {
+            //Call the common function to retrieve an sql command
             SqlCommand command = TravelExpertsCommon.GetCommand(LoginStmt);
+            //Add the parameters
             command.Parameters.AddWithValue("@username", AgentFirstName);
             command.Parameters.AddWithValue("@password", AgentPassword);
 
@@ -39,11 +53,13 @@ namespace TravelExpertsDB
                 //try in case of errors and re-throw them to the UI
                 try
                 {
+                    //open the connection
                     command.Connection.Open();
 
                     SqlDataReader reader = command.ExecuteReader();
                     if ( reader.Read() )
                     {
+                        //just return true if the agent was able to login, we don't care who the agent is later on
                         return true;
                     }
                     return false;
@@ -55,7 +71,11 @@ namespace TravelExpertsDB
             }
         }
 
-
+        /// <summary>
+        /// Searches for an agent based on any of their fields.
+        /// </summary>
+        /// <param name="searchIndex">string</param>
+        /// <returns>List of  matched Agents</returns>
         public static List<Agent> SearchAllAgents(string searchIndex)
         {
             //We need a suppliers list to return; either a list of suppliers or an empty list
@@ -92,15 +112,11 @@ namespace TravelExpertsDB
                 }
                 catch (Exception ex)    //catch all exceptions and re-throw them
                 {
-                    agents = null;   //an error occurred so lets not continue
                     throw ex;
-                }
-                finally
-                {
-                    connection.Close();
                 }
             }   //end of the using statement
             return agents;
         }
+#endregion
     }
 }

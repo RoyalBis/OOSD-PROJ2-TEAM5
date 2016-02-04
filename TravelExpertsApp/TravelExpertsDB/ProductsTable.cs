@@ -9,41 +9,44 @@ using EntityLayer;
 
 namespace TravelExpertsDB
 {
+    /// <summary>
+    /// TravelExperts Products Table Access Class
+    /// </summary>
     public class ProductsTable
     {
+        #region Query Strings
         //SQL STATEMENTS\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
-        //Statement for GetAllSuppliers()
+        //Statement for GetAllProducts()
         private const string GetAllStmt = "SELECT ProductId, ProdName " +
-                                          "FROM Products";
+                                                                              "FROM Products";
 
-        //Statement for GetSupplier()
+        //Statement for GetProduct()
         private const string GetStmt = "SELECT ProductId, ProdName " +
-                                       "FROM Products " +
-                                       "WHERE ProductId = @ProductId";
+                                                                        "FROM Products " +
+                                                                        "WHERE ProductId = @ProductId";
 
-        //Statement for GetSuppliersofProduct()
-        private const string GetAllOfSupplierStmt = "SELECT ProductID, ProdName " +
-                                                    "FROM Products " +
-                                                    "INNER JOIN Products_Suppliers " +
-                                                    "WHERE SupplierId = @SupplierId";
-
-        //Statement for AddSupplier()
+        //Statement for AddProduct()
         private const string InsertStmt = "INSERT INTO Products " +
-                                          "(ProdName) " +
-                                          "VALUES(@ProdName)";
+                                                                            "(ProdName) " +
+                                                                            "VALUES(@ProdName)";
 
-        //Statement for UpdateSupplier()
+        //Statement for UpdateProduct()
         private const string UpdateStmt = "UPDATE Products " +
-                                          "SET ProdName = @NewProdName " +
-                                          "WHERE ProductId = @OldProductId " +
-                                          "AND ProdName = @OldProdName";
+                                                                                "SET ProdName = @NewProdName " +
+                                                                                "WHERE ProductId = @OldProductId " +
+                                                                                "AND ProdName = @OldProdName";
         //Statement for SearchProducts()
         private const string SearchAll = "SELECT ProductId, ProdName " +
-                                         " FROM Products " +
-                                         " WHERE ProdName LIKE  '%' + @searchIndex + '%' OR ProductId LIKE '%' + @searchIndex + '%'";
+                                                                          " FROM Products " +
+                                                                          " WHERE ProdName LIKE  '%' + @searchIndex + '%' OR ProductId LIKE '%' + @searchIndex + '%'";
         //\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+        #endregion  
 
         #region Database Queries
+        /// <summary>
+        /// Get all the Products from the database
+        /// </summary>
+        /// <returns>List of Products</returns>
         public static List<Product> GetAllProducts()
         {
             //We need a suppliers list to return; either a list of suppliers or an empty list
@@ -75,6 +78,11 @@ namespace TravelExpertsDB
             }   //end of the using statement
         }
 
+        /// <summary>
+        /// Get one productfrom the database based on a product id
+        /// </summary>
+        /// <param name="productId">int ProductId</param>
+        /// <returns>Product</returns>
         public static Product GetProduct(int productId)
         {
             //get the connection and make a new select statement
@@ -90,6 +98,7 @@ namespace TravelExpertsDB
                 {
                     command.Connection.Open();
 
+                    //will only be one ever: productId is the unique key
                     SqlDataReader reader = command.ExecuteReader(CommandBehavior.SingleRow);
                     if (reader.Read())
                     {
@@ -105,40 +114,11 @@ namespace TravelExpertsDB
             }   //end of the using statement
         }
 
-        //Static Method to return a list of all the Product offered by a supplier
-        public static List<Product> GetProductsfromSupplier(int supplierId)
-        {
-            List<Product> products = new List<Product>();
-
-            //get the connection and make a new select statement
-            SqlCommand command = TravelExpertsCommon.GetCommand(GetStmt);
-            command.Parameters.AddWithValue("@SupplierId", "supplierId");
-
-            //Using will auto close the connection once the block is ended
-            using (command.Connection)
-            {
-                //try in case of errors and re-throw them to the UI
-                try
-                {
-                    command.Connection.Open();
-
-                    SqlDataReader reader = command.ExecuteReader();
-                    while (reader.Read())
-                    {
-                        //build a new Product Object for each returned product
-                        //and add the supplier to the list
-                        products.Add(CreateProduct(reader));
-                    }
-                    return products;
-                }
-                catch (Exception ex)    //catch all exceptions and re-throw them
-                {
-                    throw ex;
-                }
-            }   //end of the using statement
-        }
-
-        //Static Method to add a new Product
+       /// <summary>
+       /// Insert a new Product into the database
+       /// </summary>
+       /// <param name="prod">Product</param>
+       /// <returns>true if insert was successful</returns>
         public static bool AddProduct(Product prod)
         {
             //get the connection and make a new select statement
@@ -147,10 +127,16 @@ namespace TravelExpertsDB
             //command.Parameters.AddWithValue("@ProductId", prod.ProductId);
             command.Parameters.AddWithValue("@ProdName", prod.ProdName);
 
+            //just perform the query and return the result
             return TravelExpertsCommon.PerformNonQuery(command);
         }
 
-        //Static Method to update an existing Product
+        /// <summary>
+        /// Update a Product
+        /// </summary>
+        /// <param name="newProd">Product, New</param>
+        /// <param name="oldProd">Product, Exisiting</param>
+        /// <returns>returns true if update was successful</returns>
         public static bool UpdateProduct(Product newProd, Product oldProd)
         {
             //get the connection and make a new select statement
@@ -160,9 +146,15 @@ namespace TravelExpertsDB
             command.Parameters.AddWithValue("@OldProductId", oldProd.ProductId);
             command.Parameters.AddWithValue("@OldProdName", oldProd.ProdName);
 
+            //just perform the query and return the result
             return TravelExpertsCommon.PerformNonQuery(command);
         }
 
+        /// <summary>
+        /// search all products based on a search string
+        /// </summary>
+        /// <param name="searchIndex">string</param>
+        /// <returns>List of Products</returns>
         public static List<Product> SearchAllProducts(string searchIndex)
         {
             //We need a suppliers list to return; either a list of suppliers or an empty list
@@ -196,6 +188,11 @@ namespace TravelExpertsDB
         }
         #endregion
 
+        /// <summary>
+        /// Common method to build Products from a database query
+        /// </summary>
+        /// <param name="reader">SqlDataReader</param>
+        /// <returns>Product</returns>
         internal static Product CreateProduct(SqlDataReader reader)
         {
             Product product = new Product();

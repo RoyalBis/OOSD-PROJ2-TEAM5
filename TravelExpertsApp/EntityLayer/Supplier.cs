@@ -8,21 +8,16 @@ using System.Threading.Tasks;
 namespace EntityLayer
 {
     /// <summary>
-    /// The Supplier of a Travel Product
+    /// Entity Supplier Class
     /// </summary>
     public class Supplier
     {
-        public Supplier()
-        {
-        }
-
         //Class Fields.
         //private int supplierId;
         //private string supName;
 
         //Class properties.
         public int SupplierId { get; set; }
-
         public string SupName { get; set; }
     }
 }

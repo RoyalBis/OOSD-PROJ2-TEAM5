@@ -9,73 +9,74 @@ using System.Data;
 
 namespace TravelExpertsDB
 {
-
-    //TODO: Manage NULLS IN THE DATABASE
-
+    /// <summary>
+    /// TravelExperts Packages Table Access Class
+    /// </summary>
     public static class PackagesTable
     {
         #region Query Strings
         //SQL STATEMENTS\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
         //Statement for GetAllPackages()
         private const string GetAllStmt = "SELECT PackageId, PkgName, PkgStartDate, PkgEndDate, PkgDesc, PkgBasePrice, PkgAgencyCommission, PkgImage " +
-                                          "FROM Packages ORDER BY PackageId";
+                                                                             "FROM Packages ORDER BY PackageId";
         
-        //Statement for GetSupplier()
+        //Statement for GetPackage()
         private const string GetStmt = "SELECT PackageId, PkgName, PkgStartDate, PkgEndDate, PkgDesc, PkgBasePrice, PkgAgencyCommission, PkgImage " +
-                                       "FROM Packages " +
-                                       "WHERE PackageId = @PackageId";
+                                                                        "FROM Packages " +
+                                                                        "WHERE PackageId = @PackageId";
 
         //Statement for AddPackage()
         private const string InsertStmt = "INSERT INTO Packages " +
-                                          "(PkgName, PkgDesc, PkgStartDate, PkgEndDate, PkgBasePrice, PkgAgencyCommission, PkgImage) " +
-                                          "Values(@PkgName, @PkgDesc, @PkgStartDate, @PkgEndDate, @PkgBasePrice, @PkgAgencyCommission, @PkgImage)";
+                                                                            "(PkgName, PkgDesc, PkgStartDate, PkgEndDate, PkgBasePrice, PkgAgencyCommission, PkgImage) " +
+                                                                            "Values(@PkgName, @PkgDesc, @PkgStartDate, @PkgEndDate, @PkgBasePrice, @PkgAgencyCommission, @PkgImage)";
 
         //Statement for Getting the recently added package
         private const string GetCurrentStmt = "SELECT IDENT_CURRENT('Packages') " +
-                                              "FROM Packages";
+                                                                                        "FROM Packages";
         
         //Statement for UpdatePackage()
         private const string UpdateStmt = "UPDATE Packages " +
-                                          "SET PkgName = @NewPkgName, " +
-                                          "PkgDesc = @NewPkgDesc, " +
-                                          "PkgStartDate = @NewPkgStartDate, " +
-                                          "PkgEndDate = @NewPkgEndDate, " +
-                                          "PkgBasePrice = @NewPkgBasePrice, " +
-                                          "PkgAgencyCommission = @NewPkgAgencyCommission, " +
-                                          "PkgImage = @NewPkgImage " +
-                                          "WHERE PackageId = @PackageId " +
-                                          "AND PkgName = @OldPkgName " +
-                                          "AND PkgDesc = @OldPkgDesc " +
-                                          "AND PkgStartDate = @OldPkgStartDate " +
-                                          "AND PkgEndDate = @OldPkgEndDate " +
-                                          "AND PkgBasePrice = @OldPkgBasePrice " +
-                                          "AND PkgAgencyCommission = @OldPkgAgencyCommission " +
-                                          "AND (PkgImage = @OldPkgImage "  +
-                                          "OR @OldPkgImage IS NULL AND PkgImage IS NULL)";
+                                                                                "SET PkgName = @NewPkgName, " +
+                                                                                "PkgDesc = @NewPkgDesc, " +
+                                                                                "PkgStartDate = @NewPkgStartDate, " +
+                                                                                "PkgEndDate = @NewPkgEndDate, " +
+                                                                                "PkgBasePrice = @NewPkgBasePrice, " +
+                                                                                "PkgAgencyCommission = @NewPkgAgencyCommission, " +
+                                                                                "PkgImage = @NewPkgImage " +
+                                                                                "WHERE PackageId = @PackageId " +
+                                                                                "AND PkgName = @OldPkgName " +
+                                                                                "AND PkgDesc = @OldPkgDesc " +
+                                                                                "AND PkgStartDate = @OldPkgStartDate " +
+                                                                                "AND PkgEndDate = @OldPkgEndDate " +
+                                                                                "AND PkgBasePrice = @OldPkgBasePrice " +
+                                                                                "AND PkgAgencyCommission = @OldPkgAgencyCommission " +
+                                                                                "AND (PkgImage = @OldPkgImage "  +
+                                                                                "OR @OldPkgImage IS NULL AND PkgImage IS NULL)";
+       
         //Statement for DeletePackage()
         private const string DeleteStmt = "DELETE Packages " +
-                                               "WHERE PackageId = @PackageId " +
-                                               "AND PkgName = @PkgName " +
-                                               "AND PkgDesc = @PkgDesc " +
-                                               "AND PkgStartDate = @PkgStartDate " +
-                                               "AND PkgEndDate = @PkgEndDate " +
-                                               "AND PkgBasePrice = @PkgBasePrice " +
-                                               "AND PkgAgencyCommission = @PkgAgencyCommission " +
-                                               "AND PkgImage = @PkgImage";
-
-        //Statement for SearchAllSuppliers()
-        private const string SearchAll = "SELECT supplierId, SupName " +
-                                         "FROM suppliers " +
-                                         "WHERE supplierId " +
-                                         "LIKE  '%' + @searchIndex + '%' " +
-                                         "OR SupName LIKE '%' + @searchIndex";
+                                                                              "WHERE PackageId = @PackageId " +
+                                                                              "AND PkgName = @PkgName " +
+                                                                              "AND PkgDesc = @PkgDesc " +
+                                                                              "AND PkgStartDate = @PkgStartDate " +
+                                                                              "AND PkgEndDate = @PkgEndDate " +
+                                                                              "AND PkgBasePrice = @PkgBasePrice " +
+                                                                              "AND PkgAgencyCommission = @PkgAgencyCommission " +
+                                                                              "AND PkgImage = @PkgImage";
         //\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
         #endregion
 
+        #region Queries
+        /// <summary>
+        /// Get all Packages
+        /// </summary>
+        /// <returns>PackageList</returns>
         public static PackageList GetAllPackages()
         {
+            //need a PackageList Variable
             PackageList packages = new PackageList();    
 
+            //Get the command
             SqlCommand command = TravelExpertsCommon.GetCommand(GetAllStmt);
  
             //Using will auto close the connection once the block is ended
@@ -89,6 +90,7 @@ namespace TravelExpertsDB
                     SqlDataReader reader = command.ExecuteReader();
                     while ( reader.Read() )
                     {
+                        //build each package with the common CreatePackage Method
                         packages.Add(CreatePackage(reader));
                     }
                     return packages;
@@ -100,20 +102,30 @@ namespace TravelExpertsDB
             }   //end of the using statement
         }
 
-        public static Package SearchPackage(int packageId) //Search method
+        /// <summary>
+        /// Search All Packages Based on a Package Id
+        /// </summary>
+        /// <param name="packageId">int packageId</param>
+        /// <returns>Package</returns>
+        public static Package SearchPackage(int packageId)
         {
+            //return the command for the query
             SqlCommand command = TravelExpertsCommon.GetCommand(GetStmt);
+            //paramaterize the command
             command.Parameters.AddWithValue("@PackageId", packageId);
             try
             {
                 command.Connection.Open();
+                //will only get one becuase pkgId is the uniqueq key
                 SqlDataReader packageReader = command.ExecuteReader(CommandBehavior.SingleRow);
                 if (packageReader.Read())
                 {
+                    //build it will the common create package method 
                     return CreatePackage(packageReader);
                 }
                 else
                 {
+                    //no results.
                     return null;
                 }
             }
@@ -123,30 +135,41 @@ namespace TravelExpertsDB
             }
             finally
             {
+                //either way close the connection
                 command.Connection.Close();
             }
         }
 
-        public static int AddPackage(Package pack) //add product method
+        /// <summary>
+        /// Insert a new Package into the Database
+        /// </summary>
+        /// <param name="pkg">Package</param>
+        /// <returns>int PackageId, the new packages id</returns>
+        public static int AddPackage(Package pkg) //add product method
         {
+            //get the insert command
             SqlCommand command = TravelExpertsCommon.GetCommand(InsertStmt);
-            command.Parameters.AddWithValue("@PkgName", pack.PkgName);
-            command.Parameters.AddWithValue("@PkgDesc", pack.PkgDesc);
-            command.Parameters.AddWithValue("@PkgStartDate", pack.PkgStartDate);
-            command.Parameters.AddWithValue("@PkgEndDate", pack.PkgEndDate);
-            command.Parameters.AddWithValue("@PkgBasePrice", pack.PkgBasePrice);
-            command.Parameters.AddWithValue("@PkgAgencyCommission", pack.PkgAgencyCommission);
-            if ( pack.PkgImage == null )
+            //parameterize the command
+            command.Parameters.AddWithValue("@PkgName", pkg.PkgName);
+            command.Parameters.AddWithValue("@PkgDesc", pkg.PkgDesc);
+            command.Parameters.AddWithValue("@PkgStartDate", pkg.PkgStartDate);
+            command.Parameters.AddWithValue("@PkgEndDate", pkg.PkgEndDate);
+            command.Parameters.AddWithValue("@PkgBasePrice", pkg.PkgBasePrice);
+            command.Parameters.AddWithValue("@PkgAgencyCommission", pkg.PkgAgencyCommission);
+            //PkgImage can be null
+            if ( pkg.PkgImage == null )
             {
                 command.Parameters.AddWithValue("@PkgImage", new byte [0] );
             }
             else
             {
-                command.Parameters.AddWithValue("@PkgImage", pack.PkgImage);
+                command.Parameters.AddWithValue("@PkgImage", pkg.PkgImage);
             }
-
+            
+            //call common Perform Query Command
             if ( TravelExpertsCommon.PerformNonQuery(command) )
             {
+                //next command to get the newly inserted Package
                 SqlCommand commCurr = TravelExpertsCommon.GetCommand(GetCurrentStmt);
                 //Using will auto close the connection once the block is ended
                 using (commCurr.Connection)
@@ -157,7 +180,7 @@ namespace TravelExpertsDB
                         commCurr.Connection.Open();
 
                         int packageId = int.Parse(commCurr.ExecuteScalar().ToString()); //first col of the row is selected
-                        return packageId;
+                        return packageId; //just return the new packageid
                     }
                     catch (Exception ex)    //catch all exceptions and re-throw them
                     {
@@ -167,19 +190,29 @@ namespace TravelExpertsDB
             }
             else
             {
+                //-1 indicates that no pkg was inserted and it failed.
                 return -1;
             }
         }
 
+        /// <summary>
+        /// Update an existing Package in the database
+        /// </summary>
+        /// <param name="oldPack">Package to Update</param>
+        /// <param name="newPack">New Package</param>
+        /// <returns>true if successful</returns>
         public static bool UpdatePackage(Package oldPack, Package newPack) //update method
         {
+            //get the update command
             SqlCommand command = TravelExpertsCommon.GetCommand(UpdateStmt);
+            //parameterize the command
             command.Parameters.AddWithValue("@OldPkgName", oldPack.PkgName);
             command.Parameters.AddWithValue("@OldPkgDesc", oldPack.PkgDesc);
             command.Parameters.AddWithValue("@OldPkgStartDate", oldPack.PkgStartDate);
             command.Parameters.AddWithValue("@OldPkgEndDate", oldPack.PkgEndDate);
             command.Parameters.AddWithValue("@OldPkgBasePrice", oldPack.PkgBasePrice);
             command.Parameters.AddWithValue("@OldPkgAgencyCommission", oldPack.PkgAgencyCommission);
+            //PkgImage is allowed to be null
             if ( oldPack.PkgImage == null )
             {
                 command.Parameters.AddWithValue("@OldPkgImage", DBNull.Value);
@@ -197,61 +230,58 @@ namespace TravelExpertsDB
             command.Parameters.AddWithValue("@NewPkgAgencyCommission", newPack.PkgAgencyCommission);
             command.Parameters.AddWithValue("@NewPkgImage", newPack.PkgImage);
 
+            //just perform the query and return true or false.
             return TravelExpertsCommon.PerformNonQuery(command);
         }
 
-        public static bool DeletePackage(Package pack) //delete method
+        /// <summary>
+        /// Delete a Package from the database
+        /// </summary>
+        /// <param name="pkg">Package</param>
+        /// <returns>true if delete was successful</returns>
+        public static bool DeletePackage(Package pkg) //delete method
         {
+            //get the delete command
             SqlCommand command = TravelExpertsCommon.GetCommand(DeleteStmt);
-            command.Parameters.AddWithValue("@PackageId", pack.PackageId);
-            command.Parameters.AddWithValue("@PkgName", pack.PkgName);
-            command.Parameters.AddWithValue("@PkgDesc", pack.PkgDesc);
-            command.Parameters.AddWithValue("@PkgStartDate", pack.PkgStartDate);
-            command.Parameters.AddWithValue("@PkgEndDate", pack.PkgEndDate);
-            command.Parameters.AddWithValue("@PkgBasePrice", pack.PkgBasePrice);
-            command.Parameters.AddWithValue("@PkgAgencyCommission", pack.PkgAgencyCommission);
-            command.Parameters.AddWithValue("@PkgImage", pack.PkgImage);
+            //parameterize the command
+            command.Parameters.AddWithValue("@PackageId", pkg.PackageId);
+            command.Parameters.AddWithValue("@PkgName", pkg.PkgName);
+            command.Parameters.AddWithValue("@PkgDesc", pkg.PkgDesc);
+            command.Parameters.AddWithValue("@PkgStartDate", pkg.PkgStartDate);
+            command.Parameters.AddWithValue("@PkgEndDate", pkg.PkgEndDate);
+            command.Parameters.AddWithValue("@PkgBasePrice", pkg.PkgBasePrice);
+            command.Parameters.AddWithValue("@PkgAgencyCommission", pkg.PkgAgencyCommission);
+            command.Parameters.AddWithValue("@PkgImage", pkg.PkgImage);
 
+            //just perform the query and return the result
             return TravelExpertsCommon.PerformNonQuery(command);
         }
+        #endregion
 
-        public static List<Package> SearchAllPackages(string searchIndex)
-        {
-            //We need a suppliers list to return; either a list of suppliers or an empty list
-            List<Package> packages = new List<Package>();
-            //get the connection and make a new select statement
-            SqlCommand command = TravelExpertsCommon.GetCommand(SearchAll);
-            command.Parameters.AddWithValue("@searchIndex", searchIndex);
-
-            SqlDataReader reader = TravelExpertsCommon.PerformQuery(command);
-            while (reader.Read())
-            {
-                //build a new Product Object for each returned product
-                //add the packages to the list
-                packages.Add(CreatePackage(reader));
-            }
-            return packages;
-        }
-
+        /// <summary>
+        /// Method to create a Package from a database query
+        /// </summary>
+        /// <param name="reader">SqlDataReader, result of a query</param>
+        /// <returns>Package</returns>
         private static Package CreatePackage(SqlDataReader reader)
         {
-            Package pack = new Package();
-            pack.PackageId = (int)reader["PackageId"];
-            pack.PkgName = reader["PkgName"].ToString();
-            pack.PkgDesc = reader["PkgDesc"].ToString();
-            pack.PkgBasePrice = (decimal)reader["PkgBasePrice"];
-            pack.PkgAgencyCommission = (decimal)reader["PkgAgencyCommission"];
-            pack.PkgStartDate = (DateTime)reader["PkgStartDate"];
-            pack.PkgEndDate = (DateTime)reader["PkgEndDate"];
+            Package pkg = new Package();
+            pkg.PackageId = (int)reader["PackageId"];
+            pkg.PkgName = reader["PkgName"].ToString();
+            pkg.PkgDesc = reader["PkgDesc"].ToString();
+            pkg.PkgBasePrice = (decimal)reader["PkgBasePrice"];
+            pkg.PkgAgencyCommission = (decimal)reader["PkgAgencyCommission"];
+            pkg.PkgStartDate = (DateTime)reader["PkgStartDate"];
+            pkg.PkgEndDate = (DateTime)reader["PkgEndDate"];
             if (reader["PkgImage"] is DBNull)
             {
-                pack.PkgImage = null;
+                pkg.PkgImage = null;
             }
             else
             {
-                pack.PkgImage = (byte[])reader["PkgImage"];
+                pkg.PkgImage = (byte[])reader["PkgImage"];
             }
-            return pack;
+            return pkg;
         }
     }
 }

@@ -8,14 +8,11 @@ using System.Threading.Tasks;
 
 namespace EntityLayer
 {
+    /// <summary>
+    /// Package Entity Class
+    /// </summary>
     public class Package
     {
-        //Constructor
-        public Package()
-        {
-
-        }
-        
         //Class properties
         public int PackageId { get; set; }
         public string PkgName { get; set; }
@@ -25,13 +22,14 @@ namespace EntityLayer
         public decimal PkgBasePrice { get; set; }
         public decimal PkgAgencyCommission { get; set; }
         public int ProductSupplierId { get; set; }
+        //image is converted to a byte array to be stored in the database
         public byte[] PkgImage { get; set; }
         public List<ProductSupplier> PkgProductSuppliers { get; set; } = new List<ProductSupplier>();
 
         /// <summary>
-        /// Stores a Package Image as a byte array in this.PkgImage
+        /// Converts an image file into a byte array and stores it in this.PkgImage
         /// </summary>
-        /// <param name="path">The Path to the package image</param>
+        /// <param name="path">The path to the package image</param>
         public void StoreImage(string path)
         {
             //Read the file into a byte array
@@ -41,8 +39,6 @@ namespace EntityLayer
                 fs.Read(imageData, 0, (int)fs.Length);
                 PkgImage = imageData;
             }
-
-            //PkgImage = File.ReadAllBytes(path);
         }
 
         /// <summary>
@@ -51,6 +47,7 @@ namespace EntityLayer
         /// <returns>The Package Image</returns>
         public Image ImageFromBytes()
         {
+            //if the byte array has a length, we can change it back into a image 
             if(PkgImage?.Length > 0)
             {
 	            using (MemoryStream ms = new MemoryStream(this.PkgImage))
@@ -60,6 +57,7 @@ namespace EntityLayer
 	                return myBitmap;
 	            }
             }
+            //else we throw an exception, and catch this.
             throw new ArgumentOutOfRangeException(nameof(this.PkgImage),this.PkgImage,"Unable to create an Image for data stored in the database");
         }
     }

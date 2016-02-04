@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace EntityLayer
 {
+    /// <summary>
+    /// Agent Entity Class
+    /// </summary>
    public class Agent
     {
         public string AgentId { get; set; }
@@ -16,6 +19,5 @@ namespace EntityLayer
         public string AgentPosition { get; set; }
         public string AgencyId { get; set; }
         public string AgentPassword { get; set; }
-
     }
 }
