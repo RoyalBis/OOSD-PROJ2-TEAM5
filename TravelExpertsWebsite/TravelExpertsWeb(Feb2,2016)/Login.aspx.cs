@@ -17,7 +17,7 @@ public partial class Scripts_Login : System.Web.UI.Page
             txtLUsername.Visible = false;
             login.Visible = false;
             signout.Visible = true;
-            lblMsg.Text = "Welcome " + Session["User"].ToString() + ", please logout before making a new registrationS";
+            lblMsg.Text = "Welcome " + Session["User"].ToString() + ", please logout before making a new registration";
         }
     }
 

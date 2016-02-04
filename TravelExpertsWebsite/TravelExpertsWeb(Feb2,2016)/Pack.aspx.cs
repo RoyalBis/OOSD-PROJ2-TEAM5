@@ -13,6 +13,12 @@ public partial class Pack : System.Web.UI.Page
     {
         for (int i = 1; i < 16; i++)
             displayPackage(i);
+
+        if (Session["User"] != null)
+        {
+            Label lblUser = (Label)Master.FindControl("UserLogin");
+            lblUser.Text = "Hello, " + Session["User"].ToString();
+        }
     }
 
     private void displayPackage(int packageValue)
