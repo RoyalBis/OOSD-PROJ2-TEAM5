@@ -27,16 +27,17 @@ public partial class Scripts_Login : System.Web.UI.Page
         myCustomer.Username = txtLUsername.Text;
         myCustomer.Password = txtLPassword.Text;
 
-        if (CustomerDB.UserLogin(myCustomer) == null )
+        Customer loggedCustomer = CustomerDB.UserLogin(myCustomer);
+        if (loggedCustomer == null )
         {
             lblMsg.Text = "Incorrect username or password";
             lblMsg.ForeColor = System.Drawing.Color.Red;
         }
         else
         {
-            string custName = CustomerDB.UserLogin(myCustomer).CustFirstName;
+            string custName = loggedCustomer.CustFirstName;
             Session.Add("User", custName);
-            int custID = CustomerDB.UserLogin(myCustomer).CustomerId;
+            int custID = loggedCustomer.CustomerId;
             Session.Add("CustID", custID);
             Label lblUser = (Label)Master.FindControl("UserLogin");
             lblUser.Text = "Hello, " + Session["User"].ToString();
