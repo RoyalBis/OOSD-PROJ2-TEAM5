@@ -25,7 +25,7 @@ public partial class Bookings : System.Web.UI.Page
             lblUser.Text = "Hello, " + Session["User"].ToString();
 
             gvBooking.Font.Size = FontUnit.XSmall;
-            dvCustomer.Font.Size = FontUnit.XSmall;
+          
         }
     }
 }
