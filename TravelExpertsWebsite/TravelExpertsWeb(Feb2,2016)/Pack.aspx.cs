@@ -258,7 +258,7 @@ public partial class Pack : System.Web.UI.Page
 
             _14.ImageUrl = getImgUrl(pkgID, pkgImage);
         }
-        if (Convert.ToInt32(pkgID.ToString()) == 16)
+        if (Convert.ToInt32(pkgID.ToString()) == 15)
         {
             
             Label152.Text = pkgName.ToString();
