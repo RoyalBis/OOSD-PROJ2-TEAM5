@@ -46,6 +46,7 @@
             this.colCommission = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tabProductSuppliers = new System.Windows.Forms.TabPage();
             this.mtxtSearch = new MaterialSkin.Controls.MaterialSingleLineTextField();
+            this.pbSearch = new System.Windows.Forms.PictureBox();
             this.panProductSuppliers = new System.Windows.Forms.Panel();
             this.mlvProdSupp = new MaterialSkin.Controls.MaterialListView();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -72,14 +73,13 @@
             this.panForm = new System.Windows.Forms.Panel();
             this.panBtns = new System.Windows.Forms.Panel();
             this.materialDivider2 = new MaterialSkin.Controls.MaterialDivider();
-            this.mbtnLogout = new MaterialSkin.Controls.MaterialRaisedButton();
             this.mbtnExit = new MaterialSkin.Controls.MaterialRaisedButton();
-            this.pbSearch = new System.Windows.Forms.PictureBox();
             this.panMain.SuspendLayout();
             this.mtabControl.SuspendLayout();
             this.tabPkgs.SuspendLayout();
             this.panPkgBtns.SuspendLayout();
             this.tabProductSuppliers.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbSearch)).BeginInit();
             this.panProductSuppliers.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panSuppliers.SuspendLayout();
@@ -89,7 +89,6 @@
             this.panMainInner.SuspendLayout();
             this.panForm.SuspendLayout();
             this.panBtns.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbSearch)).BeginInit();
             this.SuspendLayout();
             // 
             // panMain
@@ -288,6 +287,16 @@
             this.mtxtSearch.Enter += new System.EventHandler(this.mtxtSearch_Enter);
             this.mtxtSearch.Leave += new System.EventHandler(this.mtxtSearch_Leave);
             this.mtxtSearch.TextChanged += new System.EventHandler(this.mtxtSearch_TextChanged);
+            // 
+            // pbSearch
+            // 
+            this.pbSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pbSearch.Image = global::TravelExpertsApp.Properties.Resources.magnifier_24__bluegrey;
+            this.pbSearch.Location = new System.Drawing.Point(973, 13);
+            this.pbSearch.Name = "pbSearch";
+            this.pbSearch.Size = new System.Drawing.Size(28, 28);
+            this.pbSearch.TabIndex = 4;
+            this.pbSearch.TabStop = false;
             // 
             // panProductSuppliers
             // 
@@ -648,7 +657,6 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panBtns.BackColor = System.Drawing.Color.White;
             this.panBtns.Controls.Add(this.materialDivider2);
-            this.panBtns.Controls.Add(this.mbtnLogout);
             this.panBtns.Controls.Add(this.mbtnExit);
             this.panBtns.Location = new System.Drawing.Point(3, 557);
             this.panBtns.Name = "panBtns";
@@ -668,19 +676,6 @@
             this.materialDivider2.TabIndex = 3;
             this.materialDivider2.Text = "materialDivider2";
             // 
-            // mbtnLogout
-            // 
-            this.mbtnLogout.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.mbtnLogout.Depth = 0;
-            this.mbtnLogout.Location = new System.Drawing.Point(779, 11);
-            this.mbtnLogout.MouseState = MaterialSkin.MouseState.HOVER;
-            this.mbtnLogout.Name = "mbtnLogout";
-            this.mbtnLogout.Primary = true;
-            this.mbtnLogout.Size = new System.Drawing.Size(110, 31);
-            this.mbtnLogout.TabIndex = 1;
-            this.mbtnLogout.Text = "Logout";
-            this.mbtnLogout.UseVisualStyleBackColor = true;
-            // 
             // mbtnExit
             // 
             this.mbtnExit.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -694,16 +689,6 @@
             this.mbtnExit.Text = "Exit";
             this.mbtnExit.UseVisualStyleBackColor = true;
             this.mbtnExit.Click += new System.EventHandler(this.mbtnExit_Click);
-            // 
-            // pbSearch
-            // 
-            this.pbSearch.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pbSearch.Image = global::TravelExpertsApp.Properties.Resources.magnifier_24__bluegrey;
-            this.pbSearch.Location = new System.Drawing.Point(973, 13);
-            this.pbSearch.Name = "pbSearch";
-            this.pbSearch.Size = new System.Drawing.Size(28, 28);
-            this.pbSearch.TabIndex = 4;
-            this.pbSearch.TabStop = false;
             // 
             // frmMain
             // 
@@ -722,6 +707,7 @@
             this.panPkgBtns.ResumeLayout(false);
             this.panPkgBtns.PerformLayout();
             this.tabProductSuppliers.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pbSearch)).EndInit();
             this.panProductSuppliers.ResumeLayout(false);
             this.panProductSuppliers.PerformLayout();
             this.panel3.ResumeLayout(false);
@@ -737,7 +723,6 @@
             this.panMainInner.ResumeLayout(false);
             this.panForm.ResumeLayout(false);
             this.panBtns.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pbSearch)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -750,7 +735,6 @@
         private MaterialSkin.Controls.MaterialTabControl mtabControl;
         private System.Windows.Forms.TabPage tabPkgs;
         private MaterialSkin.Controls.MaterialTabSelector mtabSelector;
-        private MaterialSkin.Controls.MaterialRaisedButton mbtnLogout;
         private MaterialSkin.Controls.MaterialListView lvPackages;
         private System.Windows.Forms.ColumnHeader colId;
         private System.Windows.Forms.ColumnHeader colName;

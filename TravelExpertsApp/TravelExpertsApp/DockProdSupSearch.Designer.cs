@@ -151,7 +151,7 @@ namespace TravelExpertsApp
             this.mrbProdSup.Size = new System.Drawing.Size(243, 30);
             this.mrbProdSup.TabIndex = 23;
             this.mrbProdSup.TabStop = true;
-            this.mrbProdSup.Text = "Product Supplier";
+            this.mrbProdSup.Text = "Product Supplier ID";
             this.mrbProdSup.UseVisualStyleBackColor = true;
             this.mrbProdSup.CheckedChanged += new System.EventHandler(this.mrbProdSup_CheckedChanged);
             // 
@@ -169,7 +169,7 @@ namespace TravelExpertsApp
             this.mrbProd.Size = new System.Drawing.Size(243, 30);
             this.mrbProd.TabIndex = 24;
             this.mrbProd.TabStop = true;
-            this.mrbProd.Text = "Products";
+            this.mrbProd.Text = "Product ID or Name";
             this.mrbProd.UseVisualStyleBackColor = true;
             this.mrbProd.CheckedChanged += new System.EventHandler(this.mrbProd_CheckedChanged);
             // 
@@ -186,7 +186,7 @@ namespace TravelExpertsApp
             this.mrbSup.Ripple = true;
             this.mrbSup.Size = new System.Drawing.Size(243, 30);
             this.mrbSup.TabIndex = 25;
-            this.mrbSup.Text = "Supplier";
+            this.mrbSup.Text = "Supplier ID or Name";
             this.mrbSup.UseVisualStyleBackColor = true;
             this.mrbSup.CheckedChanged += new System.EventHandler(this.mrbSup_CheckedChanged);
             // 
@@ -353,7 +353,7 @@ namespace TravelExpertsApp
             this.mctxtResultsClose});
             this.mctxtResults.MouseState = MaterialSkin.MouseState.HOVER;
             this.mctxtResults.Name = "mcontext1";
-            this.mctxtResults.Size = new System.Drawing.Size(269, 62);
+            this.mctxtResults.Size = new System.Drawing.Size(275, 62);
             // 
             // mctxtResultsAdd
             // 
@@ -367,7 +367,7 @@ namespace TravelExpertsApp
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(265, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(271, 6);
             // 
             // mctxtResultsClose
             // 

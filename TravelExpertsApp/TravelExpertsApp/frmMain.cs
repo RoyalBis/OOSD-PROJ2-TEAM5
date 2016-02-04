@@ -168,6 +168,11 @@ namespace TravelExpertsApp
             return hidePanel;
         }
 
+        private void mbtnExit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
         #region Packages Tab
         private void lvPackages_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -243,6 +248,8 @@ namespace TravelExpertsApp
         }
         #endregion
 
+        #region Products and Suppliers Tab
+        #region Search and Display ProductSuppliers
         private void SearchProdSupps(string searchStr)
         {
             //refreshes and clears the listview
@@ -280,7 +287,9 @@ namespace TravelExpertsApp
                 mlvProdSupp.Items.Add(listViewItem);
             }
         }
+        #endregion
 
+        #region Search and Display Suppliers
         private void SearchSuppliers(string searchStr)
         {
             //refreshes and clears the listview
@@ -317,7 +326,9 @@ namespace TravelExpertsApp
                 mlvSupp.Items.Add(listViewItem);
             }
         }
+        #endregion
 
+        #region Search and Display Products
         private void SearchProducts(string searchStr)
         {
             //refreshes and clears the listview
@@ -354,6 +365,7 @@ namespace TravelExpertsApp
                 mlvProd.Items.Add(listViewItem);
             }
         }
+        #endregion  
 
         private void mtxtSearch_TextChanged(object sender, EventArgs e)
         {
@@ -367,36 +379,7 @@ namespace TravelExpertsApp
             SearchProdSupps(mtxtSearch.Text);
         }
 
-        private void mbtnExit_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
-        private void mlvProd_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            mbtnProdEdit.Enabled = (mlvProd.SelectedItems.Count > 0);
-        }
-
-        private void mlvSupp_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            mbtnSuppEdit.Enabled = (mlvSupp.SelectedItems.Count > 0);
-        }
-
-        private void mlvProdSupp_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            mbtnProdSuppEdit.Enabled = (mlvProdSupp.SelectedItems.Count > 0);
-        }
-
-        private void mtxtSearch_Enter(object sender, EventArgs e)
-        {
-            pbSearch.Image = Resources.magnifier_24_lightblue;
-        }
-
-        private void mtxtSearch_Leave(object sender, EventArgs e)
-        {
-            pbSearch.Image = Resources.magnifier_24__bluegrey;
-        }
-
+        #region ProductSupplier Buttons
         private void mbtnProdSuppAdd_Click(object sender, EventArgs e)
         {
             Panel hidePanel = DisplayHidePanel();
@@ -410,7 +393,6 @@ namespace TravelExpertsApp
                 SearchAll();
             }
         }
-
         private void mbtnProdSuppEdit_Click(object sender, EventArgs e)
         {
             Panel hidePanel = DisplayHidePanel();
@@ -427,7 +409,9 @@ namespace TravelExpertsApp
                 SearchAll();
             }
         }
+        #endregion
 
+        #region Product Buttons
         private void mbtnProdAdd_Click(object sender, EventArgs e)
         {
             Panel hidePanel = DisplayHidePanel();
@@ -458,7 +442,9 @@ namespace TravelExpertsApp
                 SearchAll();
             }
         }
+        #endregion
 
+        #region Supplier Buttons
         private void mbtnSuppAdd_Click(object sender, EventArgs e)
         {
             Panel hidePanel = DisplayHidePanel();
@@ -489,6 +475,23 @@ namespace TravelExpertsApp
                 SearchAll();
             }
         }
+        #endregion
+
+        #region Listview Edit Enable Buttons
+        private void mlvProd_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            mbtnProdEdit.Enabled = (mlvProd.SelectedItems.Count > 0);
+        }
+
+        private void mlvSupp_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            mbtnSuppEdit.Enabled = (mlvSupp.SelectedItems.Count > 0);
+        }
+
+        private void mlvProdSupp_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            mbtnProdSuppEdit.Enabled = (mlvProdSupp.SelectedItems.Count > 0);
+        }
 
         private void mlvProdSupp_Leave(object sender, EventArgs e)
         {
@@ -504,5 +507,19 @@ namespace TravelExpertsApp
         {
             mbtnProdEdit.Enabled = false;
         }
+        #endregion
+
+        #region Search Image Events
+        private void mtxtSearch_Enter(object sender, EventArgs e)
+        {
+            pbSearch.Image = Resources.magnifier_24_lightblue;
+        }
+
+        private void mtxtSearch_Leave(object sender, EventArgs e)
+        {
+            pbSearch.Image = Resources.magnifier_24__bluegrey;
+        }
+        #endregion
+        #endregion
     }
 }
