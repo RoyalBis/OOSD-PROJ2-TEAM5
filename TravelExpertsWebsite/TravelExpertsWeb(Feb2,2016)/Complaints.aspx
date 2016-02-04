@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="Complaints.aspx.cs" Inherits="TravelExpertsWebsite.WebForm1" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="Complaints.aspx.cs" Inherits="Complaints" %>
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <audio autoplay="autoplay">
         <source src="Sound/hahaha.wav" type="audio/wav" />
