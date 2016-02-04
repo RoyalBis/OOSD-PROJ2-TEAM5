@@ -29,5 +29,6 @@ namespace TravelExpertsApp
         /// Get all Packages
         /// </summary>
         void FillPackages();
+        void EditPackage();
     }
 }

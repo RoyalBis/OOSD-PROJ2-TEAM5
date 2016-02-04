@@ -35,10 +35,13 @@ public partial class RegForm : System.Web.UI.Page
                 //newCustomer.AgentId = inpAgentID;
                 CustomerDB.AddCustomer(newCustomer);
 
-                string custName = CustomerDB.UserLogin(newCustomer).CustFirstName;
+                Customer loggedCustomerNew = CustomerDB.UserLogin(newCustomer);
+                string custName = loggedCustomerNew.CustFirstName;
                 Session.Add("User", custName);
+                int custID = loggedCustomerNew.CustomerId;
+                Session.Add("CustID", custID);
                 Label lblUser = (Label)Master.FindControl("UserLogin");
                 lblUser.Text = "Hello, " + Session["User"].ToString();
-                Response.Redirect("Pack.aspx");
+                Response.Redirect("Bookings.aspx");
     }
 }

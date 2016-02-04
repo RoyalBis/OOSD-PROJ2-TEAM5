@@ -16,47 +16,83 @@ using TravelExpertsDB;
 
 namespace TravelExpertsApp
 {
+    /// <summary>
+    /// Main Form and Entry Point for the Travel Experts App
+    /// </summary>
     public partial class frmMain : MaterialForm, IPkgViewerDocker
     {
+        #region IPkgViewerDocker Implemented Fields and Properties
+        //IPkgViewerDocker field
         private int activePkgId;
+
+        //IPkgViewerDocker Properties
+        public DockPkgViewer MyPkgViewer { get; set; } = null;
+        public PackageList MyPackageList { get; set; }
+        public Panel PanDock => panDock;
+        public Panel PanForm => panForm;
+        public Form FormInstance => this;
+        public int ActivePkgId
+        {
+            get { return activePkgId; }
+            set
+            {
+                activePkgId = value;
+                //allows active package looing 
+                activePkgId = ActivePkgId < MyPackageList.Count
+                                  ? ((ActivePkgId >= 0) ? activePkgId : MyPackageList.Count - 1)
+                                  : 0;
+                UpdateActivePackage();
+            }
+        }
+        #endregion
 
         public frmMain()
         {
             InitializeComponent();
-            MyPkgViewer = null;
+            SplashScreen();
+        }
+
+        #region pre-Main Forms 
+        /// <summary>
+        /// Launches the SplashScreen
+        /// </summary>
+        public void SplashScreen()
+        {
             frmSplashStart start = new frmSplashStart();
             DialogResult splash = start.ShowDialog();
-            if ( splash == DialogResult.OK )
+            if (splash == DialogResult.OK)
             {
-                DialogResult started = start.ShowDialog();
-
-                if ( started == DialogResult.OK )
-                {
-                    frmLogin agtLogin = new frmLogin();
-
-                    //hide panel
-                    Panel hidePanel = DisplayHidePanel();
-                    DialogResult result = agtLogin.ShowDialog();
-
-                    if ( result != DialogResult.None )
-                    {
-                        hidePanel.Dispose();
-                        if ( result == DialogResult.OK )
-                        {
-                            //get the user that just logged in here.
-                        }
-                    }
-                }
+                Login();
             }
         }
 
+        /// <summary>
+        /// Launches the Login Form
+        /// </summary>
+        public void Login()
+        {
+            frmLogin agtLogin = new frmLogin();
+
+            DialogResult result = agtLogin.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                //TODO:get the user that just logged in here.
+            }
+        }
+        #endregion
+
+        #region formLoad Event and Methods
+        //When the Form loads, get the packages and create the columns for the Product Supplier Tab 
         private void frmMain_Load(object sender, EventArgs e)
         {
             FillPackages();
-            FillProductSuppliers();
+            FillProductSuppliersColumns();
         }
 
-        private void FillProductSuppliers()
+        /// <summary>
+        /// Create the Columns for the Product Suppliers Tab
+        /// </summary>
+        private void FillProductSuppliersColumns()
         {
             //adding columns for Products search
             mlvProd.Columns.Add("ID", 60, HorizontalAlignment.Right);
@@ -70,6 +106,9 @@ namespace TravelExpertsApp
             mlvProdSupp.Columns.Add("Supplier", 200, HorizontalAlignment.Right);
         }
 
+        /// <summary>
+        /// Get the Packages and Add them to the listview
+        /// </summary>
         public void FillPackages()
         {
             MyPackageList = PackagesTable.GetAllPackages();
@@ -89,6 +128,7 @@ namespace TravelExpertsApp
                 lvPackages.Items.Add(new ListViewItem(row));
             }
         }
+        #endregion
 
         private void mbtnAdd_Click(object sender, EventArgs e)
         {
@@ -97,21 +137,26 @@ namespace TravelExpertsApp
 
             //create new package form: add
             frmPkgAddModify addPkgForm = new frmPkgAddModify();
-            addPkgForm.PkgIn = null;
-            addPkgForm.Add = true;
+            addPkgForm.PkgIn = null;    //adding so no PkgIn
+            addPkgForm.Add = true;      //adding so true
             DialogResult result = addPkgForm.ShowDialog();
-
             if ( result != DialogResult.None )
             {
                 hidePanel.Dispose();
                 if ( result == DialogResult.OK )
                 {
+                    //Just added a new Pkg show refresh
                     FillPackages();
+                    //this should put the active package to the latest Pkg...
                     ActivePkgId = MyPackageList.Count - 1;
                 }
             }
         }
 
+        /// <summary>
+        /// Creates a Panel to Shade the current form in grey when a new form is shown
+        /// </summary>
+        /// <returns>Panel, Hide Panel</returns>
         private Panel DisplayHidePanel()
         {
             Panel hidePanel = new Panel();
@@ -123,16 +168,20 @@ namespace TravelExpertsApp
             return hidePanel;
         }
 
+        #region Packages Tab
         private void lvPackages_SelectedIndexChanged(object sender, EventArgs e)
         {
+            //if no Pkg view create one
             if ( MyPkgViewer == null  || MyPkgViewer.IsDisposed)
             {
                 MyPkgViewer = new DockPkgViewer(this.panDock);
             }
+            //otherwise, just change the active Pkg
             if ( lvPackages.FocusedItem != null )
             {
                 ActivePkgId = lvPackages.FocusedItem.Index;
             }
+            //TODO: does not currently create a new PkgViewer if the selection is reselected...
         }
 
         private void lvPackages_MouseDoubleClick(object sender, MouseEventArgs e)
@@ -141,38 +190,48 @@ namespace TravelExpertsApp
             {
                 return;
             }
-            MaterialListView thisListView = (MaterialListView)sender;
-            //create new package form: add
-            frmPkgAddModify modifyPkgForm = new frmPkgAddModify();
-            modifyPkgForm.PkgIn = MyPackageList[thisListView.FocusedItem.Index];
-            modifyPkgForm.Add = false;
-            //Panel hidePanel = new Panel();
-            //hidePanel.Size = this.Size;
-            //hidePanel.BackColor = Color.FromArgb(200, 0, 0, 0);
-            //this.Controls.Add(hidePanel);
-            //hidePanel.BringToFront();
-            DialogResult result = modifyPkgForm.ShowDialog();
-        }
-
-        public DockPkgViewer MyPkgViewer { get; set; }
-        public PackageList MyPackageList { get; set; }
-        public Panel PanDock => panDock;
-        public Panel PanForm => panForm;
-        public Form FormInstance => this;
-
-        public int ActivePkgId
-        {
-            get { return activePkgId; }
-            set
+            if (MyPkgViewer?.ActivePackage != null) //check in case there is nothing to delete
             {
-                activePkgId = value;
-                activePkgId = ActivePkgId < MyPackageList.Count
-                                  ? ((ActivePkgId >= 0) ? activePkgId : MyPackageList.Count - 1)
-                                  : 0;
-                UpdateActivePackage();
+                EditPackage();
             }
         }
 
+        /// <summary>
+        /// Launches the PkgAddModify Form as a Modify Instance
+        /// </summary>
+        public void EditPackage()
+        {
+            //hide panel to grey out the parent form
+            Panel hidePanel = new Panel();
+            hidePanel.Size = this.Size;
+            hidePanel.BackColor = Color.FromArgb(200, 0, 0, 0);
+            this.Controls.Add(hidePanel);
+            hidePanel.BringToFront();
+
+            //create new package form: add
+            frmPkgAddModify modifyPkgForm = new frmPkgAddModify();
+            modifyPkgForm.PkgIn = MyPkgViewer.ActivePackage;    //set the AddModifyForm to have the Active Package
+            modifyPkgForm.Add = false;  //This si not an add action, it is a modify
+            DialogResult result = modifyPkgForm.ShowDialog();
+
+            //If the Dialog comes back with any result, we need to dispose of the hide panel
+            if (result != DialogResult.None)
+            {
+                hidePanel.Dispose();
+                //If it came back with an OK, the Active Package was updated
+                if (result == DialogResult.OK)
+                {
+                    //get the new list of Packages
+                    FillPackages();
+                    //This allows me to update The Active Package Info 
+                    ActivePkgId = ActivePkgId;
+                }
+            }
+        }
+
+        /// <summary>
+        /// Performs everyhing that is necessary to Update the ActivePackage to the new ActivePkgId
+        /// </summary>
         private void UpdateActivePackage()
         {
             if (MyPkgViewer != null) MyPkgViewer?.DisplayActivePkg();
@@ -182,6 +241,7 @@ namespace TravelExpertsApp
                 lvPackages.Items[ActivePkgId].Selected = true;
             }
         }
+        #endregion
 
         private void SearchProdSupps(string searchStr)
         {
