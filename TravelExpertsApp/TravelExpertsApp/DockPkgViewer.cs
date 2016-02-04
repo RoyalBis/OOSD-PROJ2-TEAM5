@@ -190,32 +190,7 @@ namespace TravelExpertsApp
         {
             if (ActivePackage != null) //check in case there is nothing to delete
             {
-                //hide panel to grey out the parent form
-                Panel hidePanel = new Panel();
-                hidePanel.Size = MyDocker.FormInstance.Size;
-                hidePanel.BackColor = Color.FromArgb(200, 0, 0, 0);
-                MyDocker.FormInstance.Controls.Add(hidePanel);
-                hidePanel.BringToFront();
-
-                //create new package form: add
-                frmPkgAddModify modifyPkgForm = new frmPkgAddModify();
-                modifyPkgForm.PkgIn = ActivePackage;    //set the AddModifyForm to have the Active Package
-                modifyPkgForm.Add = false;  //This si not an add action, it is a modify
-                DialogResult result = modifyPkgForm.ShowDialog();
-
-                //If the Dialog comes back with any result, we need to dispose of the hide panel
-                if (result != DialogResult.None)
-                {
-                    hidePanel.Dispose();
-                    //If it came back with an OK, the Active Package was updated
-                    if (result == DialogResult.OK)
-                    {
-                        //get the new list of Packages
-                        MyDocker.FillPackages();
-                        //This allows me to update The Active Package Info 
-                        MyDocker.ActivePkgId = MyDocker.ActivePkgId;
-                    }
-                } 
+               MyDocker.EditPackage();
             }
         }
 
