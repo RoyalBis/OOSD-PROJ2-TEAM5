@@ -11,32 +11,63 @@
                     <form id="form2" runat="server">
                         <div class = "col-lg-3" style ="background-color: rgba(38, 38, 38, 0.8); color:white">
                             <br /><p>Customer Information</p>
-                            <asp:DetailsView ID="dvCustomer" runat="server" AutoGenerateEditButton="True" AutoGenerateRows="False" DataSourceID="CustomerInfo" DefaultMode="Edit" Height="50px" Width="260px" BorderStyle="None" GridLines="None" CellSpacing="15" CssClass="table">
+                            <asp:DetailsView ID="dvCustomer" runat="server" AutoGenerateEditButton="True" AutoGenerateRows="False" DataKeyNames="CustomerId" DataSourceID="CustInfo" DefaultMode="Edit" Height="50px" Width="260px" BorderStyle="None" GridLines="None" CellSpacing="15" CssClass="table">
                                 <Fields>
-                                    <asp:BoundField DataField="CustomerId" HeaderText="CustomerId" SortExpression="CustomerId" ReadOnly="true"/>
-                                    <asp:BoundField ItemStyle-ForeColor="black" DataField="CustFirstName" HeaderText="First Name:" SortExpression="CustFirstName" />
-                                    <asp:BoundField ItemStyle-ForeColor="black" DataField="CustLastName" HeaderText="Last Name:" SortExpression="CustLastName" />
-                                    <asp:BoundField ItemStyle-ForeColor="black" DataField="CustAddress" HeaderText="Address:" SortExpression="CustAddress" />
-                                    <asp:BoundField ItemStyle-ForeColor="black" DataField="CustCity" HeaderText="City:" SortExpression="CustCity" />
-                                    <asp:BoundField ItemStyle-ForeColor="black" DataField="CustProv" HeaderText="Province:" SortExpression="CustProv" />
-                                    <asp:BoundField ItemStyle-ForeColor="black" DataField="CustPostal" HeaderText="Postal Code:" SortExpression="CustPostal" />
-                                    <asp:BoundField ItemStyle-ForeColor="black" DataField="CustCountry" HeaderText="Country:" SortExpression="CustCountry" />
-                                    <asp:BoundField ItemStyle-ForeColor="black" DataField="CustHomePhone" HeaderText="Home Phone:" SortExpression="CustHomePhone" />
-                                    <asp:BoundField ItemStyle-ForeColor="black" DataField="CustBusPhone" HeaderText="Bus Phone:" SortExpression="CustBusPhone" />
-                                    <asp:BoundField ItemStyle-ForeColor="black" DataField="CustEmail" HeaderText="Email:" SortExpression="CustEmail" />
-                                    <asp:BoundField ItemStyle-ForeColor="black" DataField="Username" HeaderText="Username:" SortExpression="Username" />
-                                    <asp:BoundField ItemStyle-ForeColor="black" DataField="Password" HeaderText="Password:" SortExpression="Password" />
+                                    <asp:BoundField DataField="CustomerId" HeaderText="CustomerId" InsertVisible="False" ReadOnly="True" SortExpression="CustomerId" />
+                                    <asp:BoundField ItemStyle-ForeColor="black" DataField="CustFirstName" HeaderText="CustFirstName" SortExpression="CustFirstName" />
+                                    <asp:BoundField ItemStyle-ForeColor="black" DataField="CustLastName" HeaderText="CustLastName" SortExpression="CustLastName" />
+                                    <asp:BoundField ItemStyle-ForeColor="black" DataField="CustAddress" HeaderText="CustAddress" SortExpression="CustAddress" />
+                                    <asp:BoundField ItemStyle-ForeColor="black" DataField="CustCity" HeaderText="CustCity" SortExpression="CustCity" />
+                                    <asp:BoundField ItemStyle-ForeColor="black" DataField="CustProv" HeaderText="CustProv" SortExpression="CustProv" />
+                                    <asp:BoundField ItemStyle-ForeColor="black" DataField="CustPostal" HeaderText="CustPostal" SortExpression="CustPostal" />
+                                    <asp:BoundField ItemStyle-ForeColor="black" DataField="CustCountry" HeaderText="CustCountry" SortExpression="CustCountry" />
+                                    <asp:BoundField ItemStyle-ForeColor="black" DataField="Password" HeaderText="Password" SortExpression="Password" />
+                                    <asp:BoundField ItemStyle-ForeColor="black" DataField="Username" HeaderText="Username" SortExpression="Username" />
+                                    <asp:BoundField ItemStyle-ForeColor="black" DataField="AgentId" HeaderText="AgentId" SortExpression="AgentId" />
+                                    <asp:BoundField ItemStyle-ForeColor="black" DataField="CustEmail" HeaderText="CustEmail" SortExpression="CustEmail" />
+                                    <asp:BoundField ItemStyle-ForeColor="black" DataField="CustBusPhone" HeaderText="CustBusPhone" SortExpression="CustBusPhone" />
+                                    <asp:BoundField ItemStyle-ForeColor="black" DataField="CustHomePhone" HeaderText="CustHomePhone" SortExpression="CustHomePhone" />
                                 </Fields>
                             </asp:DetailsView>
-                            <asp:ObjectDataSource ID="CustomerInfo" runat="server" OldValuesParameterFormatString="original_{0}" SelectMethod="SelectThisCustomer" TypeName="CustomerDB" ConflictDetection="CompareAllValues" ConvertNullToDBNull="True" UpdateMethod="UpdateCustomer">
+                            <asp:SqlDataSource ID="CustInfo" runat="server" ConnectionString="<%$ ConnectionStrings:TravelExpertsConnectionString %>" DeleteCommand="DELETE FROM [Customers] WHERE [CustomerId] = @CustomerId" InsertCommand="INSERT INTO [Customers] ([CustFirstName], [CustLastName], [CustAddress], [CustCity], [CustProv], [CustPostal], [CustCountry], [Password], [Username], [AgentId], [CustEmail], [CustBusPhone], [CustHomePhone]) VALUES (@CustFirstName, @CustLastName, @CustAddress, @CustCity, @CustProv, @CustPostal, @CustCountry, @Password, @Username, @AgentId, @CustEmail, @CustBusPhone, @CustHomePhone)" SelectCommand="SELECT [CustFirstName], [CustomerId], [CustLastName], [CustAddress], [CustCity], [CustProv], [CustPostal], [CustCountry], [Password], [Username], [AgentId], [CustEmail], [CustBusPhone], [CustHomePhone] FROM [Customers] WHERE ([CustomerId] = @CustomerId)" UpdateCommand="UPDATE [Customers] SET [CustFirstName] = @CustFirstName, [CustLastName] = @CustLastName, [CustAddress] = @CustAddress, [CustCity] = @CustCity, [CustProv] = @CustProv, [CustPostal] = @CustPostal, [CustCountry] = @CustCountry, [Password] = @Password, [Username] = @Username, [AgentId] = @AgentId, [CustEmail] = @CustEmail, [CustBusPhone] = @CustBusPhone, [CustHomePhone] = @CustHomePhone WHERE [CustomerId] = @CustomerId">
+                                <DeleteParameters>
+                                    <asp:Parameter Name="CustomerId" Type="Int32" />
+                                </DeleteParameters>
+                                <InsertParameters>
+                                    <asp:Parameter Name="CustFirstName" Type="String" />
+                                    <asp:Parameter Name="CustLastName" Type="String" />
+                                    <asp:Parameter Name="CustAddress" Type="String" />
+                                    <asp:Parameter Name="CustCity" Type="String" />
+                                    <asp:Parameter Name="CustProv" Type="String" />
+                                    <asp:Parameter Name="CustPostal" Type="String" />
+                                    <asp:Parameter Name="CustCountry" Type="String" />
+                                    <asp:Parameter Name="Password" Type="String" />
+                                    <asp:Parameter Name="Username" Type="String" />
+                                    <asp:Parameter Name="AgentId" Type="Int32" />
+                                    <asp:Parameter Name="CustEmail" Type="String" />
+                                    <asp:Parameter Name="CustBusPhone" Type="String" />
+                                    <asp:Parameter Name="CustHomePhone" Type="String" />
+                                </InsertParameters>
                                 <SelectParameters>
-                                    <asp:SessionParameter Name="custID" SessionField="CustID" Type="Int32" />
+                                    <asp:SessionParameter Name="CustomerId" SessionField="CustID" Type="Int32" />
                                 </SelectParameters>
                                 <UpdateParameters>
-                                    <asp:Parameter Name="original_Cust" Type="Object" />
-                                    <asp:Parameter Name="Cust" Type="Object" />
+                                    <asp:Parameter Name="CustFirstName" Type="String" />
+                                    <asp:Parameter Name="CustLastName" Type="String" />
+                                    <asp:Parameter Name="CustAddress" Type="String" />
+                                    <asp:Parameter Name="CustCity" Type="String" />
+                                    <asp:Parameter Name="CustProv" Type="String" />
+                                    <asp:Parameter Name="CustPostal" Type="String" />
+                                    <asp:Parameter Name="CustCountry" Type="String" />
+                                    <asp:Parameter Name="Password" Type="String" />
+                                    <asp:Parameter Name="Username" Type="String" />
+                                    <asp:Parameter Name="AgentId" Type="Int32" />
+                                    <asp:Parameter Name="CustEmail" Type="String" />
+                                    <asp:Parameter Name="CustBusPhone" Type="String" />
+                                    <asp:Parameter Name="CustHomePhone" Type="String" />
+                                    <asp:Parameter Name="CustomerId" Type="Int32" />
                                 </UpdateParameters>
-                            </asp:ObjectDataSource>
+                            </asp:SqlDataSource>
                         </div>
                         <div class = "col-lg-8" style ="background-color: rgba(38, 38, 38, 0.8); color:white">
                             <br /><p>Booking History</p>

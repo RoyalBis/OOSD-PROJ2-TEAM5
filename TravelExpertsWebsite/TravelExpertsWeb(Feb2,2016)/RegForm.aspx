@@ -5,6 +5,8 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <link href="StyleSheet2.css" rel="stylesheet" />
     <script>
+        var regex = new RegExp(/^[ABCEGHJKLMNPRSTVXY]\d[ABCEGHJKLMNPRSTVWXYZ]( )?\d[ABCEGHJKLMNPRSTVWXYZ]\d$/i);
+        var regexPhone = new RegExp(/^\d\d\d\d\d\d\d\d\d\d/)
         $(document).ready(function () {
             $("#next0").click(function () {
                 $("#step0").hide();
@@ -33,8 +35,8 @@
                 else if (txt2 != txt2_2){
                     alert("Password confirmation did not match");
                     $('[id$=txtPassword]').focus();
-                    txt2 = "";
-                    txt2_2 = "";
+                    $('[id$=txtPassword]').value = "";
+                    $('[id$=txtConfirmPW]').value = " ";
                     return false;
                 }
                 else {
@@ -116,7 +118,15 @@
                 }
                 else if (txt7.length>2)
                 {
+
                     alert("Please enter 2 characters province code")
+                    return false;
+                }
+                else if (!regex.test(txt8))
+                {
+                    alert("Please enter correct postal code");
+                    $('[id$=txtCustPostal]').focus();
+                    $('[id$=txtCustPostal]').value = "";
                     return false;
                 }
                 else {
@@ -125,6 +135,7 @@
                     $("#4").siblings('li').removeClass('active');
                     $("#4").addClass('active');
                 }
+
                 document.getElementsByTagName('html')[0].style.backgroundImage = 'url(image/background5.jpg)'
             });
         });
@@ -153,9 +164,15 @@
                 //$('[id$=lblAgentID]').html(txt13);
                 //$('[id$=inpAgentID]').val(txt13);
 
-                if (txt11 == null || txt11 == "" ||
-                    txt12 == null || txt12 == "") {
-                    alert("Fields marked with * are required");
+                if (txt10 == null || txt10 == "") {
+                    alert("Home phone is required");
+                    $('[id$=txtHomePhone]').focus();
+                    return false;
+                }
+                else if (!regexPhone.test(txt10)) {
+                    alert("Please enter correct phone number");
+                    $('[id$=txtHomePhone]').focus();
+                    $('[id$=txtHomePhone]').value = "";
                     return false;
                 }
                 else {
@@ -237,9 +254,9 @@
 	    <fieldset id="step4">
 		    <h2 class="fs-title">Contact Information</h2>
 		    <h3 class="fs-subtitle">Information improves our service</h3>
-		    <asp:TextBox ID="txtHomePhone" runat="server" placeholder="Home Phone"></asp:TextBox>
-            <asp:TextBox ID="txtBusPhone" runat="server" placeholder="Business Phone*"></asp:TextBox>
-            <asp:TextBox ID="txtEmail" runat="server" placeholder="Email*"></asp:TextBox>
+		    <asp:TextBox ID="txtHomePhone" runat="server" placeholder="Home Phone*"></asp:TextBox>
+            <asp:TextBox ID="txtBusPhone" runat="server" placeholder="Business Phone"></asp:TextBox>
+            <asp:TextBox ID="txtEmail" runat="server" placeholder="Email"></asp:TextBox>
             <%--<asp:TextBox ID="txtAgentID" runat="server" placeholder="Agent ID"></asp:TextBox>--%>
             <input type="button" id="prev4" name="previous" class="previous action-button" value="Previous" />
 		    <input type="button" id="next4" class="next action-button" value="Next" />
@@ -323,7 +340,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>&nbsp;&nbsp;&nbsp;&nbsp;Home Phone:</td>
+                    <td>&nbsp;&nbsp;&nbsp;&nbsp;HomePhone:</td>
                     <td>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <asp:Label ID="lblHomePhone" runat="server"></asp:Label>
@@ -331,7 +348,7 @@
                     </td>
                 </tr>
                 <tr>
-                    <td>&nbsp;&nbsp;&nbsp;&nbsp;Business Phone:</td>
+                    <td>&nbsp;&nbsp;&nbsp;&nbsp;BusPhone:</td>
                     <td>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                         <asp:Label ID="lblBusPhone" runat="server"></asp:Label>
