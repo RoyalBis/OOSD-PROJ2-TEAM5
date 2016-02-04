@@ -4,14 +4,18 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <div class="container">
-        <h2>About</h2>
-        <h3>Travel Experts</h3>
-        <p>Travel Experts has been serving customers in need of their own vacation since 2015. We tend to our customers faster than any other agency. Our mascot Otebri (Owl of the Travel Experts BRIgade) the owl acts as the bug catcher, preventing your experience on our website from being frustrating and guarantees customer satisfaction, much like our caring agents.</p>
-        <img id="otebri" src="Images/otebri.jpg" />
+        <div class="row">
+            <div class="col-lg-12" style ="background-color: rgba(38, 38, 38, 0.8); color:white">
+                <h2>About</h2>
+                <h3>Travel Experts</h3>
+                <p>Travel Experts has been serving customers in need of their own vacation since 2015. We tend to our customers faster than any other agency. Our mascot Otebri (Owl of the Travel Experts BRIgade) the owl acts as the bug catcher, preventing your experience on our website from being frustrating and guarantees customer satisfaction, much like our caring agents.</p>
+                <img id="otebri" src="Images/otebri.jpg" />
 
-        <br />
-        <br />
-        <br />
-        <p>If you have any complaints about our customer service, packages or anything particular, click <asp:HyperLink ID="hlComplaints" runat="server" NavigateUrl="~/Complaints.aspx">here</asp:HyperLink>.</p>
+                <br />
+                <br />
+                <br />
+                <p>If you have any complaints about our customer service, packages or anything particular, click <asp:HyperLink style="color:blue" ID="hlComplaints" runat="server" NavigateUrl="~/Complaints.aspx">here</asp:HyperLink>.</p>
+            </div>
+        </div>
     </div>
 </asp:Content>
