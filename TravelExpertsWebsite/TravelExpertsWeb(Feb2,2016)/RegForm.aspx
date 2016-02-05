@@ -35,8 +35,8 @@
                 else if (txt2 != txt2_2){
                     alert("Password confirmation did not match");
                     $('[id$=txtPassword]').focus();
-                    $('[id$=txtPassword]').value = "";
-                    $('[id$=txtConfirmPW]').value = " ";
+                    $('[id$=txtPassword]').val("");
+                    $('[id$=txtConfirmPW]').val("");
                     return false;
                 }
                 else {
@@ -118,15 +118,16 @@
                 }
                 else if (txt7.length>2)
                 {
-
-                    alert("Please enter 2 characters province code")
+                    alert("Please enter 2 characters province code (ex:AB)")
+                    $('[id$=txtProvince]').focus();
+                    $('[id$=txtProvince]').val("");
                     return false;
                 }
                 else if (!regex.test(txt8))
                 {
-                    alert("Please enter correct postal code");
-                    $('[id$=txtCustPostal]').focus();
-                    $('[id$=txtCustPostal]').value = "";
+                    alert("Please enter correct postal code (ex:T2K 6L3)");
+                    $('[id$=txtPostal]').focus();
+                    $('[id$=txtPostal]').val("");
                     return false;
                 }
                 else {
@@ -170,9 +171,9 @@
                     return false;
                 }
                 else if (!regexPhone.test(txt10)) {
-                    alert("Please enter correct phone number");
+                    alert("Please enter correct phone number (ex:4032748668)");
                     $('[id$=txtHomePhone]').focus();
-                    $('[id$=txtHomePhone]').value = "";
+                    $('[id$=txtHomePhone]').val("");
                     return false;
                 }
                 else {
