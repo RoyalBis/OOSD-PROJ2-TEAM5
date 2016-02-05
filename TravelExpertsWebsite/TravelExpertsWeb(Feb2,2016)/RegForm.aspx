@@ -375,7 +375,7 @@
             </table>
             <br />
             <input type="button" id="prev5" name="previous" class="previous action-button" value="Previous" />
-            <asp:Button ID="submit" class="next action-button" runat="server" Text="Submit" OnClick="submit_Click" />
+            <asp:Button ID="submit" class="next action-button" runat="server" Text="Submit" OnClick="submit_Click" UseSubmitBehavior="False" />
 	    </fieldset>
 <%--        <fieldset id="step6">
 		    <h2 class="fs-title">Thank you for register!</h2>
