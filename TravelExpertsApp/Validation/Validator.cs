@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -77,14 +78,14 @@ namespace Validation
                 if (decValue >= 0) return new Result(true);
                 else
                 {
-                    string message = "Error: " + ctrl.Tag + "("+ textValue + ")" + " must be non-negative value!";
+                    string message = ctrl.Tag + " must be non-negative value!";
                     ctrl.Focus();
                     return new Result(false, message);
                 }
             }
             catch (FormatException)
             {
-                string message = "Error: " + ctrl.Tag + "(" + ctrl.Text + ")" + " must be decimal number!";
+                string message = ctrl.Tag + " must be decimal number!";
                 ctrl.Focus();
                 return new Result(false, message);
             }
@@ -100,7 +101,7 @@ namespace Validation
                 if (intValue >= 0) return new Result(true);
                 else
                 {
-                    string message = "Error: " + ctrl.Tag + "(" + textValue + ")" + " must be non-negative value!";
+                    string message = ctrl.Tag + " must be non-negative value!";
                     ctrl.Focus();
                     return new Result(false,message);
                 }
@@ -117,22 +118,34 @@ namespace Validation
         {
             if ( ctrl1.Value >= ctrl2.Value )
             {
-                string message = "Error: " + ctrl1.Tag + "(" + ctrl1.Value + ")" + " must be a date less than " + ctrl2.Tag + "(" + ctrl2.Value + ")";
+                string message = ctrl1.Tag + " must be a date less than " + ctrl2.Tag;
                 return new Result(false, message);
             }
             return new Result(true);
         }
 
-        public static Result InCharCount(Control ctrl)
+        public static Result InCharCount(Control ctrl, int maxlength)
         {
-            TextBox txt = (TextBox)ctrl;
-            char[] chars = txt.Text.ToCharArray();
-            if ( chars.Length > txt.MaxLength )
+            char[] chars = ctrl.Text.ToCharArray();
+            if ( chars.Length > maxlength)
             {
-                string message = "Error: Number of characters in " + txt.Tag + " must be less then or equal to " + txt.MaxLength;
+                string message = "Error: Number of characters in " + ctrl.Tag + " must be less then or equal to " + maxlength;
                 return new Result(false, message);
             }
             return new Result(true);
+        }
+
+        public static Result ValueLessThan(Control ctrl1, Control ctrl2)
+        {
+            string val1 = ctrl1.Text.Replace("$", "").Replace(",", "");
+            string val2 = ctrl2.Text.Replace("$", "").Replace(",", "");
+
+            if ( Convert.ToDouble(val1) >= (Convert.ToDouble(val2)) )
+            {
+                string message = ctrl1.Tag + " must be less than " + ctrl2.Tag;
+                return new Result(false, message);
+            }
+                return new Result(true);
         }
     }
 }
