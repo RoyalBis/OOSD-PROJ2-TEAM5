@@ -397,7 +397,8 @@ namespace TravelExpertsApp
         {
             Panel hidePanel = DisplayHidePanel();
 
-            int myProdSupId = Convert.ToInt32(mlvProdSupp.SelectedItems[0].SubItems[0].Text);
+            ListViewItem selectedItem =  mlvProdSupp.SelectedItems[0];
+            int myProdSupId = Convert.ToInt32(selectedItem.SubItems[0].Text);
             ProductSupplier myProdSupp = ProductSupplierTable.GetProductSupplier(myProdSupId);
             frmProductSupplier myFrmProductSupplier = new frmProductSupplier(this);
             myFrmProductSupplier.Add = false;
@@ -408,6 +409,7 @@ namespace TravelExpertsApp
                 hidePanel.Dispose();
                 SearchAll();
             }
+            mbtnProdSuppEdit.Enabled = false;
         }
         #endregion
 
@@ -441,6 +443,7 @@ namespace TravelExpertsApp
                 hidePanel.Dispose();
                 SearchAll();
             }
+            mbtnProdEdit.Enabled = false;
         }
         #endregion
 
@@ -474,13 +477,14 @@ namespace TravelExpertsApp
                 hidePanel.Dispose();
                 SearchAll();
             }
+            mbtnSuppEdit.Enabled = false;
         }
         #endregion
 
         #region Listview Edit Enable Buttons
-        private void mlvProd_SelectedIndexChanged(object sender, EventArgs e)
+        private void mlvProdSupp_SelectedIndexChanged(object sender, EventArgs e)
         {
-            mbtnProdEdit.Enabled = (mlvProd.SelectedItems.Count > 0);
+            mbtnProdSuppEdit.Enabled = (mlvProdSupp.SelectedItems.Count > 0);
         }
 
         private void mlvSupp_SelectedIndexChanged(object sender, EventArgs e)
@@ -488,25 +492,50 @@ namespace TravelExpertsApp
             mbtnSuppEdit.Enabled = (mlvSupp.SelectedItems.Count > 0);
         }
 
-        private void mlvProdSupp_SelectedIndexChanged(object sender, EventArgs e)
+        private void mlvProd_SelectedIndexChanged(object sender, EventArgs e)
         {
-            mbtnProdSuppEdit.Enabled = (mlvProdSupp.SelectedItems.Count > 0);
+            mbtnProdEdit.Enabled = (mlvProd.SelectedItems.Count > 0);
         }
 
         private void mlvProdSupp_Leave(object sender, EventArgs e)
         {
-            mbtnProdSuppEdit.Enabled = false;
+            if ( ActiveControl != mbtnProdSuppEdit )
+            {
+                mbtnProdSuppEdit.Enabled = false;
+            }
         }
 
         private void mlvSupp_Leave(object sender, EventArgs e)
         {
-            mbtnSuppEdit.Enabled = false;
+            if ( ActiveControl != mbtnSuppEdit )
+            {
+                mbtnSuppEdit.Enabled = false;
+            }
         }
 
         private void mlvProd_Leave(object sender, EventArgs e)
         {
-            mbtnProdEdit.Enabled = false;
+            if ( ActiveControl != mbtnProdEdit )
+            {
+                mbtnProdEdit.Enabled = false;
+            }
         }
+
+        private void mlvProdSupp_Enter(object sender, EventArgs e)
+        {
+            mbtnProdSuppEdit.Enabled = (mlvProdSupp.SelectedItems.Count > 0);
+        }
+
+        private void mlvSupp_Enter(object sender, EventArgs e)
+        {
+            mbtnSuppEdit.Enabled = (mlvSupp.SelectedItems.Count > 0);
+        }
+
+        private void mlvProd_Enter(object sender, EventArgs e)
+        {
+            mbtnProdEdit.Enabled = (mlvProd.SelectedItems.Count > 0);
+        }
+        #endregion
         #endregion
 
         #region Search Image Events
@@ -519,7 +548,6 @@ namespace TravelExpertsApp
         {
             pbSearch.Image = Resources.magnifier_24__bluegrey;
         }
-        #endregion
         #endregion
     }
 }

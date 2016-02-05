@@ -124,9 +124,11 @@ namespace Validation
             return new Result(true);
         }
 
-        public static Result InCharCount(Control ctrl, int maxlength)
+        public static Result InCharCount(Control ctrl, int maxlength, bool money = false)
         {
-            char[] chars = ctrl.Text.ToCharArray();
+            string text = (money) ? ctrl.Text.Replace("$", "").Replace(",", "") : ctrl.Text;
+
+            char[] chars = text.ToCharArray();
             if ( chars.Length > maxlength)
             {
                 string message = "Error: Number of characters in " + ctrl.Tag + " must be less then or equal to " + maxlength;
@@ -140,12 +142,21 @@ namespace Validation
             string val1 = ctrl1.Text.Replace("$", "").Replace(",", "");
             string val2 = ctrl2.Text.Replace("$", "").Replace(",", "");
 
-            if ( Convert.ToDouble(val1) >= (Convert.ToDouble(val2)) )
+            try
             {
-                string message = ctrl1.Tag + " must be less than " + ctrl2.Tag;
+                if ( Decimal.Parse(val1) >= (Decimal.Parse(val2)) )
+                {
+                    string message = ctrl1.Tag + " must be less than " + ctrl2.Tag;
+                    ctrl1.Focus();
+                    return new Result(false, message);
+                }
+                return new Result(true);
+            }
+            catch (FormatException)
+            {
+                string message = "Error: " + ctrl1.Tag + " and " + ctrl2.Tag + " must be decimal number!";
                 return new Result(false, message);
             }
-                return new Result(true);
         }
     }
 }

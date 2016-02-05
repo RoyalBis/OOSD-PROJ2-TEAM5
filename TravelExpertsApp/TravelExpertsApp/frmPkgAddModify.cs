@@ -178,7 +178,7 @@ namespace TravelExpertsApp
 
         private Result isValid()
         {
-            Result[] results = new Result[7];
+            Result[] results = new Result[11];
             results[0] = Validator.IsPresent(txtPkgName);
             results[1] = Validator.IsPresent(txtDesc);
             results[2] = Validator.IsPresent(txtBasePrice);
@@ -186,6 +186,10 @@ namespace TravelExpertsApp
             results[4] = Validator.NonNegDecimal(txtCommission);
             results[5] = Validator.DateLessThan(dtpStartDate, dtpEndDate);
             results[6] = Validator.ValueLessThan(txtCommission, txtBasePrice);
+            results[7] = Validator.InCharCount(txtPkgName, 50);
+            results[8] = Validator.InCharCount(txtDesc, 50);
+            results[9] = Validator.InCharCount(txtBasePrice, 8, true);
+            results[10] = Validator.InCharCount(txtCommission, 8, true);
 
             foreach (Result result in results)
             {

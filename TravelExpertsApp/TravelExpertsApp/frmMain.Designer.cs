@@ -331,6 +331,7 @@
             this.mlvProdSupp.UseCompatibleStateImageBehavior = false;
             this.mlvProdSupp.View = System.Windows.Forms.View.Details;
             this.mlvProdSupp.SelectedIndexChanged += new System.EventHandler(this.mlvProdSupp_SelectedIndexChanged);
+            this.mlvProdSupp.Enter += new System.EventHandler(this.mlvProdSupp_Enter);
             this.mlvProdSupp.Leave += new System.EventHandler(this.mlvProdSupp_Leave);
             // 
             // panel3
@@ -437,6 +438,7 @@
             this.mlvSupp.UseCompatibleStateImageBehavior = false;
             this.mlvSupp.View = System.Windows.Forms.View.Details;
             this.mlvSupp.SelectedIndexChanged += new System.EventHandler(this.mlvSupp_SelectedIndexChanged);
+            this.mlvSupp.Enter += new System.EventHandler(this.mlvSupp_Enter);
             this.mlvSupp.Leave += new System.EventHandler(this.mlvSupp_Leave);
             // 
             // panel2
@@ -604,6 +606,7 @@
             this.mlvProd.UseCompatibleStateImageBehavior = false;
             this.mlvProd.View = System.Windows.Forms.View.Details;
             this.mlvProd.SelectedIndexChanged += new System.EventHandler(this.mlvProd_SelectedIndexChanged);
+            this.mlvProd.Enter += new System.EventHandler(this.mlvProd_Enter);
             this.mlvProd.Leave += new System.EventHandler(this.mlvProd_Leave);
             // 
             // materialLabel1
