@@ -29,6 +29,9 @@ public partial class Bookings : System.Web.UI.Page
             Label lblUser = (Label)Master.FindControl("UserLogin");
             lblUser.Text = "Hello, " + Session["User"].ToString();
 
+            Label lblSignout = (Label)Master.FindControl("Sign");
+            lblSignout.Text = "Signout";
+
             gvBooking.Font.Size = FontUnit.XSmall;
             dvCustomer.Font.Size = FontUnit.XSmall;
 

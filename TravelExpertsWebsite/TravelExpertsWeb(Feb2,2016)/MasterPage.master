@@ -27,8 +27,8 @@
                 <li><a href="#">AgentApp</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="RegForm.aspx"><span class="glyphicon glyphicon-user"></span> Sign Up </a></li>
-                <li id="log"><a href="Login.aspx"><span class="glyphicon glyphicon-log-in"></span> <asp:Label ID="UserLogin" runat="server"> Login </asp:Label></a></li>
+                    <li><a href="RegForm.aspx"><span class="glyphicon glyphicon-user"></span><asp:Label ID="Sign" runat="server" OnClick="Sign_Click"> Sign Up </asp:Label></a></li>
+                    <li id="log"><a href="Login.aspx"><span class="glyphicon glyphicon-log-in"></span> <asp:Label ID="UserLogin" runat="server"> Login </asp:Label></a></li>
             </ul>
         </nav>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">

@@ -13,6 +13,10 @@ public partial class Scripts_Login : System.Web.UI.Page
         {
             Label lblUser = (Label)Master.FindControl("UserLogin");
             lblUser.Text = "Hello, " + Session["User"].ToString();
+
+            Label lblSignout = (Label)Master.FindControl("Sign");
+            lblSignout.Text = "Signout";
+
             txtLPassword.Visible = false;
             txtLUsername.Visible = false;
             login.Visible = false;

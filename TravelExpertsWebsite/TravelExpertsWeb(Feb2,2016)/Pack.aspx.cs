@@ -18,6 +18,9 @@ public partial class Pack : System.Web.UI.Page
         {
             Label lblUser = (Label)Master.FindControl("UserLogin");
             lblUser.Text = "Hello, " + Session["User"].ToString();
+
+            Label lblSignout = (Label)Master.FindControl("Sign");
+            lblSignout.Text = "Signout";
         }
     }
 

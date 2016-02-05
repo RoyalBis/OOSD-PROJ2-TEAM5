@@ -23,9 +23,8 @@
                                     <asp:BoundField ItemStyle-ForeColor="black" DataField="CustCountry" HeaderText="CustCountry" SortExpression="CustCountry" />
                                     <asp:BoundField ItemStyle-ForeColor="black" DataField="Password" HeaderText="Password" SortExpression="Password" />
                                     <asp:BoundField ItemStyle-ForeColor="black" DataField="Username" HeaderText="Username" SortExpression="Username" />
-                                    <asp:BoundField ItemStyle-ForeColor="black" DataField="AgentId" HeaderText="AgentId" SortExpression="AgentId" />
-                                    <asp:BoundField ItemStyle-ForeColor="black" DataField="CustEmail" HeaderText="CustEmail" SortExpression="CustEmail" />
-                                    <asp:BoundField ItemStyle-ForeColor="black" DataField="CustBusPhone" HeaderText="CustBusPhone" SortExpression="CustBusPhone" />
+                                    <asp:BoundField ItemStyle-ForeColor="black" DataField="CustEmail" HeaderText="CustEmail" SortExpression="CustEmail" ConvertEmptyStringToNull="false"/>
+                                    <asp:BoundField ItemStyle-ForeColor="black" DataField="CustBusPhone" HeaderText="CustBusPhone" SortExpression="CustBusPhone" ConvertEmptyStringToNull="false"/>
                                     <asp:BoundField ItemStyle-ForeColor="black" DataField="CustHomePhone" HeaderText="CustHomePhone" SortExpression="CustHomePhone" />
                                 </Fields>
                             </asp:DetailsView>
@@ -44,8 +43,8 @@
                                     <asp:Parameter Name="Password" Type="String" />
                                     <asp:Parameter Name="Username" Type="String" />
                                     <asp:Parameter Name="AgentId" Type="Int32" />
-                                    <asp:Parameter Name="CustEmail" Type="String" />
-                                    <asp:Parameter Name="CustBusPhone" Type="String" />
+                                    <asp:Parameter Name="CustEmail" Type="String" ConvertEmptyStringToNull="false"/>
+                                    <asp:Parameter Name="CustBusPhone" Type="String" ConvertEmptyStringToNull="false"/>
                                     <asp:Parameter Name="CustHomePhone" Type="String" />
                                 </InsertParameters>
                                 <SelectParameters>
@@ -62,8 +61,8 @@
                                     <asp:Parameter Name="Password" Type="String" />
                                     <asp:Parameter Name="Username" Type="String" />
                                     <asp:Parameter Name="AgentId" Type="Int32" />
-                                    <asp:Parameter Name="CustEmail" Type="String" />
-                                    <asp:Parameter Name="CustBusPhone" Type="String" />
+                                    <asp:Parameter Name="CustEmail" Type="String" ConvertEmptyStringToNull="false"/>
+                                    <asp:Parameter Name="CustBusPhone" Type="String" ConvertEmptyStringToNull="false"/>
                                     <asp:Parameter Name="CustHomePhone" Type="String" />
                                     <asp:Parameter Name="CustomerId" Type="Int32" />
                                 </UpdateParameters>
