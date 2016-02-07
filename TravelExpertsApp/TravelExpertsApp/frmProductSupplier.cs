@@ -40,13 +40,13 @@ namespace TravelExpertsApp
                 //cbProduct.Add();
               cbProducts.Items.Add( product.ProductId + " - " + product.ProdName );
             }
-            cbProducts.Items.Add(".....Add New Product.....");
+            //cbProducts.Items.Add(".....Add New Product.....");
 
             foreach (Supplier supplier in suppliers)
             {
                 cbSuppliers.Items.Add( supplier.SupplierId + " - " + supplier.SupName );
             }
-            cbSuppliers.Items.Add( ".....Add New Supplier....." );
+            //cbSuppliers.Items.Add( ".....Add New Supplier....." );
 
             if ( !Add )
             {

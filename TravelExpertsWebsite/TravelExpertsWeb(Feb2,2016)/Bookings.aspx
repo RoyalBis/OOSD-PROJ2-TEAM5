@@ -13,19 +13,53 @@
                             <br /><p>Customer Information</p>
                             <asp:DetailsView ID="dvCustomer" runat="server" AutoGenerateEditButton="True" AutoGenerateRows="False" DataKeyNames="CustomerId" DataSourceID="CustInfo" DefaultMode="Edit" Height="50px" Width="260px" BorderStyle="None" GridLines="None" CellSpacing="15" CssClass="table">
                                 <Fields>
-                                    <asp:BoundField DataField="CustomerId" HeaderText="CustomerId" InsertVisible="False" ReadOnly="True" SortExpression="CustomerId" />
-                                    <asp:BoundField ItemStyle-ForeColor="black" DataField="CustFirstName" HeaderText="CustFirstName" SortExpression="CustFirstName" />
-                                    <asp:BoundField ItemStyle-ForeColor="black" DataField="CustLastName" HeaderText="CustLastName" SortExpression="CustLastName" />
-                                    <asp:BoundField ItemStyle-ForeColor="black" DataField="CustAddress" HeaderText="CustAddress" SortExpression="CustAddress" />
-                                    <asp:BoundField ItemStyle-ForeColor="black" DataField="CustCity" HeaderText="CustCity" SortExpression="CustCity" />
-                                    <asp:BoundField ItemStyle-ForeColor="black" DataField="CustProv" HeaderText="CustProv" SortExpression="CustProv" />
-                                    <asp:BoundField ItemStyle-ForeColor="black" DataField="CustPostal" HeaderText="CustPostal" SortExpression="CustPostal" />
-                                    <asp:BoundField ItemStyle-ForeColor="black" DataField="CustCountry" HeaderText="CustCountry" SortExpression="CustCountry" />
-                                    <asp:BoundField ItemStyle-ForeColor="black" DataField="Password" HeaderText="Password" SortExpression="Password" />
-                                    <asp:BoundField ItemStyle-ForeColor="black" DataField="Username" HeaderText="Username" SortExpression="Username" />
-                                    <asp:BoundField ItemStyle-ForeColor="black" DataField="CustEmail" HeaderText="CustEmail" SortExpression="CustEmail" ConvertEmptyStringToNull="false"/>
-                                    <asp:BoundField ItemStyle-ForeColor="black" DataField="CustBusPhone" HeaderText="CustBusPhone" SortExpression="CustBusPhone" ConvertEmptyStringToNull="false"/>
-                                    <asp:BoundField ItemStyle-ForeColor="black" DataField="CustHomePhone" HeaderText="CustHomePhone" SortExpression="CustHomePhone" />
+                                    <asp:BoundField DataField="CustomerId" HeaderText="Customer ID:" InsertVisible="False" ReadOnly="True" SortExpression="CustomerId" />
+                                    <asp:BoundField ItemStyle-ForeColor="black" DataField="CustFirstName" HeaderText="First Name:" SortExpression="CustFirstName" >
+<ItemStyle ForeColor="Black"></ItemStyle>
+                                    </asp:BoundField>
+                                    <asp:BoundField ItemStyle-ForeColor="black" DataField="CustLastName" HeaderText="Last Name:" SortExpression="CustLastName" >
+<ItemStyle ForeColor="Black"></ItemStyle>
+                                    </asp:BoundField>
+                                    <asp:BoundField ItemStyle-ForeColor="black" DataField="CustAddress" HeaderText="Address:" SortExpression="CustAddress" >
+<ItemStyle ForeColor="Black"></ItemStyle>
+                                    </asp:BoundField>
+                                    <asp:BoundField ItemStyle-ForeColor="black" DataField="CustCity" HeaderText="City:" SortExpression="CustCity" >
+<ItemStyle ForeColor="Black"></ItemStyle>
+                                    </asp:BoundField>
+                                    <asp:BoundField ItemStyle-ForeColor="black" DataField="CustProv" HeaderText="Province:" SortExpression="CustProv" >
+<ItemStyle ForeColor="Black"></ItemStyle>
+                                    </asp:BoundField>
+                                    <asp:TemplateField HeaderText="Postal Code:" SortExpression="CustPostal">
+                                        <EditItemTemplate>
+                                            <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("CustPostal") %>'></asp:TextBox>
+                                            <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ErrorMessage="Error:Invalid postal code format" ValidationExpression="^(\d{5}-\d{4}|\d{5}|\d{9})$|^([a-zA-Z]\d[a-zA-Z] \d[a-zA-Z]\d)$" Display="Dynamic" ControlToValidate="TextBox1" ForeColor="White"></asp:RegularExpressionValidator>
+                                        </EditItemTemplate>
+                                        <InsertItemTemplate>
+                                            <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("CustPostal") %>'></asp:TextBox>
+                                        </InsertItemTemplate>
+                                        <ItemTemplate>
+                                            <asp:Label ID="Label1" runat="server" Text='<%# Bind("CustPostal") %>'></asp:Label>
+                                        </ItemTemplate>
+                                        <ItemStyle ForeColor="Black" />
+                                    </asp:TemplateField>
+                                    <asp:BoundField ItemStyle-ForeColor="black" DataField="CustCountry" HeaderText="Country:" SortExpression="CustCountry" >
+<ItemStyle ForeColor="Black"></ItemStyle>
+                                    </asp:BoundField>
+                                    <asp:BoundField ItemStyle-ForeColor="black" DataField="Password" HeaderText="Password:" SortExpression="Password" >
+<ItemStyle ForeColor="Black"></ItemStyle>
+                                    </asp:BoundField>
+                                    <asp:BoundField ItemStyle-ForeColor="black" DataField="Username" HeaderText="Username:" SortExpression="Username" >
+<ItemStyle ForeColor="Black"></ItemStyle>
+                                    </asp:BoundField>
+                                    <asp:BoundField ItemStyle-ForeColor="black" DataField="CustEmail" HeaderText="Email:" SortExpression="CustEmail" ConvertEmptyStringToNull="false">
+<ItemStyle ForeColor="Black"></ItemStyle>
+                                    </asp:BoundField>
+                                    <asp:BoundField ItemStyle-ForeColor="black" DataField="CustBusPhone" HeaderText="Bus Phone:" SortExpression="CustBusPhone" ConvertEmptyStringToNull="false">
+<ItemStyle ForeColor="Black"></ItemStyle>
+                                    </asp:BoundField>
+                                    <asp:BoundField ItemStyle-ForeColor="black" DataField="CustHomePhone" HeaderText="Home Phone:" SortExpression="CustHomePhone" >
+<ItemStyle ForeColor="Black"></ItemStyle>
+                                    </asp:BoundField>
                                 </Fields>
                             </asp:DetailsView>
                             <asp:SqlDataSource ID="CustInfo" runat="server" ConnectionString="<%$ ConnectionStrings:TravelExpertsConnectionString %>" DeleteCommand="DELETE FROM [Customers] WHERE [CustomerId] = @CustomerId" InsertCommand="INSERT INTO [Customers] ([CustFirstName], [CustLastName], [CustAddress], [CustCity], [CustProv], [CustPostal], [CustCountry], [Password], [Username], [AgentId], [CustEmail], [CustBusPhone], [CustHomePhone]) VALUES (@CustFirstName, @CustLastName, @CustAddress, @CustCity, @CustProv, @CustPostal, @CustCountry, @Password, @Username, @AgentId, @CustEmail, @CustBusPhone, @CustHomePhone)" SelectCommand="SELECT [CustFirstName], [CustomerId], [CustLastName], [CustAddress], [CustCity], [CustProv], [CustPostal], [CustCountry], [Password], [Username], [AgentId], [CustEmail], [CustBusPhone], [CustHomePhone] FROM [Customers] WHERE ([CustomerId] = @CustomerId)" UpdateCommand="UPDATE [Customers] SET [CustFirstName] = @CustFirstName, [CustLastName] = @CustLastName, [CustAddress] = @CustAddress, [CustCity] = @CustCity, [CustProv] = @CustProv, [CustPostal] = @CustPostal, [CustCountry] = @CustCountry, [Password] = @Password, [Username] = @Username, [AgentId] = @AgentId, [CustEmail] = @CustEmail, [CustBusPhone] = @CustBusPhone, [CustHomePhone] = @CustHomePhone WHERE [CustomerId] = @CustomerId">
