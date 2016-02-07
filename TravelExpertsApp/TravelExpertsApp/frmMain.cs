@@ -13,11 +13,14 @@ using MaterialSkin.Controls;
 using TravelExpertsApp.Annotations;
 using TravelExpertsApp.Properties;
 using TravelExpertsDB;
+//All icons for the taskbar windows supplied by Lee. (Small stuff really).
 
 namespace TravelExpertsApp
 {
     /// <summary>
     /// Main Form and Entry Point for the Travel Experts App
+    /// The main window requires login (authentication to use).It starts with a splash screen to promote a healthier working environment for agents.
+    /// Once logged in, agents can add, update and delete packages at will. That information will then be updated to the database, which then updates the packages page on the website.
     /// </summary>
     public partial class frmMain : MaterialForm, IPkgViewerDocker
     {
