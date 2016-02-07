@@ -11,6 +11,15 @@ using EntityLayer;
 using MaterialSkin.Controls;
 using TravelExpertsDB;
 
+/**********************************************************************
+Title:                frmProductSupplier.cs  
+ Project:          Travel Experts Desktop App
+Authors:         Royal Bissell, Kevin Liao, Annie Ali, Lee Harrold
+Class:               OOSD Fall 2015 
+Date:               2016/02/07
+Description:  Simple form to add or update a Product Supplier
+**********************************************************************/
+
 namespace TravelExpertsApp
 {
     public partial class frmProductSupplier : MaterialForm

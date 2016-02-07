@@ -13,6 +13,16 @@ using TravelExpertsDB;
 using Validation;
 using MaterialSkin.Controls;
 
+/**********************************************************************
+Title:                frmLogin.cs  
+ Project:          Travel Experts Desktop App
+Authors:         Royal Bissell, Kevin Liao, Annie Ali, Lee Harrold
+Class:               OOSD Fall 2015 
+Date:               2016/02/07
+Description: This For handles Logining an agent. This is not the entry point of the application 
+                          and it is instead called by the frmMain.
+**********************************************************************/
+
 namespace TravelExpertsApp
 {
     /// <summary>

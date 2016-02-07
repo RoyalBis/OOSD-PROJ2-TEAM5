@@ -14,6 +14,16 @@ using Validation;
 
 namespace TravelExpertsApp
 {
+    /**********************************************************************
+Title:                frmSupplirs.cs  
+ Project:          Travel Experts Desktop App
+Authors:         Royal Bissell, Kevin Liao, Annie Ali, Lee Harrold
+Class:               OOSD Fall 2015 
+Date:               2016/02/07
+Description:  Simple form to add or update a Supplier. Currently Allows Auto-Generating a 
+                           Supplier ID if desired.
+**********************************************************************/
+
     public partial class frmSupplier : MaterialForm
     {
         public bool Add;    //true if adding a supplier

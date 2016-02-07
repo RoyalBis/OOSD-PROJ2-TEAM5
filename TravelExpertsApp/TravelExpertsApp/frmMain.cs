@@ -13,7 +13,19 @@ using MaterialSkin.Controls;
 using TravelExpertsApp.Annotations;
 using TravelExpertsApp.Properties;
 using TravelExpertsDB;
-//All icons for the taskbar windows supplied by Lee. (Small stuff really).
+
+/**********************************************************************
+Title:                frmMain.cs  
+ Project:          Travel Experts Desktop App
+Authors:         Royal Bissell, Kevin Liao, Annie Ali, Lee Harrold
+Class:               OOSD Fall 2015 
+Date:               2016/02/07
+Description:  Applicaiton Entry Point. his form loads a splashpage, then a login page then 
+                           itself if login was successful. It Implements the IPkgViewerDocker so it can hold 
+                           a PkgViewerDock.
+                           This is a Tabbed Page, it currently is the starting point for tasks that involve 
+                           Packages and Product, Suppliers, and Product Suppliers.
+**********************************************************************/
 
 namespace TravelExpertsApp
 {

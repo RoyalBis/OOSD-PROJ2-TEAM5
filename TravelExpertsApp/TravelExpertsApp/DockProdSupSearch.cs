@@ -14,6 +14,17 @@ using MaterialSkin.Controls;
 using TravelExpertsApp.Properties;
 using TravelExpertsDB;
 
+/**********************************************************************
+Title:                DockProdSupSearch.cs  
+ Project:          Travel Experts Desktop App
+Authors:         Royal Bissell, Kevin Liao, Annie Ali, Lee Harrold
+Class:               OOSD Fall 2015 
+Date:               2016/02/07
+Description:  Dock to Allow Searching ProductSuppliers. This Dock should be laterimproved to 
+                           better encapsulate its methods. It currently does not need to be on a form that 
+                           implements a specifc interface.
+**********************************************************************/
+
 namespace TravelExpertsApp
 {
     /// <summary>

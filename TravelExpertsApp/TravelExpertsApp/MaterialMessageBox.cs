@@ -10,6 +10,17 @@ using System.Windows.Forms;
 using MaterialSkin.Controls;
 using Validation;
 
+/**********************************************************************
+Title:                MaterialMessageBox.cs  
+ Project:          Travel Experts Desktop App
+Authors:         Royal Bissell, Kevin Liao, Annie Ali, Lee Harrold
+Class:               OOSD Fall 2015 
+Date:               2016/02/07
+Description:  A Form Class that implements Message Box like funcionality but looks like a 
+                           MaterialSkin Form.
+                           Use this class to display all messages to a user in a MaterialSkin UI Project
+**********************************************************************/
+
 namespace TravelExpertsApp
 {
     /// <summary>

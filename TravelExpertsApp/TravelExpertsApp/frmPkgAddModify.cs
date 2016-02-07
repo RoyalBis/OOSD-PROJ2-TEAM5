@@ -15,6 +15,16 @@ using TravelExpertsApp.Properties;
 using TravelExpertsDB;
 using Validation;
 
+/**********************************************************************
+Title:                frmPkgAddModify.cs  
+ Project:          Travel Experts Desktop App
+Authors:         Royal Bissell, Kevin Liao, Annie Ali, Lee Harrold
+Class:               OOSD Fall 2015 
+Date:               2016/02/07
+Description: Form to handle Adding and Modifying Packages.
+                           This Form can Hold a DockProdSupSearch to add functionality to add and delete product suppliers from the package
+**********************************************************************/
+
 namespace TravelExpertsApp
 {
     public partial class frmPkgAddModify : MaterialForm

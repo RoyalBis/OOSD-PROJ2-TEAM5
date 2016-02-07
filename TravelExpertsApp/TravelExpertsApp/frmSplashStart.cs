@@ -9,6 +9,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+/**********************************************************************
+Title:                frmSplashScreen.cs  
+ Project:          Travel Experts Desktop App
+Authors:         Royal Bissell, Kevin Liao, Annie Ali, Lee Harrold
+Class:               OOSD Fall 2015 
+Date:               2016/02/07
+Description:  SplashScreen for the TravelExperts Desktop Application
+**********************************************************************/
+
 namespace TravelExpertsApp
 {
     public partial class frmSplashStart : Form

@@ -7,6 +7,15 @@ using System.Text;
 using System.Threading.Tasks;
 using EntityLayer;
 
+/**********************************************************************
+Title:                PackagesProductsSuppliersTable.cs  
+ Project:          Travel Experts Desktop App
+Authors:         Royal Bissell, Kevin Liao, Annie Ali, Lee Harrold
+Class:               OOSD Fall 2015 
+Date:               2016/02/07
+Description:  Data Access Class for Quering the Agent Table in the Travel Experts Database
+**********************************************************************/
+
 namespace TravelExpertsDB
 {
     /// <summary>

@@ -7,6 +7,16 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using EntityLayer;
 
+/**********************************************************************
+Title:                IPkgViewerDocker.cs  
+ Project:          Travel Experts Desktop App
+Authors:         Royal Bissell, Kevin Liao, Annie Ali, Lee Harrold
+Class:               OOSD Fall 2015 
+Date:               2016/02/07
+Description:  Interface for any form to implement that allows it to dock a PkgViewerDock
+                           Allows the maintaince of the Active Package to be centrally controlled
+**********************************************************************/
+
 namespace TravelExpertsApp
 {
     /// <summary>

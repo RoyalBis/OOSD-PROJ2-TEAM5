@@ -6,6 +6,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+/**********************************************************************
+Title:                Package.cs  
+ Project:          Travel Experts Desktop App
+Authors:         Royal Bissell, Kevin Liao, Annie Ali, Lee Harrold
+Class:               OOSD Fall 2015 
+Date:               2016/02/07
+Description:  Entity Class for Packages.  
+**********************************************************************/
+
 namespace EntityLayer
 {
     /// <summary>

@@ -6,6 +6,17 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+/**********************************************************************
+Title:                Validator.cs  
+ Project:          Travel Experts Desktop App
+Authors:         Royal Bissell, Kevin Liao, Annie Ali, Lee Harrold
+Class:               OOSD Fall 2015 
+Date:               2016/02/07
+Description:  Static Class to Perform Data Validation using a Passed in UI element (Control).
+                           All of these Methods Return an instance of the Result Class indicating a success 
+                           bool and a message if it failed.
+**********************************************************************/
+
 namespace Validation
 {
     public static class Validator

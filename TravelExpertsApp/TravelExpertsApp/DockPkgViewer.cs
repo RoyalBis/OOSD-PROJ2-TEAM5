@@ -13,6 +13,17 @@ using MaterialSkin;
 using TravelExpertsApp.Properties;
 using TravelExpertsDB;
 
+/**********************************************************************
+Title:                DockPkgViewer.cs  
+ Project:          Travel Experts Desktop App
+Authors:         Royal Bissell, Kevin Liao, Annie Ali, Lee Harrold
+Class:               OOSD Fall 2015 
+Date:               2016/02/07
+Description:  Dock that handles viewing packages. This Dock needs to be added to a form 
+                           that implements the IDockPkgViwer Interface. This interface will allow the dock 
+                           to access the neccessary Methods on the Parent Form
+**********************************************************************/
+
 namespace TravelExpertsApp
 {
     /// <summary>
