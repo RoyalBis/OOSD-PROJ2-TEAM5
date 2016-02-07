@@ -1,12 +1,18 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.master" AutoEventWireup="true" CodeFile="RegForm.aspx.cs" Inherits="RegForm" %>
 
+<%--    Author: Kevin Liao
+         Date: Jan 28, 2016
+         Class: OOSD Oct 2015
+         Description: Registration page, jquery/javascript validation, html structure and asp control   --%>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" Runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" Runat="Server">
     <link href="StyleSheet2.css" rel="stylesheet" />
     <script>
-        var regex = new RegExp(/^[ABCEGHJKLMNPRSTVXY]\d[ABCEGHJKLMNPRSTVWXYZ]( )?\d[ABCEGHJKLMNPRSTVWXYZ]\d$/i);
-        var regexPhone = new RegExp(/^\d\d\d\d\d\d\d\d\d\d/)
+        var regex = new RegExp(/^[ABCEGHJKLMNPRSTVXY]\d[ABCEGHJKLMNPRSTVWXYZ]( )?\d[ABCEGHJKLMNPRSTVWXYZ]\d$/i); //regex for postal code
+        var regexPhone = new RegExp(/^\d\d\d\d\d\d\d\d\d\d/) //simple regex for phone number
+
         $(document).ready(function () {
             $("#next0").click(function () {
                 $("#step0").hide();
@@ -15,7 +21,7 @@
                 $("#1").addClass('active');
                 document.getElementsByTagName('html')[0].style.backgroundImage='url(image/background2.jpg)'
             });
-        });
+        }); //jquery for display next fieldset in multi-stepped reg form, same for rest feildsets
 
         $(document).ready(function () {
             $("#next1").click(function () {
@@ -29,11 +35,11 @@
 
                 if (txt1 == null || txt1 == "" ||
                     txt2 == null || txt2 == "") {
-                    alert("Fields marked with * are required");
+                    alert("Fields marked with * are required"); //check for presence
                     return false;
                 }
                 else if (txt2 != txt2_2){
-                    alert("Password confirmation did not match");
+                    alert("Password confirmation did not match"); //check for password confirmation, error msg, clear and focus
                     $('[id$=txtPassword]').focus();
                     $('[id$=txtPassword]').val("");
                     $('[id$=txtConfirmPW]').val("");
@@ -43,9 +49,9 @@
                     $("#step1").hide();
                     $("#step2").show();
                     $("#2").siblings('li').removeClass('active');
-                    $("#2").addClass('active');
+                    $("#2").addClass('active'); //hide current and go to next fieldset
                 }
-                document.getElementsByTagName('html')[0].style.backgroundImage = 'url(image/background3.jpg)'
+                document.getElementsByTagName('html')[0].style.backgroundImage = 'url(image/background3.jpg)' //change bg image
             });
         });
 
@@ -121,14 +127,14 @@
                     alert("Please enter 2 characters province code (ex:AB)")
                     $('[id$=txtProvince]').focus();
                     $('[id$=txtProvince]').val("");
-                    return false;
+                    return false; //validate province code length
                 }
                 else if (!regex.test(txt8))
                 {
                     alert("Please enter correct postal code (ex:T2K 6L3)");
                     $('[id$=txtPostal]').focus();
                     $('[id$=txtPostal]').val("");
-                    return false;
+                    return false;  //validate postal code regex
                 }
                 else {
                     $("#step3").hide();
@@ -168,13 +174,13 @@
                 if (txt10 == null || txt10 == "") {
                     alert("Home phone is required");
                     $('[id$=txtHomePhone]').focus();
-                    return false;
+                    return false; //home phone is a must, rest are optional in contact form
                 }
                 else if (!regexPhone.test(txt10)) {
                     alert("Please enter correct phone number (ex:4032748668)");
                     $('[id$=txtHomePhone]').focus();
                     $('[id$=txtHomePhone]').val("");
-                    return false;
+                    return false; //validate phone number format
                 }
                 else {
                     $("#step4").hide();

@@ -5,6 +5,13 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
+// <Code Comment>
+// Author: Kevin Liao
+// Date: Jan 28, 2016
+// Class: OOSD Oct 2015
+// Description: Reg page session check, method submit 
+// </Comment>
+
 public partial class RegForm : System.Web.UI.Page
 {
     protected void Page_Load(object sender, EventArgs e)
@@ -13,13 +20,13 @@ public partial class RegForm : System.Web.UI.Page
 
         if (Session["User"] != null)
         {
-            Response.Redirect("login.aspx");
+            Response.Redirect("login.aspx"); //redirect to login, cant sign up if already logged as a customer
         }
     }
 
-    protected void submit_Click(object sender, EventArgs e)
+    protected void submit_Click(object sender, EventArgs e) //submit button event handler
     {
-                Customer newCustomer = new Customer();
+                Customer newCustomer = new Customer(); //new customer object with entered info
                 newCustomer.Username = inpUsername.Value;
                 newCustomer.Password = inpPassword.Value;
                 newCustomer.CustFirstName = inpFirstName.Value;
@@ -33,15 +40,15 @@ public partial class RegForm : System.Web.UI.Page
                 newCustomer.CustBusPhone = inpBusPhone.Value;
                 newCustomer.CustEmail = inpEmail.Value;
                 //newCustomer.AgentId = inpAgentID;
-                CustomerDB.AddCustomer(newCustomer);
+                CustomerDB.AddCustomer(newCustomer); //call add user method
 
-                Customer loggedCustomerNew = CustomerDB.UserLogin(newCustomer);
+                Customer loggedCustomerNew = CustomerDB.UserLogin(newCustomer); //call login method to log the newly regstered user
                 string custName = loggedCustomerNew.CustFirstName;
-                Session.Add("User", custName);
+                Session.Add("User", custName);  //create new sessions
                 int custID = loggedCustomerNew.CustomerId;
                 Session.Add("CustID", custID);
-                Label lblUser = (Label)Master.FindControl("UserLogin");
-                lblUser.Text = "Hello, " + Session["User"].ToString();
-                Response.Redirect("Bookings.aspx");
+                Label lblUser = (Label)Master.FindControl("UserLogin"); //display welcome
+                lblUser.Text = "Hello, " + Session["User"].ToString(); 
+                Response.Redirect("Bookings.aspx"); //redirect to booking
     }
 }

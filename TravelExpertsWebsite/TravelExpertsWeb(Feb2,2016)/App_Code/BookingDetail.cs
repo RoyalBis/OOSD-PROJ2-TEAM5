@@ -3,9 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-/// <summary>
-/// Summary description for BookingDetail
-/// </summary>
+// <Code Comment>
+// Author: Kevin Liao
+// Date: Jan 28, 2016
+// Class: OOSD Oct 2015
+// Description: Entity class for BookingDetails Table
+// PS: Authors' legal names -> Anne = Qurat-ul-ain, Kevin = Sheng
+// </Comment>
+
 public class BookingDetail
 {
     public BookingDetail() { }

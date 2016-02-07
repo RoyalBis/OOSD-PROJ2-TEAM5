@@ -4,12 +4,16 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 
-/// <summary>
-/// Summary description for TravelExpertsDB
-/// </summary>
+// <Code Comment>
+// Author: Anne Ali
+// Date: Jan 28, 2016
+// Class: OOSD Oct 2015
+// Description: Database connection
+// </Comment>
+
 public class TravelExpertsDB
 {
-    public static SqlConnection GetConnection()
+    public static SqlConnection GetConnection() //establish connection
     {
         string connectionString =
             "Data Source=localhost\\SAIT;Initial Catalog=TravelExperts;Integrated Security=True";

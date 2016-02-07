@@ -3,9 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-/// <summary>
-/// Summary description for Customers
-/// </summary>
+// <Code Comment>
+// Author: Kevin Liao
+// Date: Jan 28, 2016
+// Class: OOSD Oct 2015
+// Description: Entity class for Customers Table 
+// </Comment>
+
 public class Customer
 {
     public Customer() { }

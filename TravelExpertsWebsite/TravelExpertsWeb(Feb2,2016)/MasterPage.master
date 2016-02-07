@@ -1,5 +1,10 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
 
+<%--    Author: Kevin Liao
+         Date: Jan 28, 2016
+         Class: OOSD Oct 2015
+         Description: Master page, navbar   --%>
+
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">

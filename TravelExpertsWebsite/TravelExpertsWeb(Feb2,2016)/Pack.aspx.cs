@@ -6,6 +6,13 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
+// <Code Comment>
+// Author: Anne Ali
+// Date: Jan 28, 2016
+// Class: OOSD Oct 2015
+// Description: Package page with db connection, display package infor and picture, session check 
+// </Comment>
+
 public partial class Pack : System.Web.UI.Page
 {
     public static Package packages;
@@ -14,12 +21,12 @@ public partial class Pack : System.Web.UI.Page
         for (int i = 1; i < 17; i++)
             displayPackage(i);
 
-        if (Session["User"] != null)
+        if (Session["User"] != null) //check session
         {
             Label lblUser = (Label)Master.FindControl("UserLogin");
-            lblUser.Text = "Hello, " + Session["User"].ToString();
+            lblUser.Text = "Hello, " + Session["User"].ToString(); //greeting
 
-            Label lblSignout = (Label)Master.FindControl("Sign");
+            Label lblSignout = (Label)Master.FindControl("Sign"); //signout
             lblSignout.Text = "Signout";
         }
     }
@@ -46,7 +53,6 @@ public partial class Pack : System.Web.UI.Page
                 p.PkgBasePrice = ValuePackages.PkgBasePrice;
                 basePkg = p.PkgBasePrice.ToString("c");
                 p.PkgDesc = ValuePackages.PkgDesc;
-               p.PkgAgencyCommission = ValuePackages.PkgAgencyCommission;
                 AgtCmsnPkg = p.PkgAgencyCommission.ToString("c");
 
                 p.PkgImage = ValuePackages.PkgImage;
@@ -56,7 +62,7 @@ public partial class Pack : System.Web.UI.Page
                 startDate =p.PkgStartDate.ToString("dd MMMM, yyyy");
                 endDate = p.PkgEndDate.ToString("dd MMMM, yyyy");
 
-                displayLabels(pkgID, p.PkgName, startDate, endDate, basePkg, p.PkgDesc, AgtCmsnPkg, p.PkgImage);
+                displayLabels(pkgID, p.PkgName, startDate, endDate, basePkg, p.PkgDesc, p.PkgImage);
             }
                                                                                                                
 
@@ -89,7 +95,7 @@ public partial class Pack : System.Web.UI.Page
     }
 
     
-    private void displayLabels(string pkgID, string pkgName, string startDate, string endDate, string basePkg, string pkDesc, string agtCmsnPkg, byte[] pkgImage )
+    private void displayLabels(string pkgID, string pkgName, string startDate, string endDate, string basePkg, string pkDesc, byte[] pkgImage )
     {
         
         if (Convert.ToInt32(pkgID.ToString()) == 1)
@@ -101,7 +107,6 @@ public partial class Pack : System.Web.UI.Page
             Label14.Text = endDate.ToString();
             Label15.Text = basePkg.ToString();
             Label16.Text = pkDesc.ToString();
-            Label17.Text = agtCmsnPkg.ToString();
             _1.ImageUrl = getImgUrl(pkgID,pkgImage);
 
         }
@@ -113,7 +118,6 @@ public partial class Pack : System.Web.UI.Page
             Label24.Text = endDate.ToString();
             Label25.Text = basePkg.ToString();
             Label26.Text = pkDesc.ToString();
-            Label27.Text = agtCmsnPkg.ToString();
             _2.ImageUrl = getImgUrl(pkgID, pkgImage);
 
 
@@ -126,7 +130,6 @@ public partial class Pack : System.Web.UI.Page
             Label34.Text = endDate.ToString();
             Label35.Text = basePkg.ToString();
             Label36.Text = pkDesc.ToString();
-            Label37.Text = agtCmsnPkg.ToString();
             _3.ImageUrl = getImgUrl(pkgID, pkgImage);
             
         }
@@ -138,7 +141,6 @@ public partial class Pack : System.Web.UI.Page
             Label44.Text = endDate.ToString();
             Label45.Text = basePkg.ToString();
             Label46.Text = pkDesc.ToString();
-            Label47.Text = agtCmsnPkg.ToString();
             _4.ImageUrl = getImgUrl(pkgID, pkgImage);
             
         }
@@ -150,7 +152,6 @@ public partial class Pack : System.Web.UI.Page
             Label54.Text = endDate.ToString();
             Label55.Text = basePkg.ToString();
             Label56.Text = pkDesc.ToString();
-            Label57.Text = agtCmsnPkg.ToString();
             _5.ImageUrl = getImgUrl(pkgID, pkgImage);
         }
         if (Convert.ToInt32(pkgID.ToString()) == 6)
@@ -161,7 +162,6 @@ public partial class Pack : System.Web.UI.Page
             Label64.Text = endDate.ToString();
             Label65.Text = basePkg.ToString();
             Label66.Text = pkDesc.ToString();
-            Label67.Text = agtCmsnPkg.ToString();
 
             _6.ImageUrl = getImgUrl(pkgID, pkgImage);
         }
@@ -173,7 +173,6 @@ public partial class Pack : System.Web.UI.Page
             Label74.Text = endDate.ToString();
             Label75.Text = basePkg.ToString();
             Label76.Text = pkDesc.ToString();
-            Label77.Text = agtCmsnPkg.ToString();
 
             _7.ImageUrl = getImgUrl(pkgID, pkgImage);
         }
@@ -185,7 +184,6 @@ public partial class Pack : System.Web.UI.Page
             Label84.Text = endDate.ToString();
             Label85.Text = basePkg.ToString();
             Label86.Text = pkDesc.ToString();
-            Label87.Text = agtCmsnPkg.ToString();
 
             _8.ImageUrl = getImgUrl(pkgID, pkgImage);
         }
@@ -197,7 +195,6 @@ public partial class Pack : System.Web.UI.Page
             Label94.Text = endDate.ToString();
             Label95.Text = basePkg.ToString();
             Label96.Text = pkDesc.ToString();
-            Label97.Text = agtCmsnPkg.ToString();
 
             _9.ImageUrl = getImgUrl(pkgID, pkgImage);
         }
@@ -209,7 +206,6 @@ public partial class Pack : System.Web.UI.Page
             Label104.Text = endDate.ToString();
             Label105.Text = basePkg.ToString();
             Label106.Text = pkDesc.ToString();
-            Label107.Text = agtCmsnPkg.ToString();
 
             _10.ImageUrl = getImgUrl(pkgID, pkgImage);
         }
@@ -221,7 +217,6 @@ public partial class Pack : System.Web.UI.Page
             Label114.Text = endDate.ToString();
             Label115.Text = basePkg.ToString();
             Label116.Text = pkDesc.ToString();
-            Label117.Text = agtCmsnPkg.ToString();
 
             _11.ImageUrl = getImgUrl(pkgID, pkgImage);
         }
@@ -233,7 +228,6 @@ public partial class Pack : System.Web.UI.Page
             Label124.Text = endDate.ToString();
             Label125.Text = basePkg.ToString();
             Label126.Text = pkDesc.ToString();
-            Label127.Text = agtCmsnPkg.ToString();
 
             _12.ImageUrl = getImgUrl(pkgID, pkgImage);
         }
@@ -245,7 +239,6 @@ public partial class Pack : System.Web.UI.Page
             Label134.Text = endDate.ToString();
             Label135.Text = basePkg.ToString();
             Label136.Text = pkDesc.ToString();
-            Label137.Text = agtCmsnPkg.ToString();
 
             _13.ImageUrl = getImgUrl(pkgID, pkgImage);
         }
@@ -257,7 +250,6 @@ public partial class Pack : System.Web.UI.Page
             Label144.Text = endDate.ToString();
             Label145.Text = basePkg.ToString();
             Label146.Text = pkDesc.ToString();
-            Label147.Text = agtCmsnPkg.ToString();
 
             _14.ImageUrl = getImgUrl(pkgID, pkgImage);
         }
@@ -269,7 +261,6 @@ public partial class Pack : System.Web.UI.Page
             Label154.Text = endDate.ToString();
             Label155.Text = basePkg.ToString();
             Label156.Text = pkDesc.ToString();
-            Label157.Text = agtCmsnPkg.ToString();
 
             _15.ImageUrl = getImgUrl(pkgID, pkgImage);
         }

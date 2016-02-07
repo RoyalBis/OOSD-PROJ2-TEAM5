@@ -3,9 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-/// <summary>
-/// Summary description for Package
-/// </summary>
+// <Code Comment>
+// Author: Anne Ali
+// Date: Jan 28, 2016
+// Class: OOSD Oct 2015
+// Description: Entity class for package table
+// </Comment>
+
 public class Package
 {
     //Constructor

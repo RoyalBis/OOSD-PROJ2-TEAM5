@@ -6,14 +6,19 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 
-/// <summary>
-/// Summary description for CustomerDB
-/// </summary>
+// <Code Comment>
+// Author: Kevin Liao, Anne Ali
+// Date: Jan 28, 2016
+// Class: OOSD Oct 2015
+// Description: Data Access class for Customers table, 
+//              includes methods used for login, registration, displayinfo, update.
+// </Comment>
+
 [DataObject]
 public static class CustomerDB
 {
     
-    public static int AddCustomer(Customer customer)
+    public static int AddCustomer(Customer customer) //method to add new customer with name, address, contact infor
     {
         SqlConnection connection = TravelExpertsDB.GetConnection();
         string insertStatement =
@@ -55,7 +60,7 @@ public static class CustomerDB
         }
     }
 
-    public static decimal GetTotal(int custID)
+    public static decimal GetTotal(int custID) //get total base price for a particular customer's booking (Anne)
     {
         decimal sumCust = 0,BasePrice;
         SqlConnection connection = TravelExpertsDB.GetConnection();
@@ -92,7 +97,7 @@ public static class CustomerDB
 
     }
 
-    public static Customer UserLogin(Customer customer)
+    public static Customer UserLogin(Customer customer) //Login user by username and password, and return firstname ann custId for session use
     {
         SqlConnection connection = TravelExpertsDB.GetConnection();
         string selectStatement = "SELECT CustFirstName, CustomerId " +
@@ -129,7 +134,7 @@ public static class CustomerDB
         }
     }
 
-    public static List<BookingDetail> UserBooking(int custID)
+    public static List<BookingDetail> UserBooking(int custID) //return list of booking detail with particular custID as input
     {
         SqlConnection connection = TravelExpertsDB.GetConnection();
         string selectStatement = "SELECT b.BookingId, TripStart, TripEnd, Description, Destination, BasePrice, ClassId " +
@@ -173,7 +178,7 @@ public static class CustomerDB
     }
 
     [DataObjectMethod(DataObjectMethodType.Select)]
-    public static Customer SelectThisCustomer(int custID)
+    public static Customer SelectThisCustomer(int custID) //select method for cust info 
     {
         SqlConnection connection = TravelExpertsDB.GetConnection();
         string selectStatement = "SELECT CustomerId, CustFirstName, CustLastName, CustAddress, CustCity, CustProv, CustPostal, CustCountry, CustHomePhone, CustBusPhone, CustEmail, AgentId, Username, Password " +
@@ -221,7 +226,7 @@ public static class CustomerDB
     }
 
     [DataObjectMethod(DataObjectMethodType.Update)]
-    public static int UpdateCustomer(Customer original_Cust, Customer Cust) //update method
+    public static int UpdateCustomer(Customer original_Cust, Customer Cust) //update method for cust info
     {
         int indicator = 0;
         SqlConnection connection = TravelExpertsDB.GetConnection();

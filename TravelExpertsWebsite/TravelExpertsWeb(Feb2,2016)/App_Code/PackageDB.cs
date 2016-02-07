@@ -4,16 +4,20 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 
-/// <summary>
-/// Summary description for PackageDB
-/// </summary>
+// <Code Comment>
+// Author: Anne Ali
+// Date: Jan 28, 2016
+// Class: OOSD Oct 2015
+// Description: Data Access class for Package, method includes getpackage
+// </Comment>
+
 public static class PackageDB
 {
     public static List<Package> GetPackage(int PackageId)
     {
         List<Package> packages = new List<Package>();
         SqlConnection connection = TravelExpertsDB.GetConnection();
-        string selectStatement = "SELECT PackageId, PkgName, PkgStartDate, PkgEndDate, PkgDesc, PkgBasePrice, PkgAgencyCommission, PkgImage " +
+        string selectStatement = "SELECT PackageId, PkgName, PkgStartDate, PkgEndDate, PkgDesc, PkgBasePrice, PkgImage " +
                                   "FROM Packages " +
                                   "Where PackageId = @PackageId";
 
@@ -32,7 +36,6 @@ public static class PackageDB
                 pack.PkgName = reader["PkgName"].ToString();
                 pack.PkgDesc = reader["PkgDesc"].ToString();
                 pack.PkgBasePrice = (decimal)reader["PkgBasePrice"];
-                pack.PkgAgencyCommission = (decimal)reader["PkgAgencyCommission"];
                 pack.PkgStartDate = (DateTime)reader["PkgStartDate"];
                 pack.PkgEndDate = (DateTime)reader["PkgEndDate"];
                 pack.PkgImage = (byte[]) reader["PkgImage"];

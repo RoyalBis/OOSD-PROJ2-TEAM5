@@ -1,4 +1,11 @@
-﻿html {
+﻿/* 
+    // Author: Kevin Liao
+    // Date: Jan 28, 2016
+    // Class: OOSD Oct 2015
+    // Description: Addtional CSS for login page's background
+*/
+
+html {
     height: 100%;
     background: url('image/background1.jpg');
     background-size: 100%;
