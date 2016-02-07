@@ -12,31 +12,35 @@ using Validation;
 
 namespace TravelExpertsApp
 {
+    /// <summary>
+    /// Custom Message Box for Material Skin Appearance 
+    /// </summary>
     public partial class MaterialMessageBox : MaterialForm
     {
+        //basic constructor
         protected MaterialMessageBox()
         {
             InitializeComponent();
         }
 
+        //constructor that just takes a message and caption
         protected MaterialMessageBox(string message, string caption = "") : this()
         {
-            Form parent = this.ParentForm;
-            Form owner = this.Owner;
             this.Text = caption;
             lblMessage.Text = message;
+            //no cancel button
             mbtnCancel.Visible = false;
         }
 
+        //constructor that allows a cancel button
         protected MaterialMessageBox(string message, bool cancelable, string caption = "") : this()
         {
-            Form parent = this.ParentForm;
-            Form owner = this.Owner;
             this.Text = caption;
             lblMessage.Text = message;
             mbtnCancel.Visible = cancelable;
         }
 
+        //OK was clicked
         private void mbtnOk_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.OK;
@@ -62,48 +66,79 @@ namespace TravelExpertsApp
             base.WndProc(ref m);
         }
 
+        /// <summary>
+        /// Shows a new Message Box from a Result Object
+        /// </summary>
+        /// <param name="sender">Parent Form</param>
+        /// <param name="result">Result Object</param>
+        /// <returns></returns>
         public static DialogResult Show(Form sender, Result result)
         {
-            Panel hidePanel = new Panel();
-            hidePanel.Size = sender.Size;
-            hidePanel.BackColor = Color.FromArgb(200, 0, 0, 0);
-            sender.Controls.Add(hidePanel);
-            hidePanel.BringToFront();
+            //displays a new hide panel
+            Panel hidePanel = DisplayHidePanel(sender);
 
+            //construct a new Material Message Box
             MaterialMessageBox mbox = new MaterialMessageBox(result.Message, "Invalid Entry");
-            mbox.Width = sender.Width;
-            mbox.Location = new Point(0, (sender.Height / 2) - (mbox.Height / 2));
-            DialogResult mboxResult = mbox.ShowDialog();
-            if (mboxResult != DialogResult.None)
-            {
-                hidePanel.Dispose();
-            }
-            return mboxResult;
+            //return the result of the message box
+            return DisplayMBox(sender, mbox, hidePanel);
         }
 
+        /// <summary>
+        /// Shows a new Message Box with the specified message
+        /// </summary>
+        /// <param name="sender">Parent Form</param>
+        /// <param name="cancelable">true if cancelable</param>
+        /// <param name="message">string</param>
+        /// <returns></returns>
         public static DialogResult Show(Form sender, bool cancelable,  string message)
         {
-            Panel hidePanel = new Panel();
-            hidePanel.Size = sender.Size;
-            hidePanel.BackColor = Color.FromArgb(200, 0, 0, 0);
-            sender.Controls.Add(hidePanel);
-            hidePanel.BringToFront();
+            //displays a new hide panel
+            Panel hidePanel = DisplayHidePanel(sender);
 
+            //construct a new Material Message Box
             MaterialMessageBox mbox = new MaterialMessageBox(message, cancelable,"Confirm Delete");
-            mbox.Width = sender.Width;
-            mbox.Location = new Point(0, (sender.Height / 2) - (mbox.Height / 2));
-            DialogResult mboxResult = mbox.ShowDialog();
-            if (mboxResult != DialogResult.None)
-            {
-                hidePanel.Dispose();
-            }
-            return mboxResult;
+            //return the result of the message box
+            return DisplayMBox(sender, mbox, hidePanel);
         }
 
         private void mbtnCancel_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.Cancel;
             //this.Close();
+        }
+
+        /// <summary>
+        /// Displays the MessageBox
+        /// </summary>
+        /// <param name="sender">Parent Form</param>
+        /// <param name="mbox">MaterialMessageBox, this</param>
+        /// <param name="hidePanel">Panel, HidePanel</param>
+        /// <returns>Dialog Result</returns>
+        private static DialogResult DisplayMBox(Form sender, MaterialMessageBox mbox, Panel hidePanel)
+        {
+            mbox.Width = sender.Width;
+            mbox.Location = new Point(0, (sender.Height / 2) - (mbox.Height / 2));
+            DialogResult mboxResult = mbox.ShowDialog();
+            if (mboxResult != DialogResult.None)
+            {
+                hidePanel.Dispose();
+            }
+            return mboxResult;
+        }
+
+        /// <summary>
+        /// Displays a Hide Panel
+        /// </summary>
+        /// <param name="sender">Parent Form</param>
+        /// <returns>Panel, Hide Panel</returns>
+        private static Panel DisplayHidePanel(Form sender)
+        {
+            Panel hidePanel = new Panel();
+            hidePanel.Size = sender.Size;
+            hidePanel.BackColor = Color.FromArgb(200, 0, 0, 0);
+            sender.Controls.Add(hidePanel);
+            hidePanel.BringToFront();
+            return hidePanel;
         }
     }
 }

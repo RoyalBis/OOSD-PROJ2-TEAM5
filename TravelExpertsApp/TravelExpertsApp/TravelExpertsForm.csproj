@@ -81,7 +81,6 @@
     <Compile Include="frmSplashStart.Designer.cs">
       <DependentUpon>frmSplashStart.cs</DependentUpon>
     </Compile>
-    <Compile Include="MaterialComboBox.cs" />
     <Compile Include="frmProductSupplier.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -105,12 +104,6 @@
     </Compile>
     <Compile Include="frmMain.Designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmPackage.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmPackage.Designer.cs">
-      <DependentUpon>frmPackage.cs</DependentUpon>
     </Compile>
     <Compile Include="MaterialMessageBox.cs">
       <SubType>Form</SubType>
@@ -147,9 +140,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmPackage.resx">
-      <DependentUpon>frmPackage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmSupplier.resx">
       <DependentUpon>frmSupplier.cs</DependentUpon>

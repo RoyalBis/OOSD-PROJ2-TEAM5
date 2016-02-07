@@ -14,10 +14,14 @@ namespace TravelExpertsApp
     /// </summary>
     public interface IPkgViewerDocker
     {
+        //the docking user control from the form
         DockPkgViewer MyPkgViewer { get; set; }
         PackageList MyPackageList { get; set; }
+        //variable that allows setting the active package
         int ActivePkgId { get; set; }
+        //the panel that holds the docking control
         Panel PanDock { get; }
+        //this sibling panel of the dock
         Panel PanForm { get; }
 
         /// <summary>
@@ -29,6 +33,9 @@ namespace TravelExpertsApp
         /// Get all Packages
         /// </summary>
         void FillPackages();
+        /// <summary>
+        /// Edit the Active Package
+        /// </summary>
         void EditPackage();
     }
 }

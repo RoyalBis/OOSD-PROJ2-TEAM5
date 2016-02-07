@@ -13,7 +13,7 @@ namespace TravelExpertsApp
 {
     public partial class frmSplashStart : Form
     {
-        private int tLeft;
+        private int tLeft;  //countdown 
         private SoundPlayer hoot = new SoundPlayer("../../Resources/Sound/owl.wav");
         public frmSplashStart()
         {
@@ -38,7 +38,6 @@ namespace TravelExpertsApp
             }
             tmStart.Stop();
             //Loading form goes here.
-            this.DialogResult = DialogResult.OK;
             hoot.Stop();
             this.DialogResult = DialogResult.OK;
             this.Close();

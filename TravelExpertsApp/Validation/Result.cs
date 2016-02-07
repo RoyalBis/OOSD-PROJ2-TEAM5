@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Validation
 {
+    /// <summary>
+    /// Result object, holds a message and a success bool
+    /// </summary>
     public class Result
     {
         public bool Success { get; set; }

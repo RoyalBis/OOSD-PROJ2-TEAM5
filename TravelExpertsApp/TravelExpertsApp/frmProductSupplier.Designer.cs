@@ -125,7 +125,6 @@ namespace TravelExpertsApp
             this.cbProducts.Name = "cbProducts";
             this.cbProducts.Size = new System.Drawing.Size(438, 30);
             this.cbProducts.TabIndex = 14;
-            this.cbProducts.SelectedIndexChanged += new System.EventHandler(this.cbProducts_SelectedIndexChanged);
             // 
             // cbSuppliers
             // 
@@ -139,7 +138,6 @@ namespace TravelExpertsApp
             this.cbSuppliers.Name = "cbSuppliers";
             this.cbSuppliers.Size = new System.Drawing.Size(438, 30);
             this.cbSuppliers.TabIndex = 15;
-            this.cbSuppliers.SelectedIndexChanged += new System.EventHandler(this.cbSuppliers_SelectedIndexChanged);
             // 
             // frmProductSupplier
             // 
